@@ -1,6 +1,5 @@
 gradio>=3.50
 faster-whisper
-funasr
 ffmpeg-python
 openai
 python-dotenv

@@ -83,8 +83,9 @@ class ProcessingQueue:
                     # 文本对齐
                     print("开始文本对齐...")
                     srt_content = aligner.align(text, audio_path)
+                    total_paragraphs = len(srt_content.split('\n\n'))
                     print(
-                        f"生成SRT字幕，段落数: {len(srt_content.split('\n\n'))}")
+                        f"生成SRT字幕，段落数: {total_paragraphs}")
 
                     # 调用大模型进行分段
                     print("调用大模型进行分段...")

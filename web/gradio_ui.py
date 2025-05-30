@@ -282,7 +282,6 @@ def create_gradio_interface():
             check_status,
             inputs=task_id,
             outputs=status_display,
-            every=2,
             show_progress="hidden"
         ).then(
             lambda x: x,
@@ -320,6 +319,14 @@ def create_gradio_interface():
             clip_and_download,
             inputs=[raw_result, segment_selection],
             outputs=download_output
+        )
+
+        # 添加轮询
+        app.load(
+            fn=check_status,
+            inputs=task_id,
+            outputs=status_display,
+            every=2
         )
 
         return app

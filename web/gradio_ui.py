@@ -249,8 +249,7 @@ def create_gradio_interface():
                                  "内容摘要", "标签"],
                         datatype=["str", "str", "str", "str", "str", "str"],
                         interactive=False,
-                        wrap=True,
-                        max_rows=20
+                        wrap=True
                     )
 
                 with gr.Tab("重新分析"):
@@ -268,7 +267,6 @@ def create_gradio_interface():
                         datatype=["str", "str", "str", "str", "str", "str"],
                         interactive=True,
                         wrap=True,
-                        max_rows=10,
                         type="array",
                         label="选择要保留的片段 (按住Ctrl可多选)"
                     )

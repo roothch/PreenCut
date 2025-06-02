@@ -273,15 +273,19 @@ def create_gradio_interface():
                     clip_btn = gr.Button("剪辑并下载", variant="primary")
                     download_output = gr.File(label="下载剪辑结果")
 
+        # 定时器，用于轮询状态
+        timer = gr.Timer(2, active=False)
+        timer.tick(check_status, task_id, status_display)
+
         # 事件处理
         process_btn.click(
             process_files,
             inputs=[file_upload, prompt_input, model_size],
             outputs=[task_id, status_display]
         ).then(
-            check_status,
-            inputs=task_id,
-            outputs=status_display,
+            lambda: gr.Timer(active=True),
+            inputs=None,
+            outputs=timer,
             show_progress="hidden"
         ).then(
             lambda x: x,

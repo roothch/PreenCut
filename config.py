@@ -3,7 +3,7 @@ import os
 # 文件上传配置
 UPLOAD_FOLDER = "uploads"
 ALLOWED_EXTENSIONS = ['mp4', 'avi', 'mov', 'mkv', 'mp3', 'wav', 'flac']
-MAX_FILE_SIZE = 500 * 1024 * 1024  # 500MB
+MAX_FILE_SIZE = 5 * 1024 * 1024 * 1024  # 5GB
 
 # 临时文件夹
 TEMP_FOLDER = "temp"

@@ -1,4 +1,5 @@
 gradio>=5.0.0
+ctranslate2==4.4.0
 faster-whisper
 ffmpeg-python
 openai

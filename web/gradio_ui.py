@@ -325,12 +325,4 @@ def create_gradio_interface():
             outputs=download_output
         )
 
-        # 添加轮询
-        app.load(
-            fn=check_status,
-            inputs=task_id,
-            outputs=status_display,
-            every=2
-        )
-
         return app

@@ -19,10 +19,9 @@ import subprocess
 processing_queue = ProcessingQueue()
 
 
-def save_uploaded_file(file) -> str:
-    """保存上传的文件到指定位置"""
+def check_uploaded_file(file) -> str:
+    """检查上传的文件是否符合要求"""
     filename = os.path.basename(file.name)
-    dest_path = os.path.join(UPLOAD_FOLDER, filename)
 
     # 检查文件大小
     file_size = os.path.getsize(file.name)
@@ -34,11 +33,7 @@ def save_uploaded_file(file) -> str:
     if ext not in ALLOWED_EXTENSIONS:
         raise gr.Error(f"不支持的文件格式: {ext}")
 
-    # 保存文件
-    with open(file.name, 'rb') as src, open(dest_path, 'wb') as dst:
-        dst.write(src.read())
-
-    return dest_path
+    return file.name
 
 
 def process_files(files: List, prompt: Optional[str] = None,
@@ -47,7 +42,7 @@ def process_files(files: List, prompt: Optional[str] = None,
     # 保存文件
     saved_paths = []
     for file in files:
-        saved_paths.append(save_uploaded_file(file))
+        saved_paths.append(check_uploaded_file(file))
 
     # 创建任务ID
     task_id = f"task_{int(time.time() * 1000)}"

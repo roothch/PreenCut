@@ -1,0 +1,401 @@
+# Version 0.6 of language codes
+# Author: Ulf Hermjakob, USC/ISI
+# Date: 2017-2024
+# Format check script: test-reading-iso-lang-code-list.pl
+# Coverage: 375 languages (incl. the world's most common languages; incl. a limited number of dialects)
+#  ::lang-code (for each entry) unique ISO-639-3 language code
+#  ::lang-names (for each entry) one or more names, e.g. Bengali, Bangla; first name most standard
+#  ::deprecated-lang-codes (187 instances, e.g. chi, ch, zh for Chinese (::lang-code zho))
+#  ::status extinct (14 instances; e.g. Latin, Sanskrit)
+#  ::type constructed-language (8 instances, e.g. Esperanto)
+#  ::countries where language is spoken (for almost all entries), generally excluding immigrant populations
+#      ::countries info not available for constructed languages and some extinct languages
+#  ::region (e.g. Anatolia, Pacific) where a language is or (for extinct languages) was spoken (9 instances)
+#  ::creole-of (8 instances, e.g. Haitian is a ::creole-of French)
+#  ::lang-group (e.g. Sino-Tibetan, Turkic; provided for almost all entries except constructed languages and a very small number of language isolates such as Basque)
+# Some language pairs form a macro-language/micro-language (or super/sub) relationship; e.g. Chinese and Mandarin
+#     ::super (57 instances; e.g. Mandarin has ::super language Chinese)
+#        ::dialect-of (10 instances) special case of ::super (e.g. Bavarian is ::dialect-of German)
+#     ::subs (30 instances; e.g. Chinese has ::subs Mandarin, Gan, Hakka, Jin, Eastern Min, Southern Min, Wuu, Xiang, Yue)
+#     ::standard-form (3 instances; e.g. Chinese has ::standard-form Mandarin)
+::lang-code aar ::lang-names Afar ::deprecated-lang-codes aa ::countries Ethiopia; Eritrea; Djibouti ::lang-group Cushitic
+::lang-code abk ::lang-names Abkhaz; Abxaz ::deprecated-lang-codes ab ::countries Georgia ::lang-group Northwest-Caucasian
+::lang-code ace ::lang-names Acehnese; Achinese ::countries Indonesia ::lang-group Austronesian
+::lang-code afr ::lang-names Afrikaans ::deprecated-lang-codes af ::countries South Africa ::lang-group Germanic
+::lang-code aka ::lang-names Akan ::deprecated-lang-codes ak ::subs twi; fat ::countries Ghana ::lang-group Northern-Niger-Congo
+::lang-code als ::lang-names Albanian (Tosk) ::countries Albania ::lang-group Indo-European
+::lang-code ame ::lang-names Yanesha; Yanesha' ::countries Peru ::lang-group Arawakan
+::lang-code amh ::lang-names Amharic ::deprecated-lang-codes am ::countries Ethiopia ::lang-group Semitic
+::lang-code amr ::lang-names Amarakaeri ::countries Peru ::lang-group Harakmbut-Katukinan
+::lang-code ang ::lang-names Old English; Anglo-Saxon ::countries England ::status extinct ::lang-group Germanic
+::lang-code ara ::lang-names Arabic; Modern Standard Arabic ::subs arz ::deprecated-lang-codes ar ::countries Saudi Arabia; Algeria; Bahrain; Egypt; Iraq; Jordan; Kuwait; Lebanon; Libya; Mauritania; Morocco; Oman; Palestine; Qatar; Sudan; Syria; Tunisia; United Arab Emirates; Yemen; Israel ::lang-group Semitic
+::lang-code arc ::lang-names Aramaic ::subs syc ::countries Iraq; Syria; Iran; Turkey; Lebanon; Israel; Palestine ::lang-group Semitic
+::lang-code arg ::lang-names Aragonese ::deprecated-lang-codes an ::countries Spain ::lang-group Romance
+::lang-code arz ::lang-names Egyptian Arabic ::super ara ::countries Egypt ::lang-group Semitic
+::lang-code asm ::lang-names Assamese; Asamiya; Oxomiya ::deprecated-lang-codes as ::countries India ::lang-group Indo-Iranian
+::lang-code ast ::lang-names Asturian ::countries Spain ::lang-group Romance
+::lang-code ava ::lang-names Avar ::deprecated-lang-codes av ::countries Russia; Azerbaijan; Kazakhstan; Georgia; Turkey ::lang-group Northeast-Caucasian
+::lang-code awa ::lang-names Awadhi ::super bih ::countries India; Nepal ::lang-group Indo-Iranian
+::lang-code aym ::lang-names Aymara ::deprecated-lang-codes ay ::countries Bolivia; Peru; Chile ::lang-group Aymaran
+::lang-code azb ::lang-names South Azerbaijani ::super aze ::countries Iran ::lang-group Turkic
+::lang-code aze ::lang-names Azerbaijani ::deprecated-lang-codes az ::subs azb; azj ::countries Azerbaijan; Iran ::lang-group Turkic
+::lang-code azj ::lang-names North Azerbaijani ::super aze ::countries Azerbaijan ::lang-group Turkic
+::lang-code bak ::lang-names Bashkir ::deprecated-lang-codes ba ::countries Russia ::lang-group Turkic
+::lang-code bal ::lang-names Balochi; Baluchi ::countries Pakistan; Iran; Afghanistan ::lang-group Indo-Iranian
+::lang-code bam ::lang-names Bambara; Bamanankan ::deprecated-lang-codes bm ::countries Mali ::lang-group Northern-Niger-Congo
+::lang-code ban ::lang-names Balinese; Bali ::countries Indonesia ::lang-group Austronesian
+::lang-code bar ::lang-names Bavarian ::super deu ::countries Germany; Austria; Italy ::dialect-of deu ::lang-group Germanic
+::lang-code bcl ::lang-names Central Bicolano; Bikol Naga ::countries Philippines ::lang-group Austronesian
+::lang-code bel ::lang-names Belarusian; Belarusan ::deprecated-lang-codes be; be-tarask ::countries Belarus ::lang-group Slavic ::comment suffix -tarask indicates spelling according to rules before the Belarusian orthography reform of 1933
+::lang-code ben ::lang-names Bengali; Bangla ::deprecated-lang-codes bn ::countries Bangladesh; India ::lang-group Indo-Iranian
+::lang-code bfy ::lang-names Bagheli; Baghelkhandi ::countries India ::lang-group Indo-Iranian
+::lang-code bgc ::lang-names Haryanvi ::countries India ::lang-group Indo-Iranian
+::lang-code bho ::lang-names Bhojpuri ::super bih ::countries India; Nepal ::lang-group Indo-Iranian
+::lang-code bih ::lang-names Bihari ::subs bho; hif; mag; mai; awa ::countries India; Nepal ::lang-group Indo-Iranian
+::lang-code bis ::lang-names Bislama; Bichelamar ::deprecated-lang-codes bi ::creole-of eng ::countries Vanuatu ::lang-group Germanic
+::lang-code bjj ::lang-names Kannauji; Kanauji ::countries India ::lang-group Indo-Iranian
+::lang-code bjn ::lang-names Banjar ::countries Indonesia; Malaysia ::lang-group Austronesian
+::lang-code bod ::lang-names Tibetan ::deprecated-lang-codes bo; tib ::countries China ::lang-group Sino-Tibetan
+::lang-code bos ::lang-names Bosnian ::deprecated-lang-codes bs ::super hbs ::countries Bosnia and Herzegovina ::lang-group Slavic
+::lang-code bpy ::lang-names Bishnupriya; Bishnupriya Manipuri ::countries India; Bangladesh; Myanmar ::lang-group Indo-Iranian
+::lang-code bre ::lang-names Breton ::deprecated-lang-codes br ::countries France ::lang-group Celtic
+::lang-code bua ::lang-names Buryat ::subs bxr ::countries Russia; Mongolia; China ::lang-group Mongolic
+::lang-code bug ::lang-names Buginese; Basa Ugi ::countries Indonesia ::lang-group Austronesian
+::lang-code bul ::lang-names Bulgarian ::deprecated-lang-codes bg ::countries Bulgaria ::lang-group Slavic
+::lang-code bxr ::lang-names Russian Buryat ::super bua ::countries Russia ::lang-group Mongolic
+::lang-code cat ::lang-names Catalan; Valencian ::deprecated-lang-codes ca ::countries Spain ::lang-group Romance
+::lang-code cbk ::lang-names Chavacano; Chabacano; Zamboanga Chavacano ::deprecated-lang-codes cbk-zam ::creole-of spa ::countries Philippines ::lang-group Romance
+::lang-code cdo ::lang-names Eastern Min; Min Dong; Min Dong Chinese ::super zho ::countries China ::lang-group Sino-Tibetan
+::lang-code ceb ::lang-names Cebuano; Visayan ::countries Philippines ::lang-group Austronesian
+::lang-code ces ::lang-names Czech ::deprecated-lang-codes cs; cze ::countries Czech Republic ::lang-group Slavic
+::lang-code cha ::lang-names Chamorro ::countries Mariana Islands ::lang-group Austronesian
+::lang-code che ::lang-names Chechen ::deprecated-lang-codes ce ::countries Russia ::lang-group Northeast-Caucasian
+::lang-code cho ::lang-names Choctaw; Chahta ::countries United States ::lang-group Muskogean
+::lang-code chr ::lang-names Cherokee; Tsalagi; Tsalagi Tsulehisanvhi ::countries United States ::lang-group Iroquoian
+::lang-code chu ::lang-names Old Church Slavonic ::deprecated-lang-codes cu ::status extinct ::region Europe ::lang-group Slavic
+::lang-code chv ::lang-names Chuvash ::deprecated-lang-codes cv ::countries Russia ::lang-group Turkic
+::lang-code chy ::lang-names Cheyenne; Tsėhésenėstsestȯtse; Tsisinstsistots ::countries United States ::lang-group Algonquian
+::lang-code cjy ::lang-names Jin; Jin Chinese; Jinyu; Jinyu Chinese ::super zho ::countries China ::lang-group Sino-Tibetan
+::lang-code ckb ::lang-names Central Kurdish; Sorani ::super kur ::countries Iraq; Iran ::lang-group Indo-Iranian
+::lang-code cmn ::lang-names Mandarin; Mandarin Chinese; Standard Chinese ::super zho ::countries China; Taiwan; Singapore ::lang-group Sino-Tibetan
+::lang-code cop ::lang-names Coptic; Coptic Egyptian ::countries Egypt ::status extinct ::lang-group Egyptian
+::lang-code cor ::lang-names Cornish ::deprecated-lang-codes kw ::countries England ::status extinct ::lang-group Celtic
+::lang-code cos ::lang-names Corsican ::deprecated-lang-codes co ::countries France ::lang-group Romance
+::lang-code cre ::lang-names Cree; Cree-Montagnais-Naskapi ::deprecated-lang-codes cr ::countries Canada; United States ::lang-group Algonquian
+::lang-code crh ::lang-names Crimean Tatar; Crimean Turkish; Crimean ::countries Ukraine; Turkey; Uzbekistan; Romania; Russia; Kyrgyzstan; Bulgaria ::lang-group Turkic
+::lang-code cro ::lang-names Crow ::countries United States ::lang-group Siouan
+::lang-code csb ::lang-names Kashubian; Cassubian ::countries Poland ::lang-group Slavic
+::lang-code ctg ::lang-names Chittagonian ::countries Bangladesh ::lang-group Indo-Iranian
+::lang-code cym ::lang-names Welsh ::deprecated-lang-codes cy; wel ::countries Wales ::lang-group Celtic
+::lang-code dan ::lang-names Danish ::deprecated-lang-codes da ::countries Denmark ::lang-group Germanic
+::lang-code dcc ::lang-names Dakhini; Dakkhani; Deccan; Deccani ::countries India ::lang-group Indo-Iranian
+::lang-code deu ::lang-names German; Standard German ::deprecated-lang-codes de; ger ::subs bar; gsw; pdc; pfl; ksh ::countries Germany; Austria; Switzerland; Liechtenstein; Italy; Luxembourg ::lang-group Germanic
+::lang-code dhd ::lang-names Dhundari ::countries India ::lang-group Indo-Iranian
+::lang-code diq ::lang-names Dimli; Southern Zaza ::super zza ::countries Turkey ::lang-group Indo-Iranian
+::lang-code div ::lang-names Maldivian; Divehi ::deprecated-lang-codes dv ::countries Maldives ::lang-group Indo-Iranian
+::lang-code dsb ::lang-names Lower Sorbian ::countries Germany ::lang-group Slavic
+::lang-code dzg ::lang-names Daza; Dazaga ::countries Chad; Niger; Sudan; Libya ::lang-group Saharan
+::lang-code dzo ::lang-names Dzongkha; Bhutanese ::deprecated-lang-codes dz ::countries Bhutan ::lang-group Sino-Tibetan
+::lang-code egl ::lang-names Emilian ::super eml ::dialect-of eml ::countries Italy ::lang-group Romance
+::lang-code egy ::lang-names Egyptian; Ancient Egyptian; Old Egyptian ::countries Egypt ::status extinct ::lang-group Egyptian
+::lang-code ekg ::lang-names Ekari; Ekagi; Kapauku; Mee ::countries Indonesia ::lang-group Trans-New Guinea
+::lang-code ell ::lang-names Greek; Modern Greek ::deprecated-lang-codes el; gre ::subs pnt ::countries Greece, Cyprus ::lang-group Hellenic
+::lang-code eml ::lang-names Emilian-Romagnol; Emiliano-Romagnolo ::subs egl; rgn ::countries Italy; San Marino ::lang-group Romance
+::lang-code eng ::lang-names English ::deprecated-lang-codes en; simple ::countries Australia; Canada; Ireland; New Zealand; South Africa; United Kingdom; United States; Antigua and Barbuda; Bahamas; Barbados; Belize; Dominica; Grenada; Guyana; Jamaica; Philippines; Saint Kitts and Nevis; Saint Vincent and the Grenadines; Singapore; Trinidad and Tobago; Namibia ::lang-group Germanic
+::lang-code enq ::lang-names Enga ::countries Papua New Guinea ::lang-group Trans-New Guinea
+::lang-code epo ::lang-names Esperanto ::deprecated-lang-codes eo ::type constructed-language ::lang-group Indo-European 
+::lang-code est ::lang-names Estonian ::deprecated-lang-codes et ::countries Estonia ::lang-group Uralic
+::lang-code eus ::lang-names Basque ::deprecated-lang-codes baq; eu ::lang-group isolate ::countries Spain; France
+::lang-code ewe ::lang-names Ewe; Éwé; Èʋe; Èʋegbe ::deprecated-lang-codes ee ::countries Ghana ::lang-group Northern-Niger-Congo
+::lang-code ext ::lang-names Extremaduran ::countries Spain ::lang-group Romance
+::lang-code fao ::lang-names Faroese ::deprecated-lang-codes fo ::countries Faroe Islands ::lang-group Germanic
+::lang-code fas ::lang-names Persian; Farsi ::deprecated-lang-codes fa; per ::subs prs; tgk ::countries Iran ::lang-group Indo-Iranian
+::lang-code fat ::lang-names Fante ::dialect-of aka ::super aka ::countries Ghana ::lang-group Northern-Niger-Congo
+::lang-code fij ::lang-names Fijian ::deprecated-lang-codes fj ::countries Fiji ::lang-group Austronesian
+::lang-code fil ::lang-names Filipino; Philipino; Pilipino ::super tgl ::countries Philippines ::lang-group Austronesian
+::lang-code fin ::lang-names Finnish ::deprecated-lang-codes fi ::countries Finland ::lang-group Uralic
+::lang-code fra ::lang-names French ::deprecated-lang-codes fr; fre ::countries France; Belgium; Canada; Switzerland; Haiti; Luxembourg; Monaco ::lang-group Romance
+::lang-code frp ::lang-names Franco-Provençal; Francoprovençal; Arpitan; Romand ::countries Italy; France; Switzerland ::lang-group Romance
+::lang-code frr ::lang-names North Frisian; Northern Frisian ::countries Germany ::lang-group Germanic
+::lang-code fry ::lang-names West Frisian; Western Frisian; Frisian ::deprecated-lang-codes fy ::countries Netherlands ::lang-group Germanic
+::lang-code ful ::lang-names Fula; Fulah; Fulani; Fulfulde; Pulaar; Pular ::deprecated-lang-codes ff ::countries Senegal; The Gambia; Sierra Leone; Mali; Benin; Togo; Burkina aso; Niger; Nigeria; Cameroon; Chad; Sudan ::lang-group Northern-Niger-Congo
+::lang-code fur ::lang-names Friulian; Friulan ::countries Italy ::lang-group Romance
+::lang-code gag ::lang-names Gagauz ::countries Moldova; Ukraine; Russia; Turkey ::lang-group Turkic
+::lang-code gan ::lang-names Gan; Gan Chinese ::super zho ::countries China ::lang-group Sino-Tibetan
+::lang-code gla ::lang-names Scottish Gaelic; Scots Gaelic; Gàidhlig; Gaidhlig ::deprecated-lang-codes gd ::countries Scotland ::lang-group Celtic
+::lang-code gle ::lang-names Irish; Gaelic; Irish Gaelic; Gaeilge ::deprecated-lang-codes ga ::countries Ireland ::lang-group Celtic
+::lang-code glg ::lang-names Galician ::deprecated-lang-codes gl ::countries Spain ::lang-group Romance
+::lang-code glk ::lang-names Gilaki ::countries Iran ::lang-group Indo-Iranian
+::lang-code glv ::lang-names Manx; Manx Gaelic; Gaelg; Gailck ::deprecated-lang-codes gv ::countries United Kingdom ::status extinct ::lang-group Celtic
+::lang-code gom ::lang-names Konkani, Goan ::countries India (Goa) ::lang-group Indo-European
+::lang-code got ::lang-names Gothic ::status extinct ::region Europe ::lang-group Germanic
+::lang-code grc ::lang-names Ancient Greek ::countries Greece ::status extinct ::lang-group Hellenic
+::lang-code grn ::lang-names Guarani (macrolanguage) ::deprecated-lang-codes gn ::subs gug ::countries Argentina; Bolivia; Brazil; Paraguay ::lang-group Tupian
+::lang-code gsw ::lang-names Swiss German; Alsatian ::super deu ::countries Switzerland; France ::lang-group Germanic
+::lang-code gug ::lang-names Guarani; Guaraní; Paraguayan Guarani ::super grn ::countries Paraguay; Bolivia ::lang-group Tupian
+::lang-code guj ::lang-names Gujarati ::deprecated-lang-codes gu ::countries India ::lang-group Indo-Iranian
+::lang-code hak ::lang-names Hakka; Kejia; Hakka Chinese ::super zho ::countries China ::lang-group Sino-Tibetan
+::lang-code hat ::lang-names Haitian; Haitian Creole; Haitian Creole French ::deprecated-lang-codes ht ::creole-of fra ::countries Haiti ::lang-group Romance
+::lang-code hau ::lang-names Hausa ::deprecated-lang-codes ha ::countries Niger; Nigeria; Ghana; Benin; Cameroon; Ivory Coast; Togo; Libya ::lang-group Chadic
+::lang-code haw ::lang-names Hawaiian ::countries United States ::lang-group Austronesian
+::lang-code hbo ::lang-names Ancient Hebrew ::countries Israel ::lang-group Semitic
+::lang-code hbs ::lang-names Serbo-Croatian; Serbo-Croat; Serbo-Croat-Bosnian ::deprecated-lang-codes sh ::subs bos; hrv; srp ::countries Serbia; Croatia; Bosnia and Herzegovina; Montenegro ::lang-group Slavic
+::lang-code heb ::lang-names Hebrew; Modern Hebrew ::deprecated-lang-codes he ::countries Israel ::lang-group Semitic
+::lang-code her ::lang-names Herero ::deprecated-lang-codes hz ::countries Namibia; Botswana; Angola ::lang-group Bantu
+::lang-code hif ::lang-names Fiji Hindi ::super bih ::countries Fiji ::lang-group Indo-Iranian
+::lang-code hil ::lang-names Hiligaynon; Ilonggo ::countries Philippines ::lang-group Austronesian
+::lang-code hin ::lang-names Hindi ::deprecated-lang-codes hi ::countries India ::lang-group Indo-Iranian
+::lang-code hit ::lang-names Hittite ::status extinct ::region Anatolia ::lang-group Anatolian
+::lang-code hmn ::lang-names Hmong ::countries China; Vietnam; Laos; Myanmar; Thailand ::lang-group Hmong-Mien
+::lang-code hmo ::lang-names Hiri Motu ::deprecated-lang-codes ho ::countries Papua New Guinea ::lang-group Austronesian
+::lang-code hne ::lang-names Chhattisgarhi ::countries India ::lang-group Indo-Iranian
+::lang-code hoj ::lang-names Harauti; Hadoti ::countries India ::lang-group Indo-Iranian
+::lang-code hop ::lang-names Hopi ::countries United States ::lang-group Uto-Aztecan
+::lang-code hrv ::lang-names Croatian ::deprecated-lang-codes hr ::super hbs ::countries Croatia ::lang-group Slavic
+::lang-code hsb ::lang-names Upper Sorbian ::countries Germany ::lang-group Slavic
+::lang-code hsn ::lang-names Xiang; Hsiang; Xiang Chinese; Hunanese ::super zho ::countries China ::lang-group Sino-Tibetan
+::lang-code hun ::lang-names Hungarian ::deprecated-lang-codes hu ::countries Hungary ::lang-group Uralic
+::lang-code hye ::lang-names Armenian ::deprecated-lang-codes arm; hy ::countries Armenia ::lang-group Indo-European-isolate
+::lang-code ibo ::lang-names Igbo ::deprecated-lang-codes ig ::countries Nigeria ::lang-group Northern-Niger-Congo
+::lang-code ido ::lang-names Ido ::deprecated-lang-codes io ::type constructed-language
+::lang-code iii ::lang-names Nuosu; Nosu; Northern Yi; Liangshan Yi; Sichuan Yi ::deprecated-lang-codes ii ::countries China ::lang-group Sino-Tibetan
+::lang-code ike ::lang-names Inuktitut; Eastern Canadian Inuktitut ::super iku ::countries Canada ::lang-group Eskimo-Aleut
+::lang-code ikt ::lang-names Inuvialuktun; Western Canadian Inuit; Western Canadian Inuktitut;Western Canadian Inuktun ::super iku ::countries Canada ::lang-group Eskimo-Aleut
+::lang-code iku ::lang-names Inuktitut (macrolanguage) ::deprecated-lang-codes iu ::subs ike; ikt ::countries Canada ::lang-group Eskimo-Aleut
+::lang-code ile ::lang-names Interlingue ::lang-group Romance ::type constructed-language
+::lang-code ilo ::lang-names Ilocano; Ilokano; Iloko ::countries Philippines ::lang-group Austronesian
+::lang-code ina ::lang-names Interlingua ::lang-group Romance ::type constructed-language
+::lang-code ind ::lang-names Indonesian ::deprecated-lang-codes id ::countries Indonesia ::super msa ::lang-group Austronesian
+::lang-code inh ::lang-names Ingush ::countries Russia; Kazakhstan ::lang-group Northeast-Caucasian
+::lang-code ipk ::lang-names Inupiaq ::deprecated-lang-codes ik ::countries United States ::lang-group Eskimo-Aleut
+::lang-code isl ::lang-names Icelandic ::deprecated-lang-codes ice; is ::countries Iceland ::lang-group Germanic
+::lang-code ita ::lang-names Italian ::deprecated-lang-codes it ::countries Italy; Switzerland; San Marino; Vatican City ::lang-group Romance
+::lang-code ium ::lang-names Iu Mien ::countries China; Vietnam; Laos; Thailand ::lang-group Hmong-Mien
+::lang-code jav ::lang-names Javanese ::deprecated-lang-codes map-bms; jv ::countries Indonesia ::lang-group Austronesian
+::lang-code jbo ::lang-names Lojban ::type constructed-language
+::lang-code jpn ::lang-names Japanese ::deprecated-lang-codes ja ::countries Japan ::lang-group Japonic
+::lang-code jqr ::lang-names Jaqaru ::countries Peru ::lang-group Aymaran
+::lang-code kaa ::lang-names Karakalpak ::countries Uzbekistan; Kazakhstan; Turkmenistan ::lang-group Turkic
+::lang-code kab ::lang-names Kabyle; Kabylian; Taqbaylit; Tazwawt ::countries Algeria ::lang-group Berber
+::lang-code kal ::lang-names Greenlandic; Kalaallisut ::deprecated-lang-codes kl ::countries Greenland ::lang-group Eskimo-Aleut
+::lang-code kan ::lang-names Kannada ::deprecated-lang-codes kn ::countries India ::lang-group Dravidian
+::lang-code kas ::lang-names Kashmiri ::deprecated-lang-codes ks ::countries India; Pakistan ::lang-group Indo-Iranian
+::lang-code kat ::lang-names Georgian ::deprecated-lang-codes geo; ka ::countries Georgia ::lang-group Kartvelian
+::lang-code kau ::lang-names Kanuri ::deprecated-lang-codes kr ::countries Nigeria; Niger; Chad; Cameroon ::lang-group Saharan
+::lang-code kaz ::lang-names Kazakh ::deprecated-lang-codes kk ::countries Kazakhstan; China; Mongolia; Russia; Uzbekistan; Kyrgyzstan ::lang-group Turkic
+::lang-code kbd ::lang-names Kabardian; Kabardian Circassian; Kabardino-Cherkess; East Circassian ::countries Russia; Turkey; Jordan; Syria; Iraq ::lang-group Northwest-Caucasian
+::lang-code kfx ::lang-names Kulvi; Kului; Kullui ::countries India ::lang-group Indo-Iranian
+::lang-code khm ::lang-names Khmer; Central Khmer; Cambodian ::deprecated-lang-codes km ::countries Cambodia ::lang-group Austroasiatic
+::lang-code kik ::lang-names Kikuyu; Gikuyu ::deprecated-lang-codes ki ::countries Kenya; Tanzania; Uganda ::lang-group Bantu
+::lang-code kin ::lang-names Kinyarwanda; Rwanda; Rwandan ::deprecated-lang-codes rw ::countries Rwanda ::lang-group Bantu
+::lang-code kir ::lang-names Kyrgyz; Kirghiz ::deprecated-lang-codes ky ::countries Kyrgyzstan ::lang-group Turkic
+::lang-code kiu ::lang-names Kirmanjki; Northern Zaza ::super zza ::countries Turkey ::lang-group Indo-Iranian
+::lang-code kmr ::lang-names Northern Kurdish; Kurmanji ::countries Turkey; Armenia; Syria; Iraq ::super kur ::lang-group Indo-Iranian
+::lang-code knm ::lang-names Kanamari ::countries Brazil ::lang-group Harakmbut-Katukinan
+::lang-code koi ::lang-names Komi-Permyak ::super kom ::countries Russia ::lang-group Uralic
+::lang-code kok ::lang-names Konkani ::countries India ::lang-group Indo-Iranian
+::lang-code kom ::lang-names Komi ::deprecated-lang-codes kv ::subs koi ::countries Russia ::lang-group Uralic
+::lang-code kon ::lang-names Kongo; Kikongo; Koongo ::deprecated-lang-codes kg ::countries Angola; Democratic Republic of the Congo; Republic of the Congo ::lang-group Bantu
+::lang-code kor ::lang-names Korean ::deprecated-lang-codes ko ::countries Korea; South Korea; North Korea ::lang-group Koreanic
+::lang-code krc ::lang-names Karachay-Balkar; Karachay; Balkar ::countries Russia ::lang-group Turkic
+::lang-code ksh ::lang-names Cologne German; Colognian; Kölsch ::dialect-of deu ::super deu ::countries Germany ::lang-group Germanic ::comment German dialect spoken in and around the city of Cologne
+::lang-code ktu ::lang-names Kituba ::countries Democratic Republic of the Congo; Republic of the Congo ::lang-group Bantu
+::lang-code kua ::lang-names Kwanyama; Kuanyama; Oshikwanyama ::deprecated-lang-codes kj ::countries Namibia; Angola ::lang-group Bantu
+::lang-code kur ::lang-names Kurdish ::deprecated-lang-codes ku ::countries Iraq; Iran; Turkey; Syria ::subs ckb; kmr ::lang-group Indo-Iranian
+::lang-code lad ::lang-names Judaeo-Spanish; Judeo-Spanish; Ladino ::countries Israel; Spain ::lang-group Romance
+::lang-code lao ::lang-names Lao ::deprecated-lang-codes lo ::countries Laos ::lang-group Tai
+::lang-code lat ::lang-names Latin ::deprecated-lang-codes la ::status extinct ::countries Vatican City ::region Mediterranean ::lang-group Romance
+::lang-code lav ::lang-names Latvian ::deprecated-lang-codes lv ::countries Latvia ::lang-group Baltic
+::lang-code lbe ::lang-names Lak ::countries Russia ::lang-group Northeast-Caucasian
+::lang-code lez ::lang-names Lezgian; Lezgi; Lezgin ::countries Russia; Azerbaijan ::lang-group Northeast-Caucasian
+::lang-code lij ::lang-names Ligurian ::countries Italy; Monaco; France ::lang-group Romance
+::lang-code lim ::lang-names Limburgish; Limburgian; Limburgic ::deprecated-lang-codes li ::countries Netherlands; Belgium; Germany ::lang-group Germanic
+::lang-code lin ::lang-names Lingala; Ngala ::deprecated-lang-codes ln ::countries Democratic Republic of the Congo; Republic of the Congo; Central African Republic; Angola ::lang-group Bantu
+::lang-code lit ::lang-names Lithuanian ::deprecated-lang-codes lt ::subs sgs ::countries Lithuania ::lang-group Baltic
+::lang-code lkt ::lang-names Lakota ::countries United States ::lang-group Siouan
+::lang-code lld ::lang-names Ladin ::countries Italy ::lang-group Romance
+::lang-code lmo ::lang-names Lombard; ::countries Italy; Switzerland ::lang-group Romance
+::lang-code lrc ::lang-names Central Luri; Central Lurish; Luri; Lurish ::countries Iran ::lang-group Indo-Iranian
+::lang-code ltg ::lang-names Latgalian ::countries Latvia; Russia ::lang-group Baltic
+::lang-code ltz ::lang-names Luxembourgish; Luxemburgish; Letzeburgesch ::deprecated-lang-codes lb ::countries Luxembourg ::lang-group Germanic
+::lang-code lug ::lang-names Luganda; Ganda; Oluganda ::deprecated-lang-codes lg ::countries Uganda ::lang-group Bantu
+::lang-code lzh ::lang-names Classical Chinese; Literary Chinese ::deprecated-lang-codes zh-classical ::countries China ::status extinct ::lang-group Sino-Tibetan
+::lang-code mad ::lang-names Madurese; Madura ::countries Indonesia ::lang-group Austronesian
+::lang-code mag ::lang-names Magahi; Magadhi ::super bih ::countries India; Nepal ::lang-group Indo-Iranian
+::lang-code mah ::lang-names Marshallese; Ebon ::deprecated-lang-codes mh ::countries Marshall Islands ::lang-group Austronesian
+::lang-code mai ::lang-names Maithili ::super bih ::countries India ::lang-group Indo-Iranian
+::lang-code mal ::lang-names Malayalam ::deprecated-lang-codes ml ::countries India ::lang-group Dravidian
+::lang-code mar ::lang-names Marathi ::deprecated-lang-codes mr ::countries India ::subs vah ::lang-group Indo-Iranian
+::lang-code mdf ::lang-names Moksha ::countries Russia ::lang-group Uralic
+::lang-code med ::lang-names Melpa; Medlpa ::countries Papua New Guinea ::lang-group Trans-New Guinea
+::lang-code mhr ::lang-names Meadow Mari; Eastern Mari ::countries Russia ::lang-group Uralic
+::lang-code min ::lang-names Minangkabau ::countries Indonesia; Malaysia ::lang-group Austronesian
+::lang-code mkd ::lang-names Macedonian ::deprecated-lang-codes mac; mk ::countries North Macedonia ::lang-group Slavic
+::lang-code mlg ::lang-names Malagasy ::deprecated-lang-codes mg ::countries Madagascar ::lang-group Austronesian
+::lang-code mlt ::lang-names Maltese ::deprecated-lang-codes mt ::countries Malta ::lang-group Semitic
+::lang-code mni ::lang-names Meitei; Manipuri; Meithei; Meetei; Meiteilon ::countries India; Bangladesh; Myanmar ::lang-group Sino-Tibetan
+::lang-code mnk ::lang-names Mandinka; Mandingo ::countries Senegal; The Gambia; Guinea-Bissau ::lang-group Northern-Niger-Congo
+::lang-code mon ::lang-names Mongolian ::deprecated-lang-codes mn ::countries Mongolia ::lang-group Mongolic
+::lang-code mos ::lang-names Mossi; Moore; More; Moshi; Mooré; Mòoré; Mõõré; Moré ::countries Burkina Faso; Benin; Ivory Coast; Ghana; Mali; Togo ::lang-group Northern-Niger-Congo
+::lang-code mri ::lang-names Maori ::deprecated-lang-codes mao; mi ::countries New Zealand ::lang-group Austronesian
+::lang-code mrj ::lang-names Hill Mari; Western Mari ::countries Russia ::lang-group Uralic
+::lang-code msa ::lang-names Malay; Malay (macrolanguage) ::deprecated-lang-codes may; ms ::subs zsm; ind ::countries Indonesia; Malaysia; Singapore; Brunei; East Timor; Thailand ::lang-group Austronesian
+::lang-code mup ::lang-names Malvi; Malwi ::countries India ::lang-group Indo-Iranian
+::lang-code mus ::lang-names Muscogee; Creek; Seminole; Maskoki; Muskogee ::countries United States ::lang-group Muskogean
+::lang-code mwl ::lang-names Mirandese ::countries Portugal ::lang-group Romance
+::lang-code mwr ::lang-names Marwari; Marwadi; Marvadi ::countries India ::lang-group Indo-Iranian
+::lang-code mya ::lang-names Burmese; Myanmar ::deprecated-lang-codes bur; my ::countries Myanmar ::lang-group Sino-Tibetan
+::lang-code myn ::lang-names Mayan ::countries Belize; Guatemala; Mexico
+::lang-code myv ::lang-names Erzya ::countries Russia ::lang-group Uralic
+::lang-code mzn ::lang-names Mazanderani; Tabari; Geleki ::countries Iran ::lang-group Indo-Iranian
+::lang-code nah ::lang-names Nahuatl; Nahuatl (macrolanguage) ::subs nci ::countries Mexico ::lang-group Uto-Aztecan
+::lang-code nan ::lang-names Southern Min; Minnan; Min Nan; Min Nan Chinese; Min Chinese ::deprecated-lang-codes zh-min-nan ::super zho ::countries China; Taiwan ::lang-group Sino-Tibetan
+::lang-code nap ::lang-names Neapolitan ::deprecated-lang-codes roa-tara ::countries Italy ::lang-group Romance
+::lang-code nau ::lang-names Nauruan ::deprecated-lang-codes na ::countries Nauru ::lang-group Austronesian
+::lang-code nav ::lang-names Navajo; Navaho ::deprecated-lang-codes nv ::countries United States ::lang-group Athabaskan
+::lang-code nci ::lang-names Classical Nahuatl; Aztec ::super nah ::countries Mexico ::lang-group Uto-Aztecan
+::lang-code ndo ::lang-names Ndonga; Oshindonga ::deprecated-lang-codes ng ::countries Namibia; Angola ::lang-group Bantu
+::lang-code nds ::lang-names Low German; Low Saxon; Plattdeutsch ::subs nds-nl ::countries Germany; Netherlands ::lang-group Germanic
+::lang-code nds-nl ::lang-names Dutch Low Saxon ::dialect-of nds ::super nds ::countries Netherlands ::lang-group Germanic
+::lang-code nep ::lang-names Nepali ::deprecated-lang-codes ne ::countries Nepal; India ::lang-group Indo-Iranian
+::lang-code new ::lang-names Newar; Newari; Nepal Bhasa ::countries Nepal ::lang-group Sino-Tibetan
+::lang-code ngb ::lang-names Ngbandi; Northern Ngbandi ::countries Democratic Republic of the Congo; Central African Republic ::lang-group Ubangian
+::lang-code nld ::lang-names Dutch; Flemish ::deprecated-lang-codes dut; nl ::subs vls ::countries Netherlands; Belgium ::lang-group Germanic
+::lang-code nno ::lang-names Norwegian Nynorsk ::deprecated-lang-codes nn ::super nor ::countries Norway ::lang-group Germanic
+::lang-code nob ::lang-names Norwegian Bokmål ::deprecated-lang-codes nb ::super nor ::countries Norway ::lang-group Germanic
+::lang-code nor ::lang-names Norwegian ::deprecated-lang-codes no ::subs nno; nob ::countries Norway ::lang-group Germanic
+::lang-code nov ::lang-names Novial ::type constructed-language
+::lang-code nrf ::lang-names Channel Island Norman French; Guernesiais; Guernésiais; Dgèrnésiais; Guernsey French; Guernsey Norman French; Jèrriais; Jerriais; Jersey French; Jersey Norman French ::countries United Kingdom ::lang-group Romance
+::lang-code nrm ::lang-names Norman; Norman French ::countries France ::lang-group Romance
+::lang-code nso ::lang-names Northern Sotho; Sepedi ::countries South Africa ::lang-group Bantu
+::lang-code nya ::lang-names Chewa; Nyanja; Chichewa ::deprecated-lang-codes ny ::countries Zambia; Malawi; Mozambique; Zimbabwe ::lang-group Bantu
+::lang-code oci ::lang-names Occitan; lenga d'òc; langue d'oc ::deprecated-lang-codes oc ::countries France; Spain; Italy; Monaco ::lang-group Romance
+::lang-code oji ::lang-names Ojibwa; Ojibwe; Chippewa; Otchipwe ::deprecated-lang-codes oj ::countries Canada; United States ::lang-group Algonquian
+::lang-code ori ::lang-names Odia; Oriya; Oriya (macrolanguage) ::deprecated-lang-codes or ::countries India ::lang-group Indo-Iranian
+::lang-code orm ::lang-names Oromo ::deprecated-lang-codes om ::countries Ethiopia; Kenya ::lang-group Cushitic
+::lang-code oss ::lang-names Ossetian; Ossete; Ossetic ::deprecated-lang-codes os ::countries Russia ::lang-group Indo-Iranian
+::lang-code pag ::lang-names Pangasinan; Salitan Pangasinan ::countries Philippines ::lang-group Austronesian
+::lang-code pam ::lang-names Kapampangan; Pampangan ::countries Philippines ::lang-group Austronesian
+::lang-code pan ::lang-names Panjabi; Punjabi; Western Panjabi ::deprecated-lang-codes pa ::subs pnb ::countries India ::lang-group Indo-Iranian
+::lang-code pap ::lang-names Papiamento; Papiamentu ::creole-of por ::countries Netherlands ::region Caribbean ::lang-group Romance
+::lang-code pcd ::lang-names Picard ::countries France; Belgium ::lang-group Romance
+::lang-code pdc ::lang-names Pennsylvania German; Pennsylvania Dutch ::super deu ::countries United States ::lang-group Germanic
+::lang-code pfl ::lang-names Palatinate German; Pfaelzisch ::super deu ::countries Germany ::dialect-of deu ::lang-group Germanic
+::lang-code pih ::lang-names Pitkern; Pitcairnese; Pitcairn English; Norfuk; Norfolk; Pitcairn-Norfolk ::creole-of eng ::region Pacific ::lang-group Germanic
+::lang-code pli ::lang-names Pali ::deprecated-lang-codes pi ::status extinct ::countries India ::lang-group Indo-Iranian
+::lang-code pms ::lang-names Piedmontese ::countries Italy ::lang-group Romance
+::lang-code pnb ::lang-names Western Punjabi; Lahnda; Lahndi ::deprecated-lang-codes lah ::standard-form skr ::subs skr ::super pan ::countries Pakistan ::lang-group Indo-Iranian
+::lang-code pnt ::lang-names Pontic Greek; Pontic ::super ell ::countries Turkey; Greece ::lang-group Hellenic
+::lang-code pol ::lang-names Polish ::deprecated-lang-codes pl ::countries Poland ::lang-group Slavic
+::lang-code por ::lang-names Portuguese ::deprecated-lang-codes pt ::countries Portugal; Brazil; Angola; Mozambique; Guinea-Bissau; East Timor; São Tomé and Príncipe ::lang-group Romance
+::lang-code prs ::lang-names Dari; Afghan Persian; Afghan Farsi ::super fas ::countries Afghanistan ::lang-group Indo-Iranian
+::lang-code pus ::lang-names Pashto; Pushto ::deprecated-lang-codes ps ::countries Afghanistan; Pakistan ::lang-group Indo-Iranian
+::lang-code que ::lang-names Quechua ::deprecated-lang-codes qu ::countries Argentina; Bolivia; Chile; Colombia; Ecuador; Peru
+::lang-code raj ::lang-names Rajasthani ::countries India ::lang-group Indo-Iranian
+::lang-code rgn ::lang-names Romagnol ::dialect-of eml ::super eml ::countries Italy; San Marino ::lang-group Romance
+::lang-code rkt ::lang-names Rangpuri ::countries Bangladesh; India; Nepal ::lang-group Indo-Iranian
+::lang-code rmy ::lang-names Vlax Romani ::super rom ::countries Bosnia; Romania; Serbia; Albania; Hungary ::lang-group Indo-Iranian
+::lang-code roh ::lang-names Romansh; Romansch; Rumantsch; Romanche ::deprecated-lang-codes rm ::countries Switzerland ::lang-group Romance
+::lang-code rom ::lang-names Romani; Romany; Gypsy; Gipsy ::subs rmy ::region Europe ::lang-group Indo-Iranian
+::lang-code ron ::lang-names Romanian ::deprecated-lang-codes ro; mo; mol; rum ::countries Romania; Moldova ::lang-group Romance
+::lang-code rue ::lang-names Rusyn; Ruthene; Ruthenian ::countries Slovakia; Serbia; Ukraine; Poland ::lang-group Slavic
+::lang-code run ::lang-names Kirundi; Rundi ::deprecated-lang-codes rn ::countries Burundi ::lang-group Bantu
+::lang-code rup ::lang-names Aromanian; Macedo-Romanian; Vlach ::deprecated-lang-codes roa; roa-rup ::countries Greece; Albania; Romania; North Macedonia; Serbia; Bulgaria; Turkey ::lang-group Romance
+::lang-code rus ::lang-names Russian ::deprecated-lang-codes ru ::countries Russia; Ukraine; Belarus ::lang-group Slavic
+::lang-code ryu ::lang-names Okinawan; Central Okinawan ::countries Japan ::lang-group Japonic
+::lang-code sag ::lang-names Sango; Sangho ::deprecated-lang-codes sg ::creole-of ngb ::countries Central African Republic; Chad; Democratic Republic of the Congo ::lang-group Ubangian
+::lang-code sah ::lang-names Yakut; Sakha ::countries Russia ::lang-group Turkic
+::lang-code san ::lang-names Sanskrit ::deprecated-lang-codes sa ::countries India ::status extinct ::lang-group Indo-Iranian
+::lang-code sat ::lang-names Santali; Mahali ::countries India; Bangladesh; Nepal; Bhutan ::lang-group Austroasiatic
+::lang-code scn ::lang-names Sicilian; Siculu; Calabro-Sicilian ::countries Italy ::lang-group Romance
+::lang-code sco ::lang-names Scots; Lowland Scots ::countries Scotland ::lang-group Germanic
+::lang-code see ::lang-names Seneca ::countries United States; Canada ::lang-group Iroquoian
+::lang-code sgs ::lang-names Samogitian ::super lit ::deprecated-lang-codes bat-smg ::countries Lithuania ::lang-group Baltic
+::lang-code shi ::lang-names Shilha; Sussian; Tašussit; Tašlḥiyt; Tasussit; Tashelhit ::countries Morocco ::lang-group Berber
+::lang-code sid ::lang-names Sidamo; Sidaama; Sidaamu Afoo ::countries Ethiopia ::lang-group Cushitic
+::lang-code sin ::lang-names Sinhalese; Sinhala ::deprecated-lang-codes si ::countries Sri Lanka ::lang-group Indo-Iranian
+::lang-code sip ::lang-names Sikkimese; Sikkimese Tibetan; Bhutia; Drenjongke ::countries India; Nepal ::lang-group Sino-Tibetan
+::lang-code skr ::lang-names Saraiki; Siraiki; Seraiki ::super pnb ::countries Pakistan ::lang-group Indo-Iranian
+::lang-code slk ::lang-names Slovak ::deprecated-lang-codes sk; slo ::countries Slovakia ::lang-group Slavic
+::lang-code slv ::lang-names Slovenian ::deprecated-lang-codes sl ::countries Slovenia ::lang-group Slavic
+::lang-code sme ::lang-names Northern Sami; North Sami; Sami; Lappish; Lapp ::deprecated-lang-codes se ::countries Norway; Sweden; Finland ::lang-group Uralic
+::lang-code smo ::lang-names Samoan ::deprecated-lang-codes sm ::countries American Samoa ::lang-group Austronesian
+::lang-code sna ::lang-names Shona ::deprecated-lang-codes sn ::countries Zimbabwe; Mozambique ::lang-group Bantu
+::lang-code snd ::lang-names Sindhi ::deprecated-lang-codes sd ::countries India ::lang-group Indo-Iranian
+::lang-code som ::lang-names Somali ::deprecated-lang-codes so ::countries Somalia; Ethiopia; Djibouti ::lang-group Cushitic
+::lang-code sot ::lang-names Sotho; Sesotho; Southern Sotho; Southern Sesotho ::deprecated-lang-codes st ::countries Lesotho; South Africa ::lang-group Bantu
+::lang-code spa ::lang-names Spanish; Castilian ::deprecated-lang-codes es; esp; sp ::countries Spain; Argentina; Bolivia; Chile; Colombia; Costa Rica; Cuba; Dominican Republic; Ecuador; El Salvador; Guatemala; Honduras; Mexico; Nicaragua; Panama; Paraguay; Peru; Puerto Rio; Uruguay; Venezuela ::lang-group Romance
+::lang-code sqi ::lang-names Albanian ::deprecated-lang-codes alb; sq ::countries Albania; Kosovo; North Macedonia ::lang-group Indo-European-isolate
+::lang-code srd ::lang-names Sardinian ::deprecated-lang-codes sc ::countries Italy ::lang-group Romance
+::lang-code srn ::lang-names Sranan; Sranan Tongo; Sranantongo; Surinaams; Surinamese; Suriname Creole; Taki Taki ::creole-of eng ::countries Suriname ::lang-group Germanic
+::lang-code srp ::lang-names Serbian ::deprecated-lang-codes sr ::super hbs ::countries Serbia; Montenegro ::lang-group Slavic
+::lang-code ssw ::lang-names Swazi; Swati ::deprecated-lang-codes ss ::countries Swaziland; South Africa; Lesotho; Mozambique ::lang-group Bantu
+::lang-code stq ::lang-names Saterland Frisian; Sater Frisian; Saterlandic ::countries Germany ::lang-group Germanic
+::lang-code suk ::lang-names Sukuma ::countries Tanzania ::lang-group Bantu
+::lang-code sun ::lang-names Sundanese ::deprecated-lang-codes su ::countries Indonesia ::lang-group Austronesian
+::lang-code swa ::lang-names Swahili; Kiswahili ::deprecated-lang-codes sw ::subs swh ::countries Tanzania; Republic of the Congo; Kenya; Mozambique; Burundi; Rwanda; Uganda ::lang-group Bantu
+::lang-code swe ::lang-names Swedish ::deprecated-lang-codes sv ::countries Sweden; Finland ::lang-group Germanic
+::lang-code swh ::lang-names Coastal Swahili ::super swa ::countries Tanzania; Kenya ::lang-group Bantu
+::lang-code swv ::lang-names Shekhawati ::countries India ::lang-group Indo-Iranian
+::lang-code syc ::lang-names Syriac ::countries Syria; Iraq ::super arc ::lang-group Semitic
+::lang-code syl ::lang-names Sylheti ::countries Bangladesh; India ::lang-group Indo-Iranian
+::lang-code szl ::lang-names Silesian; Upper Silesian ::countries Poland; Czech Republic ::lang-group Slavic
+::lang-code tah ::lang-names Tahitian ::deprecated-lang-codes ty ::countries France ::region Pacific ::lang-group Austronesian
+::lang-code tam ::lang-names Tamil ::deprecated-lang-codes ta ::countries Sri Lanka; India; Singapore ::lang-group Dravidian
+::lang-code tat ::lang-names Tartar ::deprecated-lang-codes tt ::countries Russia ::lang-group Turkic
+::lang-code tel ::lang-names Telugu ::deprecated-lang-codes te ::countries India ::lang-group Dravidian
+::lang-code ter ::lang-names Terena ::countries Brazil ::lang-group Arawakan
+::lang-code tet ::lang-names Tetum; Tetun ::countries East Timor ::lang-group Austronesian
+::lang-code tgk ::lang-names Tajik; Tajiki; Tajiki Persian ::deprecated-lang-codes tg ::super fas ::countries Tajikistan; Afghanistan; Uzbekistan; Kyrgyzstan; Kazakhstan; Pakistan ::lang-group Indo-Iranian
+::lang-code tgl ::lang-names Tagalog ::deprecated-lang-codes tl ::subs fil ::standard-form fil ::countries Philippines ::lang-group Austronesian
+::lang-code tha ::lang-names Thai ::deprecated-lang-codes th ::countries Thailand ::lang-group Tai
+::lang-code tig ::lang-names Tigre ::countries Eritrea ::lang-group Semitic
+::lang-code tir ::lang-names Tigrinya; Tigrigna ::deprecated-lang-codes ti ::countries Ethiopia; Eritrea ::lang-group Semitic
+::lang-code tlh ::lang-names Klingon ::type constructed-language
+::lang-code tmh ::lang-names Tuareg; Tamashek; Tamasheq; Tamajaq; Tamahaq ::countries Libya; Algeria; Niger; Mali; Burkina Faso ::lang-group Berber
+::lang-code ton ::lang-names Tongan ::deprecated-lang-codes to ::countries Tonga ::lang-group Austronesian
+::lang-code tpi ::lang-names Tok Pisin; New Guinea Pidgin; Pidgin English ::creole-of eng ::countries Papua New Guinea ::lang-group Germanic
+::lang-code tsn ::lang-names Tswana; Setswana ::deprecated-lang-codes tn ::countries Botswana; South Africa; Zimbabwe; Namibia ::lang-group Bantu
+::lang-code tso ::lang-names Tsonga; Xitsonga ::deprecated-lang-codes ts ::countries Mozambique; South Africa; Swaziland; Zimbabwe ::lang-group Bantu
+::lang-code tuk ::lang-names Turkmen ::deprecated-lang-codes tk ::countries Turkmenistan; Iran; Afghanistan; Uzbekistan; Russia ::lang-group Turkic
+::lang-code tum ::lang-names Tumbuka ::countries Tanzania; Zambia; Malawi ::lang-group Bantu
+::lang-code tur ::lang-names Turkish ::deprecated-lang-codes tr ::countries Turkey, Cyprus ::lang-group Turkic
+::lang-code twi ::lang-names Twi; Asante Twi ::deprecated-lang-codes tw ::super aka ::countries Ghana ::lang-group Northern-Niger-Congo
+::lang-code tyv ::lang-names Tuvan; Tuvinian; Tyvan; Tuvin ::countries Russia; Mongolia; China ::lang-group Turkic
+::lang-code tzm ::lang-names Central Atlas Tamazight; Tamazight ::countries Morocco ::lang-group Berber
+::lang-code udm ::lang-names Udmurt ::countries Russia ::lang-group Uralic
+::lang-code uig ::lang-names Uyghur; Uighur ::deprecated-lang-codes ug ::countries China ::lang-group Turkic
+::lang-code ukr ::lang-names Ukrainian ::deprecated-lang-codes uk ::countries Ukraine ::lang-group Slavic
+::lang-code ulf ::lang-names Afra; Usku ::countries Indonesia ::status nearly-extinct ::lang-group Papuan-unclassified
+::lang-code urd ::lang-names Urdu ::deprecated-lang-codes ur ::countries Pakistan; India ::lang-group Indo-Iranian
+::lang-code ute ::lang-names Ute; Colorado River Numic; Southern Paiute; Ute-Southern Paiute; Ute-Chemehuevi ::countries United States ::lang-group Uto-Aztecan
+::lang-code uzb ::lang-names Uzbek ::deprecated-lang-codes uz ::countries Uzbekistan ::lang-group Turkic
+::lang-code vah ::lang-names Varhadi ::countries India ::dialect-of mar ::super mar ::lang-group Indo-Iranian
+::lang-code vec ::lang-names Venetian; Venetan ::countries Italy ::lang-group Romance
+::lang-code ven ::lang-names Venda; Tshivenda; Luvenda ::deprecated-lang-codes ve ::countries South Africa; Zimbabwe ::lang-group Bantu
+::lang-code vep ::lang-names Vepsian; Veps ::countries Russia ::lang-group Uralic
+::lang-code vie ::lang-names Vietnamese ::deprecated-lang-codes vi ::countries Vietnam ::lang-group Austroasiatic
+::lang-code vls ::lang-names West Flemish ::subs zea ::super nld ::countries Belgium; Netherlands; France ::dialect-of nld ::lang-group Germanic
+::lang-code vol ::lang-names Volapük ::deprecated-lang-codes vo ::type constructed-language
+::lang-code vor ::lang-names Võro; Voro ::deprecated-lang-codes fiu-vro ::countries Estonia ::lang-group Uralic
+::lang-code war ::lang-names Waray; Waray-Waray ::countries Philippines ::lang-group Austronesian
+::lang-code wln ::lang-names Walloon ::deprecated-lang-codes wa ::countries Belgium ::lang-group Romance
+::lang-code wol ::lang-names Wolof ::deprecated-lang-codes wo ::countries Senegal; Gambia; Mauritania ::lang-group Northern-Niger-Congo
+::lang-code wtm ::lang-names Mewati ::countries India ::lang-group Indo-Iranian
+::lang-code wuu ::lang-names Wu; Wu Chinese ::super zho ::countries China ::lang-group Sino-Tibetan
+::lang-code xal ::lang-names Oirat; Kalmyk; Kalmyk Oirat ::countries Mongolia; Russia; China; Kyrgyzstan ::lang-group Mongolic
+::lang-code xho ::lang-names Xhosa ::deprecated-lang-codes xh ::countries South Africa ::lang-group Bantu
+::lang-code xld ::lang-names Lydian ::status extinct ::region Anatolia ::lang-group Anatolian
+::lang-code xmf ::lang-names Mingrelian; Megrelian ::countries Georgia ::lang-group Kartvelian
+::lang-code yid ::lang-names Yiddish ::deprecated-lang-codes yi ::countries Germany; Poland; Belarus; Ukraine; United States; Israel ::lang-group Germanic
+::lang-code yor ::lang-names Yoruba ::deprecated-lang-codes yo ::countries Benin; Nigeria ::lang-group Northern-Niger-Congo
+::lang-code yrl ::lang-names Nheengatu; Nhengatu ::countries Brazil; Colombia; Venzuela ::lang-group Tupian
+::lang-code yue ::lang-names Yue; Cantonese; Yue Chinese ::deprecated-lang-codes zh-yue ::super zho ::countries China ::lang-group Sino-Tibetan
+::lang-code zag ::lang-names Zaghawa ::countries Chad; Sudan ::lang-group Saharan
+::lang-code zap ::lang-names Zapotec ::countries Mexico ::lang-group Oto-Manguean
+::lang-code zea ::lang-names Zeelandic ::countries Netherlands ::super vls ::dialect-of vls ::lang-group Germanic
+::lang-code zha ::lang-names Zhuang; Chuang ::deprecated-lang-codes za ::countries China ::lang-group Tai
+::lang-code zho ::lang-names Chinese ::deprecated-lang-codes chi; ch; zh ::subs cdo; cjy; cmn; gan; hak; hsn; nan; wuu; yue ::standard-form cmn ::countries China; Taiwan; Singapore ::lang-group Sino-Tibetan
+::lang-code zsm ::lang-names Malaysian; Standard Malay ::super msa ::countries Malaysia ::lang-group Austronesian
+::lang-code zul ::lang-names Zulu ::deprecated-lang-codes zu ::countries South Africa ::lang-group Bantu
+::lang-code zza ::lang-names Zaza; Zazaki ::subs diq; kiu ::countries Turkey ::lang-group Indo-Iranian

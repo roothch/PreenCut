@@ -1,0 +1,1599 @@
+{"txt": "0", "rom": "0", "value": 0, "type": "digit", "base": 1, "mult": 0, "script": "ascii-digit"}
+{"txt": "1", "rom": "1", "value": 1, "type": "digit", "base": 1, "mult": 1, "script": "ascii-digit"}
+{"txt": "2", "rom": "2", "value": 2, "type": "digit", "base": 1, "mult": 2, "script": "ascii-digit"}
+{"txt": "3", "rom": "3", "value": 3, "type": "digit", "base": 1, "mult": 3, "script": "ascii-digit"}
+{"txt": "4", "rom": "4", "value": 4, "type": "digit", "base": 1, "mult": 4, "script": "ascii-digit"}
+{"txt": "5", "rom": "5", "value": 5, "type": "digit", "base": 1, "mult": 5, "script": "ascii-digit"}
+{"txt": "6", "rom": "6", "value": 6, "type": "digit", "base": 1, "mult": 6, "script": "ascii-digit"}
+{"txt": "7", "rom": "7", "value": 7, "type": "digit", "base": 1, "mult": 7, "script": "ascii-digit"}
+{"txt": "8", "rom": "8", "value": 8, "type": "digit", "base": 1, "mult": 8, "script": "ascii-digit"}
+{"txt": "9", "rom": "9", "value": 9, "type": "digit", "base": 1, "mult": 9, "script": "ascii-digit"}
+{"txt": "\u00bc", "rom": "1/4", "fraction": [1, 4], "type": "fraction", "script": "vulgar-fraction"}
+{"txt": "\u00bd", "rom": "1/2", "fraction": [1, 2], "type": "fraction", "script": "vulgar-fraction"}
+{"txt": "\u00be", "rom": "3/4", "fraction": [3, 4], "type": "fraction", "script": "vulgar-fraction"}
+{"txt": "\u0660", "rom": "0", "value": 0, "type": "digit", "base": 1, "mult": 0, "script": "Arabic-Indic"}
+{"txt": "\u0661", "rom": "1", "value": 1, "type": "digit", "base": 1, "mult": 1, "script": "Arabic-Indic"}
+{"txt": "\u0662", "rom": "2", "value": 2, "type": "digit", "base": 1, "mult": 2, "script": "Arabic-Indic"}
+{"txt": "\u0663", "rom": "3", "value": 3, "type": "digit", "base": 1, "mult": 3, "script": "Arabic-Indic"}
+{"txt": "\u0664", "rom": "4", "value": 4, "type": "digit", "base": 1, "mult": 4, "script": "Arabic-Indic"}
+{"txt": "\u0665", "rom": "5", "value": 5, "type": "digit", "base": 1, "mult": 5, "script": "Arabic-Indic"}
+{"txt": "\u0666", "rom": "6", "value": 6, "type": "digit", "base": 1, "mult": 6, "script": "Arabic-Indic"}
+{"txt": "\u0667", "rom": "7", "value": 7, "type": "digit", "base": 1, "mult": 7, "script": "Arabic-Indic"}
+{"txt": "\u0668", "rom": "8", "value": 8, "type": "digit", "base": 1, "mult": 8, "script": "Arabic-Indic"}
+{"txt": "\u0669", "rom": "9", "value": 9, "type": "digit", "base": 1, "mult": 9, "script": "Arabic-Indic"}
+{"txt": "\u06f0", "rom": "0", "value": 0, "type": "digit", "base": 1, "mult": 0, "script": "Extended Arabic-Indic"}
+{"txt": "\u06f1", "rom": "1", "value": 1, "type": "digit", "base": 1, "mult": 1, "script": "Extended Arabic-Indic"}
+{"txt": "\u06f2", "rom": "2", "value": 2, "type": "digit", "base": 1, "mult": 2, "script": "Extended Arabic-Indic"}
+{"txt": "\u06f3", "rom": "3", "value": 3, "type": "digit", "base": 1, "mult": 3, "script": "Extended Arabic-Indic"}
+{"txt": "\u06f4", "rom": "4", "value": 4, "type": "digit", "base": 1, "mult": 4, "script": "Extended Arabic-Indic"}
+{"txt": "\u06f5", "rom": "5", "value": 5, "type": "digit", "base": 1, "mult": 5, "script": "Extended Arabic-Indic"}
+{"txt": "\u06f6", "rom": "6", "value": 6, "type": "digit", "base": 1, "mult": 6, "script": "Extended Arabic-Indic"}
+{"txt": "\u06f7", "rom": "7", "value": 7, "type": "digit", "base": 1, "mult": 7, "script": "Extended Arabic-Indic"}
+{"txt": "\u06f8", "rom": "8", "value": 8, "type": "digit", "base": 1, "mult": 8, "script": "Extended Arabic-Indic"}
+{"txt": "\u06f9", "rom": "9", "value": 9, "type": "digit", "base": 1, "mult": 9, "script": "Extended Arabic-Indic"}
+{"txt": "\u07c0", "rom": "0", "value": 0, "type": "digit", "base": 1, "mult": 0, "script": "Nko"}
+{"txt": "\u07c1", "rom": "1", "value": 1, "type": "digit", "base": 1, "mult": 1, "script": "Nko"}
+{"txt": "\u07c2", "rom": "2", "value": 2, "type": "digit", "base": 1, "mult": 2, "script": "Nko"}
+{"txt": "\u07c3", "rom": "3", "value": 3, "type": "digit", "base": 1, "mult": 3, "script": "Nko"}
+{"txt": "\u07c4", "rom": "4", "value": 4, "type": "digit", "base": 1, "mult": 4, "script": "Nko"}
+{"txt": "\u07c5", "rom": "5", "value": 5, "type": "digit", "base": 1, "mult": 5, "script": "Nko"}
+{"txt": "\u07c6", "rom": "6", "value": 6, "type": "digit", "base": 1, "mult": 6, "script": "Nko"}
+{"txt": "\u07c7", "rom": "7", "value": 7, "type": "digit", "base": 1, "mult": 7, "script": "Nko"}
+{"txt": "\u07c8", "rom": "8", "value": 8, "type": "digit", "base": 1, "mult": 8, "script": "Nko"}
+{"txt": "\u07c9", "rom": "9", "value": 9, "type": "digit", "base": 1, "mult": 9, "script": "Nko"}
+{"txt": "\u0966", "rom": "0", "value": 0, "type": "digit", "base": 1, "mult": 0, "script": "Devanagari"}
+{"txt": "\u0967", "rom": "1", "value": 1, "type": "digit", "base": 1, "mult": 1, "script": "Devanagari"}
+{"txt": "\u0968", "rom": "2", "value": 2, "type": "digit", "base": 1, "mult": 2, "script": "Devanagari"}
+{"txt": "\u0969", "rom": "3", "value": 3, "type": "digit", "base": 1, "mult": 3, "script": "Devanagari"}
+{"txt": "\u096a", "rom": "4", "value": 4, "type": "digit", "base": 1, "mult": 4, "script": "Devanagari"}
+{"txt": "\u096b", "rom": "5", "value": 5, "type": "digit", "base": 1, "mult": 5, "script": "Devanagari"}
+{"txt": "\u096c", "rom": "6", "value": 6, "type": "digit", "base": 1, "mult": 6, "script": "Devanagari"}
+{"txt": "\u096d", "rom": "7", "value": 7, "type": "digit", "base": 1, "mult": 7, "script": "Devanagari"}
+{"txt": "\u096e", "rom": "8", "value": 8, "type": "digit", "base": 1, "mult": 8, "script": "Devanagari"}
+{"txt": "\u096f", "rom": "9", "value": 9, "type": "digit", "base": 1, "mult": 9, "script": "Devanagari"}
+{"txt": "\u09e6", "rom": "0", "value": 0, "type": "digit", "base": 1, "mult": 0, "script": "Bengali"}
+{"txt": "\u09e7", "rom": "1", "value": 1, "type": "digit", "base": 1, "mult": 1, "script": "Bengali"}
+{"txt": "\u09e8", "rom": "2", "value": 2, "type": "digit", "base": 1, "mult": 2, "script": "Bengali"}
+{"txt": "\u09e9", "rom": "3", "value": 3, "type": "digit", "base": 1, "mult": 3, "script": "Bengali"}
+{"txt": "\u09ea", "rom": "4", "value": 4, "type": "digit", "base": 1, "mult": 4, "script": "Bengali"}
+{"txt": "\u09eb", "rom": "5", "value": 5, "type": "digit", "base": 1, "mult": 5, "script": "Bengali"}
+{"txt": "\u09ec", "rom": "6", "value": 6, "type": "digit", "base": 1, "mult": 6, "script": "Bengali"}
+{"txt": "\u09ed", "rom": "7", "value": 7, "type": "digit", "base": 1, "mult": 7, "script": "Bengali"}
+{"txt": "\u09ee", "rom": "8", "value": 8, "type": "digit", "base": 1, "mult": 8, "script": "Bengali"}
+{"txt": "\u09ef", "rom": "9", "value": 9, "type": "digit", "base": 1, "mult": 9, "script": "Bengali"}
+{"txt": "\u09f9", "rom": "16", "value": 16, "type": "multi", "base": 1, "mult": 16, "name": "BENGALI CURRENCY DENOMINATOR SIXTEEN"}
+{"txt": "\u0a66", "rom": "0", "value": 0, "type": "digit", "base": 1, "mult": 0, "script": "Gurmukhi"}
+{"txt": "\u0a67", "rom": "1", "value": 1, "type": "digit", "base": 1, "mult": 1, "script": "Gurmukhi"}
+{"txt": "\u0a68", "rom": "2", "value": 2, "type": "digit", "base": 1, "mult": 2, "script": "Gurmukhi"}
+{"txt": "\u0a69", "rom": "3", "value": 3, "type": "digit", "base": 1, "mult": 3, "script": "Gurmukhi"}
+{"txt": "\u0a6a", "rom": "4", "value": 4, "type": "digit", "base": 1, "mult": 4, "script": "Gurmukhi"}
+{"txt": "\u0a6b", "rom": "5", "value": 5, "type": "digit", "base": 1, "mult": 5, "script": "Gurmukhi"}
+{"txt": "\u0a6c", "rom": "6", "value": 6, "type": "digit", "base": 1, "mult": 6, "script": "Gurmukhi"}
+{"txt": "\u0a6d", "rom": "7", "value": 7, "type": "digit", "base": 1, "mult": 7, "script": "Gurmukhi"}
+{"txt": "\u0a6e", "rom": "8", "value": 8, "type": "digit", "base": 1, "mult": 8, "script": "Gurmukhi"}
+{"txt": "\u0a6f", "rom": "9", "value": 9, "type": "digit", "base": 1, "mult": 9, "script": "Gurmukhi"}
+{"txt": "\u0ae6", "rom": "0", "value": 0, "type": "digit", "base": 1, "mult": 0, "script": "Gujarati"}
+{"txt": "\u0ae7", "rom": "1", "value": 1, "type": "digit", "base": 1, "mult": 1, "script": "Gujarati"}
+{"txt": "\u0ae8", "rom": "2", "value": 2, "type": "digit", "base": 1, "mult": 2, "script": "Gujarati"}
+{"txt": "\u0ae9", "rom": "3", "value": 3, "type": "digit", "base": 1, "mult": 3, "script": "Gujarati"}
+{"txt": "\u0aea", "rom": "4", "value": 4, "type": "digit", "base": 1, "mult": 4, "script": "Gujarati"}
+{"txt": "\u0aeb", "rom": "5", "value": 5, "type": "digit", "base": 1, "mult": 5, "script": "Gujarati"}
+{"txt": "\u0aec", "rom": "6", "value": 6, "type": "digit", "base": 1, "mult": 6, "script": "Gujarati"}
+{"txt": "\u0aed", "rom": "7", "value": 7, "type": "digit", "base": 1, "mult": 7, "script": "Gujarati"}
+{"txt": "\u0aee", "rom": "8", "value": 8, "type": "digit", "base": 1, "mult": 8, "script": "Gujarati"}
+{"txt": "\u0aef", "rom": "9", "value": 9, "type": "digit", "base": 1, "mult": 9, "script": "Gujarati"}
+{"txt": "\u0b66", "rom": "0", "value": 0, "type": "digit", "base": 1, "mult": 0, "script": "Oriya"}
+{"txt": "\u0b67", "rom": "1", "value": 1, "type": "digit", "base": 1, "mult": 1, "script": "Oriya"}
+{"txt": "\u0b68", "rom": "2", "value": 2, "type": "digit", "base": 1, "mult": 2, "script": "Oriya"}
+{"txt": "\u0b69", "rom": "3", "value": 3, "type": "digit", "base": 1, "mult": 3, "script": "Oriya"}
+{"txt": "\u0b6a", "rom": "4", "value": 4, "type": "digit", "base": 1, "mult": 4, "script": "Oriya"}
+{"txt": "\u0b6b", "rom": "5", "value": 5, "type": "digit", "base": 1, "mult": 5, "script": "Oriya"}
+{"txt": "\u0b6c", "rom": "6", "value": 6, "type": "digit", "base": 1, "mult": 6, "script": "Oriya"}
+{"txt": "\u0b6d", "rom": "7", "value": 7, "type": "digit", "base": 1, "mult": 7, "script": "Oriya"}
+{"txt": "\u0b6e", "rom": "8", "value": 8, "type": "digit", "base": 1, "mult": 8, "script": "Oriya"}
+{"txt": "\u0b6f", "rom": "9", "value": 9, "type": "digit", "base": 1, "mult": 9, "script": "Oriya"}
+{"txt": "\u0b72", "rom": "1/4", "fraction": [1, 4], "type": "fraction", "script": "Oriya"}
+{"txt": "\u0b73", "rom": "1/2", "fraction": [1, 2], "type": "fraction", "script": "Oriya"}
+{"txt": "\u0b74", "rom": "3/4", "fraction": [3, 4], "type": "fraction", "script": "Oriya"}
+{"txt": "\u0b75", "rom": "1/16", "fraction": [1, 16], "type": "fraction", "script": "Oriya"}
+{"txt": "\u0b76", "rom": "1/8", "fraction": [1, 8], "type": "fraction", "script": "Oriya"}
+{"txt": "\u0b77", "rom": "3/16", "fraction": [3, 16], "type": "fraction", "script": "Oriya"}
+{"txt": "\u0be6", "rom": "0", "value": 0, "type": "digit", "base": 1, "mult": 0, "script": "Tamil"}
+{"txt": "\u0be7", "rom": "1", "value": 1, "type": "digit", "base": 1, "mult": 1, "script": "Tamil"}
+{"txt": "\u0be8", "rom": "2", "value": 2, "type": "digit", "base": 1, "mult": 2, "script": "Tamil"}
+{"txt": "\u0be9", "rom": "3", "value": 3, "type": "digit", "base": 1, "mult": 3, "script": "Tamil"}
+{"txt": "\u0bea", "rom": "4", "value": 4, "type": "digit", "base": 1, "mult": 4, "script": "Tamil"}
+{"txt": "\u0beb", "rom": "5", "value": 5, "type": "digit", "base": 1, "mult": 5, "script": "Tamil"}
+{"txt": "\u0bec", "rom": "6", "value": 6, "type": "digit", "base": 1, "mult": 6, "script": "Tamil"}
+{"txt": "\u0bed", "rom": "7", "value": 7, "type": "digit", "base": 1, "mult": 7, "script": "Tamil"}
+{"txt": "\u0bee", "rom": "8", "value": 8, "type": "digit", "base": 1, "mult": 8, "script": "Tamil"}
+{"txt": "\u0bef", "rom": "9", "value": 9, "type": "digit", "base": 1, "mult": 9, "script": "Tamil"}
+{"txt": "\u0bf0", "rom": "10", "value": 10, "type": "base", "base": 10, "mult": 1, "script": "Tamil"}
+{"txt": "\u0bf1", "rom": "100", "value": 100, "type": "base", "base": 100, "mult": 1, "script": "Tamil"}
+{"txt": "\u0bf2", "rom": "1000", "value": 1000, "type": "base", "base": 1000, "mult": 1, "script": "Tamil"}
+{"txt": "\u0c66", "rom": "0", "value": 0, "type": "digit", "base": 1, "mult": 0, "script": "Telugu"}
+{"txt": "\u0c67", "rom": "1", "value": 1, "type": "digit", "base": 1, "mult": 1, "script": "Telugu"}
+{"txt": "\u0c68", "rom": "2", "value": 2, "type": "digit", "base": 1, "mult": 2, "script": "Telugu"}
+{"txt": "\u0c69", "rom": "3", "value": 3, "type": "digit", "base": 1, "mult": 3, "script": "Telugu"}
+{"txt": "\u0c6a", "rom": "4", "value": 4, "type": "digit", "base": 1, "mult": 4, "script": "Telugu"}
+{"txt": "\u0c6b", "rom": "5", "value": 5, "type": "digit", "base": 1, "mult": 5, "script": "Telugu"}
+{"txt": "\u0c6c", "rom": "6", "value": 6, "type": "digit", "base": 1, "mult": 6, "script": "Telugu"}
+{"txt": "\u0c6d", "rom": "7", "value": 7, "type": "digit", "base": 1, "mult": 7, "script": "Telugu"}
+{"txt": "\u0c6e", "rom": "8", "value": 8, "type": "digit", "base": 1, "mult": 8, "script": "Telugu"}
+{"txt": "\u0c6f", "rom": "9", "value": 9, "type": "digit", "base": 1, "mult": 9, "script": "Telugu"}
+{"txt": "\u0c78", "rom": "0", "value": 0, "type": "digit", "base": 1, "mult": 0, "script": "Telugu"}
+{"txt": "\u0c79", "rom": "1", "value": 1, "type": "digit", "base": 1, "mult": 1, "script": "Telugu"}
+{"txt": "\u0c7a", "rom": "2", "value": 2, "type": "digit", "base": 1, "mult": 2, "script": "Telugu"}
+{"txt": "\u0c7b", "rom": "3", "value": 3, "type": "digit", "base": 1, "mult": 3, "script": "Telugu"}
+{"txt": "\u0c7c", "rom": "1", "value": 1, "type": "digit", "base": 1, "mult": 1, "script": "Telugu"}
+{"txt": "\u0c7d", "rom": "2", "value": 2, "type": "digit", "base": 1, "mult": 2, "script": "Telugu"}
+{"txt": "\u0c7e", "rom": "3", "value": 3, "type": "digit", "base": 1, "mult": 3, "script": "Telugu"}
+{"txt": "\u0ce6", "rom": "0", "value": 0, "type": "digit", "base": 1, "mult": 0, "script": "Kannada"}
+{"txt": "\u0ce7", "rom": "1", "value": 1, "type": "digit", "base": 1, "mult": 1, "script": "Kannada"}
+{"txt": "\u0ce8", "rom": "2", "value": 2, "type": "digit", "base": 1, "mult": 2, "script": "Kannada"}
+{"txt": "\u0ce9", "rom": "3", "value": 3, "type": "digit", "base": 1, "mult": 3, "script": "Kannada"}
+{"txt": "\u0cea", "rom": "4", "value": 4, "type": "digit", "base": 1, "mult": 4, "script": "Kannada"}
+{"txt": "\u0ceb", "rom": "5", "value": 5, "type": "digit", "base": 1, "mult": 5, "script": "Kannada"}
+{"txt": "\u0cec", "rom": "6", "value": 6, "type": "digit", "base": 1, "mult": 6, "script": "Kannada"}
+{"txt": "\u0ced", "rom": "7", "value": 7, "type": "digit", "base": 1, "mult": 7, "script": "Kannada"}
+{"txt": "\u0cee", "rom": "8", "value": 8, "type": "digit", "base": 1, "mult": 8, "script": "Kannada"}
+{"txt": "\u0cef", "rom": "9", "value": 9, "type": "digit", "base": 1, "mult": 9, "script": "Kannada"}
+{"txt": "\u0d58", "rom": "1/160", "fraction": [1, 160], "type": "fraction", "script": "Malayalam"}
+{"txt": "\u0d59", "rom": "1/40", "fraction": [1, 40], "type": "fraction", "script": "Malayalam"}
+{"txt": "\u0d5a", "rom": "3/80", "fraction": [3, 80], "type": "fraction", "script": "Malayalam"}
+{"txt": "\u0d5b", "rom": "1/20", "fraction": [1, 20], "type": "fraction", "script": "Malayalam"}
+{"txt": "\u0d5c", "rom": "1/10", "fraction": [1, 10], "type": "fraction", "script": "Malayalam"}
+{"txt": "\u0d5d", "rom": "3/20", "fraction": [3, 20], "type": "fraction", "script": "Malayalam"}
+{"txt": "\u0d5e", "rom": "1/5", "fraction": [1, 5], "type": "fraction", "script": "Malayalam"}
+{"txt": "\u0d66", "rom": "0", "value": 0, "type": "digit", "base": 1, "mult": 0, "script": "Malayalam"}
+{"txt": "\u0d67", "rom": "1", "value": 1, "type": "digit", "base": 1, "mult": 1, "script": "Malayalam"}
+{"txt": "\u0d68", "rom": "2", "value": 2, "type": "digit", "base": 1, "mult": 2, "script": "Malayalam"}
+{"txt": "\u0d69", "rom": "3", "value": 3, "type": "digit", "base": 1, "mult": 3, "script": "Malayalam"}
+{"txt": "\u0d6a", "rom": "4", "value": 4, "type": "digit", "base": 1, "mult": 4, "script": "Malayalam"}
+{"txt": "\u0d6b", "rom": "5", "value": 5, "type": "digit", "base": 1, "mult": 5, "script": "Malayalam"}
+{"txt": "\u0d6c", "rom": "6", "value": 6, "type": "digit", "base": 1, "mult": 6, "script": "Malayalam"}
+{"txt": "\u0d6d", "rom": "7", "value": 7, "type": "digit", "base": 1, "mult": 7, "script": "Malayalam"}
+{"txt": "\u0d6e", "rom": "8", "value": 8, "type": "digit", "base": 1, "mult": 8, "script": "Malayalam"}
+{"txt": "\u0d6f", "rom": "9", "value": 9, "type": "digit", "base": 1, "mult": 9, "script": "Malayalam"}
+{"txt": "\u0d70", "rom": "10", "value": 10, "type": "base", "base": 10, "mult": 1, "script": "Malayalam"}
+{"txt": "\u0d71", "rom": "100", "value": 100, "type": "base", "base": 100, "mult": 1, "script": "Malayalam"}
+{"txt": "\u0d72", "rom": "1000", "value": 1000, "type": "base", "base": 1000, "mult": 1, "script": "Malayalam"}
+{"txt": "\u0d73", "rom": "1/4", "fraction": [1, 4], "type": "fraction", "script": "Malayalam"}
+{"txt": "\u0d74", "rom": "1/2", "fraction": [1, 2], "type": "fraction", "script": "Malayalam"}
+{"txt": "\u0d75", "rom": "3/4", "fraction": [3, 4], "type": "fraction", "script": "Malayalam"}
+{"txt": "\u0d76", "rom": "1/16", "fraction": [1, 16], "type": "fraction", "script": "Malayalam"}
+{"txt": "\u0d77", "rom": "1/8", "fraction": [1, 8], "type": "fraction", "script": "Malayalam"}
+{"txt": "\u0d78", "rom": "3/16", "fraction": [3, 16], "type": "fraction", "script": "Malayalam"}
+{"txt": "\u0de6", "rom": "0", "value": 0, "type": "digit", "base": 1, "mult": 0, "script": "Sinhala"}
+{"txt": "\u0de7", "rom": "1", "value": 1, "type": "digit", "base": 1, "mult": 1, "script": "Sinhala"}
+{"txt": "\u0de8", "rom": "2", "value": 2, "type": "digit", "base": 1, "mult": 2, "script": "Sinhala"}
+{"txt": "\u0de9", "rom": "3", "value": 3, "type": "digit", "base": 1, "mult": 3, "script": "Sinhala"}
+{"txt": "\u0dea", "rom": "4", "value": 4, "type": "digit", "base": 1, "mult": 4, "script": "Sinhala"}
+{"txt": "\u0deb", "rom": "5", "value": 5, "type": "digit", "base": 1, "mult": 5, "script": "Sinhala"}
+{"txt": "\u0dec", "rom": "6", "value": 6, "type": "digit", "base": 1, "mult": 6, "script": "Sinhala"}
+{"txt": "\u0ded", "rom": "7", "value": 7, "type": "digit", "base": 1, "mult": 7, "script": "Sinhala"}
+{"txt": "\u0dee", "rom": "8", "value": 8, "type": "digit", "base": 1, "mult": 8, "script": "Sinhala"}
+{"txt": "\u0def", "rom": "9", "value": 9, "type": "digit", "base": 1, "mult": 9, "script": "Sinhala"}
+{"txt": "\u0e50", "rom": "0", "value": 0, "type": "digit", "base": 1, "mult": 0, "script": "Thai"}
+{"txt": "\u0e51", "rom": "1", "value": 1, "type": "digit", "base": 1, "mult": 1, "script": "Thai"}
+{"txt": "\u0e52", "rom": "2", "value": 2, "type": "digit", "base": 1, "mult": 2, "script": "Thai"}
+{"txt": "\u0e53", "rom": "3", "value": 3, "type": "digit", "base": 1, "mult": 3, "script": "Thai"}
+{"txt": "\u0e54", "rom": "4", "value": 4, "type": "digit", "base": 1, "mult": 4, "script": "Thai"}
+{"txt": "\u0e55", "rom": "5", "value": 5, "type": "digit", "base": 1, "mult": 5, "script": "Thai"}
+{"txt": "\u0e56", "rom": "6", "value": 6, "type": "digit", "base": 1, "mult": 6, "script": "Thai"}
+{"txt": "\u0e57", "rom": "7", "value": 7, "type": "digit", "base": 1, "mult": 7, "script": "Thai"}
+{"txt": "\u0e58", "rom": "8", "value": 8, "type": "digit", "base": 1, "mult": 8, "script": "Thai"}
+{"txt": "\u0e59", "rom": "9", "value": 9, "type": "digit", "base": 1, "mult": 9, "script": "Thai"}
+{"txt": "\u0ed0", "rom": "0", "value": 0, "type": "digit", "base": 1, "mult": 0, "script": "Lao"}
+{"txt": "\u0ed1", "rom": "1", "value": 1, "type": "digit", "base": 1, "mult": 1, "script": "Lao"}
+{"txt": "\u0ed2", "rom": "2", "value": 2, "type": "digit", "base": 1, "mult": 2, "script": "Lao"}
+{"txt": "\u0ed3", "rom": "3", "value": 3, "type": "digit", "base": 1, "mult": 3, "script": "Lao"}
+{"txt": "\u0ed4", "rom": "4", "value": 4, "type": "digit", "base": 1, "mult": 4, "script": "Lao"}
+{"txt": "\u0ed5", "rom": "5", "value": 5, "type": "digit", "base": 1, "mult": 5, "script": "Lao"}
+{"txt": "\u0ed6", "rom": "6", "value": 6, "type": "digit", "base": 1, "mult": 6, "script": "Lao"}
+{"txt": "\u0ed7", "rom": "7", "value": 7, "type": "digit", "base": 1, "mult": 7, "script": "Lao"}
+{"txt": "\u0ed8", "rom": "8", "value": 8, "type": "digit", "base": 1, "mult": 8, "script": "Lao"}
+{"txt": "\u0ed9", "rom": "9", "value": 9, "type": "digit", "base": 1, "mult": 9, "script": "Lao"}
+{"txt": "\u0f20", "rom": "0", "value": 0, "type": "digit", "base": 1, "mult": 0, "script": "Tibetan"}
+{"txt": "\u0f21", "rom": "1", "value": 1, "type": "digit", "base": 1, "mult": 1, "script": "Tibetan"}
+{"txt": "\u0f22", "rom": "2", "value": 2, "type": "digit", "base": 1, "mult": 2, "script": "Tibetan"}
+{"txt": "\u0f23", "rom": "3", "value": 3, "type": "digit", "base": 1, "mult": 3, "script": "Tibetan"}
+{"txt": "\u0f24", "rom": "4", "value": 4, "type": "digit", "base": 1, "mult": 4, "script": "Tibetan"}
+{"txt": "\u0f25", "rom": "5", "value": 5, "type": "digit", "base": 1, "mult": 5, "script": "Tibetan"}
+{"txt": "\u0f26", "rom": "6", "value": 6, "type": "digit", "base": 1, "mult": 6, "script": "Tibetan"}
+{"txt": "\u0f27", "rom": "7", "value": 7, "type": "digit", "base": 1, "mult": 7, "script": "Tibetan"}
+{"txt": "\u0f28", "rom": "8", "value": 8, "type": "digit", "base": 1, "mult": 8, "script": "Tibetan"}
+{"txt": "\u0f29", "rom": "9", "value": 9, "type": "digit", "base": 1, "mult": 9, "script": "Tibetan"}
+{"txt": "\u1040", "rom": "0", "value": 0, "type": "digit", "base": 1, "mult": 0, "script": "Myanmar"}
+{"txt": "\u1041", "rom": "1", "value": 1, "type": "digit", "base": 1, "mult": 1, "script": "Myanmar"}
+{"txt": "\u1042", "rom": "2", "value": 2, "type": "digit", "base": 1, "mult": 2, "script": "Myanmar"}
+{"txt": "\u1043", "rom": "3", "value": 3, "type": "digit", "base": 1, "mult": 3, "script": "Myanmar"}
+{"txt": "\u1044", "rom": "4", "value": 4, "type": "digit", "base": 1, "mult": 4, "script": "Myanmar"}
+{"txt": "\u1045", "rom": "5", "value": 5, "type": "digit", "base": 1, "mult": 5, "script": "Myanmar"}
+{"txt": "\u1046", "rom": "6", "value": 6, "type": "digit", "base": 1, "mult": 6, "script": "Myanmar"}
+{"txt": "\u1047", "rom": "7", "value": 7, "type": "digit", "base": 1, "mult": 7, "script": "Myanmar"}
+{"txt": "\u1048", "rom": "8", "value": 8, "type": "digit", "base": 1, "mult": 8, "script": "Myanmar"}
+{"txt": "\u1049", "rom": "9", "value": 9, "type": "digit", "base": 1, "mult": 9, "script": "Myanmar"}
+{"txt": "\u1090", "rom": "0", "value": 0, "type": "digit", "base": 1, "mult": 0, "script": "Myanmar"}
+{"txt": "\u1091", "rom": "1", "value": 1, "type": "digit", "base": 1, "mult": 1, "script": "Myanmar"}
+{"txt": "\u1092", "rom": "2", "value": 2, "type": "digit", "base": 1, "mult": 2, "script": "Myanmar"}
+{"txt": "\u1093", "rom": "3", "value": 3, "type": "digit", "base": 1, "mult": 3, "script": "Myanmar"}
+{"txt": "\u1094", "rom": "4", "value": 4, "type": "digit", "base": 1, "mult": 4, "script": "Myanmar"}
+{"txt": "\u1095", "rom": "5", "value": 5, "type": "digit", "base": 1, "mult": 5, "script": "Myanmar"}
+{"txt": "\u1096", "rom": "6", "value": 6, "type": "digit", "base": 1, "mult": 6, "script": "Myanmar"}
+{"txt": "\u1097", "rom": "7", "value": 7, "type": "digit", "base": 1, "mult": 7, "script": "Myanmar"}
+{"txt": "\u1098", "rom": "8", "value": 8, "type": "digit", "base": 1, "mult": 8, "script": "Myanmar"}
+{"txt": "\u1099", "rom": "9", "value": 9, "type": "digit", "base": 1, "mult": 9, "script": "Myanmar"}
+{"txt": "\u1369", "rom": "1", "value": 1, "type": "digit", "base": 1, "mult": 1, "script": "Ethiopic"}
+{"txt": "\u136a", "rom": "2", "value": 2, "type": "digit", "base": 1, "mult": 2, "script": "Ethiopic"}
+{"txt": "\u136b", "rom": "3", "value": 3, "type": "digit", "base": 1, "mult": 3, "script": "Ethiopic"}
+{"txt": "\u136c", "rom": "4", "value": 4, "type": "digit", "base": 1, "mult": 4, "script": "Ethiopic"}
+{"txt": "\u136d", "rom": "5", "value": 5, "type": "digit", "base": 1, "mult": 5, "script": "Ethiopic"}
+{"txt": "\u136e", "rom": "6", "value": 6, "type": "digit", "base": 1, "mult": 6, "script": "Ethiopic"}
+{"txt": "\u136f", "rom": "7", "value": 7, "type": "digit", "base": 1, "mult": 7, "script": "Ethiopic"}
+{"txt": "\u1370", "rom": "8", "value": 8, "type": "digit", "base": 1, "mult": 8, "script": "Ethiopic"}
+{"txt": "\u1371", "rom": "9", "value": 9, "type": "digit", "base": 1, "mult": 9, "script": "Ethiopic"}
+{"txt": "\u1372", "rom": "10", "value": 10, "type": "base", "base": 10, "mult": 1, "script": "Ethiopic"}
+{"txt": "\u1373", "rom": "20", "value": 20, "type": "multi", "base": 10, "mult": 2, "script": "Ethiopic"}
+{"txt": "\u1374", "rom": "30", "value": 30, "type": "multi", "base": 10, "mult": 3, "script": "Ethiopic"}
+{"txt": "\u1375", "rom": "40", "value": 40, "type": "multi", "base": 10, "mult": 4, "script": "Ethiopic"}
+{"txt": "\u1376", "rom": "50", "value": 50, "type": "multi", "base": 10, "mult": 5, "script": "Ethiopic"}
+{"txt": "\u1377", "rom": "60", "value": 60, "type": "multi", "base": 10, "mult": 6, "script": "Ethiopic"}
+{"txt": "\u1378", "rom": "70", "value": 70, "type": "multi", "base": 10, "mult": 7, "script": "Ethiopic"}
+{"txt": "\u1379", "rom": "80", "value": 80, "type": "multi", "base": 10, "mult": 8, "script": "Ethiopic"}
+{"txt": "\u137a", "rom": "90", "value": 90, "type": "multi", "base": 10, "mult": 9, "script": "Ethiopic"}
+{"txt": "\u137b", "rom": "100", "value": 100, "type": "base", "is-large-power": true, "base": 100, "mult": 1, "script": "Ethiopic"}
+{"txt": "\u137c", "rom": "10000", "value": 10000, "type": "base", "is-large-power": true, "base": 10000, "mult": 1, "script": "Ethiopic"}
+{"txt": "\u16ee", "rom": "17", "value": 17, "type": "multi", "base": 1, "mult": 17, "name": "RUNIC ARLAUG SYMBOL"}
+{"txt": "\u16ef", "rom": "18", "value": 18, "type": "multi", "base": 1, "mult": 18, "name": "RUNIC TVIMADUR SYMBOL"}
+{"txt": "\u16f0", "rom": "19", "value": 19, "type": "multi", "base": 1, "mult": 19, "name": "RUNIC BELGTHOR SYMBOL"}
+{"txt": "\u17e0", "rom": "0", "value": 0, "type": "digit", "base": 1, "mult": 0, "script": "Khmer"}
+{"txt": "\u17e1", "rom": "1", "value": 1, "type": "digit", "base": 1, "mult": 1, "script": "Khmer"}
+{"txt": "\u17e2", "rom": "2", "value": 2, "type": "digit", "base": 1, "mult": 2, "script": "Khmer"}
+{"txt": "\u17e3", "rom": "3", "value": 3, "type": "digit", "base": 1, "mult": 3, "script": "Khmer"}
+{"txt": "\u17e4", "rom": "4", "value": 4, "type": "digit", "base": 1, "mult": 4, "script": "Khmer"}
+{"txt": "\u17e5", "rom": "5", "value": 5, "type": "digit", "base": 1, "mult": 5, "script": "Khmer"}
+{"txt": "\u17e6", "rom": "6", "value": 6, "type": "digit", "base": 1, "mult": 6, "script": "Khmer"}
+{"txt": "\u17e7", "rom": "7", "value": 7, "type": "digit", "base": 1, "mult": 7, "script": "Khmer"}
+{"txt": "\u17e8", "rom": "8", "value": 8, "type": "digit", "base": 1, "mult": 8, "script": "Khmer"}
+{"txt": "\u17e9", "rom": "9", "value": 9, "type": "digit", "base": 1, "mult": 9, "script": "Khmer"}
+{"txt": "\u17f0", "rom": "0", "value": 0, "type": "digit-like", "base": 1, "mult": 0, "name": "KHMER SYMBOL LEK ATTAK SON"}
+{"txt": "\u17f1", "rom": "1", "value": 1, "type": "digit-like", "base": 1, "mult": 1, "name": "KHMER SYMBOL LEK ATTAK MUOY"}
+{"txt": "\u17f2", "rom": "2", "value": 2, "type": "digit-like", "base": 1, "mult": 2, "name": "KHMER SYMBOL LEK ATTAK PII"}
+{"txt": "\u17f3", "rom": "3", "value": 3, "type": "digit-like", "base": 1, "mult": 3, "name": "KHMER SYMBOL LEK ATTAK BEI"}
+{"txt": "\u17f4", "rom": "4", "value": 4, "type": "digit-like", "base": 1, "mult": 4, "name": "KHMER SYMBOL LEK ATTAK BUON"}
+{"txt": "\u17f5", "rom": "5", "value": 5, "type": "digit-like", "base": 1, "mult": 5, "name": "KHMER SYMBOL LEK ATTAK PRAM"}
+{"txt": "\u17f6", "rom": "6", "value": 6, "type": "digit-like", "base": 1, "mult": 6, "name": "KHMER SYMBOL LEK ATTAK PRAM-MUOY"}
+{"txt": "\u17f7", "rom": "7", "value": 7, "type": "digit-like", "base": 1, "mult": 7, "name": "KHMER SYMBOL LEK ATTAK PRAM-PII"}
+{"txt": "\u17f8", "rom": "8", "value": 8, "type": "digit-like", "base": 1, "mult": 8, "name": "KHMER SYMBOL LEK ATTAK PRAM-BEI"}
+{"txt": "\u17f9", "rom": "9", "value": 9, "type": "digit-like", "base": 1, "mult": 9, "name": "KHMER SYMBOL LEK ATTAK PRAM-BUON"}
+{"txt": "\u1810", "rom": "0", "value": 0, "type": "digit", "base": 1, "mult": 0, "script": "Mongolian"}
+{"txt": "\u1811", "rom": "1", "value": 1, "type": "digit", "base": 1, "mult": 1, "script": "Mongolian"}
+{"txt": "\u1812", "rom": "2", "value": 2, "type": "digit", "base": 1, "mult": 2, "script": "Mongolian"}
+{"txt": "\u1813", "rom": "3", "value": 3, "type": "digit", "base": 1, "mult": 3, "script": "Mongolian"}
+{"txt": "\u1814", "rom": "4", "value": 4, "type": "digit", "base": 1, "mult": 4, "script": "Mongolian"}
+{"txt": "\u1815", "rom": "5", "value": 5, "type": "digit", "base": 1, "mult": 5, "script": "Mongolian"}
+{"txt": "\u1816", "rom": "6", "value": 6, "type": "digit", "base": 1, "mult": 6, "script": "Mongolian"}
+{"txt": "\u1817", "rom": "7", "value": 7, "type": "digit", "base": 1, "mult": 7, "script": "Mongolian"}
+{"txt": "\u1818", "rom": "8", "value": 8, "type": "digit", "base": 1, "mult": 8, "script": "Mongolian"}
+{"txt": "\u1819", "rom": "9", "value": 9, "type": "digit", "base": 1, "mult": 9, "script": "Mongolian"}
+{"txt": "\u1946", "rom": "0", "value": 0, "type": "digit", "base": 1, "mult": 0, "script": "Limbu"}
+{"txt": "\u1947", "rom": "1", "value": 1, "type": "digit", "base": 1, "mult": 1, "script": "Limbu"}
+{"txt": "\u1948", "rom": "2", "value": 2, "type": "digit", "base": 1, "mult": 2, "script": "Limbu"}
+{"txt": "\u1949", "rom": "3", "value": 3, "type": "digit", "base": 1, "mult": 3, "script": "Limbu"}
+{"txt": "\u194a", "rom": "4", "value": 4, "type": "digit", "base": 1, "mult": 4, "script": "Limbu"}
+{"txt": "\u194b", "rom": "5", "value": 5, "type": "digit", "base": 1, "mult": 5, "script": "Limbu"}
+{"txt": "\u194c", "rom": "6", "value": 6, "type": "digit", "base": 1, "mult": 6, "script": "Limbu"}
+{"txt": "\u194d", "rom": "7", "value": 7, "type": "digit", "base": 1, "mult": 7, "script": "Limbu"}
+{"txt": "\u194e", "rom": "8", "value": 8, "type": "digit", "base": 1, "mult": 8, "script": "Limbu"}
+{"txt": "\u194f", "rom": "9", "value": 9, "type": "digit", "base": 1, "mult": 9, "script": "Limbu"}
+{"txt": "\u19d0", "rom": "0", "value": 0, "type": "digit", "base": 1, "mult": 0, "script": "New Tai Lue"}
+{"txt": "\u19d1", "rom": "1", "value": 1, "type": "digit", "base": 1, "mult": 1, "script": "New Tai Lue"}
+{"txt": "\u19d2", "rom": "2", "value": 2, "type": "digit", "base": 1, "mult": 2, "script": "New Tai Lue"}
+{"txt": "\u19d3", "rom": "3", "value": 3, "type": "digit", "base": 1, "mult": 3, "script": "New Tai Lue"}
+{"txt": "\u19d4", "rom": "4", "value": 4, "type": "digit", "base": 1, "mult": 4, "script": "New Tai Lue"}
+{"txt": "\u19d5", "rom": "5", "value": 5, "type": "digit", "base": 1, "mult": 5, "script": "New Tai Lue"}
+{"txt": "\u19d6", "rom": "6", "value": 6, "type": "digit", "base": 1, "mult": 6, "script": "New Tai Lue"}
+{"txt": "\u19d7", "rom": "7", "value": 7, "type": "digit", "base": 1, "mult": 7, "script": "New Tai Lue"}
+{"txt": "\u19d8", "rom": "8", "value": 8, "type": "digit", "base": 1, "mult": 8, "script": "New Tai Lue"}
+{"txt": "\u19d9", "rom": "9", "value": 9, "type": "digit", "base": 1, "mult": 9, "script": "New Tai Lue"}
+{"txt": "\u19da", "rom": "1", "value": 1, "type": "digit", "base": 1, "mult": 1, "script": "New Tai Lue"}
+{"txt": "\u1a80", "rom": "0", "value": 0, "type": "digit", "base": 1, "mult": 0, "script": "Tai Tham"}
+{"txt": "\u1a81", "rom": "1", "value": 1, "type": "digit", "base": 1, "mult": 1, "script": "Tai Tham"}
+{"txt": "\u1a82", "rom": "2", "value": 2, "type": "digit", "base": 1, "mult": 2, "script": "Tai Tham"}
+{"txt": "\u1a83", "rom": "3", "value": 3, "type": "digit", "base": 1, "mult": 3, "script": "Tai Tham"}
+{"txt": "\u1a84", "rom": "4", "value": 4, "type": "digit", "base": 1, "mult": 4, "script": "Tai Tham"}
+{"txt": "\u1a85", "rom": "5", "value": 5, "type": "digit", "base": 1, "mult": 5, "script": "Tai Tham"}
+{"txt": "\u1a86", "rom": "6", "value": 6, "type": "digit", "base": 1, "mult": 6, "script": "Tai Tham"}
+{"txt": "\u1a87", "rom": "7", "value": 7, "type": "digit", "base": 1, "mult": 7, "script": "Tai Tham"}
+{"txt": "\u1a88", "rom": "8", "value": 8, "type": "digit", "base": 1, "mult": 8, "script": "Tai Tham"}
+{"txt": "\u1a89", "rom": "9", "value": 9, "type": "digit", "base": 1, "mult": 9, "script": "Tai Tham"}
+{"txt": "\u1a90", "rom": "0", "value": 0, "type": "digit", "base": 1, "mult": 0, "script": "Tai Tham"}
+{"txt": "\u1a91", "rom": "1", "value": 1, "type": "digit", "base": 1, "mult": 1, "script": "Tai Tham"}
+{"txt": "\u1a92", "rom": "2", "value": 2, "type": "digit", "base": 1, "mult": 2, "script": "Tai Tham"}
+{"txt": "\u1a93", "rom": "3", "value": 3, "type": "digit", "base": 1, "mult": 3, "script": "Tai Tham"}
+{"txt": "\u1a94", "rom": "4", "value": 4, "type": "digit", "base": 1, "mult": 4, "script": "Tai Tham"}
+{"txt": "\u1a95", "rom": "5", "value": 5, "type": "digit", "base": 1, "mult": 5, "script": "Tai Tham"}
+{"txt": "\u1a96", "rom": "6", "value": 6, "type": "digit", "base": 1, "mult": 6, "script": "Tai Tham"}
+{"txt": "\u1a97", "rom": "7", "value": 7, "type": "digit", "base": 1, "mult": 7, "script": "Tai Tham"}
+{"txt": "\u1a98", "rom": "8", "value": 8, "type": "digit", "base": 1, "mult": 8, "script": "Tai Tham"}
+{"txt": "\u1a99", "rom": "9", "value": 9, "type": "digit", "base": 1, "mult": 9, "script": "Tai Tham"}
+{"txt": "\u1b50", "rom": "0", "value": 0, "type": "digit", "base": 1, "mult": 0, "script": "Balinese"}
+{"txt": "\u1b51", "rom": "1", "value": 1, "type": "digit", "base": 1, "mult": 1, "script": "Balinese"}
+{"txt": "\u1b52", "rom": "2", "value": 2, "type": "digit", "base": 1, "mult": 2, "script": "Balinese"}
+{"txt": "\u1b53", "rom": "3", "value": 3, "type": "digit", "base": 1, "mult": 3, "script": "Balinese"}
+{"txt": "\u1b54", "rom": "4", "value": 4, "type": "digit", "base": 1, "mult": 4, "script": "Balinese"}
+{"txt": "\u1b55", "rom": "5", "value": 5, "type": "digit", "base": 1, "mult": 5, "script": "Balinese"}
+{"txt": "\u1b56", "rom": "6", "value": 6, "type": "digit", "base": 1, "mult": 6, "script": "Balinese"}
+{"txt": "\u1b57", "rom": "7", "value": 7, "type": "digit", "base": 1, "mult": 7, "script": "Balinese"}
+{"txt": "\u1b58", "rom": "8", "value": 8, "type": "digit", "base": 1, "mult": 8, "script": "Balinese"}
+{"txt": "\u1b59", "rom": "9", "value": 9, "type": "digit", "base": 1, "mult": 9, "script": "Balinese"}
+{"txt": "\u1bb0", "rom": "0", "value": 0, "type": "digit", "base": 1, "mult": 0, "script": "Sundanese"}
+{"txt": "\u1bb1", "rom": "1", "value": 1, "type": "digit", "base": 1, "mult": 1, "script": "Sundanese"}
+{"txt": "\u1bb2", "rom": "2", "value": 2, "type": "digit", "base": 1, "mult": 2, "script": "Sundanese"}
+{"txt": "\u1bb3", "rom": "3", "value": 3, "type": "digit", "base": 1, "mult": 3, "script": "Sundanese"}
+{"txt": "\u1bb4", "rom": "4", "value": 4, "type": "digit", "base": 1, "mult": 4, "script": "Sundanese"}
+{"txt": "\u1bb5", "rom": "5", "value": 5, "type": "digit", "base": 1, "mult": 5, "script": "Sundanese"}
+{"txt": "\u1bb6", "rom": "6", "value": 6, "type": "digit", "base": 1, "mult": 6, "script": "Sundanese"}
+{"txt": "\u1bb7", "rom": "7", "value": 7, "type": "digit", "base": 1, "mult": 7, "script": "Sundanese"}
+{"txt": "\u1bb8", "rom": "8", "value": 8, "type": "digit", "base": 1, "mult": 8, "script": "Sundanese"}
+{"txt": "\u1bb9", "rom": "9", "value": 9, "type": "digit", "base": 1, "mult": 9, "script": "Sundanese"}
+{"txt": "\u1c40", "rom": "0", "value": 0, "type": "digit", "base": 1, "mult": 0, "script": "Lepcha"}
+{"txt": "\u1c41", "rom": "1", "value": 1, "type": "digit", "base": 1, "mult": 1, "script": "Lepcha"}
+{"txt": "\u1c42", "rom": "2", "value": 2, "type": "digit", "base": 1, "mult": 2, "script": "Lepcha"}
+{"txt": "\u1c43", "rom": "3", "value": 3, "type": "digit", "base": 1, "mult": 3, "script": "Lepcha"}
+{"txt": "\u1c44", "rom": "4", "value": 4, "type": "digit", "base": 1, "mult": 4, "script": "Lepcha"}
+{"txt": "\u1c45", "rom": "5", "value": 5, "type": "digit", "base": 1, "mult": 5, "script": "Lepcha"}
+{"txt": "\u1c46", "rom": "6", "value": 6, "type": "digit", "base": 1, "mult": 6, "script": "Lepcha"}
+{"txt": "\u1c47", "rom": "7", "value": 7, "type": "digit", "base": 1, "mult": 7, "script": "Lepcha"}
+{"txt": "\u1c48", "rom": "8", "value": 8, "type": "digit", "base": 1, "mult": 8, "script": "Lepcha"}
+{"txt": "\u1c49", "rom": "9", "value": 9, "type": "digit", "base": 1, "mult": 9, "script": "Lepcha"}
+{"txt": "\u1c50", "rom": "0", "value": 0, "type": "digit", "base": 1, "mult": 0, "script": "Ol Chiki"}
+{"txt": "\u1c51", "rom": "1", "value": 1, "type": "digit", "base": 1, "mult": 1, "script": "Ol Chiki"}
+{"txt": "\u1c52", "rom": "2", "value": 2, "type": "digit", "base": 1, "mult": 2, "script": "Ol Chiki"}
+{"txt": "\u1c53", "rom": "3", "value": 3, "type": "digit", "base": 1, "mult": 3, "script": "Ol Chiki"}
+{"txt": "\u1c54", "rom": "4", "value": 4, "type": "digit", "base": 1, "mult": 4, "script": "Ol Chiki"}
+{"txt": "\u1c55", "rom": "5", "value": 5, "type": "digit", "base": 1, "mult": 5, "script": "Ol Chiki"}
+{"txt": "\u1c56", "rom": "6", "value": 6, "type": "digit", "base": 1, "mult": 6, "script": "Ol Chiki"}
+{"txt": "\u1c57", "rom": "7", "value": 7, "type": "digit", "base": 1, "mult": 7, "script": "Ol Chiki"}
+{"txt": "\u1c58", "rom": "8", "value": 8, "type": "digit", "base": 1, "mult": 8, "script": "Ol Chiki"}
+{"txt": "\u1c59", "rom": "9", "value": 9, "type": "digit", "base": 1, "mult": 9, "script": "Ol Chiki"}
+{"txt": "\u2150", "rom": "1/7", "fraction": [1, 7], "type": "fraction", "script": "vulgar-fraction"}
+{"txt": "\u2151", "rom": "1/9", "fraction": [1, 9], "type": "fraction", "script": "vulgar-fraction"}
+{"txt": "\u2152", "rom": "1/10", "fraction": [1, 10], "type": "fraction", "script": "vulgar-fraction"}
+{"txt": "\u2153", "rom": "1/3", "fraction": [1, 3], "type": "fraction", "script": "vulgar-fraction"}
+{"txt": "\u2154", "rom": "2/3", "fraction": [2, 3], "type": "fraction", "script": "vulgar-fraction"}
+{"txt": "\u2155", "rom": "1/5", "fraction": [1, 5], "type": "fraction", "script": "vulgar-fraction"}
+{"txt": "\u2156", "rom": "2/5", "fraction": [2, 5], "type": "fraction", "script": "vulgar-fraction"}
+{"txt": "\u2157", "rom": "3/5", "fraction": [3, 5], "type": "fraction", "script": "vulgar-fraction"}
+{"txt": "\u2158", "rom": "4/5", "fraction": [4, 5], "type": "fraction", "script": "vulgar-fraction"}
+{"txt": "\u2159", "rom": "1/6", "fraction": [1, 6], "type": "fraction", "script": "vulgar-fraction"}
+{"txt": "\u215a", "rom": "5/6", "fraction": [5, 6], "type": "fraction", "script": "vulgar-fraction"}
+{"txt": "\u215b", "rom": "1/8", "fraction": [1, 8], "type": "fraction", "script": "vulgar-fraction"}
+{"txt": "\u215c", "rom": "3/8", "fraction": [3, 8], "type": "fraction", "script": "vulgar-fraction"}
+{"txt": "\u215d", "rom": "5/8", "fraction": [5, 8], "type": "fraction", "script": "vulgar-fraction"}
+{"txt": "\u215e", "rom": "7/8", "fraction": [7, 8], "type": "fraction", "script": "vulgar-fraction"}
+{"txt": "\u215f", "rom": "1", "value": 1, "type": "digit-like", "base": 1, "mult": 1, "name": "FRACTION NUMERATOR ONE"}
+{"txt": "\u2189", "rom": "0", "value": 0, "type": "digit-like", "base": 1, "mult": 0, "script": "vulgar-fraction"}
+{"txt": "\u2cfd", "rom": "1/2", "fraction": [1, 2], "type": "fraction", "script": "Coptic"}
+{"txt": "\u3007", "rom": "0", "value": 0, "type": "digit-like", "base": 1, "mult": 0, "name": "IDEOGRAPHIC NUMBER ZERO"}
+{"txt": "\u3021", "rom": "1", "value": 1, "type": "digit-like", "base": 1, "mult": 1, "script": "Hangzhou"}
+{"txt": "\u3022", "rom": "2", "value": 2, "type": "digit-like", "base": 1, "mult": 2, "script": "Hangzhou"}
+{"txt": "\u3023", "rom": "3", "value": 3, "type": "digit-like", "base": 1, "mult": 3, "script": "Hangzhou"}
+{"txt": "\u3024", "rom": "4", "value": 4, "type": "digit-like", "base": 1, "mult": 4, "script": "Hangzhou"}
+{"txt": "\u3025", "rom": "5", "value": 5, "type": "digit-like", "base": 1, "mult": 5, "script": "Hangzhou"}
+{"txt": "\u3026", "rom": "6", "value": 6, "type": "digit-like", "base": 1, "mult": 6, "script": "Hangzhou"}
+{"txt": "\u3027", "rom": "7", "value": 7, "type": "digit-like", "base": 1, "mult": 7, "script": "Hangzhou"}
+{"txt": "\u3028", "rom": "8", "value": 8, "type": "digit-like", "base": 1, "mult": 8, "script": "Hangzhou"}
+{"txt": "\u3029", "rom": "9", "value": 9, "type": "digit-like", "base": 1, "mult": 9, "script": "Hangzhou"}
+{"txt": "\u3038", "rom": "10", "value": 10, "type": "base", "base": 10, "mult": 1, "script": "Hangzhou"}
+{"txt": "\u3039", "rom": "20", "value": 20, "type": "multi", "base": 10, "mult": 2, "script": "Hangzhou"}
+{"txt": "\u303a", "rom": "30", "value": 30, "type": "multi", "base": 10, "mult": 3, "script": "Hangzhou"}
+{"txt": "\u3192", "rom": "1", "value": 1, "type": "digit-like", "base": 1, "mult": 1, "name": "IDEOGRAPHIC ANNOTATION ONE MARK"}
+{"txt": "\u3193", "rom": "2", "value": 2, "type": "digit-like", "base": 1, "mult": 2, "name": "IDEOGRAPHIC ANNOTATION TWO MARK"}
+{"txt": "\u3194", "rom": "3", "value": 3, "type": "digit-like", "base": 1, "mult": 3, "name": "IDEOGRAPHIC ANNOTATION THREE MARK"}
+{"txt": "\u3195", "rom": "4", "value": 4, "type": "digit-like", "base": 1, "mult": 4, "name": "IDEOGRAPHIC ANNOTATION FOUR MARK"}
+{"txt": "\u3405", "rom": "5", "value": 5, "type": "digit-like", "base": 1, "mult": 5, "script": "CJK"}
+{"txt": "\u3483", "rom": "2", "value": 2, "type": "digit-like", "base": 1, "mult": 2, "script": "CJK"}
+{"txt": "\u382a", "rom": "5", "value": 5, "type": "digit-like", "base": 1, "mult": 5, "script": "CJK"}
+{"txt": "\u3b4d", "rom": "7", "value": 7, "type": "digit-like", "base": 1, "mult": 7, "script": "CJK"}
+{"txt": "\u4e00", "rom": "1", "value": 1, "type": "digit-like", "base": 1, "mult": 1, "script": "CJK"}
+{"txt": "\u4e03", "rom": "7", "value": 7, "type": "digit-like", "base": 1, "mult": 7, "script": "CJK"}
+{"txt": "\u4e07", "rom": "10000", "value": 10000, "type": "base", "is-large-power": true, "base": 10000, "mult": 1, "script": "CJK"}
+{"txt": "\u4e09", "rom": "3", "value": 3, "type": "digit-like", "base": 1, "mult": 3, "script": "CJK"}
+{"txt": "\u4e5d", "rom": "9", "value": 9, "type": "digit-like", "base": 1, "mult": 9, "script": "CJK"}
+{"txt": "\u4e8c", "rom": "2", "value": 2, "type": "digit-like", "base": 1, "mult": 2, "script": "CJK"}
+{"txt": "\u4e94", "rom": "5", "value": 5, "type": "digit-like", "base": 1, "mult": 5, "script": "CJK"}
+{"txt": "\u4e96", "rom": "4", "value": 4, "type": "digit-like", "base": 1, "mult": 4, "script": "CJK"}
+{"txt": "\u4eac", "rom": "10000000000000000", "value": 10000000000000000, "type": "base", "is-large-power": true, "base": 10000000000000000, "mult": 1, "script": "CJK"}
+{"txt": "\u4ebf", "rom": "100000000", "value": 100000000, "type": "base", "is-large-power": true, "base": 100000000, "mult": 1, "script": "CJK"}
+{"txt": "\u4ec0", "rom": "10", "value": 10, "type": "base", "base": 10, "mult": 1, "script": "CJK"}
+{"txt": "\u4edf", "rom": "1000", "value": 1000, "type": "base", "base": 1000, "mult": 1, "script": "CJK"}
+{"txt": "\u4ee8", "rom": "3", "value": 3, "type": "digit-like", "base": 1, "mult": 3, "script": "CJK"}
+{"txt": "\u4f0d", "rom": "5", "value": 5, "type": "digit-like", "base": 1, "mult": 5, "script": "CJK"}
+{"txt": "\u4f70", "rom": "100", "value": 100, "type": "base", "base": 100, "mult": 1, "script": "CJK"}
+{"txt": "\u5104", "rom": "100000000", "value": 100000000, "type": "base", "is-large-power": true, "base": 100000000, "mult": 1, "script": "CJK"}
+{"txt": "\u5146", "rom": "1000000000000", "value": 1000000000000, "type": "base", "is-large-power": true, "base": 1000000000000, "mult": 1, "script": "CJK"}
+{"txt": "\u5169", "rom": "2", "value": 2, "type": "digit-like", "base": 1, "mult": 2, "script": "CJK"}
+{"txt": "\u516b", "rom": "8", "value": 8, "type": "digit-like", "base": 1, "mult": 8, "script": "CJK"}
+{"txt": "\u516d", "rom": "6", "value": 6, "type": "digit-like", "base": 1, "mult": 6, "script": "CJK"}
+{"txt": "\u5341", "rom": "10", "value": 10, "type": "base", "base": 10, "mult": 1, "script": "CJK"}
+{"txt": "\u5343", "rom": "1000", "value": 1000, "type": "base", "base": 1000, "mult": 1, "script": "CJK"}
+{"txt": "\u5344", "rom": "20", "value": 20, "type": "multi", "base": 10, "mult": 2, "script": "CJK"}
+{"txt": "\u5345", "rom": "30", "value": 30, "type": "multi", "base": 10, "mult": 3, "script": "CJK"}
+{"txt": "\u534c", "rom": "40", "value": 40, "type": "multi", "base": 10, "mult": 4, "script": "CJK"}
+{"txt": "\u53c1", "rom": "3", "value": 3, "type": "digit-like", "base": 1, "mult": 3, "script": "CJK"}
+{"txt": "\u53c2", "rom": "3", "value": 3, "type": "digit-like", "base": 1, "mult": 3, "script": "CJK"}
+{"txt": "\u53c3", "rom": "3", "value": 3, "type": "digit-like", "base": 1, "mult": 3, "script": "CJK"}
+{"txt": "\u53c4", "rom": "3", "value": 3, "type": "digit-like", "base": 1, "mult": 3, "script": "CJK"}
+{"txt": "\u56db", "rom": "4", "value": 4, "type": "digit-like", "base": 1, "mult": 4, "script": "CJK"}
+{"txt": "\u58f1", "rom": "1", "value": 1, "type": "digit-like", "base": 1, "mult": 1, "script": "CJK"}
+{"txt": "\u58f9", "rom": "1", "value": 1, "type": "digit-like", "base": 1, "mult": 1, "script": "CJK"}
+{"txt": "\u5e7a", "rom": "1", "value": 1, "type": "digit-like", "base": 1, "mult": 1, "script": "CJK"}
+{"txt": "\u5efe", "rom": "9", "value": 9, "type": "digit-like", "base": 1, "mult": 9, "script": "CJK"}
+{"txt": "\u5eff", "rom": "20", "value": 20, "type": "multi", "base": 10, "mult": 2, "script": "CJK"}
+{"txt": "\u5f0c", "rom": "1", "value": 1, "type": "digit-like", "base": 1, "mult": 1, "script": "CJK"}
+{"txt": "\u5f0d", "rom": "2", "value": 2, "type": "digit-like", "base": 1, "mult": 2, "script": "CJK"}
+{"txt": "\u5f0e", "rom": "3", "value": 3, "type": "digit-like", "base": 1, "mult": 3, "script": "CJK"}
+{"txt": "\u5f10", "rom": "2", "value": 2, "type": "digit-like", "base": 1, "mult": 2, "script": "CJK"}
+{"txt": "\u62fe", "rom": "10", "value": 10, "type": "base", "base": 10, "mult": 1, "script": "CJK"}
+{"txt": "\u634c", "rom": "8", "value": 8, "type": "digit-like", "base": 1, "mult": 8, "script": "CJK"}
+{"txt": "\u67d2", "rom": "7", "value": 7, "type": "digit-like", "base": 1, "mult": 7, "script": "CJK"}
+{"txt": "\u6f06", "rom": "7", "value": 7, "type": "digit-like", "base": 1, "mult": 7, "script": "CJK"}
+{"txt": "\u7396", "rom": "9", "value": 9, "type": "digit-like", "base": 1, "mult": 9, "script": "CJK"}
+{"txt": "\u767e", "rom": "100", "value": 100, "type": "base", "base": 100, "mult": 1, "script": "CJK"}
+{"txt": "\u8086", "rom": "4", "value": 4, "type": "digit-like", "base": 1, "mult": 4, "script": "CJK"}
+{"txt": "\u842c", "rom": "10000", "value": 10000, "type": "base", "is-large-power": true, "base": 10000, "mult": 1, "script": "CJK"}
+{"txt": "\u8cae", "rom": "2", "value": 2, "type": "digit-like", "base": 1, "mult": 2, "script": "CJK"}
+{"txt": "\u8cb3", "rom": "2", "value": 2, "type": "digit-like", "base": 1, "mult": 2, "script": "CJK"}
+{"txt": "\u8d30", "rom": "2", "value": 2, "type": "digit-like", "base": 1, "mult": 2, "script": "CJK"}
+{"txt": "\u9621", "rom": "1000", "value": 1000, "type": "base", "base": 1000, "mult": 1, "script": "CJK"}
+{"txt": "\u9646", "rom": "6", "value": 6, "type": "digit-like", "base": 1, "mult": 6, "script": "CJK"}
+{"txt": "\u964c", "rom": "100", "value": 100, "type": "base", "base": 100, "mult": 1, "script": "CJK"}
+{"txt": "\u9678", "rom": "6", "value": 6, "type": "digit-like", "base": 1, "mult": 6, "script": "CJK"}
+{"txt": "\u96f6", "rom": "0", "value": 0, "type": "digit-like", "base": 1, "mult": 0, "script": "CJK"}
+{"txt": "\ua620", "rom": "0", "value": 0, "type": "digit", "base": 1, "mult": 0, "script": "Vai"}
+{"txt": "\ua621", "rom": "1", "value": 1, "type": "digit", "base": 1, "mult": 1, "script": "Vai"}
+{"txt": "\ua622", "rom": "2", "value": 2, "type": "digit", "base": 1, "mult": 2, "script": "Vai"}
+{"txt": "\ua623", "rom": "3", "value": 3, "type": "digit", "base": 1, "mult": 3, "script": "Vai"}
+{"txt": "\ua624", "rom": "4", "value": 4, "type": "digit", "base": 1, "mult": 4, "script": "Vai"}
+{"txt": "\ua625", "rom": "5", "value": 5, "type": "digit", "base": 1, "mult": 5, "script": "Vai"}
+{"txt": "\ua626", "rom": "6", "value": 6, "type": "digit", "base": 1, "mult": 6, "script": "Vai"}
+{"txt": "\ua627", "rom": "7", "value": 7, "type": "digit", "base": 1, "mult": 7, "script": "Vai"}
+{"txt": "\ua628", "rom": "8", "value": 8, "type": "digit", "base": 1, "mult": 8, "script": "Vai"}
+{"txt": "\ua629", "rom": "9", "value": 9, "type": "digit", "base": 1, "mult": 9, "script": "Vai"}
+{"txt": "\ua6e6", "rom": "1", "value": 1, "type": "digit-like", "base": 1, "mult": 1, "script": "Bamum"}
+{"txt": "\ua6e7", "rom": "2", "value": 2, "type": "digit-like", "base": 1, "mult": 2, "script": "Bamum"}
+{"txt": "\ua6e8", "rom": "3", "value": 3, "type": "digit-like", "base": 1, "mult": 3, "script": "Bamum"}
+{"txt": "\ua6e9", "rom": "4", "value": 4, "type": "digit-like", "base": 1, "mult": 4, "script": "Bamum"}
+{"txt": "\ua6ea", "rom": "5", "value": 5, "type": "digit-like", "base": 1, "mult": 5, "script": "Bamum"}
+{"txt": "\ua6eb", "rom": "6", "value": 6, "type": "digit-like", "base": 1, "mult": 6, "script": "Bamum"}
+{"txt": "\ua6ec", "rom": "7", "value": 7, "type": "digit-like", "base": 1, "mult": 7, "script": "Bamum"}
+{"txt": "\ua6ed", "rom": "8", "value": 8, "type": "digit-like", "base": 1, "mult": 8, "script": "Bamum"}
+{"txt": "\ua6ee", "rom": "9", "value": 9, "type": "digit-like", "base": 1, "mult": 9, "script": "Bamum"}
+{"txt": "\ua6ef", "rom": "0", "value": 0, "type": "digit-like", "base": 1, "mult": 0, "script": "Bamum"}
+{"txt": "\ua830", "rom": "1/4", "fraction": [1, 4], "type": "fraction", "script": "North Indic"}
+{"txt": "\ua831", "rom": "1/2", "fraction": [1, 2], "type": "fraction", "script": "North Indic"}
+{"txt": "\ua832", "rom": "3/4", "fraction": [3, 4], "type": "fraction", "script": "North Indic"}
+{"txt": "\ua833", "rom": "1/16", "fraction": [1, 16], "type": "fraction", "script": "North Indic"}
+{"txt": "\ua834", "rom": "1/8", "fraction": [1, 8], "type": "fraction", "script": "North Indic"}
+{"txt": "\ua835", "rom": "3/16", "fraction": [3, 16], "type": "fraction", "script": "North Indic"}
+{"txt": "\ua8d0", "rom": "0", "value": 0, "type": "digit", "base": 1, "mult": 0, "script": "Saurashtra"}
+{"txt": "\ua8d1", "rom": "1", "value": 1, "type": "digit", "base": 1, "mult": 1, "script": "Saurashtra"}
+{"txt": "\ua8d2", "rom": "2", "value": 2, "type": "digit", "base": 1, "mult": 2, "script": "Saurashtra"}
+{"txt": "\ua8d3", "rom": "3", "value": 3, "type": "digit", "base": 1, "mult": 3, "script": "Saurashtra"}
+{"txt": "\ua8d4", "rom": "4", "value": 4, "type": "digit", "base": 1, "mult": 4, "script": "Saurashtra"}
+{"txt": "\ua8d5", "rom": "5", "value": 5, "type": "digit", "base": 1, "mult": 5, "script": "Saurashtra"}
+{"txt": "\ua8d6", "rom": "6", "value": 6, "type": "digit", "base": 1, "mult": 6, "script": "Saurashtra"}
+{"txt": "\ua8d7", "rom": "7", "value": 7, "type": "digit", "base": 1, "mult": 7, "script": "Saurashtra"}
+{"txt": "\ua8d8", "rom": "8", "value": 8, "type": "digit", "base": 1, "mult": 8, "script": "Saurashtra"}
+{"txt": "\ua8d9", "rom": "9", "value": 9, "type": "digit", "base": 1, "mult": 9, "script": "Saurashtra"}
+{"txt": "\ua900", "rom": "0", "value": 0, "type": "digit", "base": 1, "mult": 0, "script": "Kayah Li"}
+{"txt": "\ua901", "rom": "1", "value": 1, "type": "digit", "base": 1, "mult": 1, "script": "Kayah Li"}
+{"txt": "\ua902", "rom": "2", "value": 2, "type": "digit", "base": 1, "mult": 2, "script": "Kayah Li"}
+{"txt": "\ua903", "rom": "3", "value": 3, "type": "digit", "base": 1, "mult": 3, "script": "Kayah Li"}
+{"txt": "\ua904", "rom": "4", "value": 4, "type": "digit", "base": 1, "mult": 4, "script": "Kayah Li"}
+{"txt": "\ua905", "rom": "5", "value": 5, "type": "digit", "base": 1, "mult": 5, "script": "Kayah Li"}
+{"txt": "\ua906", "rom": "6", "value": 6, "type": "digit", "base": 1, "mult": 6, "script": "Kayah Li"}
+{"txt": "\ua907", "rom": "7", "value": 7, "type": "digit", "base": 1, "mult": 7, "script": "Kayah Li"}
+{"txt": "\ua908", "rom": "8", "value": 8, "type": "digit", "base": 1, "mult": 8, "script": "Kayah Li"}
+{"txt": "\ua909", "rom": "9", "value": 9, "type": "digit", "base": 1, "mult": 9, "script": "Kayah Li"}
+{"txt": "\ua9d0", "rom": "0", "value": 0, "type": "digit", "base": 1, "mult": 0, "script": "Javanese"}
+{"txt": "\ua9d1", "rom": "1", "value": 1, "type": "digit", "base": 1, "mult": 1, "script": "Javanese"}
+{"txt": "\ua9d2", "rom": "2", "value": 2, "type": "digit", "base": 1, "mult": 2, "script": "Javanese"}
+{"txt": "\ua9d3", "rom": "3", "value": 3, "type": "digit", "base": 1, "mult": 3, "script": "Javanese"}
+{"txt": "\ua9d4", "rom": "4", "value": 4, "type": "digit", "base": 1, "mult": 4, "script": "Javanese"}
+{"txt": "\ua9d5", "rom": "5", "value": 5, "type": "digit", "base": 1, "mult": 5, "script": "Javanese"}
+{"txt": "\ua9d6", "rom": "6", "value": 6, "type": "digit", "base": 1, "mult": 6, "script": "Javanese"}
+{"txt": "\ua9d7", "rom": "7", "value": 7, "type": "digit", "base": 1, "mult": 7, "script": "Javanese"}
+{"txt": "\ua9d8", "rom": "8", "value": 8, "type": "digit", "base": 1, "mult": 8, "script": "Javanese"}
+{"txt": "\ua9d9", "rom": "9", "value": 9, "type": "digit", "base": 1, "mult": 9, "script": "Javanese"}
+{"txt": "\ua9f0", "rom": "0", "value": 0, "type": "digit", "base": 1, "mult": 0, "script": "Myanmar"}
+{"txt": "\ua9f1", "rom": "1", "value": 1, "type": "digit", "base": 1, "mult": 1, "script": "Myanmar"}
+{"txt": "\ua9f2", "rom": "2", "value": 2, "type": "digit", "base": 1, "mult": 2, "script": "Myanmar"}
+{"txt": "\ua9f3", "rom": "3", "value": 3, "type": "digit", "base": 1, "mult": 3, "script": "Myanmar"}
+{"txt": "\ua9f4", "rom": "4", "value": 4, "type": "digit", "base": 1, "mult": 4, "script": "Myanmar"}
+{"txt": "\ua9f5", "rom": "5", "value": 5, "type": "digit", "base": 1, "mult": 5, "script": "Myanmar"}
+{"txt": "\ua9f6", "rom": "6", "value": 6, "type": "digit", "base": 1, "mult": 6, "script": "Myanmar"}
+{"txt": "\ua9f7", "rom": "7", "value": 7, "type": "digit", "base": 1, "mult": 7, "script": "Myanmar"}
+{"txt": "\ua9f8", "rom": "8", "value": 8, "type": "digit", "base": 1, "mult": 8, "script": "Myanmar"}
+{"txt": "\ua9f9", "rom": "9", "value": 9, "type": "digit", "base": 1, "mult": 9, "script": "Myanmar"}
+{"txt": "\uaa50", "rom": "0", "value": 0, "type": "digit", "base": 1, "mult": 0, "script": "Cham"}
+{"txt": "\uaa51", "rom": "1", "value": 1, "type": "digit", "base": 1, "mult": 1, "script": "Cham"}
+{"txt": "\uaa52", "rom": "2", "value": 2, "type": "digit", "base": 1, "mult": 2, "script": "Cham"}
+{"txt": "\uaa53", "rom": "3", "value": 3, "type": "digit", "base": 1, "mult": 3, "script": "Cham"}
+{"txt": "\uaa54", "rom": "4", "value": 4, "type": "digit", "base": 1, "mult": 4, "script": "Cham"}
+{"txt": "\uaa55", "rom": "5", "value": 5, "type": "digit", "base": 1, "mult": 5, "script": "Cham"}
+{"txt": "\uaa56", "rom": "6", "value": 6, "type": "digit", "base": 1, "mult": 6, "script": "Cham"}
+{"txt": "\uaa57", "rom": "7", "value": 7, "type": "digit", "base": 1, "mult": 7, "script": "Cham"}
+{"txt": "\uaa58", "rom": "8", "value": 8, "type": "digit", "base": 1, "mult": 8, "script": "Cham"}
+{"txt": "\uaa59", "rom": "9", "value": 9, "type": "digit", "base": 1, "mult": 9, "script": "Cham"}
+{"txt": "\uabf0", "rom": "0", "value": 0, "type": "digit", "base": 1, "mult": 0, "script": "Meetei Mayek"}
+{"txt": "\uabf1", "rom": "1", "value": 1, "type": "digit", "base": 1, "mult": 1, "script": "Meetei Mayek"}
+{"txt": "\uabf2", "rom": "2", "value": 2, "type": "digit", "base": 1, "mult": 2, "script": "Meetei Mayek"}
+{"txt": "\uabf3", "rom": "3", "value": 3, "type": "digit", "base": 1, "mult": 3, "script": "Meetei Mayek"}
+{"txt": "\uabf4", "rom": "4", "value": 4, "type": "digit", "base": 1, "mult": 4, "script": "Meetei Mayek"}
+{"txt": "\uabf5", "rom": "5", "value": 5, "type": "digit", "base": 1, "mult": 5, "script": "Meetei Mayek"}
+{"txt": "\uabf6", "rom": "6", "value": 6, "type": "digit", "base": 1, "mult": 6, "script": "Meetei Mayek"}
+{"txt": "\uabf7", "rom": "7", "value": 7, "type": "digit", "base": 1, "mult": 7, "script": "Meetei Mayek"}
+{"txt": "\uabf8", "rom": "8", "value": 8, "type": "digit", "base": 1, "mult": 8, "script": "Meetei Mayek"}
+{"txt": "\uabf9", "rom": "9", "value": 9, "type": "digit", "base": 1, "mult": 9, "script": "Meetei Mayek"}
+{"txt": "\uf8f1", "rom": "1", "value": 1, "type": "digit", "base": 1, "mult": 1, "script": "Klingon"}
+{"txt": "\uf8f2", "rom": "2", "value": 2, "type": "digit", "base": 1, "mult": 2, "script": "Klingon"}
+{"txt": "\uf8f3", "rom": "3", "value": 3, "type": "digit", "base": 1, "mult": 3, "script": "Klingon"}
+{"txt": "\uf8f4", "rom": "4", "value": 4, "type": "digit", "base": 1, "mult": 4, "script": "Klingon"}
+{"txt": "\uf8f5", "rom": "5", "value": 5, "type": "digit", "base": 1, "mult": 5, "script": "Klingon"}
+{"txt": "\uf8f6", "rom": "6", "value": 6, "type": "digit", "base": 1, "mult": 6, "script": "Klingon"}
+{"txt": "\uf8f7", "rom": "7", "value": 7, "type": "digit", "base": 1, "mult": 7, "script": "Klingon"}
+{"txt": "\uf8f8", "rom": "8", "value": 8, "type": "digit", "base": 1, "mult": 8, "script": "Klingon"}
+{"txt": "\uf8f9", "rom": "9", "value": 9, "type": "digit", "base": 1, "mult": 9, "script": "Klingon"}
+{"txt": "\uf96b", "rom": "3", "value": 3, "type": "digit-like", "base": 1, "mult": 3, "script": "CJK"}
+{"txt": "\uf973", "rom": "10", "value": 10, "type": "base", "base": 10, "mult": 1, "script": "CJK"}
+{"txt": "\uf978", "rom": "2", "value": 2, "type": "digit-like", "base": 1, "mult": 2, "script": "CJK"}
+{"txt": "\uf9b2", "rom": "0", "value": 0, "type": "digit-like", "base": 1, "mult": 0, "script": "CJK"}
+{"txt": "\uf9d1", "rom": "6", "value": 6, "type": "digit-like", "base": 1, "mult": 6, "script": "CJK"}
+{"txt": "\uf9d3", "rom": "6", "value": 6, "type": "digit-like", "base": 1, "mult": 6, "script": "CJK"}
+{"txt": "\uf9fd", "rom": "10", "value": 10, "type": "base", "base": 10, "mult": 1, "script": "CJK"}
+{"txt": "\uff10", "rom": "0", "value": 0, "type": "digit", "base": 1, "mult": 0, "name": "FULLWIDTH DIGIT ZERO"}
+{"txt": "\uff11", "rom": "1", "value": 1, "type": "digit", "base": 1, "mult": 1, "name": "FULLWIDTH DIGIT ONE"}
+{"txt": "\uff12", "rom": "2", "value": 2, "type": "digit", "base": 1, "mult": 2, "name": "FULLWIDTH DIGIT TWO"}
+{"txt": "\uff13", "rom": "3", "value": 3, "type": "digit", "base": 1, "mult": 3, "name": "FULLWIDTH DIGIT THREE"}
+{"txt": "\uff14", "rom": "4", "value": 4, "type": "digit", "base": 1, "mult": 4, "name": "FULLWIDTH DIGIT FOUR"}
+{"txt": "\uff15", "rom": "5", "value": 5, "type": "digit", "base": 1, "mult": 5, "name": "FULLWIDTH DIGIT FIVE"}
+{"txt": "\uff16", "rom": "6", "value": 6, "type": "digit", "base": 1, "mult": 6, "name": "FULLWIDTH DIGIT SIX"}
+{"txt": "\uff17", "rom": "7", "value": 7, "type": "digit", "base": 1, "mult": 7, "name": "FULLWIDTH DIGIT SEVEN"}
+{"txt": "\uff18", "rom": "8", "value": 8, "type": "digit", "base": 1, "mult": 8, "name": "FULLWIDTH DIGIT EIGHT"}
+{"txt": "\uff19", "rom": "9", "value": 9, "type": "digit", "base": 1, "mult": 9, "name": "FULLWIDTH DIGIT NINE"}
+{"txt": "\ud800\udd07", "rom": "1", "value": 1, "type": "digit-like", "base": 1, "mult": 1, "script": "Aegean"}
+{"txt": "\ud800\udd08", "rom": "2", "value": 2, "type": "digit-like", "base": 1, "mult": 2, "script": "Aegean"}
+{"txt": "\ud800\udd09", "rom": "3", "value": 3, "type": "digit-like", "base": 1, "mult": 3, "script": "Aegean"}
+{"txt": "\ud800\udd0a", "rom": "4", "value": 4, "type": "digit-like", "base": 1, "mult": 4, "script": "Aegean"}
+{"txt": "\ud800\udd0b", "rom": "5", "value": 5, "type": "digit-like", "base": 1, "mult": 5, "script": "Aegean"}
+{"txt": "\ud800\udd0c", "rom": "6", "value": 6, "type": "digit-like", "base": 1, "mult": 6, "script": "Aegean"}
+{"txt": "\ud800\udd0d", "rom": "7", "value": 7, "type": "digit-like", "base": 1, "mult": 7, "script": "Aegean"}
+{"txt": "\ud800\udd0e", "rom": "8", "value": 8, "type": "digit-like", "base": 1, "mult": 8, "script": "Aegean"}
+{"txt": "\ud800\udd0f", "rom": "9", "value": 9, "type": "digit-like", "base": 1, "mult": 9, "script": "Aegean"}
+{"txt": "\ud800\udd10", "rom": "10", "value": 10, "type": "base", "base": 10, "mult": 1, "script": "Aegean"}
+{"txt": "\ud800\udd11", "rom": "20", "value": 20, "type": "multi", "base": 10, "mult": 2, "script": "Aegean"}
+{"txt": "\ud800\udd12", "rom": "30", "value": 30, "type": "multi", "base": 10, "mult": 3, "script": "Aegean"}
+{"txt": "\ud800\udd13", "rom": "40", "value": 40, "type": "multi", "base": 10, "mult": 4, "script": "Aegean"}
+{"txt": "\ud800\udd14", "rom": "50", "value": 50, "type": "multi", "base": 10, "mult": 5, "script": "Aegean"}
+{"txt": "\ud800\udd15", "rom": "60", "value": 60, "type": "multi", "base": 10, "mult": 6, "script": "Aegean"}
+{"txt": "\ud800\udd16", "rom": "70", "value": 70, "type": "multi", "base": 10, "mult": 7, "script": "Aegean"}
+{"txt": "\ud800\udd17", "rom": "80", "value": 80, "type": "multi", "base": 10, "mult": 8, "script": "Aegean"}
+{"txt": "\ud800\udd18", "rom": "90", "value": 90, "type": "multi", "base": 10, "mult": 9, "script": "Aegean"}
+{"txt": "\ud800\udd19", "rom": "100", "value": 100, "type": "base", "base": 100, "mult": 1, "script": "Aegean"}
+{"txt": "\ud800\udd1a", "rom": "200", "value": 200, "type": "multi", "base": 100, "mult": 2, "script": "Aegean"}
+{"txt": "\ud800\udd1b", "rom": "300", "value": 300, "type": "multi", "base": 100, "mult": 3, "script": "Aegean"}
+{"txt": "\ud800\udd1c", "rom": "400", "value": 400, "type": "multi", "base": 100, "mult": 4, "script": "Aegean"}
+{"txt": "\ud800\udd1d", "rom": "500", "value": 500, "type": "multi", "base": 100, "mult": 5, "script": "Aegean"}
+{"txt": "\ud800\udd1e", "rom": "600", "value": 600, "type": "multi", "base": 100, "mult": 6, "script": "Aegean"}
+{"txt": "\ud800\udd1f", "rom": "700", "value": 700, "type": "multi", "base": 100, "mult": 7, "script": "Aegean"}
+{"txt": "\ud800\udd20", "rom": "800", "value": 800, "type": "multi", "base": 100, "mult": 8, "script": "Aegean"}
+{"txt": "\ud800\udd21", "rom": "900", "value": 900, "type": "multi", "base": 100, "mult": 9, "script": "Aegean"}
+{"txt": "\ud800\udd22", "rom": "1000", "value": 1000, "type": "base", "base": 1000, "mult": 1, "script": "Aegean"}
+{"txt": "\ud800\udd23", "rom": "2000", "value": 2000, "type": "multi", "base": 1000, "mult": 2, "script": "Aegean"}
+{"txt": "\ud800\udd24", "rom": "3000", "value": 3000, "type": "multi", "base": 1000, "mult": 3, "script": "Aegean"}
+{"txt": "\ud800\udd25", "rom": "4000", "value": 4000, "type": "multi", "base": 1000, "mult": 4, "script": "Aegean"}
+{"txt": "\ud800\udd26", "rom": "5000", "value": 5000, "type": "multi", "base": 1000, "mult": 5, "script": "Aegean"}
+{"txt": "\ud800\udd27", "rom": "6000", "value": 6000, "type": "multi", "base": 1000, "mult": 6, "script": "Aegean"}
+{"txt": "\ud800\udd28", "rom": "7000", "value": 7000, "type": "multi", "base": 1000, "mult": 7, "script": "Aegean"}
+{"txt": "\ud800\udd29", "rom": "8000", "value": 8000, "type": "multi", "base": 1000, "mult": 8, "script": "Aegean"}
+{"txt": "\ud800\udd2a", "rom": "9000", "value": 9000, "type": "multi", "base": 1000, "mult": 9, "script": "Aegean"}
+{"txt": "\ud800\udd2b", "rom": "10000", "value": 10000, "type": "base", "base": 10000, "mult": 1, "script": "Aegean"}
+{"txt": "\ud800\udd2c", "rom": "20000", "value": 20000, "type": "multi", "base": 10000, "mult": 2, "script": "Aegean"}
+{"txt": "\ud800\udd2d", "rom": "30000", "value": 30000, "type": "multi", "base": 10000, "mult": 3, "script": "Aegean"}
+{"txt": "\ud800\udd2e", "rom": "40000", "value": 40000, "type": "multi", "base": 10000, "mult": 4, "script": "Aegean"}
+{"txt": "\ud800\udd2f", "rom": "50000", "value": 50000, "type": "multi", "base": 10000, "mult": 5, "script": "Aegean"}
+{"txt": "\ud800\udd30", "rom": "60000", "value": 60000, "type": "multi", "base": 10000, "mult": 6, "script": "Aegean"}
+{"txt": "\ud800\udd31", "rom": "70000", "value": 70000, "type": "multi", "base": 10000, "mult": 7, "script": "Aegean"}
+{"txt": "\ud800\udd32", "rom": "80000", "value": 80000, "type": "multi", "base": 10000, "mult": 8, "script": "Aegean"}
+{"txt": "\ud800\udd33", "rom": "90000", "value": 90000, "type": "multi", "base": 10000, "mult": 9, "script": "Aegean"}
+{"txt": "\ud800\udd42", "rom": "1", "value": 1, "type": "digit-like", "base": 1, "mult": 1, "name": "GREEK ACROPHONIC ATTIC ONE DRACHMA"}
+{"txt": "\ud800\udd43", "rom": "5", "value": 5, "type": "digit-like", "base": 1, "mult": 5, "name": "GREEK ACROPHONIC ATTIC FIVE"}
+{"txt": "\ud800\udd44", "rom": "50", "value": 50, "type": "multi", "base": 10, "mult": 5, "name": "GREEK ACROPHONIC ATTIC FIFTY"}
+{"txt": "\ud800\udd45", "rom": "500", "value": 500, "type": "multi", "base": 100, "mult": 5, "name": "GREEK ACROPHONIC ATTIC FIVE HUNDRED"}
+{"txt": "\ud800\udd46", "rom": "5000", "value": 5000, "type": "multi", "base": 1000, "mult": 5, "name": "GREEK ACROPHONIC ATTIC FIVE THOUSAND"}
+{"txt": "\ud800\udd47", "rom": "50000", "value": 50000, "type": "multi", "base": 10000, "mult": 5, "name": "GREEK ACROPHONIC ATTIC FIFTY THOUSAND"}
+{"txt": "\ud800\udd48", "rom": "5", "value": 5, "type": "digit-like", "base": 1, "mult": 5, "name": "GREEK ACROPHONIC ATTIC FIVE TALENTS"}
+{"txt": "\ud800\udd49", "rom": "10", "value": 10, "type": "base", "base": 10, "mult": 1, "name": "GREEK ACROPHONIC ATTIC TEN TALENTS"}
+{"txt": "\ud800\udd4a", "rom": "50", "value": 50, "type": "multi", "base": 10, "mult": 5, "name": "GREEK ACROPHONIC ATTIC FIFTY TALENTS"}
+{"txt": "\ud800\udd4b", "rom": "100", "value": 100, "type": "base", "base": 100, "mult": 1, "name": "GREEK ACROPHONIC ATTIC ONE HUNDRED TALENTS"}
+{"txt": "\ud800\udd4c", "rom": "500", "value": 500, "type": "multi", "base": 100, "mult": 5, "name": "GREEK ACROPHONIC ATTIC FIVE HUNDRED TALENTS"}
+{"txt": "\ud800\udd4d", "rom": "1000", "value": 1000, "type": "base", "base": 1000, "mult": 1, "name": "GREEK ACROPHONIC ATTIC ONE THOUSAND TALENTS"}
+{"txt": "\ud800\udd4e", "rom": "5000", "value": 5000, "type": "multi", "base": 1000, "mult": 5, "name": "GREEK ACROPHONIC ATTIC FIVE THOUSAND TALENTS"}
+{"txt": "\ud800\udd4f", "rom": "5", "value": 5, "type": "digit-like", "base": 1, "mult": 5, "name": "GREEK ACROPHONIC ATTIC FIVE STATERS"}
+{"txt": "\ud800\udd50", "rom": "10", "value": 10, "type": "base", "base": 10, "mult": 1, "name": "GREEK ACROPHONIC ATTIC TEN STATERS"}
+{"txt": "\ud800\udd51", "rom": "50", "value": 50, "type": "multi", "base": 10, "mult": 5, "name": "GREEK ACROPHONIC ATTIC FIFTY STATERS"}
+{"txt": "\ud800\udd52", "rom": "100", "value": 100, "type": "base", "base": 100, "mult": 1, "name": "GREEK ACROPHONIC ATTIC ONE HUNDRED STATERS"}
+{"txt": "\ud800\udd53", "rom": "500", "value": 500, "type": "multi", "base": 100, "mult": 5, "name": "GREEK ACROPHONIC ATTIC FIVE HUNDRED STATERS"}
+{"txt": "\ud800\udd54", "rom": "1000", "value": 1000, "type": "base", "base": 1000, "mult": 1, "name": "GREEK ACROPHONIC ATTIC ONE THOUSAND STATERS"}
+{"txt": "\ud800\udd55", "rom": "10000", "value": 10000, "type": "base", "base": 10000, "mult": 1, "name": "GREEK ACROPHONIC ATTIC TEN THOUSAND STATERS"}
+{"txt": "\ud800\udd56", "rom": "50000", "value": 50000, "type": "multi", "base": 10000, "mult": 5, "name": "GREEK ACROPHONIC ATTIC FIFTY THOUSAND STATERS"}
+{"txt": "\ud800\udd57", "rom": "10", "value": 10, "type": "base", "base": 10, "mult": 1, "name": "GREEK ACROPHONIC ATTIC TEN MNAS"}
+{"txt": "\ud800\udd58", "rom": "1", "value": 1, "type": "digit-like", "base": 1, "mult": 1, "name": "GREEK ACROPHONIC HERAEUM ONE PLETHRON"}
+{"txt": "\ud800\udd59", "rom": "1", "value": 1, "type": "digit-like", "base": 1, "mult": 1, "name": "GREEK ACROPHONIC THESPIAN ONE"}
+{"txt": "\ud800\udd5a", "rom": "1", "value": 1, "type": "digit-like", "base": 1, "mult": 1, "name": "GREEK ACROPHONIC HERMIONIAN ONE"}
+{"txt": "\ud800\udd5b", "rom": "2", "value": 2, "type": "digit-like", "base": 1, "mult": 2, "name": "GREEK ACROPHONIC EPIDAUREAN TWO"}
+{"txt": "\ud800\udd5c", "rom": "2", "value": 2, "type": "digit-like", "base": 1, "mult": 2, "name": "GREEK ACROPHONIC THESPIAN TWO"}
+{"txt": "\ud800\udd5d", "rom": "2", "value": 2, "type": "digit-like", "base": 1, "mult": 2, "name": "GREEK ACROPHONIC CYRENAIC TWO DRACHMAS"}
+{"txt": "\ud800\udd5e", "rom": "2", "value": 2, "type": "digit-like", "base": 1, "mult": 2, "name": "GREEK ACROPHONIC EPIDAUREAN TWO DRACHMAS"}
+{"txt": "\ud800\udd5f", "rom": "5", "value": 5, "type": "digit-like", "base": 1, "mult": 5, "name": "GREEK ACROPHONIC TROEZENIAN FIVE"}
+{"txt": "\ud800\udd60", "rom": "10", "value": 10, "type": "base", "base": 10, "mult": 1, "name": "GREEK ACROPHONIC TROEZENIAN TEN"}
+{"txt": "\ud800\udd61", "rom": "10", "value": 10, "type": "base", "base": 10, "mult": 1, "name": "GREEK ACROPHONIC TROEZENIAN TEN ALTERNATE FORM"}
+{"txt": "\ud800\udd62", "rom": "10", "value": 10, "type": "base", "base": 10, "mult": 1, "name": "GREEK ACROPHONIC HERMIONIAN TEN"}
+{"txt": "\ud800\udd63", "rom": "10", "value": 10, "type": "base", "base": 10, "mult": 1, "name": "GREEK ACROPHONIC MESSENIAN TEN"}
+{"txt": "\ud800\udd64", "rom": "10", "value": 10, "type": "base", "base": 10, "mult": 1, "name": "GREEK ACROPHONIC THESPIAN TEN"}
+{"txt": "\ud800\udd65", "rom": "30", "value": 30, "type": "multi", "base": 10, "mult": 3, "name": "GREEK ACROPHONIC THESPIAN THIRTY"}
+{"txt": "\ud800\udd66", "rom": "50", "value": 50, "type": "multi", "base": 10, "mult": 5, "name": "GREEK ACROPHONIC TROEZENIAN FIFTY"}
+{"txt": "\ud800\udd67", "rom": "50", "value": 50, "type": "multi", "base": 10, "mult": 5, "name": "GREEK ACROPHONIC TROEZENIAN FIFTY ALTERNATE FORM"}
+{"txt": "\ud800\udd68", "rom": "50", "value": 50, "type": "multi", "base": 10, "mult": 5, "name": "GREEK ACROPHONIC HERMIONIAN FIFTY"}
+{"txt": "\ud800\udd69", "rom": "50", "value": 50, "type": "multi", "base": 10, "mult": 5, "name": "GREEK ACROPHONIC THESPIAN FIFTY"}
+{"txt": "\ud800\udd6a", "rom": "100", "value": 100, "type": "base", "base": 100, "mult": 1, "name": "GREEK ACROPHONIC THESPIAN ONE HUNDRED"}
+{"txt": "\ud800\udd6b", "rom": "300", "value": 300, "type": "multi", "base": 100, "mult": 3, "name": "GREEK ACROPHONIC THESPIAN THREE HUNDRED"}
+{"txt": "\ud800\udd6c", "rom": "500", "value": 500, "type": "multi", "base": 100, "mult": 5, "name": "GREEK ACROPHONIC EPIDAUREAN FIVE HUNDRED"}
+{"txt": "\ud800\udd6d", "rom": "500", "value": 500, "type": "multi", "base": 100, "mult": 5, "name": "GREEK ACROPHONIC TROEZENIAN FIVE HUNDRED"}
+{"txt": "\ud800\udd6e", "rom": "500", "value": 500, "type": "multi", "base": 100, "mult": 5, "name": "GREEK ACROPHONIC THESPIAN FIVE HUNDRED"}
+{"txt": "\ud800\udd6f", "rom": "500", "value": 500, "type": "multi", "base": 100, "mult": 5, "name": "GREEK ACROPHONIC CARYSTIAN FIVE HUNDRED"}
+{"txt": "\ud800\udd70", "rom": "500", "value": 500, "type": "multi", "base": 100, "mult": 5, "name": "GREEK ACROPHONIC NAXIAN FIVE HUNDRED"}
+{"txt": "\ud800\udd71", "rom": "1000", "value": 1000, "type": "base", "base": 1000, "mult": 1, "name": "GREEK ACROPHONIC THESPIAN ONE THOUSAND"}
+{"txt": "\ud800\udd72", "rom": "5000", "value": 5000, "type": "multi", "base": 1000, "mult": 5, "name": "GREEK ACROPHONIC THESPIAN FIVE THOUSAND"}
+{"txt": "\ud800\udd73", "rom": "5", "value": 5, "type": "digit-like", "base": 1, "mult": 5, "name": "GREEK ACROPHONIC DELPHIC FIVE MNAS"}
+{"txt": "\ud800\udd74", "rom": "50", "value": 50, "type": "multi", "base": 10, "mult": 5, "name": "GREEK ACROPHONIC STRATIAN FIFTY MNAS"}
+{"txt": "\ud800\udd8a", "rom": "0", "value": 0, "type": "digit-like", "base": 1, "mult": 0, "script": "Greek"}
+{"txt": "\ud800\udee1", "rom": "1", "value": 1, "type": "digit", "base": 1, "mult": 1, "script": "Coptic"}
+{"txt": "\ud800\udee2", "rom": "2", "value": 2, "type": "digit", "base": 1, "mult": 2, "script": "Coptic"}
+{"txt": "\ud800\udee3", "rom": "3", "value": 3, "type": "digit", "base": 1, "mult": 3, "script": "Coptic"}
+{"txt": "\ud800\udee4", "rom": "4", "value": 4, "type": "digit", "base": 1, "mult": 4, "script": "Coptic"}
+{"txt": "\ud800\udee5", "rom": "5", "value": 5, "type": "digit", "base": 1, "mult": 5, "script": "Coptic"}
+{"txt": "\ud800\udee6", "rom": "6", "value": 6, "type": "digit", "base": 1, "mult": 6, "script": "Coptic"}
+{"txt": "\ud800\udee7", "rom": "7", "value": 7, "type": "digit", "base": 1, "mult": 7, "script": "Coptic"}
+{"txt": "\ud800\udee8", "rom": "8", "value": 8, "type": "digit", "base": 1, "mult": 8, "script": "Coptic"}
+{"txt": "\ud800\udee9", "rom": "9", "value": 9, "type": "digit", "base": 1, "mult": 9, "script": "Coptic"}
+{"txt": "\ud800\udeea", "rom": "10", "value": 10, "type": "base", "base": 10, "mult": 1, "script": "Coptic"}
+{"txt": "\ud800\udeeb", "rom": "20", "value": 20, "type": "multi", "base": 10, "mult": 2, "script": "Coptic"}
+{"txt": "\ud800\udeec", "rom": "30", "value": 30, "type": "multi", "base": 10, "mult": 3, "script": "Coptic"}
+{"txt": "\ud800\udeed", "rom": "40", "value": 40, "type": "multi", "base": 10, "mult": 4, "script": "Coptic"}
+{"txt": "\ud800\udeee", "rom": "50", "value": 50, "type": "multi", "base": 10, "mult": 5, "script": "Coptic"}
+{"txt": "\ud800\udeef", "rom": "60", "value": 60, "type": "multi", "base": 10, "mult": 6, "script": "Coptic"}
+{"txt": "\ud800\udef0", "rom": "70", "value": 70, "type": "multi", "base": 10, "mult": 7, "script": "Coptic"}
+{"txt": "\ud800\udef1", "rom": "80", "value": 80, "type": "multi", "base": 10, "mult": 8, "script": "Coptic"}
+{"txt": "\ud800\udef2", "rom": "90", "value": 90, "type": "multi", "base": 10, "mult": 9, "script": "Coptic"}
+{"txt": "\ud800\udef3", "rom": "100", "value": 100, "type": "base", "base": 100, "mult": 1, "script": "Coptic"}
+{"txt": "\ud800\udef4", "rom": "200", "value": 200, "type": "multi", "base": 100, "mult": 2, "script": "Coptic"}
+{"txt": "\ud800\udef5", "rom": "300", "value": 300, "type": "multi", "base": 100, "mult": 3, "script": "Coptic"}
+{"txt": "\ud800\udef6", "rom": "400", "value": 400, "type": "multi", "base": 100, "mult": 4, "script": "Coptic"}
+{"txt": "\ud800\udef7", "rom": "500", "value": 500, "type": "multi", "base": 100, "mult": 5, "script": "Coptic"}
+{"txt": "\ud800\udef8", "rom": "600", "value": 600, "type": "multi", "base": 100, "mult": 6, "script": "Coptic"}
+{"txt": "\ud800\udef9", "rom": "700", "value": 700, "type": "multi", "base": 100, "mult": 7, "script": "Coptic"}
+{"txt": "\ud800\udefa", "rom": "800", "value": 800, "type": "multi", "base": 100, "mult": 8, "script": "Coptic"}
+{"txt": "\ud800\udefb", "rom": "900", "value": 900, "type": "multi", "base": 100, "mult": 9, "script": "Coptic"}
+{"txt": "\ud800\udf20", "rom": "1", "value": 1, "type": "digit-like", "base": 1, "mult": 1, "script": "Old Italic"}
+{"txt": "\ud800\udf21", "rom": "5", "value": 5, "type": "digit-like", "base": 1, "mult": 5, "script": "Old Italic"}
+{"txt": "\ud800\udf22", "rom": "10", "value": 10, "type": "base", "base": 10, "mult": 1, "script": "Old Italic"}
+{"txt": "\ud800\udf23", "rom": "50", "value": 50, "type": "multi", "base": 10, "mult": 5, "script": "Old Italic"}
+{"txt": "\ud800\udf41", "rom": "90", "value": 90, "type": "multi", "base": 10, "mult": 9, "script": "Gothic"}
+{"txt": "\ud800\udf4a", "rom": "900", "value": 900, "type": "multi", "base": 100, "mult": 9, "script": "Gothic"}
+{"txt": "\ud800\udfd1", "rom": "1", "value": 1, "type": "digit-like", "base": 1, "mult": 1, "script": "Old Persian"}
+{"txt": "\ud800\udfd2", "rom": "2", "value": 2, "type": "digit-like", "base": 1, "mult": 2, "script": "Old Persian"}
+{"txt": "\ud800\udfd3", "rom": "10", "value": 10, "type": "base", "base": 10, "mult": 1, "script": "Old Persian"}
+{"txt": "\ud800\udfd4", "rom": "20", "value": 20, "type": "multi", "base": 10, "mult": 2, "script": "Old Persian"}
+{"txt": "\ud800\udfd5", "rom": "100", "value": 100, "type": "base", "base": 100, "mult": 1, "script": "Old Persian"}
+{"txt": "\ud801\udca0", "rom": "0", "value": 0, "type": "digit", "base": 1, "mult": 0, "script": "Osmanya"}
+{"txt": "\ud801\udca1", "rom": "1", "value": 1, "type": "digit", "base": 1, "mult": 1, "script": "Osmanya"}
+{"txt": "\ud801\udca2", "rom": "2", "value": 2, "type": "digit", "base": 1, "mult": 2, "script": "Osmanya"}
+{"txt": "\ud801\udca3", "rom": "3", "value": 3, "type": "digit", "base": 1, "mult": 3, "script": "Osmanya"}
+{"txt": "\ud801\udca4", "rom": "4", "value": 4, "type": "digit", "base": 1, "mult": 4, "script": "Osmanya"}
+{"txt": "\ud801\udca5", "rom": "5", "value": 5, "type": "digit", "base": 1, "mult": 5, "script": "Osmanya"}
+{"txt": "\ud801\udca6", "rom": "6", "value": 6, "type": "digit", "base": 1, "mult": 6, "script": "Osmanya"}
+{"txt": "\ud801\udca7", "rom": "7", "value": 7, "type": "digit", "base": 1, "mult": 7, "script": "Osmanya"}
+{"txt": "\ud801\udca8", "rom": "8", "value": 8, "type": "digit", "base": 1, "mult": 8, "script": "Osmanya"}
+{"txt": "\ud801\udca9", "rom": "9", "value": 9, "type": "digit", "base": 1, "mult": 9, "script": "Osmanya"}
+{"txt": "\ud802\udc58", "rom": "1", "value": 1, "type": "digit-like", "base": 1, "mult": 1, "script": "Imperial Aramaic"}
+{"txt": "\ud802\udc59", "rom": "2", "value": 2, "type": "digit-like", "base": 1, "mult": 2, "script": "Imperial Aramaic"}
+{"txt": "\ud802\udc5a", "rom": "3", "value": 3, "type": "digit-like", "base": 1, "mult": 3, "script": "Imperial Aramaic"}
+{"txt": "\ud802\udc5b", "rom": "10", "value": 10, "type": "base", "base": 10, "mult": 1, "script": "Imperial Aramaic"}
+{"txt": "\ud802\udc5c", "rom": "20", "value": 20, "type": "multi", "base": 10, "mult": 2, "script": "Imperial Aramaic"}
+{"txt": "\ud802\udc5d", "rom": "100", "value": 100, "type": "base", "base": 100, "mult": 1, "script": "Imperial Aramaic"}
+{"txt": "\ud802\udc5e", "rom": "1000", "value": 1000, "type": "base", "base": 1000, "mult": 1, "script": "Imperial Aramaic"}
+{"txt": "\ud802\udc5f", "rom": "10000", "value": 10000, "type": "base", "base": 10000, "mult": 1, "script": "Imperial Aramaic"}
+{"txt": "\ud802\udc79", "rom": "1", "value": 1, "type": "digit-like", "base": 1, "mult": 1, "script": "Palmyrene"}
+{"txt": "\ud802\udc7a", "rom": "2", "value": 2, "type": "digit-like", "base": 1, "mult": 2, "script": "Palmyrene"}
+{"txt": "\ud802\udc7b", "rom": "3", "value": 3, "type": "digit-like", "base": 1, "mult": 3, "script": "Palmyrene"}
+{"txt": "\ud802\udc7c", "rom": "4", "value": 4, "type": "digit-like", "base": 1, "mult": 4, "script": "Palmyrene"}
+{"txt": "\ud802\udc7d", "rom": "5", "value": 5, "type": "digit-like", "base": 1, "mult": 5, "script": "Palmyrene"}
+{"txt": "\ud802\udc7e", "rom": "10", "value": 10, "type": "base", "base": 10, "mult": 1, "script": "Palmyrene"}
+{"txt": "\ud802\udc7f", "rom": "20", "value": 20, "type": "multi", "base": 10, "mult": 2, "script": "Palmyrene"}
+{"txt": "\ud802\udca7", "rom": "1", "value": 1, "type": "digit-like", "base": 1, "mult": 1, "script": "Nabataean"}
+{"txt": "\ud802\udca8", "rom": "2", "value": 2, "type": "digit-like", "base": 1, "mult": 2, "script": "Nabataean"}
+{"txt": "\ud802\udca9", "rom": "3", "value": 3, "type": "digit-like", "base": 1, "mult": 3, "script": "Nabataean"}
+{"txt": "\ud802\udcaa", "rom": "4", "value": 4, "type": "digit-like", "base": 1, "mult": 4, "script": "Nabataean"}
+{"txt": "\ud802\udcab", "rom": "4", "value": 4, "type": "digit-like", "base": 1, "mult": 4, "script": "Nabataean"}
+{"txt": "\ud802\udcac", "rom": "5", "value": 5, "type": "digit-like", "base": 1, "mult": 5, "script": "Nabataean"}
+{"txt": "\ud802\udcad", "rom": "10", "value": 10, "type": "base", "base": 10, "mult": 1, "script": "Nabataean"}
+{"txt": "\ud802\udcae", "rom": "20", "value": 20, "type": "multi", "base": 10, "mult": 2, "script": "Nabataean"}
+{"txt": "\ud802\udcaf", "rom": "100", "value": 100, "type": "base", "base": 100, "mult": 1, "script": "Nabataean"}
+{"txt": "\ud802\udcfb", "rom": "1", "value": 1, "type": "digit-like", "base": 1, "mult": 1, "script": "Hatran"}
+{"txt": "\ud802\udcfc", "rom": "5", "value": 5, "type": "digit-like", "base": 1, "mult": 5, "script": "Hatran"}
+{"txt": "\ud802\udcfd", "rom": "10", "value": 10, "type": "base", "base": 10, "mult": 1, "script": "Hatran"}
+{"txt": "\ud802\udcfe", "rom": "20", "value": 20, "type": "multi", "base": 10, "mult": 2, "script": "Hatran"}
+{"txt": "\ud802\udcff", "rom": "100", "value": 100, "type": "base", "base": 100, "mult": 1, "script": "Hatran"}
+{"txt": "\ud802\udd16", "rom": "1", "value": 1, "type": "digit-like", "base": 1, "mult": 1, "script": "Phoenician"}
+{"txt": "\ud802\udd17", "rom": "10", "value": 10, "type": "base", "base": 10, "mult": 1, "script": "Phoenician"}
+{"txt": "\ud802\udd18", "rom": "20", "value": 20, "type": "multi", "base": 10, "mult": 2, "script": "Phoenician"}
+{"txt": "\ud802\udd19", "rom": "100", "value": 100, "type": "base", "base": 100, "mult": 1, "script": "Phoenician"}
+{"txt": "\ud802\udd1a", "rom": "2", "value": 2, "type": "digit-like", "base": 1, "mult": 2, "script": "Phoenician"}
+{"txt": "\ud802\udd1b", "rom": "3", "value": 3, "type": "digit-like", "base": 1, "mult": 3, "script": "Phoenician"}
+{"txt": "\ud802\uddbc", "rom": "11/12", "fraction": [11, 12], "type": "fraction", "script": "Meroitic Cursive"}
+{"txt": "\ud802\uddbd", "rom": "1/2", "fraction": [1, 2], "type": "fraction", "script": "Meroitic Cursive"}
+{"txt": "\ud802\uddc0", "rom": "1", "value": 1, "type": "digit-like", "base": 1, "mult": 1, "script": "Meroitic Cursive"}
+{"txt": "\ud802\uddc1", "rom": "2", "value": 2, "type": "digit-like", "base": 1, "mult": 2, "script": "Meroitic Cursive"}
+{"txt": "\ud802\uddc2", "rom": "3", "value": 3, "type": "digit-like", "base": 1, "mult": 3, "script": "Meroitic Cursive"}
+{"txt": "\ud802\uddc3", "rom": "4", "value": 4, "type": "digit-like", "base": 1, "mult": 4, "script": "Meroitic Cursive"}
+{"txt": "\ud802\uddc4", "rom": "5", "value": 5, "type": "digit-like", "base": 1, "mult": 5, "script": "Meroitic Cursive"}
+{"txt": "\ud802\uddc5", "rom": "6", "value": 6, "type": "digit-like", "base": 1, "mult": 6, "script": "Meroitic Cursive"}
+{"txt": "\ud802\uddc6", "rom": "7", "value": 7, "type": "digit-like", "base": 1, "mult": 7, "script": "Meroitic Cursive"}
+{"txt": "\ud802\uddc7", "rom": "8", "value": 8, "type": "digit-like", "base": 1, "mult": 8, "script": "Meroitic Cursive"}
+{"txt": "\ud802\uddc8", "rom": "9", "value": 9, "type": "digit-like", "base": 1, "mult": 9, "script": "Meroitic Cursive"}
+{"txt": "\ud802\uddc9", "rom": "10", "value": 10, "type": "base", "base": 10, "mult": 1, "script": "Meroitic Cursive"}
+{"txt": "\ud802\uddca", "rom": "20", "value": 20, "type": "multi", "base": 10, "mult": 2, "script": "Meroitic Cursive"}
+{"txt": "\ud802\uddcb", "rom": "30", "value": 30, "type": "multi", "base": 10, "mult": 3, "script": "Meroitic Cursive"}
+{"txt": "\ud802\uddcc", "rom": "40", "value": 40, "type": "multi", "base": 10, "mult": 4, "script": "Meroitic Cursive"}
+{"txt": "\ud802\uddcd", "rom": "50", "value": 50, "type": "multi", "base": 10, "mult": 5, "script": "Meroitic Cursive"}
+{"txt": "\ud802\uddce", "rom": "60", "value": 60, "type": "multi", "base": 10, "mult": 6, "script": "Meroitic Cursive"}
+{"txt": "\ud802\uddcf", "rom": "70", "value": 70, "type": "multi", "base": 10, "mult": 7, "script": "Meroitic Cursive"}
+{"txt": "\ud802\uddd2", "rom": "100", "value": 100, "type": "base", "base": 100, "mult": 1, "script": "Meroitic Cursive"}
+{"txt": "\ud802\uddd3", "rom": "200", "value": 200, "type": "multi", "base": 100, "mult": 2, "script": "Meroitic Cursive"}
+{"txt": "\ud802\uddd4", "rom": "300", "value": 300, "type": "multi", "base": 100, "mult": 3, "script": "Meroitic Cursive"}
+{"txt": "\ud802\uddd5", "rom": "400", "value": 400, "type": "multi", "base": 100, "mult": 4, "script": "Meroitic Cursive"}
+{"txt": "\ud802\uddd6", "rom": "500", "value": 500, "type": "multi", "base": 100, "mult": 5, "script": "Meroitic Cursive"}
+{"txt": "\ud802\uddd7", "rom": "600", "value": 600, "type": "multi", "base": 100, "mult": 6, "script": "Meroitic Cursive"}
+{"txt": "\ud802\uddd8", "rom": "700", "value": 700, "type": "multi", "base": 100, "mult": 7, "script": "Meroitic Cursive"}
+{"txt": "\ud802\uddd9", "rom": "800", "value": 800, "type": "multi", "base": 100, "mult": 8, "script": "Meroitic Cursive"}
+{"txt": "\ud802\uddda", "rom": "900", "value": 900, "type": "multi", "base": 100, "mult": 9, "script": "Meroitic Cursive"}
+{"txt": "\ud802\udddb", "rom": "1000", "value": 1000, "type": "base", "base": 1000, "mult": 1, "script": "Meroitic Cursive"}
+{"txt": "\ud802\udddc", "rom": "2000", "value": 2000, "type": "multi", "base": 1000, "mult": 2, "script": "Meroitic Cursive"}
+{"txt": "\ud802\udddd", "rom": "3000", "value": 3000, "type": "multi", "base": 1000, "mult": 3, "script": "Meroitic Cursive"}
+{"txt": "\ud802\uddde", "rom": "4000", "value": 4000, "type": "multi", "base": 1000, "mult": 4, "script": "Meroitic Cursive"}
+{"txt": "\ud802\udddf", "rom": "5000", "value": 5000, "type": "multi", "base": 1000, "mult": 5, "script": "Meroitic Cursive"}
+{"txt": "\ud802\udde0", "rom": "6000", "value": 6000, "type": "multi", "base": 1000, "mult": 6, "script": "Meroitic Cursive"}
+{"txt": "\ud802\udde1", "rom": "7000", "value": 7000, "type": "multi", "base": 1000, "mult": 7, "script": "Meroitic Cursive"}
+{"txt": "\ud802\udde2", "rom": "8000", "value": 8000, "type": "multi", "base": 1000, "mult": 8, "script": "Meroitic Cursive"}
+{"txt": "\ud802\udde3", "rom": "9000", "value": 9000, "type": "multi", "base": 1000, "mult": 9, "script": "Meroitic Cursive"}
+{"txt": "\ud802\udde4", "rom": "10000", "value": 10000, "type": "base", "base": 10000, "mult": 1, "script": "Meroitic Cursive"}
+{"txt": "\ud802\udde5", "rom": "20000", "value": 20000, "type": "multi", "base": 10000, "mult": 2, "script": "Meroitic Cursive"}
+{"txt": "\ud802\udde6", "rom": "30000", "value": 30000, "type": "multi", "base": 10000, "mult": 3, "script": "Meroitic Cursive"}
+{"txt": "\ud802\udde7", "rom": "40000", "value": 40000, "type": "multi", "base": 10000, "mult": 4, "script": "Meroitic Cursive"}
+{"txt": "\ud802\udde8", "rom": "50000", "value": 50000, "type": "multi", "base": 10000, "mult": 5, "script": "Meroitic Cursive"}
+{"txt": "\ud802\udde9", "rom": "60000", "value": 60000, "type": "multi", "base": 10000, "mult": 6, "script": "Meroitic Cursive"}
+{"txt": "\ud802\uddea", "rom": "70000", "value": 70000, "type": "multi", "base": 10000, "mult": 7, "script": "Meroitic Cursive"}
+{"txt": "\ud802\uddeb", "rom": "80000", "value": 80000, "type": "multi", "base": 10000, "mult": 8, "script": "Meroitic Cursive"}
+{"txt": "\ud802\uddec", "rom": "90000", "value": 90000, "type": "multi", "base": 10000, "mult": 9, "script": "Meroitic Cursive"}
+{"txt": "\ud802\udded", "rom": "100000", "value": 100000, "type": "base", "base": 100000, "mult": 1, "script": "Meroitic Cursive"}
+{"txt": "\ud802\uddee", "rom": "200000", "value": 200000, "type": "multi", "base": 100000, "mult": 2, "script": "Meroitic Cursive"}
+{"txt": "\ud802\uddef", "rom": "300000", "value": 300000, "type": "multi", "base": 100000, "mult": 3, "script": "Meroitic Cursive"}
+{"txt": "\ud802\uddf0", "rom": "400000", "value": 400000, "type": "multi", "base": 100000, "mult": 4, "script": "Meroitic Cursive"}
+{"txt": "\ud802\uddf1", "rom": "500000", "value": 500000, "type": "multi", "base": 100000, "mult": 5, "script": "Meroitic Cursive"}
+{"txt": "\ud802\uddf2", "rom": "600000", "value": 600000, "type": "multi", "base": 100000, "mult": 6, "script": "Meroitic Cursive"}
+{"txt": "\ud802\uddf3", "rom": "700000", "value": 700000, "type": "multi", "base": 100000, "mult": 7, "script": "Meroitic Cursive"}
+{"txt": "\ud802\uddf4", "rom": "800000", "value": 800000, "type": "multi", "base": 100000, "mult": 8, "script": "Meroitic Cursive"}
+{"txt": "\ud802\uddf5", "rom": "900000", "value": 900000, "type": "multi", "base": 100000, "mult": 9, "script": "Meroitic Cursive"}
+{"txt": "\ud802\uddf6", "rom": "1/12", "fraction": [1, 12], "type": "fraction", "script": "Meroitic Cursive"}
+{"txt": "\ud802\uddf7", "rom": "1/6", "fraction": [1, 6], "type": "fraction", "script": "Meroitic Cursive"}
+{"txt": "\ud802\uddf8", "rom": "1/4", "fraction": [1, 4], "type": "fraction", "script": "Meroitic Cursive"}
+{"txt": "\ud802\uddf9", "rom": "1/3", "fraction": [1, 3], "type": "fraction", "script": "Meroitic Cursive"}
+{"txt": "\ud802\uddfa", "rom": "5/12", "fraction": [5, 12], "type": "fraction", "script": "Meroitic Cursive"}
+{"txt": "\ud802\uddfb", "rom": "1/2", "fraction": [1, 2], "type": "fraction", "script": "Meroitic Cursive"}
+{"txt": "\ud802\uddfc", "rom": "7/12", "fraction": [7, 12], "type": "fraction", "script": "Meroitic Cursive"}
+{"txt": "\ud802\uddfd", "rom": "2/3", "fraction": [2, 3], "type": "fraction", "script": "Meroitic Cursive"}
+{"txt": "\ud802\uddfe", "rom": "3/4", "fraction": [3, 4], "type": "fraction", "script": "Meroitic Cursive"}
+{"txt": "\ud802\uddff", "rom": "5/6", "fraction": [5, 6], "type": "fraction", "script": "Meroitic Cursive"}
+{"txt": "\ud802\ude40", "rom": "1", "value": 1, "type": "digit", "base": 1, "mult": 1, "script": "Kharoshthi"}
+{"txt": "\ud802\ude41", "rom": "2", "value": 2, "type": "digit", "base": 1, "mult": 2, "script": "Kharoshthi"}
+{"txt": "\ud802\ude42", "rom": "3", "value": 3, "type": "digit", "base": 1, "mult": 3, "script": "Kharoshthi"}
+{"txt": "\ud802\ude43", "rom": "4", "value": 4, "type": "digit", "base": 1, "mult": 4, "script": "Kharoshthi"}
+{"txt": "\ud802\ude44", "rom": "10", "value": 10, "type": "base", "base": 10, "mult": 1, "script": "Kharoshthi"}
+{"txt": "\ud802\ude45", "rom": "20", "value": 20, "type": "multi", "base": 10, "mult": 2, "script": "Kharoshthi"}
+{"txt": "\ud802\ude46", "rom": "100", "value": 100, "type": "base", "base": 100, "mult": 1, "script": "Kharoshthi"}
+{"txt": "\ud802\ude47", "rom": "1000", "value": 1000, "type": "base", "base": 1000, "mult": 1, "script": "Kharoshthi"}
+{"txt": "\ud802\ude48", "rom": "1/2", "fraction": [1, 2], "type": "fraction", "script": "Kharoshthi"}
+{"txt": "\ud802\ude7d", "rom": "1", "value": 1, "type": "digit-like", "base": 1, "mult": 1, "script": "Old South Arabian"}
+{"txt": "\ud802\ude7e", "rom": "50", "value": 50, "type": "multi", "base": 10, "mult": 5, "script": "Old South Arabian"}
+{"txt": "\ud802\ude9d", "rom": "1", "value": 1, "type": "digit-like", "base": 1, "mult": 1, "script": "Old North Arabian"}
+{"txt": "\ud802\ude9e", "rom": "10", "value": 10, "type": "base", "base": 10, "mult": 1, "script": "Old North Arabian"}
+{"txt": "\ud802\ude9f", "rom": "20", "value": 20, "type": "multi", "base": 10, "mult": 2, "script": "Old North Arabian"}
+{"txt": "\ud802\udeeb", "rom": "1", "value": 1, "type": "digit-like", "base": 1, "mult": 1, "script": "Manichaean"}
+{"txt": "\ud802\udeec", "rom": "5", "value": 5, "type": "digit-like", "base": 1, "mult": 5, "script": "Manichaean"}
+{"txt": "\ud802\udeed", "rom": "10", "value": 10, "type": "base", "base": 10, "mult": 1, "script": "Manichaean"}
+{"txt": "\ud802\udeee", "rom": "20", "value": 20, "type": "multi", "base": 10, "mult": 2, "script": "Manichaean"}
+{"txt": "\ud802\udeef", "rom": "100", "value": 100, "type": "base", "base": 100, "mult": 1, "script": "Manichaean"}
+{"txt": "\ud802\udf58", "rom": "1", "value": 1, "type": "digit-like", "base": 1, "mult": 1, "script": "Inscriptional Parthian"}
+{"txt": "\ud802\udf59", "rom": "2", "value": 2, "type": "digit-like", "base": 1, "mult": 2, "script": "Inscriptional Parthian"}
+{"txt": "\ud802\udf5a", "rom": "3", "value": 3, "type": "digit-like", "base": 1, "mult": 3, "script": "Inscriptional Parthian"}
+{"txt": "\ud802\udf5b", "rom": "4", "value": 4, "type": "digit-like", "base": 1, "mult": 4, "script": "Inscriptional Parthian"}
+{"txt": "\ud802\udf5c", "rom": "10", "value": 10, "type": "base", "base": 10, "mult": 1, "script": "Inscriptional Parthian"}
+{"txt": "\ud802\udf5d", "rom": "20", "value": 20, "type": "multi", "base": 10, "mult": 2, "script": "Inscriptional Parthian"}
+{"txt": "\ud802\udf5e", "rom": "100", "value": 100, "type": "base", "base": 100, "mult": 1, "script": "Inscriptional Parthian"}
+{"txt": "\ud802\udf5f", "rom": "1000", "value": 1000, "type": "base", "base": 1000, "mult": 1, "script": "Inscriptional Parthian"}
+{"txt": "\ud802\udf78", "rom": "1", "value": 1, "type": "digit-like", "base": 1, "mult": 1, "script": "Inscriptional Pahlavi"}
+{"txt": "\ud802\udf79", "rom": "2", "value": 2, "type": "digit-like", "base": 1, "mult": 2, "script": "Inscriptional Pahlavi"}
+{"txt": "\ud802\udf7a", "rom": "3", "value": 3, "type": "digit-like", "base": 1, "mult": 3, "script": "Inscriptional Pahlavi"}
+{"txt": "\ud802\udf7b", "rom": "4", "value": 4, "type": "digit-like", "base": 1, "mult": 4, "script": "Inscriptional Pahlavi"}
+{"txt": "\ud802\udf7c", "rom": "10", "value": 10, "type": "base", "base": 10, "mult": 1, "script": "Inscriptional Pahlavi"}
+{"txt": "\ud802\udf7d", "rom": "20", "value": 20, "type": "multi", "base": 10, "mult": 2, "script": "Inscriptional Pahlavi"}
+{"txt": "\ud802\udf7e", "rom": "100", "value": 100, "type": "base", "base": 100, "mult": 1, "script": "Inscriptional Pahlavi"}
+{"txt": "\ud802\udf7f", "rom": "1000", "value": 1000, "type": "base", "base": 1000, "mult": 1, "script": "Inscriptional Pahlavi"}
+{"txt": "\ud802\udfa9", "rom": "1", "value": 1, "type": "digit-like", "base": 1, "mult": 1, "script": "Psalter Pahlavi"}
+{"txt": "\ud802\udfaa", "rom": "2", "value": 2, "type": "digit-like", "base": 1, "mult": 2, "script": "Psalter Pahlavi"}
+{"txt": "\ud802\udfab", "rom": "3", "value": 3, "type": "digit-like", "base": 1, "mult": 3, "script": "Psalter Pahlavi"}
+{"txt": "\ud802\udfac", "rom": "4", "value": 4, "type": "digit-like", "base": 1, "mult": 4, "script": "Psalter Pahlavi"}
+{"txt": "\ud802\udfad", "rom": "10", "value": 10, "type": "base", "base": 10, "mult": 1, "script": "Psalter Pahlavi"}
+{"txt": "\ud802\udfae", "rom": "20", "value": 20, "type": "multi", "base": 10, "mult": 2, "script": "Psalter Pahlavi"}
+{"txt": "\ud802\udfaf", "rom": "100", "value": 100, "type": "base", "base": 100, "mult": 1, "script": "Psalter Pahlavi"}
+{"txt": "\ud803\udcfa", "rom": "1", "value": 1, "type": "digit-like", "base": 1, "mult": 1, "script": "Old Hungarian"}
+{"txt": "\ud803\udcfb", "rom": "5", "value": 5, "type": "digit-like", "base": 1, "mult": 5, "script": "Old Hungarian"}
+{"txt": "\ud803\udcfc", "rom": "10", "value": 10, "type": "base", "base": 10, "mult": 1, "script": "Old Hungarian"}
+{"txt": "\ud803\udcfd", "rom": "50", "value": 50, "type": "multi", "base": 10, "mult": 5, "script": "Old Hungarian"}
+{"txt": "\ud803\udcfe", "rom": "100", "value": 100, "type": "base", "base": 100, "mult": 1, "script": "Old Hungarian"}
+{"txt": "\ud803\udcff", "rom": "1000", "value": 1000, "type": "base", "base": 1000, "mult": 1, "script": "Old Hungarian"}
+{"txt": "\ud803\udd30", "rom": "0", "value": 0, "type": "digit", "base": 1, "mult": 0, "script": "Hanifi Rohingya"}
+{"txt": "\ud803\udd31", "rom": "1", "value": 1, "type": "digit", "base": 1, "mult": 1, "script": "Hanifi Rohingya"}
+{"txt": "\ud803\udd32", "rom": "2", "value": 2, "type": "digit", "base": 1, "mult": 2, "script": "Hanifi Rohingya"}
+{"txt": "\ud803\udd33", "rom": "3", "value": 3, "type": "digit", "base": 1, "mult": 3, "script": "Hanifi Rohingya"}
+{"txt": "\ud803\udd34", "rom": "4", "value": 4, "type": "digit", "base": 1, "mult": 4, "script": "Hanifi Rohingya"}
+{"txt": "\ud803\udd35", "rom": "5", "value": 5, "type": "digit", "base": 1, "mult": 5, "script": "Hanifi Rohingya"}
+{"txt": "\ud803\udd36", "rom": "6", "value": 6, "type": "digit", "base": 1, "mult": 6, "script": "Hanifi Rohingya"}
+{"txt": "\ud803\udd37", "rom": "7", "value": 7, "type": "digit", "base": 1, "mult": 7, "script": "Hanifi Rohingya"}
+{"txt": "\ud803\udd38", "rom": "8", "value": 8, "type": "digit", "base": 1, "mult": 8, "script": "Hanifi Rohingya"}
+{"txt": "\ud803\udd39", "rom": "9", "value": 9, "type": "digit", "base": 1, "mult": 9, "script": "Hanifi Rohingya"}
+{"txt": "\ud803\ude60", "rom": "1", "value": 1, "type": "digit", "base": 1, "mult": 1, "script": "Rumi"}
+{"txt": "\ud803\ude61", "rom": "2", "value": 2, "type": "digit", "base": 1, "mult": 2, "script": "Rumi"}
+{"txt": "\ud803\ude62", "rom": "3", "value": 3, "type": "digit", "base": 1, "mult": 3, "script": "Rumi"}
+{"txt": "\ud803\ude63", "rom": "4", "value": 4, "type": "digit", "base": 1, "mult": 4, "script": "Rumi"}
+{"txt": "\ud803\ude64", "rom": "5", "value": 5, "type": "digit", "base": 1, "mult": 5, "script": "Rumi"}
+{"txt": "\ud803\ude65", "rom": "6", "value": 6, "type": "digit", "base": 1, "mult": 6, "script": "Rumi"}
+{"txt": "\ud803\ude66", "rom": "7", "value": 7, "type": "digit", "base": 1, "mult": 7, "script": "Rumi"}
+{"txt": "\ud803\ude67", "rom": "8", "value": 8, "type": "digit", "base": 1, "mult": 8, "script": "Rumi"}
+{"txt": "\ud803\ude68", "rom": "9", "value": 9, "type": "digit", "base": 1, "mult": 9, "script": "Rumi"}
+{"txt": "\ud803\ude69", "rom": "10", "value": 10, "type": "base", "base": 10, "mult": 1, "script": "Rumi"}
+{"txt": "\ud803\ude6a", "rom": "20", "value": 20, "type": "multi", "base": 10, "mult": 2, "script": "Rumi"}
+{"txt": "\ud803\ude6b", "rom": "30", "value": 30, "type": "multi", "base": 10, "mult": 3, "script": "Rumi"}
+{"txt": "\ud803\ude6c", "rom": "40", "value": 40, "type": "multi", "base": 10, "mult": 4, "script": "Rumi"}
+{"txt": "\ud803\ude6d", "rom": "50", "value": 50, "type": "multi", "base": 10, "mult": 5, "script": "Rumi"}
+{"txt": "\ud803\ude6e", "rom": "60", "value": 60, "type": "multi", "base": 10, "mult": 6, "script": "Rumi"}
+{"txt": "\ud803\ude6f", "rom": "70", "value": 70, "type": "multi", "base": 10, "mult": 7, "script": "Rumi"}
+{"txt": "\ud803\ude70", "rom": "80", "value": 80, "type": "multi", "base": 10, "mult": 8, "script": "Rumi"}
+{"txt": "\ud803\ude71", "rom": "90", "value": 90, "type": "multi", "base": 10, "mult": 9, "script": "Rumi"}
+{"txt": "\ud803\ude72", "rom": "100", "value": 100, "type": "base", "base": 100, "mult": 1, "script": "Rumi"}
+{"txt": "\ud803\ude73", "rom": "200", "value": 200, "type": "multi", "base": 100, "mult": 2, "script": "Rumi"}
+{"txt": "\ud803\ude74", "rom": "300", "value": 300, "type": "multi", "base": 100, "mult": 3, "script": "Rumi"}
+{"txt": "\ud803\ude75", "rom": "400", "value": 400, "type": "multi", "base": 100, "mult": 4, "script": "Rumi"}
+{"txt": "\ud803\ude76", "rom": "500", "value": 500, "type": "multi", "base": 100, "mult": 5, "script": "Rumi"}
+{"txt": "\ud803\ude77", "rom": "600", "value": 600, "type": "multi", "base": 100, "mult": 6, "script": "Rumi"}
+{"txt": "\ud803\ude78", "rom": "700", "value": 700, "type": "multi", "base": 100, "mult": 7, "script": "Rumi"}
+{"txt": "\ud803\ude79", "rom": "800", "value": 800, "type": "multi", "base": 100, "mult": 8, "script": "Rumi"}
+{"txt": "\ud803\ude7a", "rom": "900", "value": 900, "type": "multi", "base": 100, "mult": 9, "script": "Rumi"}
+{"txt": "\ud803\ude7b", "rom": "1/2", "fraction": [1, 2], "type": "fraction", "script": "Rumi"}
+{"txt": "\ud803\ude7c", "rom": "1/4", "fraction": [1, 4], "type": "fraction", "script": "Rumi"}
+{"txt": "\ud803\ude7d", "rom": "1/3", "fraction": [1, 3], "type": "fraction", "script": "Rumi"}
+{"txt": "\ud803\ude7e", "rom": "2/3", "fraction": [2, 3], "type": "fraction", "script": "Rumi"}
+{"txt": "\ud803\udf1d", "rom": "1", "value": 1, "type": "digit-like", "base": 1, "mult": 1, "script": "Old Sogdian"}
+{"txt": "\ud803\udf1e", "rom": "2", "value": 2, "type": "digit-like", "base": 1, "mult": 2, "script": "Old Sogdian"}
+{"txt": "\ud803\udf1f", "rom": "3", "value": 3, "type": "digit-like", "base": 1, "mult": 3, "script": "Old Sogdian"}
+{"txt": "\ud803\udf20", "rom": "4", "value": 4, "type": "digit-like", "base": 1, "mult": 4, "script": "Old Sogdian"}
+{"txt": "\ud803\udf21", "rom": "5", "value": 5, "type": "digit-like", "base": 1, "mult": 5, "script": "Old Sogdian"}
+{"txt": "\ud803\udf22", "rom": "10", "value": 10, "type": "base", "base": 10, "mult": 1, "script": "Old Sogdian"}
+{"txt": "\ud803\udf23", "rom": "20", "value": 20, "type": "multi", "base": 10, "mult": 2, "script": "Old Sogdian"}
+{"txt": "\ud803\udf24", "rom": "30", "value": 30, "type": "multi", "base": 10, "mult": 3, "script": "Old Sogdian"}
+{"txt": "\ud803\udf25", "rom": "100", "value": 100, "type": "base", "base": 100, "mult": 1, "script": "Old Sogdian"}
+{"txt": "\ud803\udf26", "rom": "1/2", "fraction": [1, 2], "type": "fraction", "script": "Old Sogdian"}
+{"txt": "\ud803\udf51", "rom": "1", "value": 1, "type": "digit-like", "base": 1, "mult": 1, "script": "Sogdian"}
+{"txt": "\ud803\udf52", "rom": "10", "value": 10, "type": "base", "base": 10, "mult": 1, "script": "Sogdian"}
+{"txt": "\ud803\udf53", "rom": "20", "value": 20, "type": "multi", "base": 10, "mult": 2, "script": "Sogdian"}
+{"txt": "\ud803\udf54", "rom": "100", "value": 100, "type": "base", "base": 100, "mult": 1, "script": "Sogdian"}
+{"txt": "\ud803\udfc5", "rom": "1", "value": 1, "type": "digit-like", "base": 1, "mult": 1, "script": "Chorasmian"}
+{"txt": "\ud803\udfc6", "rom": "2", "value": 2, "type": "digit-like", "base": 1, "mult": 2, "script": "Chorasmian"}
+{"txt": "\ud803\udfc7", "rom": "3", "value": 3, "type": "digit-like", "base": 1, "mult": 3, "script": "Chorasmian"}
+{"txt": "\ud803\udfc8", "rom": "4", "value": 4, "type": "digit-like", "base": 1, "mult": 4, "script": "Chorasmian"}
+{"txt": "\ud803\udfc9", "rom": "10", "value": 10, "type": "base", "base": 10, "mult": 1, "script": "Chorasmian"}
+{"txt": "\ud803\udfca", "rom": "20", "value": 20, "type": "multi", "base": 10, "mult": 2, "script": "Chorasmian"}
+{"txt": "\ud803\udfcb", "rom": "100", "value": 100, "type": "base", "base": 100, "mult": 1, "script": "Chorasmian"}
+{"txt": "\ud804\udc52", "rom": "1", "value": 1, "type": "digit-like", "base": 1, "mult": 1, "script": "Brahmi"}
+{"txt": "\ud804\udc53", "rom": "2", "value": 2, "type": "digit-like", "base": 1, "mult": 2, "script": "Brahmi"}
+{"txt": "\ud804\udc54", "rom": "3", "value": 3, "type": "digit-like", "base": 1, "mult": 3, "script": "Brahmi"}
+{"txt": "\ud804\udc55", "rom": "4", "value": 4, "type": "digit-like", "base": 1, "mult": 4, "script": "Brahmi"}
+{"txt": "\ud804\udc56", "rom": "5", "value": 5, "type": "digit-like", "base": 1, "mult": 5, "script": "Brahmi"}
+{"txt": "\ud804\udc57", "rom": "6", "value": 6, "type": "digit-like", "base": 1, "mult": 6, "script": "Brahmi"}
+{"txt": "\ud804\udc58", "rom": "7", "value": 7, "type": "digit-like", "base": 1, "mult": 7, "script": "Brahmi"}
+{"txt": "\ud804\udc59", "rom": "8", "value": 8, "type": "digit-like", "base": 1, "mult": 8, "script": "Brahmi"}
+{"txt": "\ud804\udc5a", "rom": "9", "value": 9, "type": "digit-like", "base": 1, "mult": 9, "script": "Brahmi"}
+{"txt": "\ud804\udc5b", "rom": "10", "value": 10, "type": "base", "base": 10, "mult": 1, "script": "Brahmi"}
+{"txt": "\ud804\udc5c", "rom": "20", "value": 20, "type": "multi", "base": 10, "mult": 2, "script": "Brahmi"}
+{"txt": "\ud804\udc5d", "rom": "30", "value": 30, "type": "multi", "base": 10, "mult": 3, "script": "Brahmi"}
+{"txt": "\ud804\udc5e", "rom": "40", "value": 40, "type": "multi", "base": 10, "mult": 4, "script": "Brahmi"}
+{"txt": "\ud804\udc5f", "rom": "50", "value": 50, "type": "multi", "base": 10, "mult": 5, "script": "Brahmi"}
+{"txt": "\ud804\udc60", "rom": "60", "value": 60, "type": "multi", "base": 10, "mult": 6, "script": "Brahmi"}
+{"txt": "\ud804\udc61", "rom": "70", "value": 70, "type": "multi", "base": 10, "mult": 7, "script": "Brahmi"}
+{"txt": "\ud804\udc62", "rom": "80", "value": 80, "type": "multi", "base": 10, "mult": 8, "script": "Brahmi"}
+{"txt": "\ud804\udc63", "rom": "90", "value": 90, "type": "multi", "base": 10, "mult": 9, "script": "Brahmi"}
+{"txt": "\ud804\udc64", "rom": "100", "value": 100, "type": "base", "base": 100, "mult": 1, "script": "Brahmi"}
+{"txt": "\ud804\udc65", "rom": "1000", "value": 1000, "type": "base", "base": 1000, "mult": 1, "script": "Brahmi"}
+{"txt": "\ud804\udc66", "rom": "0", "value": 0, "type": "digit", "base": 1, "mult": 0, "script": "Brahmi"}
+{"txt": "\ud804\udc67", "rom": "1", "value": 1, "type": "digit", "base": 1, "mult": 1, "script": "Brahmi"}
+{"txt": "\ud804\udc68", "rom": "2", "value": 2, "type": "digit", "base": 1, "mult": 2, "script": "Brahmi"}
+{"txt": "\ud804\udc69", "rom": "3", "value": 3, "type": "digit", "base": 1, "mult": 3, "script": "Brahmi"}
+{"txt": "\ud804\udc6a", "rom": "4", "value": 4, "type": "digit", "base": 1, "mult": 4, "script": "Brahmi"}
+{"txt": "\ud804\udc6b", "rom": "5", "value": 5, "type": "digit", "base": 1, "mult": 5, "script": "Brahmi"}
+{"txt": "\ud804\udc6c", "rom": "6", "value": 6, "type": "digit", "base": 1, "mult": 6, "script": "Brahmi"}
+{"txt": "\ud804\udc6d", "rom": "7", "value": 7, "type": "digit", "base": 1, "mult": 7, "script": "Brahmi"}
+{"txt": "\ud804\udc6e", "rom": "8", "value": 8, "type": "digit", "base": 1, "mult": 8, "script": "Brahmi"}
+{"txt": "\ud804\udc6f", "rom": "9", "value": 9, "type": "digit", "base": 1, "mult": 9, "script": "Brahmi"}
+{"txt": "\ud804\udcf0", "rom": "0", "value": 0, "type": "digit", "base": 1, "mult": 0, "script": "Sora Sompeng"}
+{"txt": "\ud804\udcf1", "rom": "1", "value": 1, "type": "digit", "base": 1, "mult": 1, "script": "Sora Sompeng"}
+{"txt": "\ud804\udcf2", "rom": "2", "value": 2, "type": "digit", "base": 1, "mult": 2, "script": "Sora Sompeng"}
+{"txt": "\ud804\udcf3", "rom": "3", "value": 3, "type": "digit", "base": 1, "mult": 3, "script": "Sora Sompeng"}
+{"txt": "\ud804\udcf4", "rom": "4", "value": 4, "type": "digit", "base": 1, "mult": 4, "script": "Sora Sompeng"}
+{"txt": "\ud804\udcf5", "rom": "5", "value": 5, "type": "digit", "base": 1, "mult": 5, "script": "Sora Sompeng"}
+{"txt": "\ud804\udcf6", "rom": "6", "value": 6, "type": "digit", "base": 1, "mult": 6, "script": "Sora Sompeng"}
+{"txt": "\ud804\udcf7", "rom": "7", "value": 7, "type": "digit", "base": 1, "mult": 7, "script": "Sora Sompeng"}
+{"txt": "\ud804\udcf8", "rom": "8", "value": 8, "type": "digit", "base": 1, "mult": 8, "script": "Sora Sompeng"}
+{"txt": "\ud804\udcf9", "rom": "9", "value": 9, "type": "digit", "base": 1, "mult": 9, "script": "Sora Sompeng"}
+{"txt": "\ud804\udd36", "rom": "0", "value": 0, "type": "digit", "base": 1, "mult": 0, "script": "Chakma"}
+{"txt": "\ud804\udd37", "rom": "1", "value": 1, "type": "digit", "base": 1, "mult": 1, "script": "Chakma"}
+{"txt": "\ud804\udd38", "rom": "2", "value": 2, "type": "digit", "base": 1, "mult": 2, "script": "Chakma"}
+{"txt": "\ud804\udd39", "rom": "3", "value": 3, "type": "digit", "base": 1, "mult": 3, "script": "Chakma"}
+{"txt": "\ud804\udd3a", "rom": "4", "value": 4, "type": "digit", "base": 1, "mult": 4, "script": "Chakma"}
+{"txt": "\ud804\udd3b", "rom": "5", "value": 5, "type": "digit", "base": 1, "mult": 5, "script": "Chakma"}
+{"txt": "\ud804\udd3c", "rom": "6", "value": 6, "type": "digit", "base": 1, "mult": 6, "script": "Chakma"}
+{"txt": "\ud804\udd3d", "rom": "7", "value": 7, "type": "digit", "base": 1, "mult": 7, "script": "Chakma"}
+{"txt": "\ud804\udd3e", "rom": "8", "value": 8, "type": "digit", "base": 1, "mult": 8, "script": "Chakma"}
+{"txt": "\ud804\udd3f", "rom": "9", "value": 9, "type": "digit", "base": 1, "mult": 9, "script": "Chakma"}
+{"txt": "\ud804\uddd0", "rom": "0", "value": 0, "type": "digit", "base": 1, "mult": 0, "script": "Sharada"}
+{"txt": "\ud804\uddd1", "rom": "1", "value": 1, "type": "digit", "base": 1, "mult": 1, "script": "Sharada"}
+{"txt": "\ud804\uddd2", "rom": "2", "value": 2, "type": "digit", "base": 1, "mult": 2, "script": "Sharada"}
+{"txt": "\ud804\uddd3", "rom": "3", "value": 3, "type": "digit", "base": 1, "mult": 3, "script": "Sharada"}
+{"txt": "\ud804\uddd4", "rom": "4", "value": 4, "type": "digit", "base": 1, "mult": 4, "script": "Sharada"}
+{"txt": "\ud804\uddd5", "rom": "5", "value": 5, "type": "digit", "base": 1, "mult": 5, "script": "Sharada"}
+{"txt": "\ud804\uddd6", "rom": "6", "value": 6, "type": "digit", "base": 1, "mult": 6, "script": "Sharada"}
+{"txt": "\ud804\uddd7", "rom": "7", "value": 7, "type": "digit", "base": 1, "mult": 7, "script": "Sharada"}
+{"txt": "\ud804\uddd8", "rom": "8", "value": 8, "type": "digit", "base": 1, "mult": 8, "script": "Sharada"}
+{"txt": "\ud804\uddd9", "rom": "9", "value": 9, "type": "digit", "base": 1, "mult": 9, "script": "Sharada"}
+{"txt": "\ud804\udde1", "rom": "1", "value": 1, "type": "digit", "base": 1, "mult": 1, "script": "Sinhala"}
+{"txt": "\ud804\udde2", "rom": "2", "value": 2, "type": "digit", "base": 1, "mult": 2, "script": "Sinhala"}
+{"txt": "\ud804\udde3", "rom": "3", "value": 3, "type": "digit", "base": 1, "mult": 3, "script": "Sinhala"}
+{"txt": "\ud804\udde4", "rom": "4", "value": 4, "type": "digit", "base": 1, "mult": 4, "script": "Sinhala"}
+{"txt": "\ud804\udde5", "rom": "5", "value": 5, "type": "digit", "base": 1, "mult": 5, "script": "Sinhala"}
+{"txt": "\ud804\udde6", "rom": "6", "value": 6, "type": "digit", "base": 1, "mult": 6, "script": "Sinhala"}
+{"txt": "\ud804\udde7", "rom": "7", "value": 7, "type": "digit", "base": 1, "mult": 7, "script": "Sinhala"}
+{"txt": "\ud804\udde8", "rom": "8", "value": 8, "type": "digit", "base": 1, "mult": 8, "script": "Sinhala"}
+{"txt": "\ud804\udde9", "rom": "9", "value": 9, "type": "digit", "base": 1, "mult": 9, "script": "Sinhala"}
+{"txt": "\ud804\uddea", "rom": "10", "value": 10, "type": "base", "base": 10, "mult": 1, "script": "Sinhala"}
+{"txt": "\ud804\uddeb", "rom": "20", "value": 20, "type": "multi", "base": 10, "mult": 2, "script": "Sinhala"}
+{"txt": "\ud804\uddec", "rom": "30", "value": 30, "type": "multi", "base": 10, "mult": 3, "script": "Sinhala"}
+{"txt": "\ud804\udded", "rom": "40", "value": 40, "type": "multi", "base": 10, "mult": 4, "script": "Sinhala"}
+{"txt": "\ud804\uddee", "rom": "50", "value": 50, "type": "multi", "base": 10, "mult": 5, "script": "Sinhala"}
+{"txt": "\ud804\uddef", "rom": "60", "value": 60, "type": "multi", "base": 10, "mult": 6, "script": "Sinhala"}
+{"txt": "\ud804\uddf0", "rom": "70", "value": 70, "type": "multi", "base": 10, "mult": 7, "script": "Sinhala"}
+{"txt": "\ud804\uddf1", "rom": "80", "value": 80, "type": "multi", "base": 10, "mult": 8, "script": "Sinhala"}
+{"txt": "\ud804\uddf2", "rom": "90", "value": 90, "type": "multi", "base": 10, "mult": 9, "script": "Sinhala"}
+{"txt": "\ud804\uddf3", "rom": "100", "value": 100, "type": "base", "base": 100, "mult": 1, "script": "Sinhala"}
+{"txt": "\ud804\uddf4", "rom": "1000", "value": 1000, "type": "base", "base": 1000, "mult": 1, "script": "Sinhala"}
+{"txt": "\ud804\udef0", "rom": "0", "value": 0, "type": "digit", "base": 1, "mult": 0, "script": "Khudawadi"}
+{"txt": "\ud804\udef1", "rom": "1", "value": 1, "type": "digit", "base": 1, "mult": 1, "script": "Khudawadi"}
+{"txt": "\ud804\udef2", "rom": "2", "value": 2, "type": "digit", "base": 1, "mult": 2, "script": "Khudawadi"}
+{"txt": "\ud804\udef3", "rom": "3", "value": 3, "type": "digit", "base": 1, "mult": 3, "script": "Khudawadi"}
+{"txt": "\ud804\udef4", "rom": "4", "value": 4, "type": "digit", "base": 1, "mult": 4, "script": "Khudawadi"}
+{"txt": "\ud804\udef5", "rom": "5", "value": 5, "type": "digit", "base": 1, "mult": 5, "script": "Khudawadi"}
+{"txt": "\ud804\udef6", "rom": "6", "value": 6, "type": "digit", "base": 1, "mult": 6, "script": "Khudawadi"}
+{"txt": "\ud804\udef7", "rom": "7", "value": 7, "type": "digit", "base": 1, "mult": 7, "script": "Khudawadi"}
+{"txt": "\ud804\udef8", "rom": "8", "value": 8, "type": "digit", "base": 1, "mult": 8, "script": "Khudawadi"}
+{"txt": "\ud804\udef9", "rom": "9", "value": 9, "type": "digit", "base": 1, "mult": 9, "script": "Khudawadi"}
+{"txt": "\ud805\udc50", "rom": "0", "value": 0, "type": "digit", "base": 1, "mult": 0, "script": "Newa"}
+{"txt": "\ud805\udc51", "rom": "1", "value": 1, "type": "digit", "base": 1, "mult": 1, "script": "Newa"}
+{"txt": "\ud805\udc52", "rom": "2", "value": 2, "type": "digit", "base": 1, "mult": 2, "script": "Newa"}
+{"txt": "\ud805\udc53", "rom": "3", "value": 3, "type": "digit", "base": 1, "mult": 3, "script": "Newa"}
+{"txt": "\ud805\udc54", "rom": "4", "value": 4, "type": "digit", "base": 1, "mult": 4, "script": "Newa"}
+{"txt": "\ud805\udc55", "rom": "5", "value": 5, "type": "digit", "base": 1, "mult": 5, "script": "Newa"}
+{"txt": "\ud805\udc56", "rom": "6", "value": 6, "type": "digit", "base": 1, "mult": 6, "script": "Newa"}
+{"txt": "\ud805\udc57", "rom": "7", "value": 7, "type": "digit", "base": 1, "mult": 7, "script": "Newa"}
+{"txt": "\ud805\udc58", "rom": "8", "value": 8, "type": "digit", "base": 1, "mult": 8, "script": "Newa"}
+{"txt": "\ud805\udc59", "rom": "9", "value": 9, "type": "digit", "base": 1, "mult": 9, "script": "Newa"}
+{"txt": "\ud805\udcd0", "rom": "0", "value": 0, "type": "digit", "base": 1, "mult": 0, "script": "Tirhuta"}
+{"txt": "\ud805\udcd1", "rom": "1", "value": 1, "type": "digit", "base": 1, "mult": 1, "script": "Tirhuta"}
+{"txt": "\ud805\udcd2", "rom": "2", "value": 2, "type": "digit", "base": 1, "mult": 2, "script": "Tirhuta"}
+{"txt": "\ud805\udcd3", "rom": "3", "value": 3, "type": "digit", "base": 1, "mult": 3, "script": "Tirhuta"}
+{"txt": "\ud805\udcd4", "rom": "4", "value": 4, "type": "digit", "base": 1, "mult": 4, "script": "Tirhuta"}
+{"txt": "\ud805\udcd5", "rom": "5", "value": 5, "type": "digit", "base": 1, "mult": 5, "script": "Tirhuta"}
+{"txt": "\ud805\udcd6", "rom": "6", "value": 6, "type": "digit", "base": 1, "mult": 6, "script": "Tirhuta"}
+{"txt": "\ud805\udcd7", "rom": "7", "value": 7, "type": "digit", "base": 1, "mult": 7, "script": "Tirhuta"}
+{"txt": "\ud805\udcd8", "rom": "8", "value": 8, "type": "digit", "base": 1, "mult": 8, "script": "Tirhuta"}
+{"txt": "\ud805\udcd9", "rom": "9", "value": 9, "type": "digit", "base": 1, "mult": 9, "script": "Tirhuta"}
+{"txt": "\ud805\ude50", "rom": "0", "value": 0, "type": "digit", "base": 1, "mult": 0, "script": "Modi"}
+{"txt": "\ud805\ude51", "rom": "1", "value": 1, "type": "digit", "base": 1, "mult": 1, "script": "Modi"}
+{"txt": "\ud805\ude52", "rom": "2", "value": 2, "type": "digit", "base": 1, "mult": 2, "script": "Modi"}
+{"txt": "\ud805\ude53", "rom": "3", "value": 3, "type": "digit", "base": 1, "mult": 3, "script": "Modi"}
+{"txt": "\ud805\ude54", "rom": "4", "value": 4, "type": "digit", "base": 1, "mult": 4, "script": "Modi"}
+{"txt": "\ud805\ude55", "rom": "5", "value": 5, "type": "digit", "base": 1, "mult": 5, "script": "Modi"}
+{"txt": "\ud805\ude56", "rom": "6", "value": 6, "type": "digit", "base": 1, "mult": 6, "script": "Modi"}
+{"txt": "\ud805\ude57", "rom": "7", "value": 7, "type": "digit", "base": 1, "mult": 7, "script": "Modi"}
+{"txt": "\ud805\ude58", "rom": "8", "value": 8, "type": "digit", "base": 1, "mult": 8, "script": "Modi"}
+{"txt": "\ud805\ude59", "rom": "9", "value": 9, "type": "digit", "base": 1, "mult": 9, "script": "Modi"}
+{"txt": "\ud805\udec0", "rom": "0", "value": 0, "type": "digit", "base": 1, "mult": 0, "script": "Takri"}
+{"txt": "\ud805\udec1", "rom": "1", "value": 1, "type": "digit", "base": 1, "mult": 1, "script": "Takri"}
+{"txt": "\ud805\udec2", "rom": "2", "value": 2, "type": "digit", "base": 1, "mult": 2, "script": "Takri"}
+{"txt": "\ud805\udec3", "rom": "3", "value": 3, "type": "digit", "base": 1, "mult": 3, "script": "Takri"}
+{"txt": "\ud805\udec4", "rom": "4", "value": 4, "type": "digit", "base": 1, "mult": 4, "script": "Takri"}
+{"txt": "\ud805\udec5", "rom": "5", "value": 5, "type": "digit", "base": 1, "mult": 5, "script": "Takri"}
+{"txt": "\ud805\udec6", "rom": "6", "value": 6, "type": "digit", "base": 1, "mult": 6, "script": "Takri"}
+{"txt": "\ud805\udec7", "rom": "7", "value": 7, "type": "digit", "base": 1, "mult": 7, "script": "Takri"}
+{"txt": "\ud805\udec8", "rom": "8", "value": 8, "type": "digit", "base": 1, "mult": 8, "script": "Takri"}
+{"txt": "\ud805\udec9", "rom": "9", "value": 9, "type": "digit", "base": 1, "mult": 9, "script": "Takri"}
+{"txt": "\ud805\udf30", "rom": "0", "value": 0, "type": "digit", "base": 1, "mult": 0, "script": "Ahom"}
+{"txt": "\ud805\udf31", "rom": "1", "value": 1, "type": "digit", "base": 1, "mult": 1, "script": "Ahom"}
+{"txt": "\ud805\udf32", "rom": "2", "value": 2, "type": "digit", "base": 1, "mult": 2, "script": "Ahom"}
+{"txt": "\ud805\udf33", "rom": "3", "value": 3, "type": "digit", "base": 1, "mult": 3, "script": "Ahom"}
+{"txt": "\ud805\udf34", "rom": "4", "value": 4, "type": "digit", "base": 1, "mult": 4, "script": "Ahom"}
+{"txt": "\ud805\udf35", "rom": "5", "value": 5, "type": "digit", "base": 1, "mult": 5, "script": "Ahom"}
+{"txt": "\ud805\udf36", "rom": "6", "value": 6, "type": "digit", "base": 1, "mult": 6, "script": "Ahom"}
+{"txt": "\ud805\udf37", "rom": "7", "value": 7, "type": "digit", "base": 1, "mult": 7, "script": "Ahom"}
+{"txt": "\ud805\udf38", "rom": "8", "value": 8, "type": "digit", "base": 1, "mult": 8, "script": "Ahom"}
+{"txt": "\ud805\udf39", "rom": "9", "value": 9, "type": "digit", "base": 1, "mult": 9, "script": "Ahom"}
+{"txt": "\ud805\udf3a", "rom": "10", "value": 10, "type": "base", "base": 10, "mult": 1, "script": "Ahom"}
+{"txt": "\ud805\udf3b", "rom": "20", "value": 20, "type": "multi", "base": 10, "mult": 2, "script": "Ahom"}
+{"txt": "\ud806\udce0", "rom": "0", "value": 0, "type": "digit", "base": 1, "mult": 0, "script": "Warang Citi"}
+{"txt": "\ud806\udce1", "rom": "1", "value": 1, "type": "digit", "base": 1, "mult": 1, "script": "Warang Citi"}
+{"txt": "\ud806\udce2", "rom": "2", "value": 2, "type": "digit", "base": 1, "mult": 2, "script": "Warang Citi"}
+{"txt": "\ud806\udce3", "rom": "3", "value": 3, "type": "digit", "base": 1, "mult": 3, "script": "Warang Citi"}
+{"txt": "\ud806\udce4", "rom": "4", "value": 4, "type": "digit", "base": 1, "mult": 4, "script": "Warang Citi"}
+{"txt": "\ud806\udce5", "rom": "5", "value": 5, "type": "digit", "base": 1, "mult": 5, "script": "Warang Citi"}
+{"txt": "\ud806\udce6", "rom": "6", "value": 6, "type": "digit", "base": 1, "mult": 6, "script": "Warang Citi"}
+{"txt": "\ud806\udce7", "rom": "7", "value": 7, "type": "digit", "base": 1, "mult": 7, "script": "Warang Citi"}
+{"txt": "\ud806\udce8", "rom": "8", "value": 8, "type": "digit", "base": 1, "mult": 8, "script": "Warang Citi"}
+{"txt": "\ud806\udce9", "rom": "9", "value": 9, "type": "digit", "base": 1, "mult": 9, "script": "Warang Citi"}
+{"txt": "\ud806\udcea", "rom": "10", "value": 10, "type": "base", "base": 10, "mult": 1, "script": "Warang Citi"}
+{"txt": "\ud806\udceb", "rom": "20", "value": 20, "type": "multi", "base": 10, "mult": 2, "script": "Warang Citi"}
+{"txt": "\ud806\udcec", "rom": "30", "value": 30, "type": "multi", "base": 10, "mult": 3, "script": "Warang Citi"}
+{"txt": "\ud806\udced", "rom": "40", "value": 40, "type": "multi", "base": 10, "mult": 4, "script": "Warang Citi"}
+{"txt": "\ud806\udcee", "rom": "50", "value": 50, "type": "multi", "base": 10, "mult": 5, "script": "Warang Citi"}
+{"txt": "\ud806\udcef", "rom": "60", "value": 60, "type": "multi", "base": 10, "mult": 6, "script": "Warang Citi"}
+{"txt": "\ud806\udcf0", "rom": "70", "value": 70, "type": "multi", "base": 10, "mult": 7, "script": "Warang Citi"}
+{"txt": "\ud806\udcf1", "rom": "80", "value": 80, "type": "multi", "base": 10, "mult": 8, "script": "Warang Citi"}
+{"txt": "\ud806\udcf2", "rom": "90", "value": 90, "type": "multi", "base": 10, "mult": 9, "script": "Warang Citi"}
+{"txt": "\ud806\udd50", "rom": "0", "value": 0, "type": "digit", "base": 1, "mult": 0, "script": "Dives Akuru"}
+{"txt": "\ud806\udd51", "rom": "1", "value": 1, "type": "digit", "base": 1, "mult": 1, "script": "Dives Akuru"}
+{"txt": "\ud806\udd52", "rom": "2", "value": 2, "type": "digit", "base": 1, "mult": 2, "script": "Dives Akuru"}
+{"txt": "\ud806\udd53", "rom": "3", "value": 3, "type": "digit", "base": 1, "mult": 3, "script": "Dives Akuru"}
+{"txt": "\ud806\udd54", "rom": "4", "value": 4, "type": "digit", "base": 1, "mult": 4, "script": "Dives Akuru"}
+{"txt": "\ud806\udd55", "rom": "5", "value": 5, "type": "digit", "base": 1, "mult": 5, "script": "Dives Akuru"}
+{"txt": "\ud806\udd56", "rom": "6", "value": 6, "type": "digit", "base": 1, "mult": 6, "script": "Dives Akuru"}
+{"txt": "\ud806\udd57", "rom": "7", "value": 7, "type": "digit", "base": 1, "mult": 7, "script": "Dives Akuru"}
+{"txt": "\ud806\udd58", "rom": "8", "value": 8, "type": "digit", "base": 1, "mult": 8, "script": "Dives Akuru"}
+{"txt": "\ud806\udd59", "rom": "9", "value": 9, "type": "digit", "base": 1, "mult": 9, "script": "Dives Akuru"}
+{"txt": "\ud807\udc50", "rom": "0", "value": 0, "type": "digit", "base": 1, "mult": 0, "script": "Bhaiksuki"}
+{"txt": "\ud807\udc51", "rom": "1", "value": 1, "type": "digit", "base": 1, "mult": 1, "script": "Bhaiksuki"}
+{"txt": "\ud807\udc52", "rom": "2", "value": 2, "type": "digit", "base": 1, "mult": 2, "script": "Bhaiksuki"}
+{"txt": "\ud807\udc53", "rom": "3", "value": 3, "type": "digit", "base": 1, "mult": 3, "script": "Bhaiksuki"}
+{"txt": "\ud807\udc54", "rom": "4", "value": 4, "type": "digit", "base": 1, "mult": 4, "script": "Bhaiksuki"}
+{"txt": "\ud807\udc55", "rom": "5", "value": 5, "type": "digit", "base": 1, "mult": 5, "script": "Bhaiksuki"}
+{"txt": "\ud807\udc56", "rom": "6", "value": 6, "type": "digit", "base": 1, "mult": 6, "script": "Bhaiksuki"}
+{"txt": "\ud807\udc57", "rom": "7", "value": 7, "type": "digit", "base": 1, "mult": 7, "script": "Bhaiksuki"}
+{"txt": "\ud807\udc58", "rom": "8", "value": 8, "type": "digit", "base": 1, "mult": 8, "script": "Bhaiksuki"}
+{"txt": "\ud807\udc59", "rom": "9", "value": 9, "type": "digit", "base": 1, "mult": 9, "script": "Bhaiksuki"}
+{"txt": "\ud807\udc5a", "rom": "1", "value": 1, "type": "digit-like", "base": 1, "mult": 1, "script": "Bhaiksuki"}
+{"txt": "\ud807\udc5b", "rom": "2", "value": 2, "type": "digit-like", "base": 1, "mult": 2, "script": "Bhaiksuki"}
+{"txt": "\ud807\udc5c", "rom": "3", "value": 3, "type": "digit-like", "base": 1, "mult": 3, "script": "Bhaiksuki"}
+{"txt": "\ud807\udc5d", "rom": "4", "value": 4, "type": "digit-like", "base": 1, "mult": 4, "script": "Bhaiksuki"}
+{"txt": "\ud807\udc5e", "rom": "5", "value": 5, "type": "digit-like", "base": 1, "mult": 5, "script": "Bhaiksuki"}
+{"txt": "\ud807\udc5f", "rom": "6", "value": 6, "type": "digit-like", "base": 1, "mult": 6, "script": "Bhaiksuki"}
+{"txt": "\ud807\udc60", "rom": "7", "value": 7, "type": "digit-like", "base": 1, "mult": 7, "script": "Bhaiksuki"}
+{"txt": "\ud807\udc61", "rom": "8", "value": 8, "type": "digit-like", "base": 1, "mult": 8, "script": "Bhaiksuki"}
+{"txt": "\ud807\udc62", "rom": "9", "value": 9, "type": "digit-like", "base": 1, "mult": 9, "script": "Bhaiksuki"}
+{"txt": "\ud807\udc63", "rom": "10", "value": 10, "type": "base", "base": 10, "mult": 1, "script": "Bhaiksuki"}
+{"txt": "\ud807\udc64", "rom": "20", "value": 20, "type": "multi", "base": 10, "mult": 2, "script": "Bhaiksuki"}
+{"txt": "\ud807\udc65", "rom": "30", "value": 30, "type": "multi", "base": 10, "mult": 3, "script": "Bhaiksuki"}
+{"txt": "\ud807\udc66", "rom": "40", "value": 40, "type": "multi", "base": 10, "mult": 4, "script": "Bhaiksuki"}
+{"txt": "\ud807\udc67", "rom": "50", "value": 50, "type": "multi", "base": 10, "mult": 5, "script": "Bhaiksuki"}
+{"txt": "\ud807\udc68", "rom": "60", "value": 60, "type": "multi", "base": 10, "mult": 6, "script": "Bhaiksuki"}
+{"txt": "\ud807\udc69", "rom": "70", "value": 70, "type": "multi", "base": 10, "mult": 7, "script": "Bhaiksuki"}
+{"txt": "\ud807\udc6a", "rom": "80", "value": 80, "type": "multi", "base": 10, "mult": 8, "script": "Bhaiksuki"}
+{"txt": "\ud807\udc6b", "rom": "90", "value": 90, "type": "multi", "base": 10, "mult": 9, "script": "Bhaiksuki"}
+{"txt": "\ud807\udc6c", "rom": "100", "value": 100, "type": "base", "base": 100, "mult": 1, "name": "BHAIKSUKI HUNDREDS UNIT MARK"}
+{"txt": "\ud807\udd50", "rom": "0", "value": 0, "type": "digit", "base": 1, "mult": 0, "script": "Masaram Gondi"}
+{"txt": "\ud807\udd51", "rom": "1", "value": 1, "type": "digit", "base": 1, "mult": 1, "script": "Masaram Gondi"}
+{"txt": "\ud807\udd52", "rom": "2", "value": 2, "type": "digit", "base": 1, "mult": 2, "script": "Masaram Gondi"}
+{"txt": "\ud807\udd53", "rom": "3", "value": 3, "type": "digit", "base": 1, "mult": 3, "script": "Masaram Gondi"}
+{"txt": "\ud807\udd54", "rom": "4", "value": 4, "type": "digit", "base": 1, "mult": 4, "script": "Masaram Gondi"}
+{"txt": "\ud807\udd55", "rom": "5", "value": 5, "type": "digit", "base": 1, "mult": 5, "script": "Masaram Gondi"}
+{"txt": "\ud807\udd56", "rom": "6", "value": 6, "type": "digit", "base": 1, "mult": 6, "script": "Masaram Gondi"}
+{"txt": "\ud807\udd57", "rom": "7", "value": 7, "type": "digit", "base": 1, "mult": 7, "script": "Masaram Gondi"}
+{"txt": "\ud807\udd58", "rom": "8", "value": 8, "type": "digit", "base": 1, "mult": 8, "script": "Masaram Gondi"}
+{"txt": "\ud807\udd59", "rom": "9", "value": 9, "type": "digit", "base": 1, "mult": 9, "script": "Masaram Gondi"}
+{"txt": "\ud807\udda0", "rom": "0", "value": 0, "type": "digit", "base": 1, "mult": 0, "script": "Gunjala Gondi"}
+{"txt": "\ud807\udda1", "rom": "1", "value": 1, "type": "digit", "base": 1, "mult": 1, "script": "Gunjala Gondi"}
+{"txt": "\ud807\udda2", "rom": "2", "value": 2, "type": "digit", "base": 1, "mult": 2, "script": "Gunjala Gondi"}
+{"txt": "\ud807\udda3", "rom": "3", "value": 3, "type": "digit", "base": 1, "mult": 3, "script": "Gunjala Gondi"}
+{"txt": "\ud807\udda4", "rom": "4", "value": 4, "type": "digit", "base": 1, "mult": 4, "script": "Gunjala Gondi"}
+{"txt": "\ud807\udda5", "rom": "5", "value": 5, "type": "digit", "base": 1, "mult": 5, "script": "Gunjala Gondi"}
+{"txt": "\ud807\udda6", "rom": "6", "value": 6, "type": "digit", "base": 1, "mult": 6, "script": "Gunjala Gondi"}
+{"txt": "\ud807\udda7", "rom": "7", "value": 7, "type": "digit", "base": 1, "mult": 7, "script": "Gunjala Gondi"}
+{"txt": "\ud807\udda8", "rom": "8", "value": 8, "type": "digit", "base": 1, "mult": 8, "script": "Gunjala Gondi"}
+{"txt": "\ud807\udda9", "rom": "9", "value": 9, "type": "digit", "base": 1, "mult": 9, "script": "Gunjala Gondi"}
+{"txt": "\ud807\udfc0", "rom": "1/320", "fraction": [1, 320], "type": "fraction", "script": "Tamil"}
+{"txt": "\ud807\udfc1", "rom": "1/160", "fraction": [1, 160], "type": "fraction", "script": "Tamil"}
+{"txt": "\ud807\udfc2", "rom": "1/80", "fraction": [1, 80], "type": "fraction", "script": "Tamil"}
+{"txt": "\ud807\udfc3", "rom": "1/64", "fraction": [1, 64], "type": "fraction", "script": "Tamil"}
+{"txt": "\ud807\udfc4", "rom": "1/40", "fraction": [1, 40], "type": "fraction", "script": "Tamil"}
+{"txt": "\ud807\udfc5", "rom": "1/32", "fraction": [1, 32], "type": "fraction", "script": "Tamil"}
+{"txt": "\ud807\udfc6", "rom": "3/80", "fraction": [3, 80], "type": "fraction", "script": "Tamil"}
+{"txt": "\ud807\udfc7", "rom": "3/64", "fraction": [3, 64], "type": "fraction", "script": "Tamil"}
+{"txt": "\ud807\udfc8", "rom": "1/20", "fraction": [1, 20], "type": "fraction", "script": "Tamil"}
+{"txt": "\ud807\udfc9", "rom": "1/16", "fraction": [1, 16], "type": "fraction", "script": "Tamil"}
+{"txt": "\ud807\udfca", "rom": "1/16", "fraction": [1, 16], "type": "fraction", "script": "Tamil"}
+{"txt": "\ud807\udfcb", "rom": "1/10", "fraction": [1, 10], "type": "fraction", "script": "Tamil"}
+{"txt": "\ud807\udfcc", "rom": "1/8", "fraction": [1, 8], "type": "fraction", "script": "Tamil"}
+{"txt": "\ud807\udfcd", "rom": "3/20", "fraction": [3, 20], "type": "fraction", "script": "Tamil"}
+{"txt": "\ud807\udfce", "rom": "3/16", "fraction": [3, 16], "type": "fraction", "script": "Tamil"}
+{"txt": "\ud807\udfcf", "rom": "1/5", "fraction": [1, 5], "type": "fraction", "script": "Tamil"}
+{"txt": "\ud807\udfd0", "rom": "1/4", "fraction": [1, 4], "type": "fraction", "script": "Tamil"}
+{"txt": "\ud807\udfd1", "rom": "1/2", "fraction": [1, 2], "type": "fraction", "script": "Tamil"}
+{"txt": "\ud807\udfd2", "rom": "1/2", "fraction": [1, 2], "type": "fraction", "script": "Tamil"}
+{"txt": "\ud807\udfd3", "rom": "3/4", "fraction": [3, 4], "type": "fraction", "script": "Tamil"}
+{"txt": "\ud807\udfd4", "rom": "1/320", "fraction": [1, 320], "type": "fraction", "script": "Tamil"}
+{"txt": "\ud809\udc00", "rom": "2", "value": 2, "type": "digit-like", "base": 1, "mult": 2, "script": "Cuneiform"}
+{"txt": "\ud809\udc01", "rom": "3", "value": 3, "type": "digit-like", "base": 1, "mult": 3, "script": "Cuneiform"}
+{"txt": "\ud809\udc02", "rom": "4", "value": 4, "type": "digit-like", "base": 1, "mult": 4, "script": "Cuneiform"}
+{"txt": "\ud809\udc03", "rom": "5", "value": 5, "type": "digit-like", "base": 1, "mult": 5, "script": "Cuneiform"}
+{"txt": "\ud809\udc04", "rom": "6", "value": 6, "type": "digit-like", "base": 1, "mult": 6, "script": "Cuneiform"}
+{"txt": "\ud809\udc05", "rom": "7", "value": 7, "type": "digit-like", "base": 1, "mult": 7, "script": "Cuneiform"}
+{"txt": "\ud809\udc06", "rom": "8", "value": 8, "type": "digit-like", "base": 1, "mult": 8, "script": "Cuneiform"}
+{"txt": "\ud809\udc07", "rom": "9", "value": 9, "type": "digit-like", "base": 1, "mult": 9, "script": "Cuneiform"}
+{"txt": "\ud809\udc08", "rom": "3", "value": 3, "type": "digit-like", "base": 1, "mult": 3, "script": "Cuneiform"}
+{"txt": "\ud809\udc09", "rom": "4", "value": 4, "type": "digit-like", "base": 1, "mult": 4, "script": "Cuneiform"}
+{"txt": "\ud809\udc0a", "rom": "5", "value": 5, "type": "digit-like", "base": 1, "mult": 5, "script": "Cuneiform"}
+{"txt": "\ud809\udc0b", "rom": "6", "value": 6, "type": "digit-like", "base": 1, "mult": 6, "script": "Cuneiform"}
+{"txt": "\ud809\udc0c", "rom": "7", "value": 7, "type": "digit-like", "base": 1, "mult": 7, "script": "Cuneiform"}
+{"txt": "\ud809\udc0d", "rom": "8", "value": 8, "type": "digit-like", "base": 1, "mult": 8, "script": "Cuneiform"}
+{"txt": "\ud809\udc0e", "rom": "9", "value": 9, "type": "digit-like", "base": 1, "mult": 9, "script": "Cuneiform"}
+{"txt": "\ud809\udc0f", "rom": "4", "value": 4, "type": "digit-like", "base": 1, "mult": 4, "script": "Cuneiform"}
+{"txt": "\ud809\udc10", "rom": "5", "value": 5, "type": "digit-like", "base": 1, "mult": 5, "script": "Cuneiform"}
+{"txt": "\ud809\udc11", "rom": "6", "value": 6, "type": "digit-like", "base": 1, "mult": 6, "script": "Cuneiform"}
+{"txt": "\ud809\udc12", "rom": "7", "value": 7, "type": "digit-like", "base": 1, "mult": 7, "script": "Cuneiform"}
+{"txt": "\ud809\udc13", "rom": "8", "value": 8, "type": "digit-like", "base": 1, "mult": 8, "script": "Cuneiform"}
+{"txt": "\ud809\udc14", "rom": "9", "value": 9, "type": "digit-like", "base": 1, "mult": 9, "script": "Cuneiform"}
+{"txt": "\ud809\udc15", "rom": "1", "value": 1, "type": "digit-like", "base": 1, "mult": 1, "script": "Cuneiform"}
+{"txt": "\ud809\udc16", "rom": "2", "value": 2, "type": "digit-like", "base": 1, "mult": 2, "script": "Cuneiform"}
+{"txt": "\ud809\udc17", "rom": "3", "value": 3, "type": "digit-like", "base": 1, "mult": 3, "script": "Cuneiform"}
+{"txt": "\ud809\udc18", "rom": "4", "value": 4, "type": "digit-like", "base": 1, "mult": 4, "script": "Cuneiform"}
+{"txt": "\ud809\udc19", "rom": "5", "value": 5, "type": "digit-like", "base": 1, "mult": 5, "script": "Cuneiform"}
+{"txt": "\ud809\udc1a", "rom": "6", "value": 6, "type": "digit-like", "base": 1, "mult": 6, "script": "Cuneiform"}
+{"txt": "\ud809\udc1b", "rom": "7", "value": 7, "type": "digit-like", "base": 1, "mult": 7, "script": "Cuneiform"}
+{"txt": "\ud809\udc1c", "rom": "8", "value": 8, "type": "digit-like", "base": 1, "mult": 8, "script": "Cuneiform"}
+{"txt": "\ud809\udc1d", "rom": "9", "value": 9, "type": "digit-like", "base": 1, "mult": 9, "script": "Cuneiform"}
+{"txt": "\ud809\udc1e", "rom": "1", "value": 1, "type": "digit-like", "base": 1, "mult": 1, "script": "Cuneiform"}
+{"txt": "\ud809\udc1f", "rom": "2", "value": 2, "type": "digit-like", "base": 1, "mult": 2, "script": "Cuneiform"}
+{"txt": "\ud809\udc20", "rom": "3", "value": 3, "type": "digit-like", "base": 1, "mult": 3, "script": "Cuneiform"}
+{"txt": "\ud809\udc21", "rom": "4", "value": 4, "type": "digit-like", "base": 1, "mult": 4, "script": "Cuneiform"}
+{"txt": "\ud809\udc22", "rom": "5", "value": 5, "type": "digit-like", "base": 1, "mult": 5, "script": "Cuneiform"}
+{"txt": "\ud809\udc23", "rom": "2", "value": 2, "type": "digit-like", "base": 1, "mult": 2, "script": "Cuneiform"}
+{"txt": "\ud809\udc24", "rom": "3", "value": 3, "type": "digit-like", "base": 1, "mult": 3, "script": "Cuneiform"}
+{"txt": "\ud809\udc25", "rom": "3", "value": 3, "type": "digit-like", "base": 1, "mult": 3, "script": "Cuneiform"}
+{"txt": "\ud809\udc26", "rom": "4", "value": 4, "type": "digit-like", "base": 1, "mult": 4, "script": "Cuneiform"}
+{"txt": "\ud809\udc27", "rom": "5", "value": 5, "type": "digit-like", "base": 1, "mult": 5, "script": "Cuneiform"}
+{"txt": "\ud809\udc28", "rom": "6", "value": 6, "type": "digit-like", "base": 1, "mult": 6, "script": "Cuneiform"}
+{"txt": "\ud809\udc29", "rom": "7", "value": 7, "type": "digit-like", "base": 1, "mult": 7, "script": "Cuneiform"}
+{"txt": "\ud809\udc2a", "rom": "8", "value": 8, "type": "digit-like", "base": 1, "mult": 8, "script": "Cuneiform"}
+{"txt": "\ud809\udc2b", "rom": "9", "value": 9, "type": "digit-like", "base": 1, "mult": 9, "script": "Cuneiform"}
+{"txt": "\ud809\udc2c", "rom": "1", "value": 1, "type": "digit-like", "base": 1, "mult": 1, "script": "Cuneiform"}
+{"txt": "\ud809\udc2d", "rom": "2", "value": 2, "type": "digit-like", "base": 1, "mult": 2, "script": "Cuneiform"}
+{"txt": "\ud809\udc2e", "rom": "3", "value": 3, "type": "digit-like", "base": 1, "mult": 3, "script": "Cuneiform"}
+{"txt": "\ud809\udc2f", "rom": "3", "value": 3, "type": "digit-like", "base": 1, "mult": 3, "script": "Cuneiform"}
+{"txt": "\ud809\udc30", "rom": "4", "value": 4, "type": "digit-like", "base": 1, "mult": 4, "script": "Cuneiform"}
+{"txt": "\ud809\udc31", "rom": "5", "value": 5, "type": "digit-like", "base": 1, "mult": 5, "script": "Cuneiform"}
+{"txt": "\ud809\udc32", "rom": "216000", "value": 216000, "type": "multi", "base": 1000, "mult": 216, "script": "Cuneiform"}
+{"txt": "\ud809\udc33", "rom": "432000", "value": 432000, "type": "multi", "base": 1000, "mult": 432, "script": "Cuneiform"}
+{"txt": "\ud809\udc34", "rom": "1", "value": 1, "type": "digit-like", "base": 1, "mult": 1, "script": "Cuneiform"}
+{"txt": "\ud809\udc35", "rom": "2", "value": 2, "type": "digit-like", "base": 1, "mult": 2, "script": "Cuneiform"}
+{"txt": "\ud809\udc36", "rom": "3", "value": 3, "type": "digit-like", "base": 1, "mult": 3, "script": "Cuneiform"}
+{"txt": "\ud809\udc37", "rom": "3", "value": 3, "type": "digit-like", "base": 1, "mult": 3, "script": "Cuneiform"}
+{"txt": "\ud809\udc38", "rom": "4", "value": 4, "type": "digit-like", "base": 1, "mult": 4, "script": "Cuneiform"}
+{"txt": "\ud809\udc39", "rom": "5", "value": 5, "type": "digit-like", "base": 1, "mult": 5, "script": "Cuneiform"}
+{"txt": "\ud809\udc3a", "rom": "3", "value": 3, "type": "digit-like", "base": 1, "mult": 3, "script": "Cuneiform"}
+{"txt": "\ud809\udc3b", "rom": "3", "value": 3, "type": "digit-like", "base": 1, "mult": 3, "script": "Cuneiform"}
+{"txt": "\ud809\udc3c", "rom": "4", "value": 4, "type": "digit-like", "base": 1, "mult": 4, "script": "Cuneiform"}
+{"txt": "\ud809\udc3d", "rom": "4", "value": 4, "type": "digit-like", "base": 1, "mult": 4, "script": "Cuneiform"}
+{"txt": "\ud809\udc3e", "rom": "4", "value": 4, "type": "digit-like", "base": 1, "mult": 4, "script": "Cuneiform"}
+{"txt": "\ud809\udc3f", "rom": "4", "value": 4, "type": "digit-like", "base": 1, "mult": 4, "script": "Cuneiform"}
+{"txt": "\ud809\udc40", "rom": "6", "value": 6, "type": "digit-like", "base": 1, "mult": 6, "script": "Cuneiform"}
+{"txt": "\ud809\udc41", "rom": "7", "value": 7, "type": "digit-like", "base": 1, "mult": 7, "script": "Cuneiform"}
+{"txt": "\ud809\udc42", "rom": "7", "value": 7, "type": "digit-like", "base": 1, "mult": 7, "script": "Cuneiform"}
+{"txt": "\ud809\udc43", "rom": "7", "value": 7, "type": "digit-like", "base": 1, "mult": 7, "script": "Cuneiform"}
+{"txt": "\ud809\udc44", "rom": "8", "value": 8, "type": "digit-like", "base": 1, "mult": 8, "script": "Cuneiform"}
+{"txt": "\ud809\udc45", "rom": "8", "value": 8, "type": "digit-like", "base": 1, "mult": 8, "script": "Cuneiform"}
+{"txt": "\ud809\udc46", "rom": "9", "value": 9, "type": "digit-like", "base": 1, "mult": 9, "script": "Cuneiform"}
+{"txt": "\ud809\udc47", "rom": "9", "value": 9, "type": "digit-like", "base": 1, "mult": 9, "script": "Cuneiform"}
+{"txt": "\ud809\udc48", "rom": "9", "value": 9, "type": "digit-like", "base": 1, "mult": 9, "script": "Cuneiform"}
+{"txt": "\ud809\udc49", "rom": "9", "value": 9, "type": "digit-like", "base": 1, "mult": 9, "script": "Cuneiform"}
+{"txt": "\ud809\udc4a", "rom": "2", "value": 2, "type": "digit-like", "base": 1, "mult": 2, "script": "Cuneiform"}
+{"txt": "\ud809\udc4b", "rom": "3", "value": 3, "type": "digit-like", "base": 1, "mult": 3, "script": "Cuneiform"}
+{"txt": "\ud809\udc4c", "rom": "4", "value": 4, "type": "digit-like", "base": 1, "mult": 4, "script": "Cuneiform"}
+{"txt": "\ud809\udc4d", "rom": "5", "value": 5, "type": "digit-like", "base": 1, "mult": 5, "script": "Cuneiform"}
+{"txt": "\ud809\udc4e", "rom": "6", "value": 6, "type": "digit-like", "base": 1, "mult": 6, "script": "Cuneiform"}
+{"txt": "\ud809\udc4f", "rom": "1", "value": 1, "type": "digit-like", "base": 1, "mult": 1, "script": "Cuneiform"}
+{"txt": "\ud809\udc50", "rom": "2", "value": 2, "type": "digit-like", "base": 1, "mult": 2, "script": "Cuneiform"}
+{"txt": "\ud809\udc51", "rom": "3", "value": 3, "type": "digit-like", "base": 1, "mult": 3, "script": "Cuneiform"}
+{"txt": "\ud809\udc52", "rom": "4", "value": 4, "type": "digit-like", "base": 1, "mult": 4, "script": "Cuneiform"}
+{"txt": "\ud809\udc53", "rom": "4", "value": 4, "type": "digit-like", "base": 1, "mult": 4, "script": "Cuneiform"}
+{"txt": "\ud809\udc54", "rom": "5", "value": 5, "type": "digit-like", "base": 1, "mult": 5, "script": "Cuneiform"}
+{"txt": "\ud809\udc55", "rom": "5", "value": 5, "type": "digit-like", "base": 1, "mult": 5, "script": "Cuneiform"}
+{"txt": "\ud809\udc56", "rom": "2", "value": 2, "type": "digit-like", "base": 1, "mult": 2, "script": "Cuneiform"}
+{"txt": "\ud809\udc57", "rom": "3", "value": 3, "type": "digit-like", "base": 1, "mult": 3, "script": "Cuneiform"}
+{"txt": "\ud809\udc58", "rom": "1", "value": 1, "type": "digit-like", "base": 1, "mult": 1, "script": "Cuneiform"}
+{"txt": "\ud809\udc59", "rom": "2", "value": 2, "type": "digit-like", "base": 1, "mult": 2, "script": "Cuneiform"}
+{"txt": "\ud809\udc67", "rom": "40", "value": 40, "type": "multi", "base": 10, "mult": 4, "script": "Cuneiform"}
+{"txt": "\ud809\udc68", "rom": "50", "value": 50, "type": "multi", "base": 10, "mult": 5, "script": "Cuneiform"}
+{"txt": "\ud809\udc69", "rom": "4", "value": 4, "type": "digit-like", "base": 1, "mult": 4, "script": "Cuneiform"}
+{"txt": "\ud809\udc6a", "rom": "5", "value": 5, "type": "digit-like", "base": 1, "mult": 5, "script": "Cuneiform"}
+{"txt": "\ud809\udc6b", "rom": "6", "value": 6, "type": "digit-like", "base": 1, "mult": 6, "script": "Cuneiform"}
+{"txt": "\ud809\udc6c", "rom": "7", "value": 7, "type": "digit-like", "base": 1, "mult": 7, "script": "Cuneiform"}
+{"txt": "\ud809\udc6d", "rom": "8", "value": 8, "type": "digit-like", "base": 1, "mult": 8, "script": "Cuneiform"}
+{"txt": "\ud809\udc6e", "rom": "9", "value": 9, "type": "digit-like", "base": 1, "mult": 9, "script": "Cuneiform"}
+{"txt": "\ud80c\udc68", "rom": "1000000", "value": 1000000, "type": "base", "base": 1000000, "mult": 1, "script": "Egyptian Hieroglyph"}
+{"txt": "\ud80c\udcad", "rom": "10000", "value": 10000, "type": "base", "base": 10000, "mult": 1, "script": "Egyptian Hieroglyph"}
+{"txt": "\ud80c\udcae", "rom": "20000", "value": 20000, "type": "multi", "base": 10000, "mult": 2, "script": "Egyptian Hieroglyph"}
+{"txt": "\ud80c\udcaf", "rom": "30000", "value": 30000, "type": "multi", "base": 10000, "mult": 3, "script": "Egyptian Hieroglyph"}
+{"txt": "\ud80c\udcb0", "rom": "40000", "value": 40000, "type": "multi", "base": 10000, "mult": 4, "script": "Egyptian Hieroglyph"}
+{"txt": "\ud80c\udcb1", "rom": "50000", "value": 50000, "type": "multi", "base": 10000, "mult": 5, "script": "Egyptian Hieroglyph"}
+{"txt": "\ud80c\udcb2", "rom": "60000", "value": 60000, "type": "multi", "base": 10000, "mult": 6, "script": "Egyptian Hieroglyph"}
+{"txt": "\ud80c\udcb3", "rom": "70000", "value": 70000, "type": "multi", "base": 10000, "mult": 7, "script": "Egyptian Hieroglyph"}
+{"txt": "\ud80c\udcb4", "rom": "80000", "value": 80000, "type": "multi", "base": 10000, "mult": 8, "script": "Egyptian Hieroglyph"}
+{"txt": "\ud80c\udcb5", "rom": "90000", "value": 90000, "type": "multi", "base": 10000, "mult": 9, "script": "Egyptian Hieroglyph"}
+{"txt": "\ud80c\udcb6", "rom": "50000", "value": 50000, "type": "multi", "base": 10000, "mult": 5, "script": "Egyptian Hieroglyph"}
+{"txt": "\ud80c\udd90", "rom": "100000", "value": 100000, "type": "base", "base": 100000, "mult": 1, "script": "Egyptian Hieroglyph"}
+{"txt": "\ud80c\uddbc", "rom": "1000", "value": 1000, "type": "base", "base": 1000, "mult": 1, "script": "Egyptian Hieroglyph"}
+{"txt": "\ud80c\uddbd", "rom": "2000", "value": 2000, "type": "multi", "base": 1000, "mult": 2, "script": "Egyptian Hieroglyph"}
+{"txt": "\ud80c\uddbe", "rom": "3000", "value": 3000, "type": "multi", "base": 1000, "mult": 3, "script": "Egyptian Hieroglyph"}
+{"txt": "\ud80c\uddbf", "rom": "4000", "value": 4000, "type": "multi", "base": 1000, "mult": 4, "script": "Egyptian Hieroglyph"}
+{"txt": "\ud80c\uddc0", "rom": "5000", "value": 5000, "type": "multi", "base": 1000, "mult": 5, "script": "Egyptian Hieroglyph"}
+{"txt": "\ud80c\uddc1", "rom": "6000", "value": 6000, "type": "multi", "base": 1000, "mult": 6, "script": "Egyptian Hieroglyph"}
+{"txt": "\ud80c\uddc2", "rom": "7000", "value": 7000, "type": "multi", "base": 1000, "mult": 7, "script": "Egyptian Hieroglyph"}
+{"txt": "\ud80c\uddc3", "rom": "8000", "value": 8000, "type": "multi", "base": 1000, "mult": 8, "script": "Egyptian Hieroglyph"}
+{"txt": "\ud80c\uddc4", "rom": "9000", "value": 9000, "type": "multi", "base": 1000, "mult": 9, "script": "Egyptian Hieroglyph"}
+{"txt": "\ud80c\udf62", "rom": "100", "value": 100, "type": "base", "base": 100, "mult": 1, "script": "Egyptian Hieroglyph"}
+{"txt": "\ud80c\udf63", "rom": "200", "value": 200, "type": "multi", "base": 100, "mult": 2, "script": "Egyptian Hieroglyph"}
+{"txt": "\ud80c\udf64", "rom": "300", "value": 300, "type": "multi", "base": 100, "mult": 3, "script": "Egyptian Hieroglyph"}
+{"txt": "\ud80c\udf65", "rom": "400", "value": 400, "type": "multi", "base": 100, "mult": 4, "script": "Egyptian Hieroglyph"}
+{"txt": "\ud80c\udf66", "rom": "500", "value": 500, "type": "multi", "base": 100, "mult": 5, "script": "Egyptian Hieroglyph"}
+{"txt": "\ud80c\udf67", "rom": "600", "value": 600, "type": "multi", "base": 100, "mult": 6, "script": "Egyptian Hieroglyph"}
+{"txt": "\ud80c\udf68", "rom": "700", "value": 700, "type": "multi", "base": 100, "mult": 7, "script": "Egyptian Hieroglyph"}
+{"txt": "\ud80c\udf69", "rom": "800", "value": 800, "type": "multi", "base": 100, "mult": 8, "script": "Egyptian Hieroglyph"}
+{"txt": "\ud80c\udf6a", "rom": "900", "value": 900, "type": "multi", "base": 100, "mult": 9, "script": "Egyptian Hieroglyph"}
+{"txt": "\ud80c\udf6b", "rom": "500", "value": 500, "type": "multi", "base": 100, "mult": 5, "script": "Egyptian Hieroglyph"}
+{"txt": "\ud80c\udf86", "rom": "10", "value": 10, "type": "base", "base": 10, "mult": 1, "script": "Egyptian Hieroglyph"}
+{"txt": "\ud80c\udf87", "rom": "20", "value": 20, "type": "multi", "base": 10, "mult": 2, "script": "Egyptian Hieroglyph"}
+{"txt": "\ud80c\udf88", "rom": "30", "value": 30, "type": "multi", "base": 10, "mult": 3, "script": "Egyptian Hieroglyph"}
+{"txt": "\ud80c\udf89", "rom": "40", "value": 40, "type": "multi", "base": 10, "mult": 4, "script": "Egyptian Hieroglyph"}
+{"txt": "\ud80c\udf8a", "rom": "50", "value": 50, "type": "multi", "base": 10, "mult": 5, "script": "Egyptian Hieroglyph"}
+{"txt": "\ud80c\udf8b", "rom": "60", "value": 60, "type": "multi", "base": 10, "mult": 6, "script": "Egyptian Hieroglyph"}
+{"txt": "\ud80c\udf8c", "rom": "70", "value": 70, "type": "multi", "base": 10, "mult": 7, "script": "Egyptian Hieroglyph"}
+{"txt": "\ud80c\udf8d", "rom": "80", "value": 80, "type": "multi", "base": 10, "mult": 8, "script": "Egyptian Hieroglyph"}
+{"txt": "\ud80c\udf8e", "rom": "90", "value": 90, "type": "multi", "base": 10, "mult": 9, "script": "Egyptian Hieroglyph"}
+{"txt": "\ud80c\udf8f", "rom": "20", "value": 20, "type": "multi", "base": 10, "mult": 2, "script": "Egyptian Hieroglyph"}
+{"txt": "\ud80c\udf90", "rom": "30", "value": 30, "type": "multi", "base": 10, "mult": 3, "script": "Egyptian Hieroglyph"}
+{"txt": "\ud80c\udf91", "rom": "40", "value": 40, "type": "multi", "base": 10, "mult": 4, "script": "Egyptian Hieroglyph"}
+{"txt": "\ud80c\udf92", "rom": "50", "value": 50, "type": "multi", "base": 10, "mult": 5, "script": "Egyptian Hieroglyph"}
+{"txt": "\ud80c\udffa", "rom": "1", "value": 1, "type": "digit-like", "base": 1, "mult": 1, "script": "Egyptian Hieroglyph"}
+{"txt": "\ud80c\udffb", "rom": "2", "value": 2, "type": "digit-like", "base": 1, "mult": 2, "script": "Egyptian Hieroglyph"}
+{"txt": "\ud80c\udffc", "rom": "3", "value": 3, "type": "digit-like", "base": 1, "mult": 3, "script": "Egyptian Hieroglyph"}
+{"txt": "\ud80c\udffd", "rom": "4", "value": 4, "type": "digit-like", "base": 1, "mult": 4, "script": "Egyptian Hieroglyph"}
+{"txt": "\ud80c\udffe", "rom": "5", "value": 5, "type": "digit-like", "base": 1, "mult": 5, "script": "Egyptian Hieroglyph"}
+{"txt": "\ud80c\udfff", "rom": "6", "value": 6, "type": "digit-like", "base": 1, "mult": 6, "script": "Egyptian Hieroglyph"}
+{"txt": "\ud80d\udc00", "rom": "7", "value": 7, "type": "digit-like", "base": 1, "mult": 7, "script": "Egyptian Hieroglyph"}
+{"txt": "\ud80d\udc01", "rom": "8", "value": 8, "type": "digit-like", "base": 1, "mult": 8, "script": "Egyptian Hieroglyph"}
+{"txt": "\ud80d\udc02", "rom": "9", "value": 9, "type": "digit-like", "base": 1, "mult": 9, "script": "Egyptian Hieroglyph"}
+{"txt": "\ud80d\udc03", "rom": "5", "value": 5, "type": "digit-like", "base": 1, "mult": 5, "script": "Egyptian Hieroglyph"}
+{"txt": "\ud81a\ude60", "rom": "0", "value": 0, "type": "digit", "base": 1, "mult": 0, "script": "Mro"}
+{"txt": "\ud81a\ude61", "rom": "1", "value": 1, "type": "digit", "base": 1, "mult": 1, "script": "Mro"}
+{"txt": "\ud81a\ude62", "rom": "2", "value": 2, "type": "digit", "base": 1, "mult": 2, "script": "Mro"}
+{"txt": "\ud81a\ude63", "rom": "3", "value": 3, "type": "digit", "base": 1, "mult": 3, "script": "Mro"}
+{"txt": "\ud81a\ude64", "rom": "4", "value": 4, "type": "digit", "base": 1, "mult": 4, "script": "Mro"}
+{"txt": "\ud81a\ude65", "rom": "5", "value": 5, "type": "digit", "base": 1, "mult": 5, "script": "Mro"}
+{"txt": "\ud81a\ude66", "rom": "6", "value": 6, "type": "digit", "base": 1, "mult": 6, "script": "Mro"}
+{"txt": "\ud81a\ude67", "rom": "7", "value": 7, "type": "digit", "base": 1, "mult": 7, "script": "Mro"}
+{"txt": "\ud81a\ude68", "rom": "8", "value": 8, "type": "digit", "base": 1, "mult": 8, "script": "Mro"}
+{"txt": "\ud81a\ude69", "rom": "9", "value": 9, "type": "digit", "base": 1, "mult": 9, "script": "Mro"}
+{"txt": "\ud81a\udec0", "rom": "0", "value": 0, "type": "digit", "base": 1, "mult": 0, "script": "Tangsa"}
+{"txt": "\ud81a\udec1", "rom": "1", "value": 1, "type": "digit", "base": 1, "mult": 1, "script": "Tangsa"}
+{"txt": "\ud81a\udec2", "rom": "2", "value": 2, "type": "digit", "base": 1, "mult": 2, "script": "Tangsa"}
+{"txt": "\ud81a\udec3", "rom": "3", "value": 3, "type": "digit", "base": 1, "mult": 3, "script": "Tangsa"}
+{"txt": "\ud81a\udec4", "rom": "4", "value": 4, "type": "digit", "base": 1, "mult": 4, "script": "Tangsa"}
+{"txt": "\ud81a\udec5", "rom": "5", "value": 5, "type": "digit", "base": 1, "mult": 5, "script": "Tangsa"}
+{"txt": "\ud81a\udec6", "rom": "6", "value": 6, "type": "digit", "base": 1, "mult": 6, "script": "Tangsa"}
+{"txt": "\ud81a\udec7", "rom": "7", "value": 7, "type": "digit", "base": 1, "mult": 7, "script": "Tangsa"}
+{"txt": "\ud81a\udec8", "rom": "8", "value": 8, "type": "digit", "base": 1, "mult": 8, "script": "Tangsa"}
+{"txt": "\ud81a\udec9", "rom": "9", "value": 9, "type": "digit", "base": 1, "mult": 9, "script": "Tangsa"}
+{"txt": "\ud81a\udf50", "rom": "0", "value": 0, "type": "digit", "base": 1, "mult": 0, "script": "Pahawh Hmong"}
+{"txt": "\ud81a\udf51", "rom": "1", "value": 1, "type": "digit", "base": 1, "mult": 1, "script": "Pahawh Hmong"}
+{"txt": "\ud81a\udf52", "rom": "2", "value": 2, "type": "digit", "base": 1, "mult": 2, "script": "Pahawh Hmong"}
+{"txt": "\ud81a\udf53", "rom": "3", "value": 3, "type": "digit", "base": 1, "mult": 3, "script": "Pahawh Hmong"}
+{"txt": "\ud81a\udf54", "rom": "4", "value": 4, "type": "digit", "base": 1, "mult": 4, "script": "Pahawh Hmong"}
+{"txt": "\ud81a\udf55", "rom": "5", "value": 5, "type": "digit", "base": 1, "mult": 5, "script": "Pahawh Hmong"}
+{"txt": "\ud81a\udf56", "rom": "6", "value": 6, "type": "digit", "base": 1, "mult": 6, "script": "Pahawh Hmong"}
+{"txt": "\ud81a\udf57", "rom": "7", "value": 7, "type": "digit", "base": 1, "mult": 7, "script": "Pahawh Hmong"}
+{"txt": "\ud81a\udf58", "rom": "8", "value": 8, "type": "digit", "base": 1, "mult": 8, "script": "Pahawh Hmong"}
+{"txt": "\ud81a\udf59", "rom": "9", "value": 9, "type": "digit", "base": 1, "mult": 9, "script": "Pahawh Hmong"}
+{"txt": "\ud81a\udf5b", "rom": "10", "value": 10, "type": "base", "base": 10, "mult": 1, "script": "Pahawh Hmong"}
+{"txt": "\ud81a\udf5c", "rom": "100", "value": 100, "type": "base", "base": 100, "mult": 1, "script": "Pahawh Hmong"}
+{"txt": "\ud81a\udf5d", "rom": "10000", "value": 10000, "type": "base", "base": 10000, "mult": 1, "script": "Pahawh Hmong"}
+{"txt": "\ud81a\udf5e", "rom": "1000000", "value": 1000000, "type": "base", "base": 1000000, "mult": 1, "script": "Pahawh Hmong"}
+{"txt": "\ud81a\udf5f", "rom": "100000000", "value": 100000000, "type": "base", "base": 100000000, "mult": 1, "script": "Pahawh Hmong"}
+{"txt": "\ud81a\udf60", "rom": "10000000000", "value": 10000000000, "type": "base", "base": 10000000000, "mult": 1, "script": "Pahawh Hmong"}
+{"txt": "\ud81a\udf61", "rom": "1000000000000", "value": 1000000000000, "type": "base", "base": 1000000000000, "mult": 1, "script": "Pahawh Hmong"}
+{"txt": "\ud81b\ude80", "rom": "0", "value": 0, "type": "digit", "base": 1, "mult": 0, "script": "Medefaidrin"}
+{"txt": "\ud81b\ude81", "rom": "1", "value": 1, "type": "digit", "base": 1, "mult": 1, "script": "Medefaidrin"}
+{"txt": "\ud81b\ude82", "rom": "2", "value": 2, "type": "digit", "base": 1, "mult": 2, "script": "Medefaidrin"}
+{"txt": "\ud81b\ude83", "rom": "3", "value": 3, "type": "digit", "base": 1, "mult": 3, "script": "Medefaidrin"}
+{"txt": "\ud81b\ude84", "rom": "4", "value": 4, "type": "digit", "base": 1, "mult": 4, "script": "Medefaidrin"}
+{"txt": "\ud81b\ude85", "rom": "5", "value": 5, "type": "digit", "base": 1, "mult": 5, "script": "Medefaidrin"}
+{"txt": "\ud81b\ude86", "rom": "6", "value": 6, "type": "digit", "base": 1, "mult": 6, "script": "Medefaidrin"}
+{"txt": "\ud81b\ude87", "rom": "7", "value": 7, "type": "digit", "base": 1, "mult": 7, "script": "Medefaidrin"}
+{"txt": "\ud81b\ude88", "rom": "8", "value": 8, "type": "digit", "base": 1, "mult": 8, "script": "Medefaidrin"}
+{"txt": "\ud81b\ude89", "rom": "9", "value": 9, "type": "digit", "base": 1, "mult": 9, "script": "Medefaidrin"}
+{"txt": "\ud81b\ude8a", "rom": "10", "value": 10, "type": "base", "base": 10, "mult": 1, "script": "Medefaidrin"}
+{"txt": "\ud81b\ude8b", "rom": "11", "value": 11, "type": "multi", "base": 1, "mult": 11, "script": "Medefaidrin"}
+{"txt": "\ud81b\ude8c", "rom": "12", "value": 12, "type": "multi", "base": 1, "mult": 12, "script": "Medefaidrin"}
+{"txt": "\ud81b\ude8d", "rom": "13", "value": 13, "type": "multi", "base": 1, "mult": 13, "script": "Medefaidrin"}
+{"txt": "\ud81b\ude8e", "rom": "14", "value": 14, "type": "multi", "base": 1, "mult": 14, "script": "Medefaidrin"}
+{"txt": "\ud81b\ude8f", "rom": "15", "value": 15, "type": "multi", "base": 1, "mult": 15, "script": "Medefaidrin"}
+{"txt": "\ud81b\ude90", "rom": "16", "value": 16, "type": "multi", "base": 1, "mult": 16, "script": "Medefaidrin"}
+{"txt": "\ud81b\ude91", "rom": "17", "value": 17, "type": "multi", "base": 1, "mult": 17, "script": "Medefaidrin"}
+{"txt": "\ud81b\ude92", "rom": "18", "value": 18, "type": "multi", "base": 1, "mult": 18, "script": "Medefaidrin"}
+{"txt": "\ud81b\ude93", "rom": "19", "value": 19, "type": "multi", "base": 1, "mult": 19, "script": "Medefaidrin"}
+{"txt": "\ud81b\ude94", "rom": "1", "value": 1, "type": "digit", "base": 1, "mult": 1, "script": "Medefaidrin"}
+{"txt": "\ud81b\ude95", "rom": "2", "value": 2, "type": "digit", "base": 1, "mult": 2, "script": "Medefaidrin"}
+{"txt": "\ud81b\ude96", "rom": "3", "value": 3, "type": "digit", "base": 1, "mult": 3, "script": "Medefaidrin"}
+{"txt": "\ud834\udee0", "rom": "0", "value": 0, "type": "digit-like", "base": 1, "mult": 0, "script": "Mayan"}
+{"txt": "\ud834\udee1", "rom": "1", "value": 1, "type": "digit-like", "base": 1, "mult": 1, "script": "Mayan"}
+{"txt": "\ud834\udee2", "rom": "2", "value": 2, "type": "digit-like", "base": 1, "mult": 2, "script": "Mayan"}
+{"txt": "\ud834\udee3", "rom": "3", "value": 3, "type": "digit-like", "base": 1, "mult": 3, "script": "Mayan"}
+{"txt": "\ud834\udee4", "rom": "4", "value": 4, "type": "digit-like", "base": 1, "mult": 4, "script": "Mayan"}
+{"txt": "\ud834\udee5", "rom": "5", "value": 5, "type": "digit-like", "base": 1, "mult": 5, "script": "Mayan"}
+{"txt": "\ud834\udee6", "rom": "6", "value": 6, "type": "digit-like", "base": 1, "mult": 6, "script": "Mayan"}
+{"txt": "\ud834\udee7", "rom": "7", "value": 7, "type": "digit-like", "base": 1, "mult": 7, "script": "Mayan"}
+{"txt": "\ud834\udee8", "rom": "8", "value": 8, "type": "digit-like", "base": 1, "mult": 8, "script": "Mayan"}
+{"txt": "\ud834\udee9", "rom": "9", "value": 9, "type": "digit-like", "base": 1, "mult": 9, "script": "Mayan"}
+{"txt": "\ud834\udeea", "rom": "10", "value": 10, "type": "base", "base": 10, "mult": 1, "script": "Mayan"}
+{"txt": "\ud834\udeeb", "rom": "11", "value": 11, "type": "multi", "base": 1, "mult": 11, "script": "Mayan"}
+{"txt": "\ud834\udeec", "rom": "12", "value": 12, "type": "multi", "base": 1, "mult": 12, "script": "Mayan"}
+{"txt": "\ud834\udeed", "rom": "13", "value": 13, "type": "multi", "base": 1, "mult": 13, "script": "Mayan"}
+{"txt": "\ud834\udeee", "rom": "14", "value": 14, "type": "multi", "base": 1, "mult": 14, "script": "Mayan"}
+{"txt": "\ud834\udeef", "rom": "15", "value": 15, "type": "multi", "base": 1, "mult": 15, "script": "Mayan"}
+{"txt": "\ud834\udef0", "rom": "16", "value": 16, "type": "multi", "base": 1, "mult": 16, "script": "Mayan"}
+{"txt": "\ud834\udef1", "rom": "17", "value": 17, "type": "multi", "base": 1, "mult": 17, "script": "Mayan"}
+{"txt": "\ud834\udef2", "rom": "18", "value": 18, "type": "multi", "base": 1, "mult": 18, "script": "Mayan"}
+{"txt": "\ud834\udef3", "rom": "19", "value": 19, "type": "multi", "base": 1, "mult": 19, "script": "Mayan"}
+{"txt": "\ud834\udf60", "rom": "1", "value": 1, "type": "digit", "base": 1, "mult": 1, "name": "COUNTING ROD UNIT DIGIT ONE"}
+{"txt": "\ud834\udf61", "rom": "2", "value": 2, "type": "digit", "base": 1, "mult": 2, "name": "COUNTING ROD UNIT DIGIT TWO"}
+{"txt": "\ud834\udf62", "rom": "3", "value": 3, "type": "digit", "base": 1, "mult": 3, "name": "COUNTING ROD UNIT DIGIT THREE"}
+{"txt": "\ud834\udf63", "rom": "4", "value": 4, "type": "digit", "base": 1, "mult": 4, "name": "COUNTING ROD UNIT DIGIT FOUR"}
+{"txt": "\ud834\udf64", "rom": "5", "value": 5, "type": "digit", "base": 1, "mult": 5, "name": "COUNTING ROD UNIT DIGIT FIVE"}
+{"txt": "\ud834\udf65", "rom": "6", "value": 6, "type": "digit", "base": 1, "mult": 6, "name": "COUNTING ROD UNIT DIGIT SIX"}
+{"txt": "\ud834\udf66", "rom": "7", "value": 7, "type": "digit", "base": 1, "mult": 7, "name": "COUNTING ROD UNIT DIGIT SEVEN"}
+{"txt": "\ud834\udf67", "rom": "8", "value": 8, "type": "digit", "base": 1, "mult": 8, "name": "COUNTING ROD UNIT DIGIT EIGHT"}
+{"txt": "\ud834\udf68", "rom": "9", "value": 9, "type": "digit", "base": 1, "mult": 9, "name": "COUNTING ROD UNIT DIGIT NINE"}
+{"txt": "\ud834\udf69", "rom": "10", "value": 10, "type": "base", "base": 10, "mult": 1, "name": "COUNTING ROD TENS DIGIT ONE"}
+{"txt": "\ud834\udf6a", "rom": "20", "value": 20, "type": "multi", "base": 10, "mult": 2, "name": "COUNTING ROD TENS DIGIT TWO"}
+{"txt": "\ud834\udf6b", "rom": "30", "value": 30, "type": "multi", "base": 10, "mult": 3, "name": "COUNTING ROD TENS DIGIT THREE"}
+{"txt": "\ud834\udf6c", "rom": "40", "value": 40, "type": "multi", "base": 10, "mult": 4, "name": "COUNTING ROD TENS DIGIT FOUR"}
+{"txt": "\ud834\udf6d", "rom": "50", "value": 50, "type": "multi", "base": 10, "mult": 5, "name": "COUNTING ROD TENS DIGIT FIVE"}
+{"txt": "\ud834\udf6e", "rom": "60", "value": 60, "type": "multi", "base": 10, "mult": 6, "name": "COUNTING ROD TENS DIGIT SIX"}
+{"txt": "\ud834\udf6f", "rom": "70", "value": 70, "type": "multi", "base": 10, "mult": 7, "name": "COUNTING ROD TENS DIGIT SEVEN"}
+{"txt": "\ud834\udf70", "rom": "80", "value": 80, "type": "multi", "base": 10, "mult": 8, "name": "COUNTING ROD TENS DIGIT EIGHT"}
+{"txt": "\ud834\udf71", "rom": "90", "value": 90, "type": "multi", "base": 10, "mult": 9, "name": "COUNTING ROD TENS DIGIT NINE"}
+{"txt": "\ud834\udf72", "rom": "1", "value": 1, "type": "digit-like", "base": 1, "mult": 1, "name": "IDEOGRAPHIC TALLY MARK ONE"}
+{"txt": "\ud834\udf73", "rom": "2", "value": 2, "type": "digit-like", "base": 1, "mult": 2, "name": "IDEOGRAPHIC TALLY MARK TWO"}
+{"txt": "\ud834\udf74", "rom": "3", "value": 3, "type": "digit-like", "base": 1, "mult": 3, "name": "IDEOGRAPHIC TALLY MARK THREE"}
+{"txt": "\ud834\udf75", "rom": "4", "value": 4, "type": "digit-like", "base": 1, "mult": 4, "name": "IDEOGRAPHIC TALLY MARK FOUR"}
+{"txt": "\ud834\udf76", "rom": "5", "value": 5, "type": "digit-like", "base": 1, "mult": 5, "name": "IDEOGRAPHIC TALLY MARK FIVE"}
+{"txt": "\ud834\udf77", "rom": "1", "value": 1, "type": "digit-like", "base": 1, "mult": 1, "name": "TALLY MARK ONE"}
+{"txt": "\ud834\udf78", "rom": "5", "value": 5, "type": "digit-like", "base": 1, "mult": 5, "name": "TALLY MARK FIVE"}
+{"txt": "\ud838\udd40", "rom": "0", "value": 0, "type": "digit", "base": 1, "mult": 0, "script": "Nyiakeng Puachue Hmong"}
+{"txt": "\ud838\udd41", "rom": "1", "value": 1, "type": "digit", "base": 1, "mult": 1, "script": "Nyiakeng Puachue Hmong"}
+{"txt": "\ud838\udd42", "rom": "2", "value": 2, "type": "digit", "base": 1, "mult": 2, "script": "Nyiakeng Puachue Hmong"}
+{"txt": "\ud838\udd43", "rom": "3", "value": 3, "type": "digit", "base": 1, "mult": 3, "script": "Nyiakeng Puachue Hmong"}
+{"txt": "\ud838\udd44", "rom": "4", "value": 4, "type": "digit", "base": 1, "mult": 4, "script": "Nyiakeng Puachue Hmong"}
+{"txt": "\ud838\udd45", "rom": "5", "value": 5, "type": "digit", "base": 1, "mult": 5, "script": "Nyiakeng Puachue Hmong"}
+{"txt": "\ud838\udd46", "rom": "6", "value": 6, "type": "digit", "base": 1, "mult": 6, "script": "Nyiakeng Puachue Hmong"}
+{"txt": "\ud838\udd47", "rom": "7", "value": 7, "type": "digit", "base": 1, "mult": 7, "script": "Nyiakeng Puachue Hmong"}
+{"txt": "\ud838\udd48", "rom": "8", "value": 8, "type": "digit", "base": 1, "mult": 8, "script": "Nyiakeng Puachue Hmong"}
+{"txt": "\ud838\udd49", "rom": "9", "value": 9, "type": "digit", "base": 1, "mult": 9, "script": "Nyiakeng Puachue Hmong"}
+{"txt": "\ud838\udef0", "rom": "0", "value": 0, "type": "digit", "base": 1, "mult": 0, "script": "Wancho"}
+{"txt": "\ud838\udef1", "rom": "1", "value": 1, "type": "digit", "base": 1, "mult": 1, "script": "Wancho"}
+{"txt": "\ud838\udef2", "rom": "2", "value": 2, "type": "digit", "base": 1, "mult": 2, "script": "Wancho"}
+{"txt": "\ud838\udef3", "rom": "3", "value": 3, "type": "digit", "base": 1, "mult": 3, "script": "Wancho"}
+{"txt": "\ud838\udef4", "rom": "4", "value": 4, "type": "digit", "base": 1, "mult": 4, "script": "Wancho"}
+{"txt": "\ud838\udef5", "rom": "5", "value": 5, "type": "digit", "base": 1, "mult": 5, "script": "Wancho"}
+{"txt": "\ud838\udef6", "rom": "6", "value": 6, "type": "digit", "base": 1, "mult": 6, "script": "Wancho"}
+{"txt": "\ud838\udef7", "rom": "7", "value": 7, "type": "digit", "base": 1, "mult": 7, "script": "Wancho"}
+{"txt": "\ud838\udef8", "rom": "8", "value": 8, "type": "digit", "base": 1, "mult": 8, "script": "Wancho"}
+{"txt": "\ud838\udef9", "rom": "9", "value": 9, "type": "digit", "base": 1, "mult": 9, "script": "Wancho"}
+{"txt": "\ud83a\udcc7", "rom": "1", "value": 1, "type": "digit", "base": 1, "mult": 1, "script": "Mende Kikakui"}
+{"txt": "\ud83a\udcc8", "rom": "2", "value": 2, "type": "digit", "base": 1, "mult": 2, "script": "Mende Kikakui"}
+{"txt": "\ud83a\udcc9", "rom": "3", "value": 3, "type": "digit", "base": 1, "mult": 3, "script": "Mende Kikakui"}
+{"txt": "\ud83a\udcca", "rom": "4", "value": 4, "type": "digit", "base": 1, "mult": 4, "script": "Mende Kikakui"}
+{"txt": "\ud83a\udccb", "rom": "5", "value": 5, "type": "digit", "base": 1, "mult": 5, "script": "Mende Kikakui"}
+{"txt": "\ud83a\udccc", "rom": "6", "value": 6, "type": "digit", "base": 1, "mult": 6, "script": "Mende Kikakui"}
+{"txt": "\ud83a\udccd", "rom": "7", "value": 7, "type": "digit", "base": 1, "mult": 7, "script": "Mende Kikakui"}
+{"txt": "\ud83a\udcce", "rom": "8", "value": 8, "type": "digit", "base": 1, "mult": 8, "script": "Mende Kikakui"}
+{"txt": "\ud83a\udccf", "rom": "9", "value": 9, "type": "digit", "base": 1, "mult": 9, "script": "Mende Kikakui"}
+{"txt": "\ud83a\udd50", "rom": "0", "value": 0, "type": "digit", "base": 1, "mult": 0, "script": "Adlam"}
+{"txt": "\ud83a\udd51", "rom": "1", "value": 1, "type": "digit", "base": 1, "mult": 1, "script": "Adlam"}
+{"txt": "\ud83a\udd52", "rom": "2", "value": 2, "type": "digit", "base": 1, "mult": 2, "script": "Adlam"}
+{"txt": "\ud83a\udd53", "rom": "3", "value": 3, "type": "digit", "base": 1, "mult": 3, "script": "Adlam"}
+{"txt": "\ud83a\udd54", "rom": "4", "value": 4, "type": "digit", "base": 1, "mult": 4, "script": "Adlam"}
+{"txt": "\ud83a\udd55", "rom": "5", "value": 5, "type": "digit", "base": 1, "mult": 5, "script": "Adlam"}
+{"txt": "\ud83a\udd56", "rom": "6", "value": 6, "type": "digit", "base": 1, "mult": 6, "script": "Adlam"}
+{"txt": "\ud83a\udd57", "rom": "7", "value": 7, "type": "digit", "base": 1, "mult": 7, "script": "Adlam"}
+{"txt": "\ud83a\udd58", "rom": "8", "value": 8, "type": "digit", "base": 1, "mult": 8, "script": "Adlam"}
+{"txt": "\ud83a\udd59", "rom": "9", "value": 9, "type": "digit", "base": 1, "mult": 9, "script": "Adlam"}
+{"txt": "\ud83b\udc71", "rom": "1", "value": 1, "type": "digit-like", "base": 1, "mult": 1, "script": "Indic Siyaq"}
+{"txt": "\ud83b\udc72", "rom": "2", "value": 2, "type": "digit-like", "base": 1, "mult": 2, "script": "Indic Siyaq"}
+{"txt": "\ud83b\udc73", "rom": "3", "value": 3, "type": "digit-like", "base": 1, "mult": 3, "script": "Indic Siyaq"}
+{"txt": "\ud83b\udc74", "rom": "4", "value": 4, "type": "digit-like", "base": 1, "mult": 4, "script": "Indic Siyaq"}
+{"txt": "\ud83b\udc75", "rom": "5", "value": 5, "type": "digit-like", "base": 1, "mult": 5, "script": "Indic Siyaq"}
+{"txt": "\ud83b\udc76", "rom": "6", "value": 6, "type": "digit-like", "base": 1, "mult": 6, "script": "Indic Siyaq"}
+{"txt": "\ud83b\udc77", "rom": "7", "value": 7, "type": "digit-like", "base": 1, "mult": 7, "script": "Indic Siyaq"}
+{"txt": "\ud83b\udc78", "rom": "8", "value": 8, "type": "digit-like", "base": 1, "mult": 8, "script": "Indic Siyaq"}
+{"txt": "\ud83b\udc79", "rom": "9", "value": 9, "type": "digit-like", "base": 1, "mult": 9, "script": "Indic Siyaq"}
+{"txt": "\ud83b\udc7a", "rom": "10", "value": 10, "type": "base", "base": 10, "mult": 1, "script": "Indic Siyaq"}
+{"txt": "\ud83b\udc7b", "rom": "20", "value": 20, "type": "multi", "base": 10, "mult": 2, "script": "Indic Siyaq"}
+{"txt": "\ud83b\udc7c", "rom": "30", "value": 30, "type": "multi", "base": 10, "mult": 3, "script": "Indic Siyaq"}
+{"txt": "\ud83b\udc7d", "rom": "40", "value": 40, "type": "multi", "base": 10, "mult": 4, "script": "Indic Siyaq"}
+{"txt": "\ud83b\udc7e", "rom": "50", "value": 50, "type": "multi", "base": 10, "mult": 5, "script": "Indic Siyaq"}
+{"txt": "\ud83b\udc7f", "rom": "60", "value": 60, "type": "multi", "base": 10, "mult": 6, "script": "Indic Siyaq"}
+{"txt": "\ud83b\udc80", "rom": "70", "value": 70, "type": "multi", "base": 10, "mult": 7, "script": "Indic Siyaq"}
+{"txt": "\ud83b\udc81", "rom": "80", "value": 80, "type": "multi", "base": 10, "mult": 8, "script": "Indic Siyaq"}
+{"txt": "\ud83b\udc82", "rom": "90", "value": 90, "type": "multi", "base": 10, "mult": 9, "script": "Indic Siyaq"}
+{"txt": "\ud83b\udc83", "rom": "100", "value": 100, "type": "base", "base": 100, "mult": 1, "script": "Indic Siyaq"}
+{"txt": "\ud83b\udc84", "rom": "200", "value": 200, "type": "multi", "base": 100, "mult": 2, "script": "Indic Siyaq"}
+{"txt": "\ud83b\udc85", "rom": "300", "value": 300, "type": "multi", "base": 100, "mult": 3, "script": "Indic Siyaq"}
+{"txt": "\ud83b\udc86", "rom": "400", "value": 400, "type": "multi", "base": 100, "mult": 4, "script": "Indic Siyaq"}
+{"txt": "\ud83b\udc87", "rom": "500", "value": 500, "type": "multi", "base": 100, "mult": 5, "script": "Indic Siyaq"}
+{"txt": "\ud83b\udc88", "rom": "600", "value": 600, "type": "multi", "base": 100, "mult": 6, "script": "Indic Siyaq"}
+{"txt": "\ud83b\udc89", "rom": "700", "value": 700, "type": "multi", "base": 100, "mult": 7, "script": "Indic Siyaq"}
+{"txt": "\ud83b\udc8a", "rom": "800", "value": 800, "type": "multi", "base": 100, "mult": 8, "script": "Indic Siyaq"}
+{"txt": "\ud83b\udc8b", "rom": "900", "value": 900, "type": "multi", "base": 100, "mult": 9, "script": "Indic Siyaq"}
+{"txt": "\ud83b\udc8c", "rom": "1000", "value": 1000, "type": "base", "base": 1000, "mult": 1, "script": "Indic Siyaq"}
+{"txt": "\ud83b\udc8d", "rom": "2000", "value": 2000, "type": "multi", "base": 1000, "mult": 2, "script": "Indic Siyaq"}
+{"txt": "\ud83b\udc8e", "rom": "3000", "value": 3000, "type": "multi", "base": 1000, "mult": 3, "script": "Indic Siyaq"}
+{"txt": "\ud83b\udc8f", "rom": "4000", "value": 4000, "type": "multi", "base": 1000, "mult": 4, "script": "Indic Siyaq"}
+{"txt": "\ud83b\udc90", "rom": "5000", "value": 5000, "type": "multi", "base": 1000, "mult": 5, "script": "Indic Siyaq"}
+{"txt": "\ud83b\udc91", "rom": "6000", "value": 6000, "type": "multi", "base": 1000, "mult": 6, "script": "Indic Siyaq"}
+{"txt": "\ud83b\udc92", "rom": "7000", "value": 7000, "type": "multi", "base": 1000, "mult": 7, "script": "Indic Siyaq"}
+{"txt": "\ud83b\udc93", "rom": "8000", "value": 8000, "type": "multi", "base": 1000, "mult": 8, "script": "Indic Siyaq"}
+{"txt": "\ud83b\udc94", "rom": "9000", "value": 9000, "type": "multi", "base": 1000, "mult": 9, "script": "Indic Siyaq"}
+{"txt": "\ud83b\udc95", "rom": "10000", "value": 10000, "type": "base", "base": 10000, "mult": 1, "script": "Indic Siyaq"}
+{"txt": "\ud83b\udc96", "rom": "20000", "value": 20000, "type": "multi", "base": 10000, "mult": 2, "script": "Indic Siyaq"}
+{"txt": "\ud83b\udc97", "rom": "30000", "value": 30000, "type": "multi", "base": 10000, "mult": 3, "script": "Indic Siyaq"}
+{"txt": "\ud83b\udc98", "rom": "40000", "value": 40000, "type": "multi", "base": 10000, "mult": 4, "script": "Indic Siyaq"}
+{"txt": "\ud83b\udc99", "rom": "50000", "value": 50000, "type": "multi", "base": 10000, "mult": 5, "script": "Indic Siyaq"}
+{"txt": "\ud83b\udc9a", "rom": "60000", "value": 60000, "type": "multi", "base": 10000, "mult": 6, "script": "Indic Siyaq"}
+{"txt": "\ud83b\udc9b", "rom": "70000", "value": 70000, "type": "multi", "base": 10000, "mult": 7, "script": "Indic Siyaq"}
+{"txt": "\ud83b\udc9c", "rom": "80000", "value": 80000, "type": "multi", "base": 10000, "mult": 8, "script": "Indic Siyaq"}
+{"txt": "\ud83b\udc9d", "rom": "90000", "value": 90000, "type": "multi", "base": 10000, "mult": 9, "script": "Indic Siyaq"}
+{"txt": "\ud83b\udc9e", "rom": "100000", "value": 100000, "type": "base", "base": 100000, "mult": 1, "script": "Indic Siyaq"}
+{"txt": "\ud83b\udc9f", "rom": "200000", "value": 200000, "type": "multi", "base": 100000, "mult": 2, "script": "Indic Siyaq"}
+{"txt": "\ud83b\udca0", "rom": "100000", "value": 100000, "type": "base", "base": 100000, "mult": 1, "name": "INDIC SIYAQ LAKH MARK"}
+{"txt": "\ud83b\udca1", "rom": "10000000", "value": 10000000, "type": "base", "base": 10000000, "mult": 1, "script": "Indic Siyaq"}
+{"txt": "\ud83b\udca2", "rom": "20000000", "value": 20000000, "type": "multi", "base": 10000000, "mult": 2, "script": "Indic Siyaq"}
+{"txt": "\ud83b\udca3", "rom": "1", "value": 1, "type": "digit-like", "base": 1, "mult": 1, "script": "Indic Siyaq"}
+{"txt": "\ud83b\udca4", "rom": "2", "value": 2, "type": "digit-like", "base": 1, "mult": 2, "script": "Indic Siyaq"}
+{"txt": "\ud83b\udca5", "rom": "3", "value": 3, "type": "digit-like", "base": 1, "mult": 3, "script": "Indic Siyaq"}
+{"txt": "\ud83b\udca6", "rom": "4", "value": 4, "type": "digit-like", "base": 1, "mult": 4, "script": "Indic Siyaq"}
+{"txt": "\ud83b\udca7", "rom": "5", "value": 5, "type": "digit-like", "base": 1, "mult": 5, "script": "Indic Siyaq"}
+{"txt": "\ud83b\udca8", "rom": "6", "value": 6, "type": "digit-like", "base": 1, "mult": 6, "script": "Indic Siyaq"}
+{"txt": "\ud83b\udca9", "rom": "7", "value": 7, "type": "digit-like", "base": 1, "mult": 7, "script": "Indic Siyaq"}
+{"txt": "\ud83b\udcaa", "rom": "8", "value": 8, "type": "digit-like", "base": 1, "mult": 8, "script": "Indic Siyaq"}
+{"txt": "\ud83b\udcab", "rom": "9", "value": 9, "type": "digit-like", "base": 1, "mult": 9, "script": "Indic Siyaq"}
+{"txt": "\ud83b\udcad", "rom": "1/4", "fraction": [1, 4], "type": "fraction", "script": "Indic Siyaq"}
+{"txt": "\ud83b\udcae", "rom": "1/2", "fraction": [1, 2], "type": "fraction", "script": "Indic Siyaq"}
+{"txt": "\ud83b\udcaf", "rom": "3/4", "fraction": [3, 4], "type": "fraction", "script": "Indic Siyaq"}
+{"txt": "\ud83b\udcb1", "rom": "1", "value": 1, "type": "digit-like", "base": 1, "mult": 1, "script": "Indic Siyaq"}
+{"txt": "\ud83b\udcb2", "rom": "2", "value": 2, "type": "digit-like", "base": 1, "mult": 2, "script": "Indic Siyaq"}
+{"txt": "\ud83b\udcb3", "rom": "10000", "value": 10000, "type": "base", "base": 10000, "mult": 1, "script": "Indic Siyaq"}
+{"txt": "\ud83b\udcb4", "rom": "100000", "value": 100000, "type": "base", "base": 100000, "mult": 1, "name": "INDIC SIYAQ ALTERNATE LAKH MARK"}
+{"txt": "\ud83b\udd01", "rom": "1", "value": 1, "type": "digit-like", "base": 1, "mult": 1, "script": "Ottoman Siyaq"}
+{"txt": "\ud83b\udd02", "rom": "2", "value": 2, "type": "digit-like", "base": 1, "mult": 2, "script": "Ottoman Siyaq"}
+{"txt": "\ud83b\udd03", "rom": "3", "value": 3, "type": "digit-like", "base": 1, "mult": 3, "script": "Ottoman Siyaq"}
+{"txt": "\ud83b\udd04", "rom": "4", "value": 4, "type": "digit-like", "base": 1, "mult": 4, "script": "Ottoman Siyaq"}
+{"txt": "\ud83b\udd05", "rom": "5", "value": 5, "type": "digit-like", "base": 1, "mult": 5, "script": "Ottoman Siyaq"}
+{"txt": "\ud83b\udd06", "rom": "6", "value": 6, "type": "digit-like", "base": 1, "mult": 6, "script": "Ottoman Siyaq"}
+{"txt": "\ud83b\udd07", "rom": "7", "value": 7, "type": "digit-like", "base": 1, "mult": 7, "script": "Ottoman Siyaq"}
+{"txt": "\ud83b\udd08", "rom": "8", "value": 8, "type": "digit-like", "base": 1, "mult": 8, "script": "Ottoman Siyaq"}
+{"txt": "\ud83b\udd09", "rom": "9", "value": 9, "type": "digit-like", "base": 1, "mult": 9, "script": "Ottoman Siyaq"}
+{"txt": "\ud83b\udd0a", "rom": "10", "value": 10, "type": "base", "base": 10, "mult": 1, "script": "Ottoman Siyaq"}
+{"txt": "\ud83b\udd0b", "rom": "20", "value": 20, "type": "multi", "base": 10, "mult": 2, "script": "Ottoman Siyaq"}
+{"txt": "\ud83b\udd0c", "rom": "30", "value": 30, "type": "multi", "base": 10, "mult": 3, "script": "Ottoman Siyaq"}
+{"txt": "\ud83b\udd0d", "rom": "40", "value": 40, "type": "multi", "base": 10, "mult": 4, "script": "Ottoman Siyaq"}
+{"txt": "\ud83b\udd0e", "rom": "50", "value": 50, "type": "multi", "base": 10, "mult": 5, "script": "Ottoman Siyaq"}
+{"txt": "\ud83b\udd0f", "rom": "60", "value": 60, "type": "multi", "base": 10, "mult": 6, "script": "Ottoman Siyaq"}
+{"txt": "\ud83b\udd10", "rom": "70", "value": 70, "type": "multi", "base": 10, "mult": 7, "script": "Ottoman Siyaq"}
+{"txt": "\ud83b\udd11", "rom": "80", "value": 80, "type": "multi", "base": 10, "mult": 8, "script": "Ottoman Siyaq"}
+{"txt": "\ud83b\udd12", "rom": "90", "value": 90, "type": "multi", "base": 10, "mult": 9, "script": "Ottoman Siyaq"}
+{"txt": "\ud83b\udd13", "rom": "100", "value": 100, "type": "base", "base": 100, "mult": 1, "script": "Ottoman Siyaq"}
+{"txt": "\ud83b\udd14", "rom": "200", "value": 200, "type": "multi", "base": 100, "mult": 2, "script": "Ottoman Siyaq"}
+{"txt": "\ud83b\udd15", "rom": "300", "value": 300, "type": "multi", "base": 100, "mult": 3, "script": "Ottoman Siyaq"}
+{"txt": "\ud83b\udd16", "rom": "400", "value": 400, "type": "multi", "base": 100, "mult": 4, "script": "Ottoman Siyaq"}
+{"txt": "\ud83b\udd17", "rom": "500", "value": 500, "type": "multi", "base": 100, "mult": 5, "script": "Ottoman Siyaq"}
+{"txt": "\ud83b\udd18", "rom": "600", "value": 600, "type": "multi", "base": 100, "mult": 6, "script": "Ottoman Siyaq"}
+{"txt": "\ud83b\udd19", "rom": "700", "value": 700, "type": "multi", "base": 100, "mult": 7, "script": "Ottoman Siyaq"}
+{"txt": "\ud83b\udd1a", "rom": "800", "value": 800, "type": "multi", "base": 100, "mult": 8, "script": "Ottoman Siyaq"}
+{"txt": "\ud83b\udd1b", "rom": "900", "value": 900, "type": "multi", "base": 100, "mult": 9, "script": "Ottoman Siyaq"}
+{"txt": "\ud83b\udd1c", "rom": "1000", "value": 1000, "type": "base", "base": 1000, "mult": 1, "script": "Ottoman Siyaq"}
+{"txt": "\ud83b\udd1d", "rom": "2000", "value": 2000, "type": "multi", "base": 1000, "mult": 2, "script": "Ottoman Siyaq"}
+{"txt": "\ud83b\udd1e", "rom": "3000", "value": 3000, "type": "multi", "base": 1000, "mult": 3, "script": "Ottoman Siyaq"}
+{"txt": "\ud83b\udd1f", "rom": "4000", "value": 4000, "type": "multi", "base": 1000, "mult": 4, "script": "Ottoman Siyaq"}
+{"txt": "\ud83b\udd20", "rom": "5000", "value": 5000, "type": "multi", "base": 1000, "mult": 5, "script": "Ottoman Siyaq"}
+{"txt": "\ud83b\udd21", "rom": "6000", "value": 6000, "type": "multi", "base": 1000, "mult": 6, "script": "Ottoman Siyaq"}
+{"txt": "\ud83b\udd22", "rom": "7000", "value": 7000, "type": "multi", "base": 1000, "mult": 7, "script": "Ottoman Siyaq"}
+{"txt": "\ud83b\udd23", "rom": "8000", "value": 8000, "type": "multi", "base": 1000, "mult": 8, "script": "Ottoman Siyaq"}
+{"txt": "\ud83b\udd24", "rom": "9000", "value": 9000, "type": "multi", "base": 1000, "mult": 9, "script": "Ottoman Siyaq"}
+{"txt": "\ud83b\udd25", "rom": "10000", "value": 10000, "type": "base", "base": 10000, "mult": 1, "script": "Ottoman Siyaq"}
+{"txt": "\ud83b\udd26", "rom": "20000", "value": 20000, "type": "multi", "base": 10000, "mult": 2, "script": "Ottoman Siyaq"}
+{"txt": "\ud83b\udd27", "rom": "30000", "value": 30000, "type": "multi", "base": 10000, "mult": 3, "script": "Ottoman Siyaq"}
+{"txt": "\ud83b\udd28", "rom": "40000", "value": 40000, "type": "multi", "base": 10000, "mult": 4, "script": "Ottoman Siyaq"}
+{"txt": "\ud83b\udd29", "rom": "50000", "value": 50000, "type": "multi", "base": 10000, "mult": 5, "script": "Ottoman Siyaq"}
+{"txt": "\ud83b\udd2a", "rom": "60000", "value": 60000, "type": "multi", "base": 10000, "mult": 6, "script": "Ottoman Siyaq"}
+{"txt": "\ud83b\udd2b", "rom": "70000", "value": 70000, "type": "multi", "base": 10000, "mult": 7, "script": "Ottoman Siyaq"}
+{"txt": "\ud83b\udd2c", "rom": "80000", "value": 80000, "type": "multi", "base": 10000, "mult": 8, "script": "Ottoman Siyaq"}
+{"txt": "\ud83b\udd2d", "rom": "90000", "value": 90000, "type": "multi", "base": 10000, "mult": 9, "script": "Ottoman Siyaq"}
+{"txt": "\ud83b\udd2f", "rom": "2", "value": 2, "type": "digit-like", "base": 1, "mult": 2, "script": "Ottoman Siyaq"}
+{"txt": "\ud83b\udd30", "rom": "3", "value": 3, "type": "digit-like", "base": 1, "mult": 3, "script": "Ottoman Siyaq"}
+{"txt": "\ud83b\udd31", "rom": "4", "value": 4, "type": "digit-like", "base": 1, "mult": 4, "script": "Ottoman Siyaq"}
+{"txt": "\ud83b\udd32", "rom": "5", "value": 5, "type": "digit-like", "base": 1, "mult": 5, "script": "Ottoman Siyaq"}
+{"txt": "\ud83b\udd33", "rom": "6", "value": 6, "type": "digit-like", "base": 1, "mult": 6, "script": "Ottoman Siyaq"}
+{"txt": "\ud83b\udd34", "rom": "7", "value": 7, "type": "digit-like", "base": 1, "mult": 7, "script": "Ottoman Siyaq"}
+{"txt": "\ud83b\udd35", "rom": "8", "value": 8, "type": "digit-like", "base": 1, "mult": 8, "script": "Ottoman Siyaq"}
+{"txt": "\ud83b\udd36", "rom": "9", "value": 9, "type": "digit-like", "base": 1, "mult": 9, "script": "Ottoman Siyaq"}
+{"txt": "\ud83b\udd37", "rom": "10", "value": 10, "type": "base", "base": 10, "mult": 1, "script": "Ottoman Siyaq"}
+{"txt": "\ud83b\udd38", "rom": "400", "value": 400, "type": "multi", "base": 100, "mult": 4, "script": "Ottoman Siyaq"}
+{"txt": "\ud83b\udd39", "rom": "600", "value": 600, "type": "multi", "base": 100, "mult": 6, "script": "Ottoman Siyaq"}
+{"txt": "\ud83b\udd3a", "rom": "2000", "value": 2000, "type": "multi", "base": 1000, "mult": 2, "script": "Ottoman Siyaq"}
+{"txt": "\ud83b\udd3b", "rom": "10000", "value": 10000, "type": "base", "base": 10000, "mult": 1, "script": "Ottoman Siyaq"}
+{"txt": "\ud83b\udd3c", "rom": "1/2", "fraction": [1, 2], "type": "fraction", "script": "Ottoman Siyaq"}
+{"txt": "\ud83b\udd3d", "rom": "1/6", "fraction": [1, 6], "type": "fraction", "script": "Ottoman Siyaq"}
+{"txt": "\ud840\udc01", "rom": "7", "value": 7, "type": "digit-like", "base": 1, "mult": 7, "script": "CJK"}
+{"txt": "\ud840\udc64", "rom": "4", "value": 4, "type": "digit-like", "base": 1, "mult": 4, "script": "CJK"}
+{"txt": "\ud840\udce2", "rom": "4", "value": 4, "type": "digit-like", "base": 1, "mult": 4, "script": "CJK"}
+{"txt": "\ud840\udd21", "rom": "5", "value": 5, "type": "digit-like", "base": 1, "mult": 5, "script": "CJK"}
+{"txt": "\ud842\udd2a", "rom": "1", "value": 1, "type": "digit-like", "base": 1, "mult": 1, "script": "CJK"}
+{"txt": "\ud842\udd83", "rom": "30", "value": 30, "type": "multi", "base": 10, "mult": 3, "script": "CJK"}
+{"txt": "\ud842\udd8c", "rom": "40", "value": 40, "type": "multi", "base": 10, "mult": 4, "script": "CJK"}
+{"txt": "\ud842\udd9c", "rom": "40", "value": 40, "type": "multi", "base": 10, "mult": 4, "script": "CJK"}
+{"txt": "\ud842\udeea", "rom": "6", "value": 6, "type": "digit-like", "base": 1, "mult": 6, "script": "CJK"}
+{"txt": "\ud842\udefd", "rom": "3", "value": 3, "type": "digit-like", "base": 1, "mult": 3, "script": "CJK"}
+{"txt": "\ud842\udf19", "rom": "3", "value": 3, "type": "digit-like", "base": 1, "mult": 3, "script": "CJK"}
+{"txt": "\ud848\udf90", "rom": "2", "value": 2, "type": "digit-like", "base": 1, "mult": 2, "script": "CJK"}
+{"txt": "\ud84a\udd98", "rom": "3", "value": 3, "type": "digit-like", "base": 1, "mult": 3, "script": "CJK"}
+{"txt": "\ud84e\udf1b", "rom": "3", "value": 3, "type": "digit-like", "base": 1, "mult": 3, "script": "CJK"}
+{"txt": "\ud858\ude6d", "rom": "4", "value": 4, "type": "digit-like", "base": 1, "mult": 4, "script": "CJK"}
+{"txt": "\ud87e\udc90", "rom": "9", "value": 9, "type": "digit-like", "base": 1, "mult": 9, "script": "CJK"}

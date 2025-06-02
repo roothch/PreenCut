@@ -1,0 +1,7 @@
+trap	strap
+colour	color
+labeling	labelling
+organisation	organization
+Philadelphia	Filadelfia
+Vladimir	Volodymyr
+Moskva	Moskvoy

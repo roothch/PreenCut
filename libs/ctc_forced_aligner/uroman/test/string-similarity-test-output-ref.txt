@@ -1,0 +1,8 @@
+# Lang-code-1: eng Lang-code-2: eng
+trap	strap	1
+colour	color	0.1
+labeling	labelling	0.02
+organisation	organization	0.1
+Philadelphia	Filadelfia	0.02
+Vladimir	Volodymyr	0.5
+Moskva	Moskvoy	0.5

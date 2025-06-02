@@ -6,3 +6,8 @@ openai
 python-dotenv
 torch
 torchaudio
+
+# for ctc-forced-aligner
+nltk
+transformers>=4.34
+Unidecode

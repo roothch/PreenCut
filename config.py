@@ -1,4 +1,35 @@
 import os
+import torch
+
+def get_available_gpus():
+    """获取所有可用的GPU设备"""
+    if torch.cuda.is_available():
+        return list(range(torch.cuda.device_count()))
+    return []
+
+
+def get_device_config():
+    """设置设备配置"""
+    gpus = get_available_gpus()
+
+    # 检查环境变量是否指定了GPU
+    cuda_visible = os.getenv('CUDA_VISIBLE_DEVICES', '')
+    if cuda_visible:
+        try:
+            # 解析环境变量中的GPU索引
+            selected_gpus = [int(x.strip()) for x in cuda_visible.split(',') if
+                             x.strip()]
+            return 'cuda', selected_gpus
+        except ValueError:
+            pass
+
+    # 如果没有指定但检测到GPU
+    if gpus:
+        return 'cuda', gpus
+
+    # 默认使用CPU
+    return 'cpu', []
+
 
 # 文件上传配置
 UPLOAD_FOLDER = "uploads"
@@ -14,8 +45,10 @@ OUTPUT_FOLDER = "output"
 # 语音识别模型配置
 SPEECH_RECOGNITION_MODEL = 'faster-whisper'  # 'whisper', 'funasr' 或 'faster-whisper'
 WHISPER_MODEL_SIZE = 'base'  # whisper模型大小 (tiny, base, small, medium, large)
-FASTER_WHISPER_MODEL = 'large-v3'  # faster-whisper模型 (tiny, base, small, medium, large, large-v2, large-v3)
-FASTER_WHISPER_DEVICE = 'cuda' if os.getenv('CUDA_VISIBLE_DEVICES') else 'cpu'  # cuda 或 cpu
+FASTER_WHISPER_MODEL = 'large-v2'  # faster-whisper模型 (tiny, base, small, medium, large, large-v2, large-v3)
+DEVICE_TYPE, AVAILABLE_GPUS = get_device_config()
+FASTER_WHISPER_DEVICE = DEVICE_TYPE
+FASTER_WHISPER_GPU_IDS = ','.join(map(str, AVAILABLE_GPUS)) if AVAILABLE_GPUS else ''
 FASTER_WHISPER_COMPUTE_TYPE = 'float16' if FASTER_WHISPER_DEVICE == 'cuda' else 'float32'  # float16, float32, int8
 FUNASR_MODEL_NAME = 'paraformer-zh'  # funasr模型名称
 

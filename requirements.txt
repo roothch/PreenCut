@@ -1,4 +1,4 @@
-gradio>=3.50
+gradio>=5.0.0
 faster-whisper
 ffmpeg-python
 openai

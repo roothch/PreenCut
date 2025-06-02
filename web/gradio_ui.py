@@ -211,7 +211,6 @@ def create_gradio_interface():
             with gr.Column(scale=2):
                 file_upload = gr.Files(
                     label="上传视频/音频文件",
-                    file_types=ALLOWED_EXTENSIONS,
                     file_count="multiple"
                 )
 

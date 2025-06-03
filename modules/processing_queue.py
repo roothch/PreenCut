@@ -45,9 +45,9 @@ class ProcessingQueue:
 
                 # 如果指定了模型大小，临时更新配置
                 if model_size and SPEECH_RECOGNITION_MODEL == 'whisperx':
-                    global WHISPER_MODEL_SIZE
-                    original_model = WHISPER_MODEL_SIZE
-                    WHISPER_MODEL_SIZE = model_size
+                    global WHISPERX_MODEL_SIZE
+                    original_model = WHISPERX_MODEL_SIZE
+                    WHISPERX_MODEL_SIZE = model_size
 
                 # 处理每个文件
                 file_results = []
@@ -90,7 +90,7 @@ class ProcessingQueue:
 
                 # 恢复原始模型设置
                 if model_size and SPEECH_RECOGNITION_MODEL == 'whisperx':
-                    WHISPER_MODEL_SIZE = original_model
+                    WHISPERX_MODEL_SIZE = original_model
 
                 # 更新结果
                 with self.lock:
@@ -104,7 +104,7 @@ class ProcessingQueue:
 
                 # 恢复原始模型设置
                 if 'model_size' in locals() and model_size and SPEECH_RECOGNITION_MODEL == 'whisperx':
-                    WHISPER_MODEL_SIZE = original_model
+                    WHISPERX_MODEL_SIZE = original_model
 
                 with self.lock:
                     self.results[task_id]["status"] = "error"

@@ -75,16 +75,29 @@ def check_status(task_id: str) -> Dict:
                 })
             display_result.extend(segments)
 
-        return {
-            "status": "处理完成",
-            "result": display_result,
-            "raw_result": result["result"]
-        }
+        # return {
+        #     "status": "处理完成",
+        #     "result": display_result,
+        #     "raw_result": result["result"]
+        # }
+        return (
+            {"status": "处理完成", "raw_result": result["result"]},
+            display_result,
+            display_result
+        )
 
     elif result["status"] == "error":
-        return {"status": f"错误: {result.get('error', '未知错误')}"}
+        return (
+            {"status": f"错误: {result.get('error', '未知错误')}"},
+            [], []
+        )
+        # return {"status": f"错误: {result.get('error', '未知错误')}"}
 
-    return {"status": "处理中..."}
+    return (
+        {"status": "处理中..."},
+        [],
+        []
+    )
 
 
 def clip_and_download(raw_result: Dict, selected_segments: List[Dict]) -> str:
@@ -269,7 +282,8 @@ def create_gradio_interface():
 
         # 定时器，用于轮询状态
         timer = gr.Timer(2, active=False)
-        timer.tick(check_status, task_id, status_display)
+        timer.tick(check_status, task_id,
+                   outputs=[status_display, result_table, segment_selection])
 
         # 事件处理
         process_btn.click(

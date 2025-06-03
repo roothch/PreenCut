@@ -38,8 +38,10 @@ class TextAligner:
             result = whisperx.align(segments, align_model, align_model_metadata,
                                     audio, WHISPERX_DEVICE,
                                     return_char_alignments=False)
+            for segment in result["segments"]:
+                segment.pop("words", None)
             print('after align', result["segments"], flush=True)
-            return "srt_content"
+            return result["segments"]
         else:
             raise ValueError(
                 f"Unsupported forced alignment model: {ALIGNMENT_MODEL}")

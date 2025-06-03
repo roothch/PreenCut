@@ -1,8 +1,5 @@
 from typing import Optional
 
-from jieba.lac_small.predict import batch_size
-from sqlalchemy.testing.suite.test_reflection import metadata
-
 from config import (
     ALIGNMENT_MODEL,
     WHISPERX_DEVICE,

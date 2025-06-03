@@ -19,10 +19,14 @@ class SpeechRecognizer:
             try:
                 import whisperx
                 print(f"加载WhisperX模型: {WHISPERX_MODEL_SIZE}")
+                asr_options = {
+                    "initial_prompt": "是的，这个句子是为了增加标点。",
+                }
                 model = whisperx.load_model(WHISPERX_MODEL_SIZE,
                                             WHISPERX_DEVICE,
                                             device_index=WHISPERX_GPU_IDS,
-                                            compute_type=WHISPERX_COMPUTE_TYPE)
+                                            compute_type=WHISPERX_COMPUTE_TYPE,
+                                            asr_options=asr_options)
                 return model
             except ImportError:
                 raise ImportError(

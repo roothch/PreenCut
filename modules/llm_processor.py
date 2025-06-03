@@ -67,6 +67,7 @@ class LLMProcessor:
                 return segments
             except:
                 # 如果无法解析，返回示例数据
+                print("无法解析大模型返回的数据，使用示例数据")
                 return [
                     {"start": 0, "end": 30, "summary": "视频介绍",
                      "tags": ["介绍", "开场"]},

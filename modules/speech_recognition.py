@@ -46,6 +46,6 @@ class SpeechRecognizer:
                 audio,
                 batch_size=WHISPERX_BATCH_SIZE,
             )
-            return result["segments"]
+            return result
 
         return ""

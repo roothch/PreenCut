@@ -52,7 +52,6 @@ class ProcessingQueue:
                 # 处理每个文件
                 file_results = []
                 recognizer = SpeechRecognizer()
-                aligner = TextAligner()
                 llm = LLMProcessor()
 
                 for file_path in files:
@@ -65,12 +64,13 @@ class ProcessingQueue:
 
                     # 语音识别
                     print(f"开始语音识别: {file_path}")
-                    segments = recognizer.transcribe(audio_path)
-                    print(f"语音识别完成，文本长度: {len(segments)}")
-                    print(segments)
+                    result = recognizer.transcribe(audio_path)
+                    print(f"语音识别完成，文本长度: {len(result['segments'])}")
+                    print(result['segments'], result['language'])
 
                     # 文本对齐
                     print("开始文本对齐...")
+                    aligner = TextAligner(result['language'])
                     srt_content = aligner.align(segments, audio_path)
                     total_paragraphs = len(srt_content.split('\n\n'))
                     print(

@@ -1,4 +1,3 @@
-import time
 from queue import Queue
 from threading import Thread, Lock
 import os
@@ -6,7 +5,7 @@ from modules.speech_recognition import SpeechRecognizer
 from modules.text_aligner import TextAligner
 from modules.llm_processor import LLMProcessor
 from modules.video_processor import VideoProcessor
-from config import SPEECH_RECOGNITION_MODEL, FASTER_WHISPER_MODEL
+from config import SPEECH_RECOGNITION_MODEL, WHISPERX_MODEL_SIZE
 from typing import List, Dict, Optional
 
 
@@ -21,13 +20,6 @@ class ProcessingQueue:
     def add_task(self, task_id: str, files: List[str], prompt: Optional[str],
                  model_size: Optional[str] = None):
         """添加任务到队列"""
-        # 如果指定了模型大小，更新配置
-        if model_size and SPEECH_RECOGNITION_MODEL == 'faster-whisper':
-            global FASTER_WHISPER_MODEL
-            original_model = FASTER_WHISPER_MODEL
-            FASTER_WHISPER_MODEL = model_size
-            print(f"任务 {task_id} 使用模型: {model_size}")
-
         with self.lock:
             self.results[task_id] = {
                 "status": "queued",
@@ -36,10 +28,6 @@ class ProcessingQueue:
                 "model_size": model_size
             }
         self.queue.put(task_id)
-
-        # 恢复原始模型设置
-        if model_size and SPEECH_RECOGNITION_MODEL == 'faster-whisper':
-            FASTER_WHISPER_MODEL = original_model
 
     def _process_queue(self):
         """处理队列中的任务"""
@@ -56,10 +44,10 @@ class ProcessingQueue:
                     model_size = self.results[task_id].get("model_size")
 
                 # 如果指定了模型大小，临时更新配置
-                if model_size and SPEECH_RECOGNITION_MODEL == 'faster-whisper':
-                    global FASTER_WHISPER_MODEL
-                    original_model = FASTER_WHISPER_MODEL
-                    FASTER_WHISPER_MODEL = model_size
+                if model_size and SPEECH_RECOGNITION_MODEL == 'whisperx':
+                    global WHISPER_MODEL_SIZE
+                    original_model = WHISPER_MODEL_SIZE
+                    WHISPER_MODEL_SIZE = model_size
 
                 # 处理每个文件
                 file_results = []
@@ -100,8 +88,8 @@ class ProcessingQueue:
                     })
 
                 # 恢复原始模型设置
-                if model_size and SPEECH_RECOGNITION_MODEL == 'faster-whisper':
-                    FASTER_WHISPER_MODEL = original_model
+                if model_size and SPEECH_RECOGNITION_MODEL == 'whisperx':
+                    WHISPER_MODEL_SIZE = original_model
 
                 # 更新结果
                 with self.lock:
@@ -114,8 +102,8 @@ class ProcessingQueue:
                 print(f"任务处理错误: {error_msg}")
 
                 # 恢复原始模型设置
-                if 'model_size' in locals() and model_size and SPEECH_RECOGNITION_MODEL == 'faster-whisper':
-                    FASTER_WHISPER_MODEL = original_model
+                if 'model_size' in locals() and model_size and SPEECH_RECOGNITION_MODEL == 'whisperx':
+                    WHISPER_MODEL_SIZE = original_model
 
                 with self.lock:
                     self.results[task_id]["status"] = "error"

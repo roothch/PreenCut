@@ -1,13 +1,7 @@
 gradio>=5.0.0
-ctranslate2==4.4.0
-faster-whisper
+whisperx
 ffmpeg-python
 openai
 python-dotenv
 torch
 torchaudio
-
-# for ctc-forced-aligner
-nltk
-transformers>=4.34
-Unidecode

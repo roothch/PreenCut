@@ -1,6 +1,7 @@
 import os
 import torch
 
+
 def get_available_gpus():
     """获取所有可用的GPU设备"""
     if torch.cuda.is_available():
@@ -43,14 +44,17 @@ TEMP_FOLDER = "temp"
 OUTPUT_FOLDER = "output"
 
 # 语音识别模型配置
-SPEECH_RECOGNITION_MODEL = 'faster-whisper'  # 'whisper', 'funasr' 或 'faster-whisper'
-WHISPER_MODEL_SIZE = 'base'  # whisper模型大小 (tiny, base, small, medium, large)
-FASTER_WHISPER_MODEL = 'large-v2'  # faster-whisper模型 (tiny, base, small, medium, large, large-v2, large-v3)
+SPEECH_RECOGNITION_MODEL = 'whisperx'
 DEVICE_TYPE, AVAILABLE_GPUS = get_device_config()
-FASTER_WHISPER_DEVICE = DEVICE_TYPE
-FASTER_WHISPER_GPU_IDS = ','.join(map(str, AVAILABLE_GPUS)) if AVAILABLE_GPUS else ''
-FASTER_WHISPER_COMPUTE_TYPE = 'float16' if FASTER_WHISPER_DEVICE == 'cuda' else 'float32'  # float16, float32, int8
-FUNASR_MODEL_NAME = 'paraformer-zh'  # funasr模型名称
+# WhisperX配置
+WHISPERX_MODEL_SIZE = 'large-v2'  # 模型大小 (tiny, base, small, medium, large, large-v2, large-v3)
+WHISPERX_DEVICE = DEVICE_TYPE
+WHISPERX_GPU_IDS = AVAILABLE_GPUS
+WHISPERX_COMPUTE_TYPE = 'float16' if WHISPERX_DEVICE == 'cuda' else 'float32'  # float16, float32, int8
+WHISPERX_BATCH_SIZE = 16  # 批处理大小
+
+# 语音文字对齐模型
+ALIGNMENT_MODEL = 'whisperx'  # 使用的对齐模型
 
 # OpenAI配置
 OPENAI_API_KEY = os.getenv("OPENAI_API_KEY")  # 从环境变量获取

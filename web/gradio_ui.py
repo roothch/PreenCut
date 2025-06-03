@@ -8,7 +8,7 @@ from config import (
     ALLOWED_EXTENSIONS,
     MAX_FILE_SIZE,
     SPEECH_RECOGNITION_MODEL,
-    FASTER_WHISPER_MODEL
+    WHISPERX_MODEL_SIZE
 )
 from modules.processing_queue import ProcessingQueue
 from modules.video_processor import VideoProcessor
@@ -218,9 +218,9 @@ def create_gradio_interface():
                     model_size = gr.Dropdown(
                         choices=["large-v2", "large-v3", "large", "medium",
                                  "small", "base", "tiny"],
-                        value=FASTER_WHISPER_MODEL,
+                        value=WHISPERX_MODEL_SIZE,
                         label="语音识别模型大小",
-                        visible=(SPEECH_RECOGNITION_MODEL == 'faster-whisper')
+                        visible=(SPEECH_RECOGNITION_MODEL == 'whisperx')
                     )
 
                 prompt_input = gr.Textbox(

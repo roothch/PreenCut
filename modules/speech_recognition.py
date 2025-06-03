@@ -1,14 +1,12 @@
 from config import (
     SPEECH_RECOGNITION_MODEL,
-    WHISPER_MODEL_SIZE,
-    FUNASR_MODEL_NAME,
-    FASTER_WHISPER_MODEL,
-    FASTER_WHISPER_DEVICE,
-    FASTER_WHISPER_COMPUTE_TYPE
+    WHISPERX_MODEL_SIZE,
+    WHISPERX_DEVICE,
+    WHISPERX_COMPUTE_TYPE,
+    WHISPERX_GPU_IDS,
+    WHISPERX_BATCH_SIZE
 )
 import os
-import warnings
-from typing import Union
 
 
 class SpeechRecognizer:
@@ -17,38 +15,19 @@ class SpeechRecognizer:
 
     def _load_model(self):
         """根据配置加载语音识别模型"""
-        if SPEECH_RECOGNITION_MODEL == 'whisper':
+        if SPEECH_RECOGNITION_MODEL == 'whisperx':
             try:
-                import whisper
-                print(f"加载Whisper模型: {WHISPER_MODEL_SIZE}")
-                return whisper.load_model(WHISPER_MODEL_SIZE)
-            except ImportError:
-                raise ImportError(
-                    "Whisper not installed. Please install with 'pip install openai-whisper'")
-
-        elif SPEECH_RECOGNITION_MODEL == 'faster-whisper':
-            try:
-                from faster_whisper import WhisperModel
-                print(
-                    f"加载Faster-Whisper模型: {FASTER_WHISPER_MODEL}, 设备: {FASTER_WHISPER_DEVICE}, 计算类型: {FASTER_WHISPER_COMPUTE_TYPE}")
-                model = WhisperModel(
-                    FASTER_WHISPER_MODEL,
-                    device=FASTER_WHISPER_DEVICE,
-                    compute_type=FASTER_WHISPER_COMPUTE_TYPE
-                )
+                import whisperx
+                print(f"加载WhisperX模型: {WHISPERX_MODEL_SIZE}")
+                model = whisperx.load_model(WHISPERX_MODEL_SIZE,
+                                            WHISPERX_DEVICE,
+                                            device_index=WHISPERX_GPU_IDS,
+                                            compute_type=WHISPERX_COMPUTE_TYPE)
                 return model
             except ImportError:
                 raise ImportError(
-                    "Faster-Whisper not installed. Please install with 'pip install faster-whisper'")
+                    "WhisperX not installed. Please install with 'pip install whisperx'")
 
-        elif SPEECH_RECOGNITION_MODEL == 'funasr':
-            try:
-                from funasr import AutoModel
-                print(f"加载FunASR模型: {FUNASR_MODEL_NAME}")
-                return AutoModel(model=FUNASR_MODEL_NAME)
-            except ImportError:
-                raise ImportError(
-                    "FunASR not installed. Please install with 'pip install funasr'")
         else:
             raise ValueError(
                 f"Unsupported speech recognition model: {SPEECH_RECOGNITION_MODEL}")
@@ -59,25 +38,13 @@ class SpeechRecognizer:
         if not os.path.exists(audio_path):
             raise FileNotFoundError(f"Audio file not found: {audio_path}")
 
-        if SPEECH_RECOGNITION_MODEL == 'whisper':
-            result = self.model.transcribe(audio_path)
-            return result["text"]
-
-        elif SPEECH_RECOGNITION_MODEL == 'faster-whisper':
-            # 使用Faster-Whisper进行转录
-            segments, info = self.model.transcribe(
-                audio_path,
-                beam_size=5,
-                vad_filter=True,
-                word_timestamps=False
+        if SPEECH_RECOGNITION_MODEL == 'whisperx':
+            # 使用WhisperX进行转录
+            audio = whisperx.load_audio(audio_path)
+            result = self.model.transcribe(
+                audio,
+                batch_size=WHISPERX_BATCH_SIZE,
             )
-
-            # 收集所有文本
-            full_text = " ".join([segment.text for segment in segments])
-            return full_text
-
-        elif SPEECH_RECOGNITION_MODEL == 'funasr':
-            result = self.model.generate(input=audio_path)[0]
-            return result[0] if result else ""
+            return result["text"]
 
         return ""

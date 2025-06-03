@@ -63,16 +63,24 @@ def check_status(task_id: str) -> Dict:
         for file_result in result["result"]:
             segments = []
             for seg in file_result["segments"]:
-                segments.append({
-                    "文件名": file_result["filename"],
-                    "开始时间": f"{seg['start']:.1f}秒",
-                    "结束时间": f"{seg['end']:.1f}秒",
-                    "时长": f"{seg['end'] - seg['start']:.1f}秒",
-                    "内容摘要": seg["summary"],
-                    "标签": ", ".join(seg["tags"]) if isinstance(seg["tags"],
-                                                                 list) else seg[
-                        "tags"]
-                })
+                segments.append([file_result["filename"],
+                                 f"{seg['start']:.1f}秒",
+                                 f"{seg['end']:.1f}秒",
+                                 f"{seg['end'] - seg['start']:.1f}秒",
+                                 seg["summary"],
+                                 ", ".join(seg["tags"]) if isinstance(
+                                     seg["tags"], list) else seg["tags"]])
+                # segments.append({
+                #     "文件名": file_result["filename"],
+                #     "开始时间": f"{seg['start']:.1f}秒",
+                #     "结束时间": f"{seg['end']:.1f}秒",
+                #     "时长": f"{seg['end'] - seg['start']:.1f}秒",
+                #     "内容摘要": seg["summary"],
+                #     "标签": ", ".join(seg["tags"]) if isinstance(seg["tags"],
+                #                                                  list) else seg[
+                #         "tags"]
+                # })
+
             display_result.extend(segments)
 
         print(display_result)

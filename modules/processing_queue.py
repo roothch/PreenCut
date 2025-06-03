@@ -65,12 +65,13 @@ class ProcessingQueue:
 
                     # 语音识别
                     print(f"开始语音识别: {file_path}")
-                    text = recognizer.transcribe(audio_path)
-                    print(f"语音识别完成，文本长度: {len(text)}")
+                    segments = recognizer.transcribe(audio_path)
+                    print(f"语音识别完成，文本长度: {len(segments)}")
+                    print(segments)
 
                     # 文本对齐
                     print("开始文本对齐...")
-                    srt_content = aligner.align(text, audio_path)
+                    srt_content = aligner.align(segments, audio_path)
                     total_paragraphs = len(srt_content.split('\n\n'))
                     print(
                         f"生成SRT字幕，段落数: {total_paragraphs}")

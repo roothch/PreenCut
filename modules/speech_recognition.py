@@ -40,11 +40,12 @@ class SpeechRecognizer:
 
         if SPEECH_RECOGNITION_MODEL == 'whisperx':
             # 使用WhisperX进行转录
+            import whisperx
             audio = whisperx.load_audio(audio_path)
             result = self.model.transcribe(
                 audio,
                 batch_size=WHISPERX_BATCH_SIZE,
             )
-            return result["text"]
+            return result["segments"]
 
         return ""

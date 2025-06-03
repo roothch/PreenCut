@@ -1,9 +1,13 @@
 from typing import Optional
 
+from jieba.lac_small.predict import batch_size
+from sqlalchemy.testing.suite.test_reflection import metadata
+
 from config import (
     ALIGNMENT_MODEL,
     WHISPERX_DEVICE,
-    WHISPERX_GPU_IDS
+    WHISPERX_GPU_IDS,
+    WHISPERX_ALIGN_BATCH_SIZE
 )
 
 
@@ -30,11 +34,19 @@ class TextAligner:
             raise ValueError(
                 f"Unsupported forced alignment model: {ALIGNMENT_MODEL}")
 
-    def align(self, text: str, audio_path: str) -> str:
-        """将文本与音频对齐，生成SRT字幕 (占位实现)"""
-        # 这里只是一个占位实现，实际中应替换为您的对齐模型
-        # 返回一个示例SRT格式的字幕
-        srt_content = "1\n00:00:00,000 --> 00:00:05,000\n这是第一句字幕\n\n"
-        srt_content += "2\n00:00:05,000 --> 00:00:10,000\n这是第二句字幕\n\n"
-        srt_content += "3\n00:00:10,000 --> 00:00:15,000\n这是第三句字幕"
-        return srt_content
+    def align(self, segments: str, audio_path: str) -> str:
+        """将文本与音频对齐，生成SRT字幕"""
+        if ALIGNMENT_MODEL == 'whisperx':
+            # 使用WhisperX进行对齐
+            import whisperx
+            audio = whisperx.load_audio(audio_path)
+            align_model, align_model_metadata = self.model
+            result = whisperx.align(segments, align_model, align_model_metadata,
+                                    audio, WHISPERX_DEVICE,
+                                    batch_size=WHISPERX_ALIGN_BATCH_SIZE,
+                                    return_char_alignments=False)
+            print('after align', result["segments"], flush=True)
+            return "srt_content"
+        else:
+            raise ValueError(
+                f"Unsupported forced alignment model: {ALIGNMENT_MODEL}")

@@ -83,7 +83,7 @@ class ProcessingQueue:
                     # 保存结果
                     file_results.append({
                         "filename": os.path.basename(file_path),
-                        "srt": srt_content,
+                        "align_result": result,
                         "segments": segments
                     })
 

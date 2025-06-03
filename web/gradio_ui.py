@@ -169,10 +169,10 @@ def reanalyze_with_prompt(raw_result: Dict, new_prompt: str) -> Dict:
     updated_results = []
 
     for file_data in raw_result["raw_result"]:
-        new_segments = llm.segment_video(file_data["srt"], new_prompt)
+        new_segments = llm.segment_video(file_data["align_result"], new_prompt)
         updated_results.append({
             "filename": file_data["filename"],
-            "srt": file_data["srt"],
+            "align_result": file_data["align_result"],
             "segments": new_segments
         })
 

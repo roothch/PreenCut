@@ -19,7 +19,7 @@ class TextAligner:
         if ALIGNMENT_MODEL == 'whisperx':
             try:
                 import whisperx
-                print("加载WhisperX对齐模型")
+                print(f"加载WhisperX对齐模型，语言{self.language_code}")
                 model = whisperx.load_align_model(
                     language_code=self.language_code, device=WHISPERX_DEVICE)
                 return model

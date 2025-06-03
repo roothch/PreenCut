@@ -65,20 +65,19 @@ class ProcessingQueue:
                     # 语音识别
                     print(f"开始语音识别: {file_path}")
                     result = recognizer.transcribe(audio_path)
-                    print(f"语音识别完成，文本长度: {len(result['segments'])}")
+                    print(f"语音识别完成，segments个数: {len(result['segments'])}")
                     print(result['segments'], result['language'])
 
                     # 文本对齐
                     print("开始文本对齐...")
                     aligner = TextAligner(result['language'])
-                    srt_content = aligner.align(segments, audio_path)
-                    total_paragraphs = len(srt_content.split('\n\n'))
+                    result = aligner.align(result["segments"], audio_path)
                     print(
-                        f"生成SRT字幕，段落数: {total_paragraphs}")
+                        f"对齐结果: {result['segments']}")
 
                     # 调用大模型进行分段
                     print("调用大模型进行分段...")
-                    segments = llm.segment_video(srt_content, prompt)
+                    segments = llm.segment_video(result['segments'], prompt)
                     print(f"分段完成，段数: {len(segments)}")
 
                     # 保存结果

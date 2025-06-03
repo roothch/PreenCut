@@ -78,7 +78,8 @@ class ProcessingQueue:
                     # 调用大模型进行分段
                     print("调用大模型进行分段...")
                     segments = llm.segment_video(result, prompt)
-                    print(f"分段完成，段数: {len(segments)}")
+                    print(f"大模型分段完成，段数: {len(segments)}")
+                    print(f"大模型分段完成，分段结果: {segments}")
 
                     # 保存结果
                     file_results.append({

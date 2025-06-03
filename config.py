@@ -57,8 +57,9 @@ WHISPERX_BATCH_SIZE = 16  # 批处理大小
 ALIGNMENT_MODEL = 'whisperx'  # 使用的对齐模型
 
 # OpenAI配置
+OPENAI_BASE_URL = "https://api.lkeap.cloud.tencent.com/v1"  # OpenAI API base_url
 OPENAI_API_KEY = os.getenv("OPENAI_API_KEY")  # 从环境变量获取
-OPENAI_MODEL = "gpt-3.5-turbo"  # 使用模型
+OPENAI_MODEL = "DeepSeek-V3-0324"  # 使用模型
 
 # 创建必要的目录
 for folder in [UPLOAD_FOLDER, TEMP_FOLDER, OUTPUT_FOLDER]:

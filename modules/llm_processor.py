@@ -1,16 +1,20 @@
 import json
-import openai
-from config import OPENAI_API_KEY, OPENAI_MODEL
+from openai import OpenAI
+from config import OPENAI_API_KEY, OPENAI_MODEL, OPENAI_BASE_URL
 from typing import List, Dict, Optional
 
 
 class LLMProcessor:
     def __init__(self):
         self.api_key = OPENAI_API_KEY
-        openai.api_key = self.api_key
+        self.client = OpenAI(
+            api_key=self.api_key,
+            base_url=OPENAI_BASE_URL
+        )
 
-    def segment_video(self, srt_content: str, prompt: Optional[str] = None) -> \
-    List[Dict]:
+    def segment_video(self, transcribe_content: str,
+                      prompt: Optional[str] = None) -> \
+            List[Dict]:
         """使用大模型根据字幕内容进行视频分段"""
         if not self.api_key:
             raise ValueError("OpenAI API key is not set")
@@ -30,17 +34,17 @@ class LLMProcessor:
         )
 
         # 组合完整的提示
-        full_prompt = f"{user_prompt}\n\n字幕内容：\n{srt_content}"
+        full_prompt = f"{user_prompt}\n\n字幕内容：\n{transcribe_content}"
 
         # 调用OpenAI API
-        response = openai.ChatCompletion.create(
+        response = self.client.chat.completions.create(
             model=OPENAI_MODEL,
             messages=[
                 {"role": "system", "content": system_prompt},
                 {"role": "user", "content": full_prompt}
             ],
             temperature=0.3,
-            max_tokens=1500
+            max_tokens=2000
         )
 
         # 解析响应

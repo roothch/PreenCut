@@ -55,7 +55,6 @@ WHISPERX_BATCH_SIZE = 16  # 批处理大小
 
 # 语音文字对齐模型
 ALIGNMENT_MODEL = 'whisperx'  # 使用的对齐模型
-WHISPERX_ALIGN_BATCH_SIZE = 16  # 对齐模型的批处理大小
 
 # OpenAI配置
 OPENAI_API_KEY = os.getenv("OPENAI_API_KEY")  # 从环境变量获取

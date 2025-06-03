@@ -3,8 +3,6 @@ from typing import Optional
 from config import (
     ALIGNMENT_MODEL,
     WHISPERX_DEVICE,
-    WHISPERX_GPU_IDS,
-    WHISPERX_ALIGN_BATCH_SIZE
 )
 
 
@@ -39,7 +37,6 @@ class TextAligner:
             align_model, align_model_metadata = self.model
             result = whisperx.align(segments, align_model, align_model_metadata,
                                     audio, WHISPERX_DEVICE,
-                                    batch_size=WHISPERX_ALIGN_BATCH_SIZE,
                                     return_char_alignments=False)
             print('after align', result["segments"], flush=True)
             return "srt_content"

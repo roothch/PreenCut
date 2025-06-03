@@ -75,13 +75,16 @@ def check_status(task_id: str) -> Dict:
                 })
             display_result.extend(segments)
 
+        print(display_result)
+
         # return {
         #     "status": "处理完成",
         #     "result": display_result,
         #     "raw_result": result["result"]
         # }
         return (
-            {"status": "处理完成", "raw_result": result["result"]},
+            {"status": "处理完成", "raw_result": result["result"],
+             "result": display_result, },
             display_result,
             display_result
         )

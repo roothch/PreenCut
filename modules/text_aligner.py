@@ -40,7 +40,6 @@ class TextAligner:
                                     return_char_alignments=False)
             for segment in result["segments"]:
                 segment.pop("words", None)
-            print('after align', result["segments"], flush=True)
             return result["segments"]
         else:
             raise ValueError(

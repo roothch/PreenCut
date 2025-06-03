@@ -73,7 +73,7 @@ class ProcessingQueue:
                     aligner = TextAligner(result['language'])
                     result = aligner.align(result["segments"], audio_path)
                     print(
-                        f"对齐结果: {result['segments']}")
+                        f"对齐结果: {result}")
 
                     # 调用大模型进行分段
                     print("调用大模型进行分段...")

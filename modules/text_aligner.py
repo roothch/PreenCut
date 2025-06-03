@@ -21,8 +21,7 @@ class TextAligner:
                 import whisperx
                 print("加载WhisperX对齐模型")
                 model = whisperx.load_align_model(
-                    language_code=self.language_code, device=WHISPERX_DEVICE,
-                    device_index=WHISPERX_GPU_IDS)
+                    language_code=self.language_code, device=WHISPERX_DEVICE)
                 return model
             except ImportError:
                 raise ImportError(

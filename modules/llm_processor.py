@@ -12,7 +12,7 @@ class LLMProcessor:
             base_url=OPENAI_BASE_URL
         )
 
-    def segment_video(self, transcribe_content: str,
+    def segment_video(self, subtitles: str,
                       prompt: Optional[str] = None) -> \
             List[Dict]:
         """使用大模型根据字幕内容进行视频分段"""
@@ -34,7 +34,7 @@ class LLMProcessor:
         )
 
         # 组合完整的提示
-        full_prompt = f"{user_prompt}\n\n字幕内容：\n{transcribe_content}"
+        full_prompt = f"{user_prompt}\n\n字幕内容：\n{subtitles}"
 
         # 调用OpenAI API
         response = self.client.chat.completions.create(

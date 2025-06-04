@@ -5,7 +5,8 @@ from modules.speech_recognition import SpeechRecognizer
 from modules.text_aligner import TextAligner
 from modules.llm_processor import LLMProcessor
 from modules.video_processor import VideoProcessor
-from config import SPEECH_RECOGNITION_MODEL, WHISPERX_MODEL_SIZE
+from config import SPEECH_RECOGNITION_MODEL, WHISPERX_MODEL_SIZE, \
+    ENABLE_ALIGNMENT
 from typing import List, Dict, Optional
 
 
@@ -65,19 +66,21 @@ class ProcessingQueue:
                     # 语音识别
                     print(f"开始语音识别: {file_path}")
                     result = recognizer.transcribe(audio_path)
-                    print(f"语音识别完成，segments个数: {len(result['segments'])}")
+                    print(
+                        f"语音识别完成，segments个数: {len(result['segments'])}")
                     print(result['segments'], result['language'])
 
-                    # 文本对齐
-                    print("开始文本对齐...")
-                    aligner = TextAligner(result['language'])
-                    result = aligner.align(result["segments"], audio_path)
-                    print(
-                        f"对齐结果: {result}")
+                    if ENABLE_ALIGNMENT:
+                        # 文本对齐
+                        print("开始文本对齐...")
+                        aligner = TextAligner(result['language'])
+                        result = aligner.align(result["segments"], audio_path)
+                        print(
+                            f"对齐结果: {result}")
 
                     # 调用大模型进行分段
                     print("调用大模型进行分段...")
-                    segments = llm.segment_video(result, prompt)
+                    segments = llm.segment_video(result["segments"], prompt)
                     print(f"大模型分段完成，段数: {len(segments)}")
                     print(f"大模型分段完成，分段结果: {segments}")
 

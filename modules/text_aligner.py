@@ -40,7 +40,7 @@ class TextAligner:
                                     return_char_alignments=False)
             for segment in result["segments"]:
                 segment.pop("words", None)
-            return result["segments"]
+            return result
         else:
             raise ValueError(
                 f"Unsupported forced alignment model: {ALIGNMENT_MODEL}")

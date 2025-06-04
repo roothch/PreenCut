@@ -54,6 +54,7 @@ WHISPERX_COMPUTE_TYPE = 'float16' if WHISPERX_DEVICE == 'cuda' else 'float32'  #
 WHISPERX_BATCH_SIZE = 16  # 批处理大小
 
 # 语音文字对齐模型
+ENABLE_ALIGNMENT = False  # 是否启用对齐
 ALIGNMENT_MODEL = 'whisperx'  # 使用的对齐模型
 
 # OpenAI配置

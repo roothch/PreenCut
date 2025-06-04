@@ -12,6 +12,7 @@ from config import (
 )
 from modules.processing_queue import ProcessingQueue
 from modules.video_processor import VideoProcessor
+from utils import seconds_to_hhmmss
 from typing import List, Dict, Tuple, Optional
 import subprocess
 
@@ -64,9 +65,9 @@ def check_status(task_id: str) -> Dict:
             segments = []
             for seg in file_result["segments"]:
                 segments.append([file_result["filename"],
-                                 f"{seg['start']:.1f}秒",
-                                 f"{seg['end']:.1f}秒",
-                                 f"{seg['end'] - seg['start']:.1f}秒",
+                                 f"{seconds_to_hhmmss(seg['start'])}",
+                                 f"{seconds_to_hhmmss(seg['end'])}",
+                                 f"{seconds_to_hhmmss(seg['end'] - seg['start'])}",
                                  seg["summary"],
                                  ", ".join(seg["tags"]) if isinstance(
                                      seg["tags"], list) else seg["tags"]])

@@ -78,7 +78,8 @@ def check_status(task_id: str) -> Dict:
             {"status": "处理完成", "raw_result": result["result"],
              "result": display_result, },
             display_result,
-            display_result
+            display_result,
+            gr.Timer(active=False)
         )
 
     elif result["status"] == "error":
@@ -250,7 +251,7 @@ def create_gradio_interface():
                         headers=["文件名", "开始时间", "结束时间", "时长",
                                  "内容摘要", "标签"],
                         datatype=["str", "str", "str", "str", "str", "str"],
-                        interactive=False,
+                        interactive=True,
                         wrap=True
                     )
 
@@ -278,7 +279,8 @@ def create_gradio_interface():
         # 定时器，用于轮询状态
         timer = gr.Timer(2, active=False)
         timer.tick(check_status, task_id,
-                   outputs=[status_display, result_table, segment_selection])
+                   outputs=[status_display, result_table, segment_selection,
+                            timer])
 
         # 事件处理
         process_btn.click(

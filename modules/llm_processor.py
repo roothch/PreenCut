@@ -63,6 +63,7 @@ class LLMProcessor:
         except json.JSONDecodeError:
             # 尝试直接解析为JSON
             try:
+                print("大模型返回的数据", result)
                 segments = json.loads(result)
                 return segments
             except:

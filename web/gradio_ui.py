@@ -85,14 +85,13 @@ def check_status(task_id: str) -> Dict:
     elif result["status"] == "error":
         return (
             {"status": f"错误: {result.get('error', '未知错误')}"},
-            [], []
+            [], [], gr.update()
         )
         # return {"status": f"错误: {result.get('error', '未知错误')}"}
 
     return (
         {"status": "处理中..."},
-        [],
-        []
+        [], [], gr.update()
     )
 
 

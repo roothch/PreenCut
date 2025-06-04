@@ -96,13 +96,15 @@ def check_status(task_id: str) -> Tuple[Dict, List, List, gr.Timer]:
     )
 
 
-def select_clip(segment_selection: List[Dict], evt: gr.SelectData) -> List[Dict]:
+def select_clip(segment_selection: List[List], evt: gr.SelectData) -> List[
+    List]:
     """选择剪辑片段"""
     # 将选择列转换为复选框
-    print("选择的片段:", evt.row_value, evt.index, evt.value)
-    # for seg in segment_selection:
-    #     seg["选择"] = f'<input type="checkbox" checked>'
+    print("选择的片段:", type(evt.index), evt.index)
+    # evt.index 格式为[]
+    segment_selection[evt.index[0]][0] = f'<input type="checkbox" checked>'
     return segment_selection
+
 
 def clip_and_download(status_display: Dict,
                       selected_segments: List[Dict]) -> str:

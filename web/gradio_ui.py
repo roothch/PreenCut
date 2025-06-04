@@ -54,7 +54,7 @@ def process_files(files: List, prompt: Optional[str] = None,
     return task_id, {"status": "已加入队列，请稍候..."}
 
 
-def check_status(task_id: str) -> Dict:
+def check_status(task_id: str) -> Tuple[Dict, List, List, gr.Timer]:
     """检查任务状态"""
     result = processing_queue.get_result(task_id)
 
@@ -64,7 +64,8 @@ def check_status(task_id: str) -> Dict:
         for file_result in result["result"]:
             segments = []
             for seg in file_result["segments"]:
-                segments.append([file_result["filename"],
+                segments.append([False,
+                                 file_result["filename"],
                                  f"{seconds_to_hhmmss(seg['start'])}",
                                  f"{seconds_to_hhmmss(seg['end'])}",
                                  f"{seconds_to_hhmmss(seg['end'] - seg['start'])}",
@@ -87,7 +88,6 @@ def check_status(task_id: str) -> Dict:
             {"status": f"错误: {result.get('error', '未知错误')}"},
             [], [], gr.update()
         )
-        # return {"status": f"错误: {result.get('error', '未知错误')}"}
 
     return (
         {"status": "处理中..."},
@@ -95,18 +95,19 @@ def check_status(task_id: str) -> Dict:
     )
 
 
-def clip_and_download(raw_result: Dict, selected_segments: List[Dict]) -> str:
+def clip_and_download(status_display: Dict, selected_segments: List[Dict]) -> str:
     """剪辑并下载选择的片段"""
-    if not raw_result or "raw_result" not in raw_result:
+    if not status_display or "raw_result" not in status_display:
         raise gr.Error("无效的处理结果")
 
     # 组织文件分段
     file_segments = {}
-    for file_data in raw_result["raw_result"]:
+    for file_data in status_display["raw_result"]:
         file_segments[file_data["filename"]] = file_data["segments"]
 
     # 收集用户选择的分段
-    selected_clips = []
+    print("用户选择的分段:", selected_segments)
+    selected_clips = [seg for seg in selected_segments if seg["选择"]]
     for seg in selected_segments:
         filename = seg["文件名"]
         start = float(seg["开始时间"].replace("秒", ""))
@@ -264,13 +265,13 @@ def create_gradio_interface():
 
                 with gr.Tab("剪辑选项"):
                     segment_selection = gr.Dataframe(
-                        headers=["文件名", "开始时间", "结束时间", "时长",
+                        headers=["选择", "文件名", "开始时间", "结束时间", "时长",
                                  "内容摘要", "标签"],
-                        datatype=["str", "str", "str", "str", "str", "str"],
+                        datatype=["bool", "str", "str", "str", "str", "str", "str"],
                         interactive=True,
                         wrap=True,
                         type="array",
-                        label="选择要保留的片段 (按住Ctrl可多选)"
+                        label="选择要保留的片段"
                     )
                     clip_btn = gr.Button("剪辑并下载", variant="primary")
                     download_output = gr.File(label="下载剪辑结果")
@@ -291,18 +292,6 @@ def create_gradio_interface():
             inputs=None,
             outputs=timer,
             show_progress="hidden"
-        ).then(
-            lambda x: x,
-            inputs=status_display,
-            outputs=raw_result
-        ).then(
-            lambda x: x.get("result", []) if x and "result" in x else [],
-            inputs=status_display,
-            outputs=result_table
-        ).then(
-            lambda x: x.get("result", []) if x and "result" in x else [],
-            inputs=status_display,
-            outputs=segment_selection
         )
 
         reanalyze_btn.click(
@@ -325,7 +314,7 @@ def create_gradio_interface():
 
         clip_btn.click(
             clip_and_download,
-            inputs=[raw_result, segment_selection],
+            inputs=[status_display, segment_selection],
             outputs=download_output
         )
 

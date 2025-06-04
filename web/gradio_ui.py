@@ -72,7 +72,7 @@ def check_status(task_id: str) -> Tuple[Dict, List, List, gr.Timer]:
                        ", ".join(seg["tags"]) if isinstance(
                            seg["tags"], list) else seg["tags"]]
                 clip_row = row.copy()
-                clip_row.insert(0, False)  # 添加选择列
+                clip_row.insert(0, '<input type="checkbox">')  # 添加选择列
                 display_result.append(row)
                 clip_result.append(clip_row)
 
@@ -101,6 +101,7 @@ def select_clip(segment_selection: List[List], evt: gr.SelectData) -> List[
     """选择剪辑片段"""
     # 转换为选中状态
     segment_selection[evt.index[0]][0] = f'<input type="checkbox" checked>'
+    print("更新后", segment_selection)
     return segment_selection
 
 
@@ -278,16 +279,17 @@ def create_gradio_interface():
                         headers=["选择", "文件名", "开始时间", "结束时间",
                                  "时长",
                                  "内容摘要", "标签"],
-                        datatype=["bool", "str", "str", "str", "str", "str",
-                                  "str"],
+                        # datatype=["bool", "str", "str", "str", "str", "str",
+                        #           "str"],
+                        datatype='html',
                         interactive=True,
                         wrap=True,
                         type="array",
                         label="选择要保留的片段"
                     )
-                    # segment_selection.select(select_clip,
-                    #                          inputs=segment_selection,
-                    #                          outputs=segment_selection)
+                    segment_selection.select(select_clip,
+                                             inputs=segment_selection,
+                                             outputs=segment_selection)
                     clip_btn = gr.Button("剪辑并下载", variant="primary")
                     download_output = gr.File(label="下载剪辑结果")
 

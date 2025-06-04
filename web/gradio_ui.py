@@ -72,7 +72,7 @@ def check_status(task_id: str) -> Tuple[Dict, List, List, gr.Timer]:
                        ", ".join(seg["tags"]) if isinstance(
                            seg["tags"], list) else seg["tags"]]
                 clip_row = row.copy()
-                clip_row.insert(0, '<input type="checkbox" checked>')  # 添加选择列
+                clip_row.insert(0, '<input type="checkbox" checked="checked">')  # 添加选择列
                 display_result.append(row)
                 clip_result.append(clip_row)
 

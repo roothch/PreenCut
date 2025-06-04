@@ -61,25 +61,27 @@ def check_status(task_id: str) -> Tuple[Dict, List, List, gr.Timer]:
     if result["status"] == "completed":
         # 整理结果以便显示
         display_result = []
+        clip_result = []
         for file_result in result["result"]:
-            segments = []
             for seg in file_result["segments"]:
-                segments.append([False,
-                                 file_result["filename"],
-                                 f"{seconds_to_hhmmss(seg['start'])}",
-                                 f"{seconds_to_hhmmss(seg['end'])}",
-                                 f"{seconds_to_hhmmss(seg['end'] - seg['start'])}",
-                                 seg["summary"],
-                                 ", ".join(seg["tags"]) if isinstance(
-                                     seg["tags"], list) else seg["tags"]])
+                row = [file_result["filename"],
+                       f"{seconds_to_hhmmss(seg['start'])}",
+                       f"{seconds_to_hhmmss(seg['end'])}",
+                       f"{seconds_to_hhmmss(seg['end'] - seg['start'])}",
+                       seg["summary"],
+                       ", ".join(seg["tags"]) if isinstance(
+                           seg["tags"], list) else seg["tags"]]
+                clip_row = row.copy()
+                clip_row.insert(0, '<input type="checkbox">')  # 添加选择列
+                display_result.append(row)
+                clip_result.append(clip_row)
 
-            display_result.extend(segments)
 
         return (
             {"status": "处理完成", "raw_result": result["result"],
              "result": display_result, },
             display_result,
-            display_result,
+            clip_result,
             gr.Timer(active=False)
         )
 
@@ -95,7 +97,8 @@ def check_status(task_id: str) -> Tuple[Dict, List, List, gr.Timer]:
     )
 
 
-def clip_and_download(status_display: Dict, selected_segments: List[Dict]) -> str:
+def clip_and_download(status_display: Dict,
+                      selected_segments: List[Dict]) -> str:
     """剪辑并下载选择的片段"""
     if not status_display or "raw_result" not in status_display:
         raise gr.Error("无效的处理结果")
@@ -265,9 +268,12 @@ def create_gradio_interface():
 
                 with gr.Tab("剪辑选项"):
                     segment_selection = gr.Dataframe(
-                        headers=["选择", "文件名", "开始时间", "结束时间", "时长",
+                        headers=["选择", "文件名", "开始时间", "结束时间",
+                                 "时长",
                                  "内容摘要", "标签"],
-                        datatype=["bool", "str", "str", "str", "str", "str", "str"],
+                        # datatype=["bool", "str", "str", "str", "str", "str",
+                        #           "str"],
+                        datatype='html',
                         interactive=True,
                         wrap=True,
                         type="array",

@@ -283,7 +283,7 @@ def create_gradio_interface():
                         # datatype=["bool", "str", "str", "str", "str", "str",
                         #           "str"],
                         datatype='html',
-                        interactive=False,
+                        interactive=True,
                         wrap=True,
                         type="array",
                         label="选择要保留的片段"

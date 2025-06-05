@@ -163,7 +163,7 @@ def clip_and_download(status_display: Dict,
                 "filepath": clip["filepath"],
                 "segments": []
             }
-        clips_by_file[clip["filename"]].append({
+        clips_by_file[clip["filename"]]['segments'].append({
             "start": clip["start"],
             "end": clip["end"],
         })
@@ -335,7 +335,7 @@ def create_gradio_interface():
                     # 添加下载模式选择
                     download_mode = gr.Radio(
                         choices=["打包成zip文件", "合并成一个文件"],
-                        label="下载方式(选择多个文件时有效)",
+                        label="选择多个文件时的下载方式",
                         value="打包成zip文件"
                     )
                     clip_btn = gr.Button("剪辑并下载", variant="primary")

@@ -109,7 +109,7 @@ def select_clip(segment_selection: List[List], evt: gr.SelectData) -> List[
 
 
 def clip_and_download(status_display: Dict,
-                      selected_segments: List[Dict]) -> str:
+                      segment_selection: List[List]) -> str:
     """剪辑并下载选择的片段"""
     if not status_display or "raw_result" not in status_display:
         raise gr.Error("无效的处理结果")
@@ -119,10 +119,10 @@ def clip_and_download(status_display: Dict,
     for file_data in status_display["raw_result"]:
         file_segments[file_data["filename"]] = file_data["segments"]
 
-    # 收集用户选择的分段
-    print("用户选择的分段:", selected_segments)
-    selected_clips = [seg for seg in selected_segments if
+    selected_segments = [seg for seg in segment_selection if
                       seg[0] == CHECKBOX_CHECKED]
+
+    selected_clips = []
     for seg in selected_segments:
         filename = seg[1]
         start = hhmmss_to_seconds(seg[2])

@@ -14,7 +14,7 @@ from config import (
 )
 from modules.processing_queue import ProcessingQueue
 from modules.video_processor import VideoProcessor
-from utils import seconds_to_hhmmss, hhmmss_to_seconds, clear_directory_fast\
+from utils import seconds_to_hhmmss, hhmmss_to_seconds, clear_directory_fast \
     , generate_safe_filename
 from typing import List, Dict, Tuple, Optional
 import subprocess
@@ -222,12 +222,12 @@ def clip_and_download(status_display: Dict,
         # 创建文件列表
         with open(os.path.join(task_temp_dir, "combine_list.txt"), 'w') as f:
             for file in output_files:
-                f.write(f"file '{file}'\n")
+                f.write(f"file '../../{file}'\n")
 
         # 合并视频
         cmd = [
             'ffmpeg', '-f', 'concat', '-safe', '0',
-            '-i', "combine_list.txt",
+            '-i', os.path.join(task_temp_dir, "combine_list.txt"),
             '-c', 'copy', combined_path
         ]
         try:

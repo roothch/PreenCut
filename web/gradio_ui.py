@@ -159,11 +159,13 @@ def clip_and_download(status_display: Dict,
     clips_by_file = {}
     for clip in selected_clips:
         if clip["filename"] not in clips_by_file:
-            clips_by_file[clip["filename"]] = []
+            clips_by_file[clip["filename"]] = {
+                "filepath": clip["filepath"],
+                "segments": []
+            }
         clips_by_file[clip["filename"]].append({
             "start": clip["start"],
             "end": clip["end"],
-            "filepath": clip["filepath"]
         })
 
     # 处理每个文件
@@ -174,7 +176,7 @@ def clip_and_download(status_display: Dict,
         safe_filename = ''.join(
             c for c in filename if c.isalnum() or c in ['_', '.'])[:100]
         output_path = os.path.join(task_output_dir, f"clipped_{safe_filename}")
-        VideoProcessor.clip_video(input_path, segments, output_path,
+        VideoProcessor.clip_video(input_path, segments['segments'], output_path,
                                   task_temp_dir)
         output_files.append(output_path)
 
@@ -292,7 +294,7 @@ def create_gradio_interface():
 
                 with gr.Row():
                     status_display = gr.JSON(label="处理状态")
-                    task_id = gr.Textbox(visible=True)
+                    task_id = gr.Textbox(visible=False)
 
                 raw_result = gr.JSON(visible=False)
 
@@ -332,8 +334,8 @@ def create_gradio_interface():
                                              outputs=segment_selection)
                     # 添加下载模式选择
                     download_mode = gr.Radio(
-                        choices=["合并成一个文件", "打包成zip文件"],
-                        label="下载方式",
+                        choices=["打包成zip文件", "合并成一个文件"],
+                        label="下载方式(选择多个文件时有效)",
                         value="打包成zip文件"
                     )
                     clip_btn = gr.Button("剪辑并下载", variant="primary")

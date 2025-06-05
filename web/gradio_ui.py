@@ -18,6 +18,8 @@ import subprocess
 
 # 全局实例
 processing_queue = ProcessingQueue()
+CHECKBOX_CHECKED = '<span style="display: flex; width: 16px; height: 16px; border: 2px solid blue; background:#4B6BFB ;font-weight: bold;color:white;align-items:center;justify-content:center">✓</span>'
+CHECKBOX_UNCHECKED = '<span style="display: flex; width: 16px; height: 16px; border: 2px solid blue;font-weight: bold;color:white;align-items:center;justify-content:center"></span>'
 
 
 def check_uploaded_file(file) -> str:
@@ -72,7 +74,7 @@ def check_status(task_id: str) -> Tuple[Dict, List, List, gr.Timer]:
                        ", ".join(seg["tags"]) if isinstance(
                            seg["tags"], list) else seg["tags"]]
                 clip_row = row.copy()
-                clip_row.insert(0, '<span style="display: inline-block; width: 16px; height: 16px; border: 2px solid #555; background: #f0f0f0;">✓</span>')  # 添加选择列
+                clip_row.insert(0, CHECKBOX_UNCHECKED)  # 添加选择框
                 display_result.append(row)
                 clip_result.append(clip_row)
 
@@ -99,9 +101,10 @@ def check_status(task_id: str) -> Tuple[Dict, List, List, gr.Timer]:
 def select_clip(segment_selection: List[List], evt: gr.SelectData) -> List[
     List]:
     """选择剪辑片段"""
-    # 转换为选中状态
-    segment_selection[evt.index[0]][0] = f'<input type="checkbox">'
-    print("更新后", segment_selection)
+    selected_row = segment_selection[evt.index[0]]
+    # 切换选择状态
+    selected_row[0] = CHECKBOX_CHECKED \
+        if selected_row[0] == CHECKBOX_UNCHECKED else CHECKBOX_UNCHECKED
     return segment_selection
 
 

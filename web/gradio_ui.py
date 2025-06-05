@@ -44,6 +44,9 @@ def check_uploaded_file(file) -> str:
 def process_files(files: List, prompt: Optional[str] = None,
                   model_size: Optional[str] = None) -> Tuple[str, Dict]:
     """处理上传的文件"""
+
+    print('当前results', processing_queue.results, flush=True)
+
     # 保存文件
     saved_paths = []
     for file in files:

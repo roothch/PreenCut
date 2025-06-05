@@ -121,7 +121,8 @@ def clip_and_download(status_display: Dict,
 
     # 收集用户选择的分段
     print("用户选择的分段:", selected_segments)
-    selected_clips = [seg for seg in selected_segments if seg["选择"]]
+    selected_clips = [seg for seg in selected_segments if
+                      seg["选择"] == CHECKBOX_CHECKED]
     for seg in selected_segments:
         filename = seg["文件名"]
         start = float(seg["开始时间"].replace("秒", ""))
@@ -156,6 +157,8 @@ def clip_and_download(status_display: Dict,
         output_path = os.path.join(OUTPUT_FOLDER, f"clipped_{filename}")
         VideoProcessor.clip_video(input_path, segments, output_path)
         output_files.append(output_path)
+
+    print("选中的文件", clips_by_file)
 
     # 如果只有一个文件，直接返回
     if len(output_files) == 1:

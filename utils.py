@@ -1,6 +1,14 @@
 import shutil
 import os
 
+def generate_safe_filename(filename, max_length=100):
+    """生成安全的文件名，确保不超过指定长度"""
+    safe_filename = filename
+    for c in filename:
+        if not c.isalnum() and c not in ['_', '.']:
+            safe_filename = safe_filename.replace(c, '_')
+    return safe_filename[:max_length]
+
 def clear_directory_fast(directory_path):
     """通过重建目录快速清空内容"""
     shutil.rmtree(directory_path)

@@ -14,7 +14,8 @@ from config import (
 )
 from modules.processing_queue import ProcessingQueue
 from modules.video_processor import VideoProcessor
-from utils import seconds_to_hhmmss, hhmmss_to_seconds, clear_directory_fast
+from utils import seconds_to_hhmmss, hhmmss_to_seconds, clear_directory_fast\
+    , generate_safe_filename
 from typing import List, Dict, Tuple, Optional
 import subprocess
 
@@ -198,13 +199,14 @@ def clip_and_download(status_display: Dict,
     output_files = []
     for filename, segments in clips_by_file.items():
         input_path = segments['filepath']
-        # 生成安全的文件名
-        safe_filename = ''.join(
-            c for c in filename if c.isalnum() or c in ['_', '.'])[:100]
+        # 生成安全的目录名(一个文件可能有多个片段，放在以这个文件名为名的目录下)
+        safe_filename = generate_safe_filename(filename)
         output_folder = os.path.join(task_output_dir, safe_filename)
         os.makedirs(output_folder, exist_ok=True)
-        single_file_clips = VideoProcessor.clip_video(input_path, segments['segments'],
-                                  output_folder, segments['ext'])
+        single_file_clips = VideoProcessor.clip_video(input_path,
+                                                      segments['segments'],
+                                                      output_folder,
+                                                      segments['ext'])
         output_files.extend(single_file_clips)
 
     # 如果只有一个文件，直接返回
@@ -225,7 +227,7 @@ def clip_and_download(status_display: Dict,
         # 合并视频
         cmd = [
             'ffmpeg', '-f', 'concat', '-safe', '0',
-            '-i', os.path.join(task_temp_dir, "combine_list.txt"),
+            '-i', "combine_list.txt",
             '-c', 'copy', combined_path
         ]
         try:
@@ -247,7 +249,6 @@ def clip_and_download(status_display: Dict,
                 zipf.write(file_path, arcname)
 
         return zip_path
-
 
 
 def reanalyze_with_prompt(raw_result: Dict, new_prompt: str) -> Dict:

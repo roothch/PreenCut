@@ -2,6 +2,7 @@ import os
 import subprocess
 from config import TEMP_FOLDER
 from typing import List, Dict
+from utils import generate_safe_filename
 
 
 class VideoProcessor:
@@ -29,9 +30,13 @@ class VideoProcessor:
         """根据分段剪辑视频"""
         # 创建临时文件列表
         clip_list = []
+        # 生成安全的文件名
+        base_name = os.path.splitext(os.path.basename(input_path))[0]
+        safe_filename = generate_safe_filename(base_name, max_length=100)
 
         for i, seg in enumerate(segments):
-            clip_path = os.path.join(output_folder, f"clip_{i}{ext}")
+            clip_path = os.path.join(output_folder,
+                                     f"{safe_filename}_clip_{i}{ext}")
             cmd = [
                 'ffmpeg', '-i', input_path,
                 '-ss', str(seg['start']),

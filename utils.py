@@ -1,3 +1,11 @@
+import shutil
+import os
+
+def clear_directory_fast(directory_path):
+    """通过重建目录快速清空内容"""
+    shutil.rmtree(directory_path)
+    os.makedirs(directory_path, exist_ok=True)
+
 def seconds_to_hhmmss(seconds):
     """将秒数转换为 HH:MM:SS 格式"""
     seconds = float(seconds)  # 确保输入是浮点数

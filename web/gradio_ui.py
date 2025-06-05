@@ -14,7 +14,7 @@ from config import (
 )
 from modules.processing_queue import ProcessingQueue
 from modules.video_processor import VideoProcessor
-from utils import seconds_to_hhmmss, hhmmss_to_seconds
+from utils import seconds_to_hhmmss, hhmmss_to_seconds, clear_directory_fast
 from typing import List, Dict, Tuple, Optional
 import subprocess
 
@@ -123,8 +123,15 @@ def clip_and_download(status_display: Dict,
                                  f"temp_{int(time.time() * 1000)}_{random.randint(1000, 9999)}")
     task_temp_dir = os.path.join(TEMP_FOLDER, task_id)
     task_output_dir = os.path.join(OUTPUT_FOLDER, task_id)
-    os.makedirs(task_temp_dir, exist_ok=True)
-    os.makedirs(task_output_dir, exist_ok=True)
+
+    if os.path.exists(task_output_dir):
+        clear_directory_fast(task_output_dir)
+    else:
+        os.makedirs(task_output_dir, exist_ok=True)
+    if os.path.exists(task_temp_dir):
+        clear_directory_fast(task_temp_dir)
+    else:
+        os.makedirs(task_temp_dir, exist_ok=True)
 
     # 组织文件分段
     file_segments = {}
@@ -197,12 +204,12 @@ def clip_and_download(status_display: Dict,
                                   output_folder, segments['ext'])
         output_files.extend(single_file_clips)
 
+    # 如果只有一个文件，直接返回
+    if len(output_files) == 1:
+        return output_files[0]
+
     # 根据用户选择的模式处理
     if download_mode == "合并成一个文件":
-        # 如果只有一个文件，直接返回
-        if len(output_files) == 1:
-            return output_files[0]
-
         # 合并多个文件
         ext = clips_by_file[next(iter(clips_by_file))]['ext']  # 获取第一个文件的扩展名
         combined_path = os.path.join(task_output_dir, f"combined_output{ext}")
@@ -236,9 +243,8 @@ def clip_and_download(status_display: Dict,
                 arcname = os.path.basename(file_path)
                 zipf.write(file_path, arcname)
 
-    return zip_path
+        return zip_path
 
-    return
 
 
 def reanalyze_with_prompt(raw_result: Dict, new_prompt: str) -> Dict:
@@ -356,10 +362,10 @@ def create_gradio_interface():
                     # 添加下载模式选择
                     download_mode = gr.Radio(
                         choices=["打包成zip文件", "合并成一个文件"],
-                        label="选择多个文件时的下载方式",
+                        label="选择多个文件时的处理方式",
                         value="打包成zip文件"
                     )
-                    clip_btn = gr.Button("剪辑并下载", variant="primary")
+                    clip_btn = gr.Button("剪辑", variant="primary")
                     download_output = gr.File(label="下载剪辑结果")
 
         # 定时器，用于轮询状态

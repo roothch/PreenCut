@@ -122,7 +122,7 @@ def clip_and_download(status_display: Dict,
     # 收集用户选择的分段
     print("用户选择的分段:", selected_segments)
     selected_clips = [seg for seg in selected_segments if
-                      seg["选择"] == CHECKBOX_CHECKED]
+                      seg[0] == CHECKBOX_CHECKED]
     for seg in selected_segments:
         filename = seg["文件名"]
         start = float(seg["开始时间"].replace("秒", ""))

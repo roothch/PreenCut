@@ -131,11 +131,25 @@ def clip_and_download(status_display: Dict,
     for file_data in status_display["raw_result"]:
         file_segments[file_data["filename"]] = {
             "segments": file_data["segments"],
-            "filepath": file_data["filepath"]
+            "filepath": file_data["filepath"],
+            "ext": os.path.splitext(file_data["filepath"])[1]  # 获取原始文件扩展名
         }
 
     selected_segments = [seg for seg in segment_selection if
                          seg[0] == CHECKBOX_CHECKED]
+
+    # 处理"合并成一个文件"的情况
+    if download_mode == "合并成一个文件":
+        # 检查所有片段格式是否一致
+        formats = set()
+        for seg in selected_segments:
+            filename = seg[1]
+            file_ext = file_segments[filename]['ext']
+            formats.add(file_ext.lower())
+
+        if len(formats) > 1:
+            raise gr.Error(
+                "无法合并: 所选片段包含多种格式: " + ", ".join(formats))
 
     selected_clips = []
     for seg in selected_segments:
@@ -151,7 +165,8 @@ def clip_and_download(status_display: Dict,
                     "filename": filename,
                     "start": original_seg["start"],
                     "end": original_seg["end"],
-                    "filepath": file_segments[filename]['filepath']
+                    "filepath": file_segments[filename]['filepath'],
+                    "ext": file_segments[filename]['ext']  # 添加扩展名
                 })
                 break
 
@@ -161,6 +176,7 @@ def clip_and_download(status_display: Dict,
         if clip["filename"] not in clips_by_file:
             clips_by_file[clip["filename"]] = {
                 "filepath": clip["filepath"],
+                "ext": clip["ext"],
                 "segments": []
             }
         clips_by_file[clip["filename"]]['segments'].append({
@@ -175,10 +191,11 @@ def clip_and_download(status_display: Dict,
         # 生成安全的文件名
         safe_filename = ''.join(
             c for c in filename if c.isalnum() or c in ['_', '.'])[:100]
-        output_path = os.path.join(task_output_dir, f"clipped_{safe_filename}")
-        VideoProcessor.clip_video(input_path, segments['segments'], output_path,
-                                  task_temp_dir)
-        output_files.append(output_path)
+        output_folder = os.path.join(task_output_dir, safe_filename)
+        os.makedirs(output_folder, exist_ok=True)
+        single_file_clips = VideoProcessor.clip_video(input_path, segments['segments'],
+                                  output_folder, segments['ext'])
+        output_files.extend(single_file_clips)
 
     # 根据用户选择的模式处理
     if download_mode == "合并成一个文件":
@@ -187,7 +204,8 @@ def clip_and_download(status_display: Dict,
             return output_files[0]
 
         # 合并多个文件
-        combined_path = os.path.join(task_output_dir, "combined_output.mp4")
+        ext = clips_by_file[next(iter(clips_by_file))]['ext']  # 获取第一个文件的扩展名
+        combined_path = os.path.join(task_output_dir, f"combined_output{ext}")
 
         # 创建文件列表
         with open(os.path.join(task_temp_dir, "combine_list.txt"), 'w') as f:
@@ -200,8 +218,11 @@ def clip_and_download(status_display: Dict,
             '-i', os.path.join(task_temp_dir, "combine_list.txt"),
             '-c', 'copy', combined_path
         ]
-        subprocess.run(cmd, check=True, stdout=subprocess.DEVNULL,
-                       stderr=subprocess.DEVNULL)
+        try:
+            subprocess.run(cmd, check=True, capture_output=True)
+        except subprocess.CalledProcessError as e:
+            print(f"FFmpeg error: {e.stderr.decode('utf-8')}")
+            raise gr.Error(f"文件合并失败: {str(e)}")
 
         return combined_path
 

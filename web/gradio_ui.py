@@ -117,7 +117,8 @@ def clip_and_download(status_display: Dict,
     # 组织文件分段
     file_segments = {}
     for file_data in status_display["raw_result"]:
-        file_segments[file_data["filename"]] = file_data["segments"]
+        file_segments[file_data["filename"]]['segments'] = file_data["segments"]
+        file_segments[file_data["filename"]]['filepath'] = file_data["filepath"]
 
     selected_segments = [seg for seg in segment_selection if
                       seg[0] == CHECKBOX_CHECKED]
@@ -129,14 +130,14 @@ def clip_and_download(status_display: Dict,
         end = hhmmss_to_seconds(seg[3])
 
         # 找到对应的原始分段
-        for original_seg in file_segments[filename]:
+        for original_seg in file_segments[filename]['segments']:
             if abs(original_seg["start"] - start) < 0.5 and abs(
                     original_seg["end"] - end) < 0.5:
                 selected_clips.append({
                     "filename": filename,
                     "start": original_seg["start"],
                     "end": original_seg["end"],
-                    "filepath": os.path.join(UPLOAD_FOLDER, filename)
+                    "filepath": file_segments[filename]['filepath']
                 })
                 break
 
@@ -158,7 +159,7 @@ def clip_and_download(status_display: Dict,
         VideoProcessor.clip_video(input_path, segments, output_path)
         output_files.append(output_path)
 
-    print("选中的文件", clips_by_file)
+    print("选中的文件", clips_by_file, flush=True)
 
     # 如果只有一个文件，直接返回
     if len(output_files) == 1:

@@ -88,7 +88,8 @@ class ProcessingQueue:
                     file_results.append({
                         "filename": os.path.basename(file_path),
                         "align_result": result,
-                        "segments": segments
+                        "segments": segments,
+                        "filepath": file_path
                     })
 
                 # 恢复原始模型设置

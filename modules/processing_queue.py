@@ -1,6 +1,7 @@
 from queue import Queue
 from threading import Thread, Lock
 import os
+import time
 from modules.speech_recognition import SpeechRecognizer
 from modules.text_aligner import TextAligner
 from modules.llm_processor import LLMProcessor
@@ -15,8 +16,13 @@ class ProcessingQueue:
         self.queue = Queue()
         self.lock = Lock()
         self.results = {}
+        self.result_ttl = 24 * 60 * 60  # 结果保留时间，单位为秒（默认24小时）
+        self.max_results = 100  # 最大保留结果数
         self.worker = Thread(target=self._process_queue, daemon=True)
         self.worker.start()
+        # 启动清理线程
+        self.cleanup_worker = Thread(target=self._cleanup_results, daemon=True)
+        self.cleanup_worker.start()
 
     def add_task(self, task_id: str, files: List[str], prompt: Optional[str],
                  model_size: Optional[str] = None):
@@ -26,7 +32,8 @@ class ProcessingQueue:
                 "status": "queued",
                 "files": files,
                 "prompt": prompt,
-                "model_size": model_size
+                "model_size": model_size,
+                "timestamp": time.time()  # 记录任务添加时间
             }
         self.queue.put(task_id)
 
@@ -120,4 +127,34 @@ class ProcessingQueue:
     def get_result(self, task_id: str) -> Dict:
         """获取任务结果"""
         with self.lock:
-            return self.results.get(task_id, {"status": "not_found"})
+            result = self.results.get(task_id, {"status": "not_found"})
+            if result["status"] != "not_found" and result["status"] != "queued":
+                # 更新访问时间，避免被清理
+                result["last_accessed"] = time.time()
+            return result
+
+    def _cleanup_results(self):
+        """定期清理过期或过多的结果"""
+        while True:
+            time.sleep(1 * 60 * 60)  # 每1小时清理一次
+            with self.lock:
+                current_time = time.time()
+                # 按时间排序的结果列表
+                sorted_results = sorted(
+                    self.results.items(),
+                    key=lambda x: x[1].get("last_accessed", x[1]["timestamp"])
+                )
+
+                # 移除过期结果
+                for task_id, result in list(sorted_results):
+                    age = current_time - result.get("last_accessed",
+                                                    result["timestamp"])
+                    if age > self.result_ttl:
+                        self.results.pop(task_id, None)
+
+                # 限制最大结果数
+                if len(self.results) > self.max_results:
+                    # 删除最旧的结果
+                    to_remove = len(self.results) - self.max_results
+                    for task_id, _ in sorted_results[:to_remove]:
+                        self.results.pop(task_id, None)

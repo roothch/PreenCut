@@ -33,7 +33,6 @@ def get_device_config():
 
 
 # 文件上传配置
-UPLOAD_FOLDER = "uploads"
 ALLOWED_EXTENSIONS = ['mp4', 'avi', 'mov', 'mkv', 'mp3', 'wav', 'flac']
 MAX_FILE_SIZE = 5 * 1024 * 1024 * 1024  # 5GB
 
@@ -63,5 +62,5 @@ OPENAI_API_KEY = os.getenv("OPENAI_API_KEY")  # 从环境变量获取
 OPENAI_MODEL = "deepseek-v3-0324"  # 使用模型
 
 # 创建必要的目录
-for folder in [UPLOAD_FOLDER, TEMP_FOLDER, OUTPUT_FOLDER]:
+for folder in [TEMP_FOLDER, OUTPUT_FOLDER]:
     os.makedirs(folder, exist_ok=True)

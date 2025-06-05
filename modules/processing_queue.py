@@ -59,7 +59,8 @@ class ProcessingQueue:
                     # 提取音频（如果是视频）
                     if file_path.lower().endswith(
                             ('.mp4', '.avi', '.mov', '.mkv')):
-                        audio_path = VideoProcessor.extract_audio(file_path)
+                        audio_path = VideoProcessor.extract_audio(file_path,
+                                                                  task_id)
                     else:
                         audio_path = file_path
 

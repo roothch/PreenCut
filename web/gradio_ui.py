@@ -1,8 +1,10 @@
 import os
+import uuid
 import time
+import random
+import zipfile
 import gradio as gr
 from config import (
-    UPLOAD_FOLDER,
     TEMP_FOLDER,
     OUTPUT_FOLDER,
     ALLOWED_EXTENSIONS,
@@ -47,8 +49,8 @@ def process_files(files: List, prompt: Optional[str] = None,
     for file in files:
         saved_paths.append(check_uploaded_file(file))
 
-    # 创建任务ID
-    task_id = f"task_{int(time.time() * 1000)}"
+    # 创建唯一任务ID
+    task_id = f"task_{uuid.uuid4().hex}"
 
     # 添加到处理队列
     processing_queue.add_task(task_id, saved_paths, prompt, model_size)
@@ -79,7 +81,8 @@ def check_status(task_id: str) -> Tuple[Dict, List, List, gr.Timer]:
                 clip_result.append(clip_row)
 
         return (
-            {"status": "处理完成", "raw_result": result["result"],
+            {"task_id": task_id, "status": "处理完成",
+             "raw_result": result["result"],
              "result": display_result, },
             display_result,
             clip_result,
@@ -88,12 +91,13 @@ def check_status(task_id: str) -> Tuple[Dict, List, List, gr.Timer]:
 
     elif result["status"] == "error":
         return (
-            {"status": f"错误: {result.get('error', '未知错误')}"},
+            {"task_id": task_id,
+             "status": f"错误: {result.get('error', '未知错误')}"},
             [], [], gr.update()
         )
 
     return (
-        {"status": "处理中..."},
+        {"task_id": task_id, "status": "处理中..."},
         [], [], gr.update()
     )
 
@@ -109,10 +113,18 @@ def select_clip(segment_selection: List[List], evt: gr.SelectData) -> List[
 
 
 def clip_and_download(status_display: Dict,
-                      segment_selection: List[List]) -> str:
+                      segment_selection: List[List], download_mode: str) -> str:
     """剪辑并下载选择的片段"""
     if not status_display or "raw_result" not in status_display:
         raise gr.Error("无效的处理结果")
+
+    # 获取任务ID用于创建唯一目录
+    task_id = status_display.get("task_id",
+                                 f"temp_{int(time.time() * 1000)}_{random.randint(1000, 9999)}")
+    task_temp_dir = os.path.join(TEMP_FOLDER, task_id)
+    task_output_dir = os.path.join(OUTPUT_FOLDER, task_id)
+    os.makedirs(task_temp_dir, exist_ok=True)
+    os.makedirs(task_output_dir, exist_ok=True)
 
     # 组织文件分段
     file_segments = {}
@@ -150,41 +162,60 @@ def clip_and_download(status_display: Dict,
             clips_by_file[clip["filename"]] = []
         clips_by_file[clip["filename"]].append({
             "start": clip["start"],
-            "end": clip["end"]
+            "end": clip["end"],
+            "filepath": clip["filepath"]
         })
 
     # 处理每个文件
     output_files = []
     for filename, segments in clips_by_file.items():
-        input_path = os.path.join(UPLOAD_FOLDER, filename)
-        output_path = os.path.join(OUTPUT_FOLDER, f"clipped_{filename}")
-        VideoProcessor.clip_video(input_path, segments, output_path)
+        input_path = segments['filepath']
+        # 生成安全的文件名
+        safe_filename = ''.join(
+            c for c in filename if c.isalnum() or c in ['_', '.'])[:100]
+        output_path = os.path.join(task_output_dir, f"clipped_{safe_filename}")
+        VideoProcessor.clip_video(input_path, segments, output_path,
+                                  task_temp_dir)
         output_files.append(output_path)
 
-    print("选中的文件", clips_by_file, flush=True)
+    # 根据用户选择的模式处理
+    if download_mode == "合并成一个文件":
+        # 如果只有一个文件，直接返回
+        if len(output_files) == 1:
+            return output_files[0]
 
-    # 如果只有一个文件，直接返回
-    if len(output_files) == 1:
-        return output_files[0]
+        # 合并多个文件
+        combined_path = os.path.join(task_output_dir, "combined_output.mp4")
 
-    # 合并多个文件
-    combined_path = os.path.join(OUTPUT_FOLDER, "combined_output.mp4")
+        # 创建文件列表
+        with open(os.path.join(task_temp_dir, "combine_list.txt"), 'w') as f:
+            for file in output_files:
+                f.write(f"file '{file}'\n")
 
-    # 创建文件列表
-    with open(os.path.join(TEMP_FOLDER, "combine_list.txt"), 'w') as f:
-        for file in output_files:
-            f.write(f"file '{file}'\n")
+        # 合并视频
+        cmd = [
+            'ffmpeg', '-f', 'concat', '-safe', '0',
+            '-i', os.path.join(task_temp_dir, "combine_list.txt"),
+            '-c', 'copy', combined_path
+        ]
+        subprocess.run(cmd, check=True, stdout=subprocess.DEVNULL,
+                       stderr=subprocess.DEVNULL)
 
-    # 合并视频
-    cmd = [
-        'ffmpeg', '-f', 'concat', '-safe', '0',
-        '-i', os.path.join(TEMP_FOLDER, "combine_list.txt"),
-        '-c', 'copy', combined_path
-    ]
-    subprocess.run(cmd, check=True, stdout=subprocess.DEVNULL,
-                   stderr=subprocess.DEVNULL)
+        return combined_path
 
-    return combined_path
+    # 打包成zip文件
+    else:
+        # 创建zip文件
+        zip_path = os.path.join(task_output_dir, "clipped_segments.zip")
+        with zipfile.ZipFile(zip_path, 'w') as zipf:
+            for file_path in output_files:
+                # 在zip文件中使用相对路径
+                arcname = os.path.basename(file_path)
+                zipf.write(file_path, arcname)
+
+    return zip_path
+
+    return
 
 
 def reanalyze_with_prompt(raw_result: Dict, new_prompt: str) -> Dict:
@@ -261,7 +292,7 @@ def create_gradio_interface():
 
                 with gr.Row():
                     status_display = gr.JSON(label="处理状态")
-                    task_id = gr.Textbox(visible=False)
+                    task_id = gr.Textbox(visible=True)
 
                 raw_result = gr.JSON(visible=False)
 
@@ -299,6 +330,12 @@ def create_gradio_interface():
                     segment_selection.select(select_clip,
                                              inputs=segment_selection,
                                              outputs=segment_selection)
+                    # 添加下载模式选择
+                    download_mode = gr.Radio(
+                        choices=["合并成一个文件", "打包成zip文件"],
+                        label="下载方式",
+                        value="打包成zip文件"
+                    )
                     clip_btn = gr.Button("剪辑并下载", variant="primary")
                     download_output = gr.File(label="下载剪辑结果")
 
@@ -340,7 +377,7 @@ def create_gradio_interface():
 
         clip_btn.click(
             clip_and_download,
-            inputs=[status_display, segment_selection],
+            inputs=[status_display, segment_selection, download_mode],
             outputs=download_output
         )
 

@@ -12,7 +12,7 @@ from config import (
 )
 from modules.processing_queue import ProcessingQueue
 from modules.video_processor import VideoProcessor
-from utils import seconds_to_hhmmss
+from utils import seconds_to_hhmmss, hhmmss_to_seconds
 from typing import List, Dict, Tuple, Optional
 import subprocess
 
@@ -124,9 +124,9 @@ def clip_and_download(status_display: Dict,
     selected_clips = [seg for seg in selected_segments if
                       seg[0] == CHECKBOX_CHECKED]
     for seg in selected_segments:
-        filename = seg["文件名"]
-        start = float(seg["开始时间"].replace("秒", ""))
-        end = float(seg["结束时间"].replace("秒", ""))
+        filename = seg[1]
+        start = hhmmss_to_seconds(seg[2])
+        end = hhmmss_to_seconds(seg[3])
 
         # 找到对应的原始分段
         for original_seg in file_segments[filename]:

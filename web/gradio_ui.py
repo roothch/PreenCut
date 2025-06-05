@@ -117,11 +117,13 @@ def clip_and_download(status_display: Dict,
     # 组织文件分段
     file_segments = {}
     for file_data in status_display["raw_result"]:
-        file_segments[file_data["filename"]]['segments'] = file_data["segments"]
-        file_segments[file_data["filename"]]['filepath'] = file_data["filepath"]
+        file_segments[file_data["filename"]] = {
+            "segments": file_data["segments"],
+            "filepath": file_data["filepath"]
+        }
 
     selected_segments = [seg for seg in segment_selection if
-                      seg[0] == CHECKBOX_CHECKED]
+                         seg[0] == CHECKBOX_CHECKED]
 
     selected_clips = []
     for seg in selected_segments:

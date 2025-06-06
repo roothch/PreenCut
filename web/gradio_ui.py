@@ -329,7 +329,7 @@ def reanalyze_with_prompt(task_id: str, reanalyze_llm_model: str,
 def create_gradio_interface():
     """创建Gradio界面"""
     with (gr.Blocks(title="PreenCut", theme=gr.themes.Soft()) as app):
-        gr.Markdown("# 🎬 PreenCut-AI视频分段与检索")
+        gr.Markdown("# 🎬 PreenCut-AI视频剪辑助手")
         gr.Markdown(
             "上传包含语音的视频/音频文件，AI将自动识别语音内容、智能分段，并允许您输入自然语言进行检索。")
 

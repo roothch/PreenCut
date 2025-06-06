@@ -82,5 +82,5 @@ class LLMProcessor:
                 return segments
             except:
                 raise ValueError(
-                    "解析出错，可能是因为触发敏感词，请在右侧'重新分析'中更换模型后重试。"
+                    f"处理大模型结果出错, 大模型返回:{result}"
                 )

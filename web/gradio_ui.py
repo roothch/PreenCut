@@ -312,6 +312,8 @@ def reanalyze_with_prompt(status_display: Dict, reanalyze_llm_model: str,
 
     except Exception as e:
         print(f"重新分析失败: {str(e)}")
+        status_display["status"] = "error"
+        status_display["status_info"] = f"重新分析失败: {str(e)}"
         return status_display, [], []
 
 
@@ -358,7 +360,7 @@ def create_gradio_interface():
                         headers=["文件名", "开始时间", "结束时间", "时长",
                                  "内容摘要", "标签"],
                         datatype=["str", "str", "str", "str", "str", "str"],
-                        interactive=True,
+                        interactive=False,
                         wrap=True
                     )
 

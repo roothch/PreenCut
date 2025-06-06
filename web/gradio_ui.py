@@ -269,8 +269,8 @@ def reanalyze_with_prompt(task_id: str, reanalyze_llm_model: str,
     """使用新的提示重新分析"""
     if not task_id:
         raise gr.Error("无效的任务ID")
-    status_display = processing_queue.get_result(task_id)
-    if not status_display or "raw_result" not in status_display:
+    task_result = processing_queue.get_result(task_id)
+    if not task_result or "result" not in task_result:
         raise gr.Error("没有可以重新分析的内容")
 
     if not new_prompt:
@@ -285,7 +285,7 @@ def reanalyze_with_prompt(task_id: str, reanalyze_llm_model: str,
         llm = LLMProcessor(reanalyze_llm_model)
         updated_results = []
 
-        for file_data in status_display["raw_result"]:
+        for file_data in task_result["result"]:
             new_segments = llm.segment_video(file_data["align_result"],
                                              new_prompt)
             updated_results.append({
@@ -313,7 +313,7 @@ def reanalyze_with_prompt(task_id: str, reanalyze_llm_model: str,
                 clip_result.append(clip_row)
 
         return ({
-                    "task_id": status_display["task_id"],
+                    "task_id": task_id,
                     "status": "重新分析完成，请在分析结果中查看",
                     "result": display_result,
                     "raw_result": updated_results
@@ -321,9 +321,9 @@ def reanalyze_with_prompt(task_id: str, reanalyze_llm_model: str,
 
     except Exception as e:
         print(f"重新分析失败: {str(e)}")
-        status_display["status"] = "error"
-        status_display["status_info"] = f"重新分析失败: {str(e)}"
-        return status_display, [], []
+        task_result["status"] = "error"
+        task_result["status_info"] = f"重新分析失败: {str(e)}"
+        return task_result, [], []
 
 
 def create_gradio_interface():

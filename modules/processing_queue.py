@@ -39,6 +39,10 @@ class ProcessingQueue:
             }
         self.queue.put(task_id)
 
+    def get_queue_size(self) -> int:
+        """获取队列中的任务数（不包括正在执行的）"""
+        return self.queue.qsize()
+
     def _process_queue(self):
         """处理队列中的任务"""
         while True:
@@ -132,7 +136,7 @@ class ProcessingQueue:
         """获取任务结果"""
         with self.lock:
             result = self.results.get(task_id, {"status": "not_found"})
-            if result["status"] != "not_found" and result["status"] != "queued":
+            if result["status"] != "not_found":
                 # 更新访问时间，避免被清理
                 result["last_accessed"] = time.time()
             return result

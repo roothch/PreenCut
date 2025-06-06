@@ -57,9 +57,24 @@ ENABLE_ALIGNMENT = False  # 是否启用对齐
 ALIGNMENT_MODEL = 'whisperx'  # 使用的对齐模型
 
 # OpenAI配置
-OPENAI_BASE_URL = "https://api.lkeap.cloud.tencent.com/v1"  # OpenAI API base_url
-OPENAI_API_KEY = os.getenv("OPENAI_API_KEY")  # 从环境变量获取
-OPENAI_MODEL = "deepseek-v3-0324"  # 使用模型
+LLM_MODEL_OPTIONS = [
+    {
+        "model": "deepseek-v3-0324",
+        "base_url": "https://api.lkeap.cloud.tencent.com/v1",
+        "api_key_env_name": "DEEPSEEK_V3_API_KEY",
+        "label": "DeepSeek-V3-0324",
+        "max_tokens": 4096,
+        "temperature": 0.3,
+    },
+    {
+        "model": "doubao-1-5-pro-32k-250115",
+        "base_url": "https://ark.cn-beijing.volces.com/api/v3",
+        "api_key_env_name": "DOUBAO_1_5_PRO_API_KEY",
+        "label": "豆包",
+        "max_tokens": 4096,
+        "temperature": 0.3,
+    }
+]
 
 # 创建必要的目录
 for folder in [TEMP_FOLDER, OUTPUT_FOLDER]:

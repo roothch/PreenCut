@@ -24,15 +24,17 @@ class ProcessingQueue:
         self.cleanup_worker = Thread(target=self._cleanup_results, daemon=True)
         self.cleanup_worker.start()
 
-    def add_task(self, task_id: str, files: List[str], prompt: Optional[str],
-                 model_size: Optional[str] = None):
+    def add_task(self, task_id: str, files: List[str], llm_model: str,
+                 prompt: Optional[str],
+                 whixper_model_size: Optional[str] = None):
         """添加任务到队列"""
         with self.lock:
             self.results[task_id] = {
                 "status": "queued",
                 "files": files,
                 "prompt": prompt,
-                "model_size": model_size,
+                "model_size": whixper_model_size,
+                "llm_model": llm_model,
                 "timestamp": time.time()  # 记录任务添加时间
             }
         self.queue.put(task_id)
@@ -60,7 +62,7 @@ class ProcessingQueue:
                 # 处理每个文件
                 file_results = []
                 recognizer = SpeechRecognizer()
-                llm = LLMProcessor()
+                llm = LLMProcessor(self.results[task_id].get("llm_model"))
 
                 for file_path in files:
                     # 提取音频（如果是视频）

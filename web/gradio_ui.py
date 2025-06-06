@@ -4,6 +4,8 @@ import time
 import random
 import zipfile
 import gradio as gr
+from config import LLM_MODEL_OPTIONS
+
 from config import (
     TEMP_FOLDER,
     OUTPUT_FOLDER,
@@ -42,8 +44,10 @@ def check_uploaded_file(file) -> str:
     return file.name
 
 
-def process_files(files: List, prompt: Optional[str] = None,
-                  model_size: Optional[str] = None) -> Tuple[str, Dict]:
+def process_files(files: List, llm_model: str,
+                  prompt: Optional[str] = None,
+                  whisper_model_size: Optional[str] = None) -> Tuple[
+    str, Dict]:
     """处理上传的文件"""
 
     print('当前results', processing_queue.results, flush=True)
@@ -57,7 +61,8 @@ def process_files(files: List, prompt: Optional[str] = None,
     task_id = f"task_{uuid.uuid4().hex}"
 
     # 添加到处理队列
-    processing_queue.add_task(task_id, saved_paths, prompt, model_size)
+    processing_queue.add_task(task_id, saved_paths, llm_model, prompt,
+                              whisper_model_size)
 
     return task_id, {"status": "已加入队列，请稍候..."}
 
@@ -251,46 +256,62 @@ def clip_and_download(status_display: Dict,
         return zip_path
 
 
-def reanalyze_with_prompt(raw_result: Dict, new_prompt: str) -> Dict:
+def reanalyze_with_prompt(status_display: Dict, reanalyze_llm_model: str,
+                          new_prompt: str) -> Tuple[
+    Dict, List[List], List[List]]:
     """使用新的提示重新分析"""
-    if not raw_result or "raw_result" not in raw_result:
-        raise gr.Error("无效的处理结果")
+    if not status_display or "raw_result" not in status_display:
+        raise gr.Error("没有可以重新分析的内容")
 
-    # 使用新提示重新处理
-    from modules.llm_processor import LLMProcessor
-    llm = LLMProcessor()
-    updated_results = []
+    if not new_prompt:
+        raise gr.Error("请输入新的分析提示")
 
-    for file_data in raw_result["raw_result"]:
-        new_segments = llm.segment_video(file_data["align_result"], new_prompt)
-        updated_results.append({
-            "filename": file_data["filename"],
-            "align_result": file_data["align_result"],
-            "segments": new_segments
-        })
+    if not reanalyze_llm_model:
+        raise gr.Error("请选择大语言模型")
 
-    # 整理显示结果
-    display_result = []
-    for file_result in updated_results:
-        segments = []
-        for seg in file_result["segments"]:
-            segments.append({
-                "文件名": file_result["filename"],
-                "开始时间": f"{seg['start']:.1f}秒",
-                "结束时间": f"{seg['end']:.1f}秒",
-                "时长": f"{seg['end'] - seg['start']:.1f}秒",
-                "内容摘要": seg["summary"],
-                "标签": ", ".join(seg["tags"]) if isinstance(seg["tags"],
-                                                             list) else seg[
-                    "tags"]
+    try:
+        # 使用新提示重新处理
+        from modules.llm_processor import LLMProcessor
+        llm = LLMProcessor(reanalyze_llm_model)
+        updated_results = []
+
+        for file_data in status_display["raw_result"]:
+            new_segments = llm.segment_video(file_data["align_result"],
+                                             new_prompt)
+            updated_results.append({
+                "filename": file_data["filename"],
+                "filepath": file_data["filepath"],
+                "align_result": file_data["align_result"],
+                "segments": new_segments
             })
-        display_result.extend(segments)
 
-    return {
-        "status": "重新分析完成",
-        "result": display_result,
-        "raw_result": updated_results
-    }
+        # 整理结果以便显示
+        display_result = []
+        clip_result = []
+        for file_result in updated_results:
+            for seg in file_result["segments"]:
+                row = [file_result["filename"],
+                       f"{seconds_to_hhmmss(seg['start'])}",
+                       f"{seconds_to_hhmmss(seg['end'])}",
+                       f"{seconds_to_hhmmss(seg['end'] - seg['start'])}",
+                       seg["summary"],
+                       ", ".join(seg["tags"]) if isinstance(
+                           seg["tags"], list) else seg["tags"]]
+                clip_row = row.copy()
+                clip_row.insert(0, CHECKBOX_UNCHECKED)  # 添加选择框
+                display_result.append(row)
+                clip_result.append(clip_row)
+
+        return ({
+                    "task_id": status_display["task_id"],
+                    "status": "重新分析完成",
+                    "result": display_result,
+                    "raw_result": updated_results
+                }, display_result, clip_result)
+
+    except Exception as e:
+        print(f"重新分析失败: {str(e)}")
+        return status_display, [], []
 
 
 def create_gradio_interface():
@@ -308,6 +329,9 @@ def create_gradio_interface():
                 )
 
                 with gr.Accordion("高级设置", open=False):
+                    llm_model = gr.Dropdown(
+                        choices=[model.label for model in LLM_MODEL_OPTIONS],
+                        value="豆包", label="大语言模型")
                     model_size = gr.Dropdown(
                         choices=["large-v2", "large-v3", "large", "medium",
                                  "small", "base", "tiny"],
@@ -327,8 +351,6 @@ def create_gradio_interface():
                     status_display = gr.JSON(label="处理状态")
                     task_id = gr.Textbox(visible=False)
 
-                raw_result = gr.JSON(visible=False)
-
             with gr.Column(scale=3):
                 with gr.Tab("分析结果"):
                     result_table = gr.Dataframe(
@@ -345,6 +367,9 @@ def create_gradio_interface():
                         placeholder="例如：找出所有包含技术术语的片段",
                         lines=2
                     )
+                    reanalyze_llm_model = gr.Dropdown(
+                        choices=[model.label for model in LLM_MODEL_OPTIONS],
+                        value="豆包", label="大语言模型")
                     reanalyze_btn = gr.Button("重新分析", variant="secondary")
 
                 with gr.Tab("剪辑选项"):
@@ -352,8 +377,6 @@ def create_gradio_interface():
                         headers=["选择", "文件名", "开始时间", "结束时间",
                                  "时长",
                                  "内容摘要", "标签"],
-                        # datatype=["bool", "str", "str", "str", "str", "str",
-                        #           "str"],
                         datatype='html',
                         interactive=False,
                         wrap=True,
@@ -381,7 +404,7 @@ def create_gradio_interface():
         # 事件处理
         process_btn.click(
             process_files,
-            inputs=[file_upload, prompt_input, model_size],
+            inputs=[file_upload, llm_model, prompt_input, model_size],
             outputs=[task_id, status_display]
         ).then(
             lambda: gr.Timer(active=True),
@@ -392,12 +415,8 @@ def create_gradio_interface():
 
         reanalyze_btn.click(
             reanalyze_with_prompt,
-            inputs=[raw_result, new_prompt],
-            outputs=status_display
-        ).then(
-            lambda x: x,
-            inputs=status_display,
-            outputs=raw_result
+            inputs=[status_display, reanalyze_llm_model, new_prompt],
+            outputs=[status_display, result_table, segment_selection]
         ).then(
             lambda x: x.get("result", []) if x and "result" in x else [],
             inputs=status_display,

@@ -1,16 +1,29 @@
 import json
+import os
+
 from openai import OpenAI
-from config import OPENAI_API_KEY, OPENAI_MODEL, OPENAI_BASE_URL
+from config import LLM_MODEL_OPTIONS
 from typing import List, Dict, Optional
 
 
 class LLMProcessor:
-    def __init__(self):
-        self.api_key = OPENAI_API_KEY
-        self.client = OpenAI(
-            api_key=self.api_key,
-            base_url=OPENAI_BASE_URL
-        )
+    def __init__(self, llm_model: str):
+        for model in LLM_MODEL_OPTIONS:
+            if model['label'] == llm_model:
+                self.api_key = os.getenv(model['api_key_env_name'])
+                self.client = OpenAI(
+                    api_key=self.api_key,
+                    base_url=model['base_url'],
+                )
+                self.model = model['model']
+                self.temperature = model.get('temperature', 0.3)
+                self.max_tokens = model.get('max_tokens', 4096)
+                break
+            else:
+                raise ValueError(
+                    f"Unsupported LLM model: {llm_model}. Available models: "
+                    f"{', '.join([m['label'] for m in LLM_MODEL_OPTIONS])}"
+                )
 
     def segment_video(self, subtitles: str,
                       prompt: Optional[str] = None) -> \
@@ -21,15 +34,15 @@ class LLMProcessor:
 
         # 构建系统提示
         system_prompt = (
-            "你是一个专业的视频剪辑助手，需要根据提供的字幕内容将视频分成不超过10个有意义的段落。"
-            "每个段落应该包含以下信息：开始时间(秒)，结束时间(秒)，一句话内容摘要和主题标签。"
+            "你是一个专业的视频剪辑助手，需要根据提供的字幕内容和用户要求将视频处理成片段。"
+            "每个片段应该包含以下信息：开始时间(秒)，结束时间(秒)，一句话的内容摘要和1-3个主题标签。"
             "返回格式必须是JSON，包含一个字典列表，每个字典有四个键：start, end, summary, tags。"
         )
 
         # 用户提示（如果有自定义提示则使用）
         user_prompt = prompt or (
-            "请根据以下字幕内容，将视频分成不超过10个有意义的段落。"
-            "每个段落应包含连贯的主题内容，并给出一句话摘要和1-3个主题标签。"
+            "请根据以下字幕内容，将视频分成不超过10个有意义的片段。"
+            "每个片段应包含连贯的主题内容，并给出一句话摘要和1-3个主题标签。"
             "时间信息需要精确到秒。"
         )
 
@@ -38,13 +51,13 @@ class LLMProcessor:
 
         # 调用OpenAI API
         response = self.client.chat.completions.create(
-            model=OPENAI_MODEL,
+            model=self.model,
             messages=[
                 {"role": "system", "content": system_prompt},
                 {"role": "user", "content": full_prompt}
             ],
-            temperature=0.3,
-            max_tokens=2000
+            temperature=self.temperature,
+            max_tokens=self.max_tokens
         )
 
         # 解析响应
@@ -67,15 +80,6 @@ class LLMProcessor:
                 segments = json.loads(result)
                 return segments
             except:
-                # 如果无法解析，返回示例数据
-                print("无法解析大模型返回的数据，使用示例数据")
-                return [
-                    {"start": 0, "end": 30, "summary": "视频介绍",
-                     "tags": ["介绍", "开场"]},
-                    {"start": 30, "end": 120, "summary": "主要内容第一部分",
-                     "tags": ["主题1", "讲解"]},
-                    {"start": 120, "end": 180, "summary": "主要内容第二部分",
-                     "tags": ["主题2", "演示"]},
-                    {"start": 180, "end": 210, "summary": "总结",
-                     "tags": ["总结", "结束语"]}
-                ]
+                raise ValueError(
+                    "无法解析大模型返回的分段结果，可能是因为触发敏感词。请更换模型后重试。"
+                )

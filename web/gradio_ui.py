@@ -351,7 +351,8 @@ def create_gradio_interface():
                 process_btn = gr.Button("开始处理", variant="primary")
 
                 with gr.Row():
-                    status_display = gr.JSON(label="处理状态")
+                    status_display = gr.JSON(label="处理状态",
+                                             show_progress="hidden")
                     task_id = gr.Textbox(visible=False)
 
             with gr.Column(scale=3):

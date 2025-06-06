@@ -19,11 +19,12 @@ class LLMProcessor:
                 self.temperature = model.get('temperature', 0.3)
                 self.max_tokens = model.get('max_tokens', 4096)
                 break
-            else:
-                raise ValueError(
-                    f"Unsupported LLM model: {llm_model}. Available models: "
-                    f"{', '.join([m['label'] for m in LLM_MODEL_OPTIONS])}"
-                )
+
+        if not hasattr(self, 'client'):
+            raise ValueError(
+                f"Unsupported LLM model: {llm_model}. Available models: "
+                f"{', '.join([m['label'] for m in LLM_MODEL_OPTIONS])}"
+            )
 
     def segment_video(self, subtitles: str,
                       prompt: Optional[str] = None) -> \

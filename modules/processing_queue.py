@@ -64,7 +64,9 @@ class ProcessingQueue:
                 recognizer = SpeechRecognizer()
                 llm = LLMProcessor(self.results[task_id].get("llm_model"))
 
-                for file_path in files:
+                for i, file_path in enumerate(files):
+                    self.results[task_id][
+                        "status_info"] = f"共{len(files)}个文件，正在处理第{i + 1}个文件"
                     # 提取音频（如果是视频）
                     if file_path.lower().endswith(
                             ('.mp4', '.avi', '.mov', '.mkv')):

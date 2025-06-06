@@ -106,7 +106,8 @@ def check_status(task_id: str) -> Tuple[Dict, List, List, gr.Timer]:
         )
 
     return (
-        {"task_id": task_id, "status": "处理中..."},
+        {"task_id": task_id, "status": "处理中...",
+         "status_info": result.get("status_info", "")},
         [], [], gr.update()
     )
 

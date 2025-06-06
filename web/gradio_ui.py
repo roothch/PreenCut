@@ -263,10 +263,13 @@ def start_reanalyze() -> Dict:
     }
 
 
-def reanalyze_with_prompt(status_display: Dict, reanalyze_llm_model: str,
+def reanalyze_with_prompt(task_id: str, reanalyze_llm_model: str,
                           new_prompt: str) -> Tuple[
     Dict, List[List], List[List]]:
     """使用新的提示重新分析"""
+    if not task_id:
+        raise gr.Error("无效的任务ID")
+    status_display = processing_queue.get_result(task_id)
     if not status_display or "raw_result" not in status_display:
         raise gr.Error("没有可以重新分析的内容")
 

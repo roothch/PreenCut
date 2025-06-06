@@ -330,7 +330,7 @@ def create_gradio_interface():
 
                 with gr.Accordion("高级设置", open=False):
                     llm_model = gr.Dropdown(
-                        choices=[model.label for model in LLM_MODEL_OPTIONS],
+                        choices=[model['label'] for model in LLM_MODEL_OPTIONS],
                         value="豆包", label="大语言模型")
                     model_size = gr.Dropdown(
                         choices=["large-v2", "large-v3", "large", "medium",
@@ -368,7 +368,7 @@ def create_gradio_interface():
                         lines=2
                     )
                     reanalyze_llm_model = gr.Dropdown(
-                        choices=[model.label for model in LLM_MODEL_OPTIONS],
+                        choices=[model['label'] for model in LLM_MODEL_OPTIONS],
                         value="豆包", label="大语言模型")
                     reanalyze_btn = gr.Button("重新分析", variant="secondary")
 

@@ -105,11 +105,17 @@ def check_status(task_id: str) -> Tuple[Dict, List, List, gr.Timer]:
             [], [], gr.update()
         )
 
-    return (
-        {"task_id": task_id, "status": "处理中...",
-         "status_info": result.get("status_info", "")},
-        [], [], gr.update()
-    )
+    if task_id:
+        return (
+            {"task_id": task_id, "status": "处理中...",
+             "status_info": result.get("status_info", "")},
+            [], [], gr.update()
+        )
+    else:
+        return (
+            {"task_id": "", "status": ""},
+            [], [], gr.update()
+        )
 
 
 def select_clip(segment_selection: List[List], evt: gr.SelectData) -> List[

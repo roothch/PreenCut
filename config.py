@@ -33,7 +33,7 @@ def get_device_config():
 
 
 # 文件上传配置
-ALLOWED_EXTENSIONS = ['mp4', 'avi', 'mov', 'mkv', 'mp3', 'wav', 'flac']
+ALLOWED_EXTENSIONS = ['mp4', 'avi', 'mov', 'mkv', 'mp3', 'wav', 'flac', 'ts']
 MAX_FILE_SIZE = 5 * 1024 * 1024 * 1024  # 5GB
 
 # 临时文件夹

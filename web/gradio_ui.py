@@ -257,6 +257,12 @@ def clip_and_download(status_display: Dict,
         return zip_path
 
 
+def start_reanalyze() -> Dict:
+    return {
+        'status': '请稍候，正在使用新的提示重新分析...',
+    }
+
+
 def reanalyze_with_prompt(status_display: Dict, reanalyze_llm_model: str,
                           new_prompt: str) -> Tuple[
     Dict, List[List], List[List]]:
@@ -305,7 +311,7 @@ def reanalyze_with_prompt(status_display: Dict, reanalyze_llm_model: str,
 
         return ({
                     "task_id": status_display["task_id"],
-                    "status": "重新分析完成",
+                    "status": "重新分析完成，请在分析结果中查看",
                     "result": display_result,
                     "raw_result": updated_results
                 }, display_result, clip_result)
@@ -319,7 +325,7 @@ def reanalyze_with_prompt(status_display: Dict, reanalyze_llm_model: str,
 
 def create_gradio_interface():
     """创建Gradio界面"""
-    with gr.Blocks(title="PreenCut", theme=gr.themes.Soft()) as app:
+    with (gr.Blocks(title="PreenCut", theme=gr.themes.Soft()) as app):
         gr.Markdown("# 🎬 PreenCut-AI视频分段与检索")
         gr.Markdown(
             "上传包含语音的视频/音频文件，AI将自动识别语音内容、智能分段，并允许您输入自然语言进行检索。")
@@ -417,18 +423,14 @@ def create_gradio_interface():
         )
 
         reanalyze_btn.click(
+            start_reanalyze,
+            inputs=None,
+            outputs=status_display,
+        ).then(
             reanalyze_with_prompt,
-            inputs=[status_display, reanalyze_llm_model, new_prompt],
+            inputs=[task_id, reanalyze_llm_model, new_prompt],
             outputs=[status_display, result_table, segment_selection],
             show_progress="hidden"
-        ).then(
-            lambda x: x.get("result", []) if x and "result" in x else [],
-            inputs=status_display,
-            outputs=result_table
-        ).then(
-            lambda x: x.get("result", []) if x and "result" in x else [],
-            inputs=status_display,
-            outputs=segment_selection
         )
 
         clip_btn.click(

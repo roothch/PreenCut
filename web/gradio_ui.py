@@ -107,7 +107,7 @@ def check_status(task_id: str) -> Tuple[Dict, List, List, gr.Timer]:
     elif result["status"] == "queued":
         return (
             {"task_id": task_id,
-             "status": f"排队中, 前面还有{processing_queue.get_queue_size() + 1}个任务"},
+             "status": f"排队中, 前面还有{processing_queue.get_queue_size()}个任务"},
             [], [], gr.update()
         )
 

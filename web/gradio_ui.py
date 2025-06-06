@@ -351,8 +351,7 @@ def create_gradio_interface():
                 process_btn = gr.Button("开始处理", variant="primary")
 
                 with gr.Row():
-                    status_display = gr.JSON(label="处理状态",
-                                             show_progress="hidden")
+                    status_display = gr.JSON(label="处理状态")
                     task_id = gr.Textbox(visible=False)
 
             with gr.Column(scale=3):
@@ -420,7 +419,8 @@ def create_gradio_interface():
         reanalyze_btn.click(
             reanalyze_with_prompt,
             inputs=[status_display, reanalyze_llm_model, new_prompt],
-            outputs=[status_display, result_table, segment_selection]
+            outputs=[status_display, result_table, segment_selection],
+            show_progress="hidden"
         ).then(
             lambda x: x.get("result", []) if x and "result" in x else [],
             inputs=status_display,

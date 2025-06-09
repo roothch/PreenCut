@@ -34,7 +34,7 @@ cd PreenCut
 pip install -r requirements.txt
 ```
 
-3.Install FFmpeg (required for video processing):
+3. Install FFmpeg (required for video processing):
 
 ```bash
 # ubuntu/Debian
@@ -49,7 +49,7 @@ brew install ffmpeg
 # Windows: Download from https://ffmpeg.org/
 ```
 
-4.Set up API keys (for LLM services):
+4. Set up API keys (for LLM services):
 First you need to set your llm services in LLM_MODEL_OPTIONS of `config.py`.
 Then set your API keys as environment variables:
 
@@ -61,30 +61,30 @@ export DOUBAO_1_5_PRO_API_KEY=your_doubao_api_key
 
 ## 🚀 Usage
 
-1.Start the Gradio interface:
+1. Start the Gradio interface:
 
 ```bash
 python main.py
 ```
 
-2.Access the web interface at http://localhost:7860
-3.Upload video/audio files (supported formats: mp4, avi, mov, mkv, ts, mxf, mp3, wav, flac)
-4.Configure options:
+2. Access the web interface at http://localhost:7860
+3. Upload video/audio files (supported formats: mp4, avi, mov, mkv, ts, mxf, mp3, wav, flac)
+4. Configure options:
 
 - Select LLM model
 - Choose Whisper model size (tiny → large-v3)
 - Add custom analysis prompt (Optional)
 
-5.Click "Start Processing" to analyze content
-6.View results in the analysis table:
+5. Click "Start Processing" to analyze content
+6. View results in the analysis table:
 
 - Start/end timestamps
 - Duration
 - Content summary
 - AI-generated tags
 
-7.Use the "Re-analyze" tab to experiment with different prompts
-8.Use the "Cut" tab to select segments and choose export mode:
+7. Use the "Re-analyze" tab to experiment with different prompts
+8. Use the "Cut" tab to select segments and choose export mode:
 
 - Export as ZIP package
 - Merge into a single video file

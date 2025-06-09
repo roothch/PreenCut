@@ -84,7 +84,6 @@ class ProcessingQueue:
                     result = recognizer.transcribe(audio_path)
                     print(
                         f"语音识别完成，segments个数: {len(result['segments'])}")
-                    print(result['segments'], result['language'])
 
                     if ENABLE_ALIGNMENT:
                         # 文本对齐
@@ -98,7 +97,6 @@ class ProcessingQueue:
                     print("调用大模型进行分段...")
                     segments = llm.segment_video(result["segments"], prompt)
                     print(f"大模型分段完成，段数: {len(segments)}")
-                    print(f"大模型分段完成，分段结果: {segments}")
 
                     # 保存结果
                     file_results.append({

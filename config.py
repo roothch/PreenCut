@@ -1,6 +1,9 @@
 import os
 import torch
 
+# 设置Gradio临时目录
+os.environ['GRADIO_TEMP_DIR'] = '/data/tmp/gradio'
+
 
 def get_available_gpus():
     """获取所有可用的GPU设备"""
@@ -58,7 +61,7 @@ WHISPERX_BATCH_SIZE = 16  # 批处理大小
 ENABLE_ALIGNMENT = False  # 是否启用对齐
 ALIGNMENT_MODEL = 'whisperx'  # 使用的对齐模型
 
-# OpenAI配置
+# OpenAI API配置
 LLM_MODEL_OPTIONS = [
     {
         "model": "deepseek-v3-0324",

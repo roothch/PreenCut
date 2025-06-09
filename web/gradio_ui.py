@@ -12,7 +12,8 @@ from config import (
     ALLOWED_EXTENSIONS,
     MAX_FILE_SIZE,
     SPEECH_RECOGNITION_MODEL,
-    WHISPERX_MODEL_SIZE
+    WHISPERX_MODEL_SIZE,
+    MAX_FILE_NUMBERS
 )
 from modules.processing_queue import ProcessingQueue
 from modules.video_processor import VideoProcessor
@@ -27,21 +28,33 @@ CHECKBOX_CHECKED = '<span style="display: flex; width: 16px; height: 16px; borde
 CHECKBOX_UNCHECKED = '<span style="display: flex; width: 16px; height: 16px; border: 2px solid blue;font-weight: bold;color:white;align-items:center;justify-content:center"></span>'
 
 
-def check_uploaded_file(file) -> str:
+def check_uploaded_files(files: List) -> str:
     """检查上传的文件是否符合要求"""
-    filename = os.path.basename(file.name)
+    if not files:
+        raise gr.Error("请上传至少一个文件")
 
-    # 检查文件大小
-    file_size = os.path.getsize(file.name)
-    if file_size > MAX_FILE_SIZE:
-        raise gr.Error(f"文件大小超过限制 ({file_size} > {MAX_FILE_SIZE})")
+    if len(files) > MAX_FILE_NUMBERS:
+        raise gr.Error(
+            f"上传的文件数量超过限制 ({len(files)} > {MAX_FILE_NUMBERS})")
 
-    # 检查文件格式
-    ext = os.path.splitext(filename)[1][1:].lower()
-    if ext not in ALLOWED_EXTENSIONS:
-        raise gr.Error(f"不支持的文件格式: {ext}")
+    saved_paths = []
+    for file in files:
+        filename = os.path.basename(file.name)
 
-    return file.name
+        # 检查文件大小
+        file_size = os.path.getsize(file.name)
+        if file_size > MAX_FILE_SIZE:
+            raise gr.Error(f"文件大小超过限制 ({file_size} > {MAX_FILE_SIZE})")
+
+        # 检查文件格式
+        ext = os.path.splitext(filename)[1][1:].lower()
+        if ext not in ALLOWED_EXTENSIONS:
+            raise gr.Error(
+                f"不支持的文件格式: {ext}, 仅支持: {', '.join(ALLOWED_EXTENSIONS)}")
+
+        saved_paths.append(file.name)
+
+    return saved_paths
 
 
 def process_files(files: List, llm_model: str,
@@ -50,12 +63,8 @@ def process_files(files: List, llm_model: str,
     str, Dict]:
     """处理上传的文件"""
 
-    print('当前results', processing_queue.results, flush=True)
-
-    # 保存文件
-    saved_paths = []
-    for file in files:
-        saved_paths.append(check_uploaded_file(file))
+    # 检查上传的文件是否符合要求
+    saved_paths = check_uploaded_files(files)
 
     # 创建唯一任务ID
     task_id = f"task_{uuid.uuid4().hex}"
@@ -455,4 +464,3 @@ def create_gradio_interface():
         )
 
         return app
-

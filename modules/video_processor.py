@@ -41,7 +41,8 @@ class VideoProcessor:
                 'ffmpeg', '-i', input_path,
                 '-ss', str(seg['start']),
                 '-to', str(seg['end']),
-                '-c', 'copy',
+                '-c:v', 'libx264', # 视频编码器
+                '-c:a', 'aac',  # 音频编码器
                 '-avoid_negative_ts', 'make_zero',
                 '-y', clip_path
             ]

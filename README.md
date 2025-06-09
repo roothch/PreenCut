@@ -98,8 +98,3 @@ python main.py
 ## 📜 License
 This project is licensed under the MIT License. See the [LICENSE](LICENSE) file for details.
 
-## 🙏 Acknowledgements
-- [OpenAI Whisper](https://github.com/openai/whisper) and [WhisperX](https://github.com/m-bain/whisperX) for ASR
-- Gradio for intuitive web interface
-- [DeepSeek](https://deepseek.com/) and [DouBao](https://www.doubao.ai/) for LLM services
-

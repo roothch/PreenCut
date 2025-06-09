@@ -24,7 +24,7 @@ language queries.
 1. Clone the repository:
 
 ```bash
-git clone https://github.com/yourusername/PreenCut.git
+git clone https://github.com/roothch/PreenCut.git
 cd PreenCut
 ```
 

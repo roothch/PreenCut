@@ -37,12 +37,13 @@ class VideoProcessor:
         for i, seg in enumerate(segments):
             clip_path = os.path.join(output_folder,
                                      f"{safe_filename}_clip_{i}{ext}")
+
             cmd = [
                 'ffmpeg', '-i', input_path,
                 '-ss', str(seg['start']),
                 '-to', str(seg['end']),
-                '-c:v', 'libx264', # 视频编码器
-                '-c:a', 'aac',  # 音频编码器
+                '-c:v', 'libx264',  # 视频编码器
+                '-c:a', 'copy',  # 音频直接复制
                 '-avoid_negative_ts', 'make_zero',
                 '-y', clip_path
             ]

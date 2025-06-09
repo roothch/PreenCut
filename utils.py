@@ -1,5 +1,8 @@
 import shutil
 import os
+import subprocess
+import json
+
 
 def generate_safe_filename(filename, max_length=100):
     """生成安全的文件名，确保不超过指定长度"""
@@ -9,10 +12,12 @@ def generate_safe_filename(filename, max_length=100):
             safe_filename = safe_filename.replace(c, '_')
     return safe_filename[:max_length]
 
+
 def clear_directory_fast(directory_path):
     """通过重建目录快速清空内容"""
     shutil.rmtree(directory_path)
     os.makedirs(directory_path, exist_ok=True)
+
 
 def seconds_to_hhmmss(seconds):
     """将秒数转换为 HH:MM:SS 格式"""
@@ -42,3 +47,19 @@ def hhmmss_to_seconds(time_str):
         raise ValueError("时间格式应为 HH:MM:SS 或 MM:SS")
 
     return total_seconds
+
+
+def get_audio_codec(input_file):
+    """使用 ffprobe 检测音频编码"""
+    cmd = [
+        "ffprobe",
+        "-v", "error",
+        "-select_streams", "a:0",  # 只检查第一个音频流
+        "-show_entries", "stream=codec_name",
+        "-of", "json",
+        input_file
+    ]
+    result = subprocess.run(cmd, stdout=subprocess.PIPE, stderr=subprocess.PIPE,
+                            text=True)
+    info = json.loads(result.stdout)
+    return info["streams"][0]["codec_name"]

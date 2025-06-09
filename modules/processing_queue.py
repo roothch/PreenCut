@@ -73,7 +73,7 @@ class ProcessingQueue:
                         "status_info"] = f"共{len(files)}个文件，正在处理第{i + 1}个文件"
                     # 提取音频（如果是视频）
                     if file_path.lower().endswith(
-                            ('.mp4', '.avi', '.mov', '.mkv', '.ts')):
+                            ('.mp4', '.avi', '.mov', '.mkv', '.ts', '.mxf')):
                         audio_path = VideoProcessor.extract_audio(file_path,
                                                                   task_id)
                     else:

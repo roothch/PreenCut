@@ -71,29 +71,29 @@ python main.py
 3. Upload video/audio files (supported formats: mp4, avi, mov, mkv, ts, mxf, mp3, wav, flac)
 4. Configure options:
 
-- Select LLM model
-- Choose Whisper model size (tiny → large-v3)
-- Add custom analysis prompt (Optional)
+  - Select LLM model
+  - Choose Whisper model size (tiny → large-v3)
+  - Add custom analysis prompt (Optional)
 
 5. Click "Start Processing" to analyze content
 6. View results in the analysis table:
 
-- Start/end timestamps
-- Duration
-- Content summary
-- AI-generated tags
+  - Start/end timestamps
+  - Duration
+  - Content summary
+  - AI-generated tags
 
 7. Use the "Re-analyze" tab to experiment with different prompts
 8. Use the "Cut" tab to select segments and choose export mode:
 
-- Export as ZIP package
-- Merge into a single video file
+  - Export as ZIP package
+  - Merge into a single video file
 
 ## ⚡ Performance Tips
 
-- Adjust WHISPERX_BATCH_SIZE based on available VRAM
-- Reduce WHISPERX_MODEL_SIZE in config.py for faster processing
-- Use smaller model sizes for CPU-only systems
+  - Adjust WHISPERX_BATCH_SIZE based on available VRAM
+  - Reduce WHISPERX_MODEL_SIZE in config.py for faster processing
+  - Use smaller model sizes for CPU-only systems
 
 ## 📜 License
 This project is licensed under the MIT License. See the [LICENSE](LICENSE) file for details.

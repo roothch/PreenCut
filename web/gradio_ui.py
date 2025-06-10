@@ -69,6 +69,8 @@ def process_files(files: List, llm_model: str,
     # 创建唯一任务ID
     task_id = f"task_{uuid.uuid4().hex}"
 
+    print(f"添加任务: {task_id}, 文件路径: {saved_paths}")
+
     # 添加到处理队列
     processing_queue.add_task(task_id, saved_paths, llm_model, prompt,
                               whisper_model_size)

@@ -1,0 +1,7 @@
+gradio>=5.0.0
+whisperx
+ffmpeg-python
+openai
+python-dotenv
+torch
+torchaudio

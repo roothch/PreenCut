@@ -22,11 +22,17 @@ class SpeechRecognizer:
                 asr_options = {
                     "initial_prompt": "是的，这个句子是为了增加标点。",
                 }
-                model = whisperx.load_model(WHISPERX_MODEL_SIZE,
-                                            WHISPERX_DEVICE,
-                                            device_index=WHISPERX_GPU_IDS,
-                                            compute_type=WHISPERX_COMPUTE_TYPE,
-                                            asr_options=asr_options)
+                if WHISPERX_DEVICE == 'cuda':
+                    model = whisperx.load_model(WHISPERX_MODEL_SIZE,
+                                                WHISPERX_DEVICE,
+                                                device_index=WHISPERX_GPU_IDS,
+                                                compute_type=WHISPERX_COMPUTE_TYPE,
+                                                asr_options=asr_options)
+                else:
+                    model = whisperx.load_model(WHISPERX_MODEL_SIZE,
+                                                WHISPERX_DEVICE,
+                                                compute_type=WHISPERX_COMPUTE_TYPE,
+                                                asr_options=asr_options)
                 return model
             except ImportError:
                 raise ImportError(

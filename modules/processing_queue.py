@@ -2,11 +2,11 @@ from queue import Queue
 from threading import Thread, Lock
 import os
 import time
-from modules.speech_recognition import SpeechRecognizer
+from modules.speech_recognizer_factory import SpeechRecognizerFactory
 from modules.text_aligner import TextAligner
 from modules.llm_processor import LLMProcessor
 from modules.video_processor import VideoProcessor
-from config import SPEECH_RECOGNITION_MODEL, WHISPERX_MODEL_SIZE, \
+from config import SPEECH_RECOGNIZER_TYPE, WHISPERX_MODEL_SIZE, \
     ENABLE_ALIGNMENT
 from typing import List, Dict, Optional
 
@@ -58,14 +58,14 @@ class ProcessingQueue:
                     model_size = self.results[task_id].get("model_size")
 
                 # 如果指定了模型大小，临时更新配置
-                if model_size and SPEECH_RECOGNITION_MODEL == 'whisperx':
+                if model_size and SPEECH_RECOGNIZER_TYPE == 'whisperx':
                     global WHISPERX_MODEL_SIZE
                     original_model = WHISPERX_MODEL_SIZE
                     WHISPERX_MODEL_SIZE = model_size
 
                 # 处理每个文件
                 file_results = []
-                recognizer = SpeechRecognizer()
+                recognizer = SpeechRecognizerFactory.getSpeechRecognizerByType(SPEECH_RECOGNIZER_TYPE)
                 llm = LLMProcessor(self.results[task_id].get("llm_model"))
 
                 for i, file_path in enumerate(files):
@@ -107,7 +107,7 @@ class ProcessingQueue:
                     })
 
                 # 恢复原始模型设置
-                if model_size and SPEECH_RECOGNITION_MODEL == 'whisperx':
+                if model_size and SPEECH_RECOGNIZER_TYPE == 'whisperx':
                     WHISPERX_MODEL_SIZE = original_model
 
                 # 更新结果
@@ -121,7 +121,7 @@ class ProcessingQueue:
                 print(f"任务处理错误: {error_msg}")
 
                 # 恢复原始模型设置
-                if 'model_size' in locals() and model_size and SPEECH_RECOGNITION_MODEL == 'whisperx':
+                if 'model_size' in locals() and model_size and SPEECH_RECOGNIZER_TYPE == 'whisperx':
                     WHISPERX_MODEL_SIZE = original_model
 
                 with self.lock:

@@ -1,5 +1,5 @@
 from typing import Optional
-from modules.speech_recognizer  import SpeechRecognizer
+from modules.speech_recognizers.speech_recognizer  import SpeechRecognizer
 import whisperx
 class WhsiperXSpeechRecognizer (SpeechRecognizer):
     def __init__(
@@ -19,7 +19,9 @@ class WhsiperXSpeechRecognizer (SpeechRecognizer):
             compute_type=compute_type,
             batch_size = batch_size,
         )
-        print(f"加载WhisperX模型: {self.model_size}")
+        print(f"加载Whisper模型: {self.model_size}")
+        print(f"device = {self.device}")  
+        print(f"{self.model_size, self.device, self.compute_type, self.opts}")
         asr_options = {
             "initial_prompt": "是的，这个句子是为了增加标点。",
         }
@@ -39,7 +41,7 @@ class WhsiperXSpeechRecognizer (SpeechRecognizer):
                 asr_options=asr_options
             )
     def transcribe(self, audio_path):
-        self.__before_trascribe(audio_path)
+        self.before_transcribe(audio_path)
         audio = whisperx.load_audio(audio_path)
         print(f"get audio data: {audio_path}")
         print(f"batch size = {self.batch_size}")

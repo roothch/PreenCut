@@ -2,7 +2,7 @@ from queue import Queue
 from threading import Thread, Lock
 import os
 import time
-from modules.speech_recognizer_factory import SpeechRecognizerFactory
+from modules.speech_recognizers.speech_recognizer_factory import SpeechRecognizerFactory
 from modules.text_aligner import TextAligner
 from modules.llm_processor import LLMProcessor
 from modules.video_processor import VideoProcessor

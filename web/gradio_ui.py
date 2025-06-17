@@ -11,8 +11,8 @@ from config import (
     OUTPUT_FOLDER,
     ALLOWED_EXTENSIONS,
     MAX_FILE_SIZE,
-    SPEECH_RECOGNITION_MODEL,
-    WHISPERX_MODEL_SIZE,
+    SPEECH_RECOGNIZER_TYPE,
+    WHISPER_MODEL_SIZE,
     MAX_FILE_NUMBERS
 )
 from modules.processing_queue import ProcessingQueue
@@ -370,9 +370,8 @@ def create_gradio_interface():
                     model_size = gr.Dropdown(
                         choices=["large-v2", "large-v3", "large", "medium",
                                  "small", "base", "tiny"],
-                        value=WHISPERX_MODEL_SIZE,
-                        label="语音识别模型大小",
-                        visible=(SPEECH_RECOGNITION_MODEL == 'whisperx')
+                        value=WHISPER_MODEL_SIZE,
+                        label="语音识别模型大小"
                     )
 
                 prompt_input = gr.Textbox(

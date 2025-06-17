@@ -2,7 +2,7 @@ from typing import Optional
 
 from config import (
     ALIGNMENT_MODEL,
-    WHISPERX_DEVICE,
+    WHISPER_DEVICE,
 )
 
 
@@ -19,7 +19,7 @@ class TextAligner:
                 import whisperx
                 print(f"加载WhisperX对齐模型，语言{self.language_code}")
                 model = whisperx.load_align_model(
-                    language_code=self.language_code, device=WHISPERX_DEVICE)
+                    language_code=self.language_code, device=WHISPER_DEVICE)
                 return model
             except ImportError:
                 raise ImportError(
@@ -36,7 +36,7 @@ class TextAligner:
             audio = whisperx.load_audio(audio_path)
             align_model, align_model_metadata = self.model
             result = whisperx.align(segments, align_model, align_model_metadata,
-                                    audio, WHISPERX_DEVICE,
+                                    audio, WHISPER_DEVICE,
                                     return_char_alignments=False)
             for segment in result["segments"]:
                 segment.pop("words", None)

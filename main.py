@@ -15,13 +15,12 @@ if __name__ == "__main__":
 
     # 打印当前配置
     print("\n当前配置:")
-    print(f"语音识别模型: {config.SPEECH_RECOGNITION_MODEL}")
-    if config.SPEECH_RECOGNITION_MODEL == 'whisperx':
-        print(f"  模型大小: {config.WHISPERX_MODEL_SIZE}")
-        print(f"  计算设备: {config.WHISPERX_DEVICE}")
-        print(f"  计算类型: {config.WHISPERX_COMPUTE_TYPE}")
-        print(f"  使用GPU: {config.WHISPERX_GPU_IDS}")
-        print(f"  批处理大小: {config.WHISPERX_BATCH_SIZE}")
+    print(f"  语音识别处理模块: {config.SPEECH_RECOGNIZER_TYPE}")
+    print(f"  模型大小: {config.WHISPER_MODEL_SIZE}")
+    print(f"  计算设备: {config.WHISPER_DEVICE}")
+    print(f"  计算类型: {config.WHISPER_COMPUTE_TYPE}")
+    print(f"  使用GPU: {config.WHISPER_GPU_IDS}")
+    print(f"  批处理大小: {config.WHISPER_BATCH_SIZE}")
 
     # 创建Gradio界面
     app = create_gradio_interface()

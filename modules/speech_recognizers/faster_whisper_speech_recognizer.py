@@ -12,7 +12,7 @@ class FasterWhisperSpeechRecognizer(SpeechRecognizer):
             device,
             device_index,
             compute_type,
-            batch_size: int,
+            batch_size=16,
             beam_size=5,
     ):
         super().__init__(model_size, device, device_index=device_index, compute_type=compute_type,

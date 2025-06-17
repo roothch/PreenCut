@@ -59,7 +59,7 @@ class ProcessingQueue:
 
                 # 处理每个文件
                 file_results = []
-                recognizer = SpeechRecognizerFactory.getSpeechRecognizerByType(SPEECH_RECOGNIZER_TYPE, model_size)
+                recognizer = SpeechRecognizerFactory.get_speech_recognizer_by_type(SPEECH_RECOGNIZER_TYPE, model_size)
                 llm = LLMProcessor(self.results[task_id].get("llm_model"))
 
                 for i, file_path in enumerate(files):

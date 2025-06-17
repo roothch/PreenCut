@@ -3,12 +3,11 @@ from modules.speech_recognizers.faster_whisper_speech_recognizer import FasterWh
 from modules.speech_recognizers.whisperx_speech_recognizer import WhsiperXSpeechRecognizer
 from modules.speech_recognizers.speech_recognizer import SpeechRecognizer
 from config import (
-    SPEECH_RECOGNIZER_TYPE,
-    WHISPER_MODEL_SIZE,
     WHISPER_DEVICE,
     WHISPER_COMPUTE_TYPE,
     WHISPER_GPU_IDS,
     WHISPER_BATCH_SIZE,
+    FASTER_WHISPER_BEAM_SIZE
 )
 
 class SpeechRecognizerFactory:
@@ -22,7 +21,7 @@ class SpeechRecognizerFactory:
                 WHISPER_DEVICE,
                 compute_type=WHISPER_COMPUTE_TYPE,
                 device_index = WHISPER_GPU_IDS,
-                batch_size = WHISPER_BATCH_SIZE
+                beam_size = FASTER_WHISPER_BEAM_SIZE
             )
         elif type == 'whisperx':
             speechRecongnizer = WhsiperXSpeechRecognizer(

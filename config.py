@@ -58,6 +58,8 @@ WHISPER_GPU_IDS = AVAILABLE_GPUS
 WHISPER_COMPUTE_TYPE = 'float16' if WHISPER_DEVICE == 'cuda' else 'float32'  # float16, float32, int8
 WHISPER_BATCH_SIZE = 16  # 批处理大小
 
+FASTER_WHISPER_BEAM_SIZE = 5
+
 
 
 # 语音文字对齐模型

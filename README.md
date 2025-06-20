@@ -89,6 +89,11 @@ python main.py
   - Export as ZIP package
   - Merge into a single video file
 
+## 💻 Development
+```bash
+python3 -m uvicorn main:app --port 7860 --reload
+```
+
 ## ⚡ Performance Tips
 
   - Adjust WHISPERX_BATCH_SIZE based on available VRAM

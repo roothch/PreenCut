@@ -182,5 +182,6 @@ cython_debug/
 #.idea/
 
 .vscode
+.gradio
 temp
 

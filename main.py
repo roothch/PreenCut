@@ -3,10 +3,10 @@ from fastapi.middleware.cors import CORSMiddleware
 import gradio as gr
 import uvicorn
 
-
+import config
 from web.gradio_ui import create_gradio_interface
 from web.api import router as api_router
-import config
+
 
 import logging
 

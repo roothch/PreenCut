@@ -36,7 +36,7 @@ def upload(file: UploadFile):
     return {"file_path": save_path}
 
 
-@router.post("/transcribe")
+@router.post("/tasks")
 def createTranscribeTask(body: createTransribeTaskBody):
     task_id = f"task_{  uuid.uuid4().hex}"
     file_path = body.file_path
@@ -52,7 +52,7 @@ def createTranscribeTask(body: createTransribeTaskBody):
     return {"task_id": task_id}
 
 
-@router.get("/transcribe/{task_id}")
+@router.get("/tasks/{task_id}")
 def queryTranscribeTask(task_id: str):
     result = processing_queue.get_result(task_id)
     return result

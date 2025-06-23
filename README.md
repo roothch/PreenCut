@@ -59,6 +59,9 @@ export DEEPSEEK_V3_API_KEY=your_deepseek_api_key
 export DOUBAO_1_5_PRO_API_KEY=your_doubao_api_key
 ```
 
+5. set up temp file directory
+  set os.environ['GRADIO_TEMP_DIR'] in config.py file.
+
 ## 🚀 Usage
 
 1. Start the Gradio interface:
@@ -67,7 +70,7 @@ export DOUBAO_1_5_PRO_API_KEY=your_doubao_api_key
 python main.py
 ```
 
-2. Access the web interface at http://localhost:7860
+2. Access the web interface at http://localhost:7860/web
 3. Upload video/audio files (supported formats: mp4, avi, mov, mkv, ts, mxf, mp3, wav, flac)
 4. Configure options:
 
@@ -88,6 +91,96 @@ python main.py
 
   - Export as ZIP package
   - Merge into a single video file
+
+9. you can also visit the Restful api use the route prefix /api/xxx
+
+    * upload file
+
+      > POST /api/upload
+      
+      body: formdata
+
+      | 字段名|类型||
+      |-|-|-|
+      |file| 文件类型|
+
+      reponse: json
+      ```
+        { file_path: f'${GRADIO_TEMP_DIR}/files/2025/05/06/uuid.v1().replace('-', '')${file_extension}' }
+      ```
+
+    * create task
+
+      > POST /api/tasks
+      
+      body: json
+
+      ```json
+      {
+        // need ${GRADIO_TEMP_DIR} start 
+        "file_path": "",   
+        "llm_model": "DeepSeek-V3-0324",
+        "whisper_model_size": "large-v2",
+        "prompt": "提取重要信息，时间控制在10s"
+      }
+      ```
+
+      response: 
+      ```json
+        { "task_id": "" }
+      ```
+    * query task reult
+    
+      GET /api/tasks/{task_id}
+      
+      response:
+      ```json
+      {
+        "status": "completed",
+        "files": [
+            "${GRADIO_TEMP_DIR}/files/2025/06/23/608ecc80500e11f0b08a02420134443f.wav"
+        ],
+        "prompt": "提取重要信息，时间控制在10s",
+        "model_size": "large-v2",
+        "llm_model": "DeepSeek-V3-0324",
+        "timestamp": 1750668370.6088192,
+        "status_info": "共1个文件，正在处理第1个文件",
+        "result": [
+            {
+                "filename": "608ecc80500e11f0b08a02420134443f.wav",
+                "align_result": {
+                    "segments": [
+                        {
+                            "text": "有内地媒体报道,嫦娥6号着陆器上升器组合体已经完成了钻取采样,接着正按计划进行月面的表取采样。",
+                            "start": 1.145,
+                            "end": 9.329
+                        }
+                    ],
+                    "language": "zh"
+                },
+                "segments": [
+                    {
+                        "start": 1.145,
+                        "end": 9.329,
+                        "summary": "嫦娥6号着陆器上升器组合体已完成钻取采样，正进行月面表取采样。",
+                        "tags": [
+                            "嫦娥6号",
+                            "月球采样",
+                            "航天科技"
+                        ]
+                    }
+                ],
+                "filepath": "${GRADIO_TEMP_DIR}/files/2025/06/23/608ecc80500e11f0b08a02420134443f.wav"
+            }
+        ],
+        "last_accessed": 1750668836.8038888
+      }
+      ```
+
+## 💻 Development
+```bash
+python3 -m uvicorn main:app --port 7860 --reload
+```
 
 ## ⚡ Performance Tips
 

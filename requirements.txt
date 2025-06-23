@@ -1,7 +1,9 @@
 gradio>=5.0.0
-whisperx
+whisperx~=3.3.1
 ffmpeg-python
-openai
+openai~=1.86.0
 python-dotenv
-torch
+torch~=2.2.2
 torchaudio
+fastapi~=0.115.12
+faster-whisper~=1.1.0

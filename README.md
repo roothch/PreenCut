@@ -132,6 +132,7 @@ python main.py
     * query task reult
     
       GET /api/tasks/{task_id}
+      
       response:
       ```json
       {

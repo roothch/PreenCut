@@ -1,9 +1,8 @@
-gradio>=5.0.0
-whisperx~=3.3.1
-ffmpeg-python
-openai~=1.86.0
-python-dotenv
-torch~=2.2.2
-torchaudio
-fastapi~=0.115.12
-faster-whisper~=1.1.0
+gradio==5.34.2
+whisperx==3.3.4
+ffmpeg-python==0.2.0
+openai==1.91.0
+torch==2.7.1
+torchaudio==2.7.1
+fastapi==0.115.13
+faster-whisper==1.1.1

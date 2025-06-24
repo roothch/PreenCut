@@ -1,6 +1,8 @@
 from binascii import Error
-from modules.speech_recognizers.faster_whisper_speech_recognizer import FasterWhisperSpeechRecognizer
-from modules.speech_recognizers.whisperx_speech_recognizer import WhisperXSpeechRecognizer
+from modules.speech_recognizers.faster_whisper_speech_recognizer import \
+    FasterWhisperSpeechRecognizer
+from modules.speech_recognizers.whisperx_speech_recognizer import \
+    WhisperXSpeechRecognizer
 from modules.speech_recognizers.speech_recognizer import SpeechRecognizer
 from config import (
     WHISPER_DEVICE,
@@ -17,8 +19,7 @@ class SpeechRecognizerFactory:
 
     @staticmethod
     def get_speech_recognizer_by_type(type, model_size) -> SpeechRecognizer:
-        speech_recognizer = None
-        if type == 'faster_whisper':
+        if type == 'faster-whisper':
             speech_recognizer = FasterWhisperSpeechRecognizer(
                 model_size,
                 WHISPER_DEVICE,

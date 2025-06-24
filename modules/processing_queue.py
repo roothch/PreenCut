@@ -2,7 +2,8 @@ from queue import Queue
 from threading import Thread, Lock
 import os
 import time
-from modules.speech_recognizers.speech_recognizer_factory import SpeechRecognizerFactory
+from modules.speech_recognizers.speech_recognizer_factory import \
+    SpeechRecognizerFactory
 from modules.text_aligner import TextAligner
 from modules.llm_processor import LLMProcessor
 from modules.video_processor import VideoProcessor
@@ -59,7 +60,8 @@ class ProcessingQueue:
 
                 # 处理每个文件
                 file_results = []
-                recognizer = SpeechRecognizerFactory.get_speech_recognizer_by_type(SPEECH_RECOGNIZER_TYPE, model_size)
+                recognizer = SpeechRecognizerFactory.get_speech_recognizer_by_type(
+                    SPEECH_RECOGNIZER_TYPE, model_size)
                 llm = LLMProcessor(self.results[task_id].get("llm_model"))
 
                 for i, file_path in enumerate(files):
@@ -108,7 +110,7 @@ class ProcessingQueue:
             except Exception as e:
                 import traceback
                 error_msg = traceback.format_exc()
-                print(f"任务处理错误: {error_msg}")
+                print(f"任务处理错误: {error_msg}", flush=True)
 
                 with self.lock:
                     self.results[task_id]["status"] = "error"

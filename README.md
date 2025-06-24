@@ -100,9 +100,9 @@ python main.py
       
       body: formdata
 
-      | 字段名|类型||
-      |-|-|-|
-      |file| 文件类型|
+      | key  | value type ||
+      |------|------------|-|
+      | file | file       |
 
       reponse: json
       ```
@@ -117,8 +117,7 @@ python main.py
 
       ```json
       {
-        // need ${GRADIO_TEMP_DIR} start 
-        "file_path": "",   
+        "file_path": "put the file path here response from upload api, starting with ${GRADIO_TEMP_DIR}",   
         "llm_model": "DeepSeek-V3-0324",
         "whisper_model_size": "large-v2",
         "prompt": "提取重要信息，时间控制在10s"
@@ -184,10 +183,14 @@ python3 -m uvicorn main:app --port 7860 --reload
 
 ## ⚡ Performance Tips
 
-  - Adjust WHISPERX_BATCH_SIZE based on available VRAM
-  - Reduce WHISPERX_MODEL_SIZE in config.py for faster processing
+  - Use WhisperX for faster processing, user faster-whisper for shorter segments
+  - Adjust WHISPER_BATCH_SIZE based on available VRAM
   - Use smaller model sizes for CPU-only systems
 
 ## 📜 License
 This project is licensed under the MIT License. See the [LICENSE](LICENSE) file for details.
+
+## ⭐ Star History
+
+[![Star History Chart](https://api.star-history.com/svg?repos=roothch/preencut&type=Date)](https://www.star-history.com/#roothch/preencut&Date)
 

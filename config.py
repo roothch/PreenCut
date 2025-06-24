@@ -48,7 +48,7 @@ TEMP_FOLDER = "temp"
 OUTPUT_FOLDER = "output"
 
 # 语音识别模型配置
-SPEECH_RECOGNIZER_TYPE = 'whisperx' # whisperx, faster_whisper
+SPEECH_RECOGNIZER_TYPE = 'whisperx' # whisperx, faster-whisper
 
 DEVICE_TYPE, AVAILABLE_GPUS = get_device_config()
 # Whisper配置

@@ -183,7 +183,7 @@ python3 -m uvicorn main:app --port 7860 --reload
 
 ## ⚡ Performance Tips
 
-  - Use WhisperX for faster processing, user faster-whisper for shorter segments
+  - Use WhisperX for faster processing, use faster-whisper for shorter segments
   - Adjust WHISPER_BATCH_SIZE based on available VRAM
   - Use smaller model sizes for CPU-only systems
 

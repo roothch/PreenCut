@@ -59,7 +59,7 @@ export DEEPSEEK_V3_API_KEY=your_deepseek_api_key
 export DOUBAO_1_5_PRO_API_KEY=your_doubao_api_key
 ```
 
-5. set up temp file directory
+5. (Optional)set up gradio temp file directory:
   set os.environ['GRADIO_TEMP_DIR'] in config.py file.
 
 ## 🚀 Usage
@@ -189,6 +189,12 @@ python3 -m uvicorn main:app --port 7860 --reload
 
 ## 📜 License
 This project is licensed under the MIT License. See the [LICENSE](LICENSE) file for details.
+
+## 💬 Community Communication
+- Email: 1242727205@qq.com 
+- RedNote(小红书): [一去二三里](https://www.xiaohongshu.com/user/profile/60c4b6df000000000101eedd)
+- RedNote Group
+<img src="./docs/rednote_group.jpg" alt="RedNote Group" width="300" />
 
 ## ⭐ Star History
 

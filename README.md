@@ -70,7 +70,7 @@ export DOUBAO_1_5_PRO_API_KEY=your_doubao_api_key
 python main.py
 ```
 
-2. Access the web interface at http://localhost:7860/web
+2. Access the web interface at http://localhost:7860
 3. Upload video/audio files (supported formats: mp4, avi, mov, mkv, ts, mxf, mp3, wav, flac)
 4. Configure options:
 

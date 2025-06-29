@@ -62,7 +62,7 @@ print(f"  批处理大小: {config.WHISPER_BATCH_SIZE}")
 
 # 创建Gradio界面
 gradio_app = create_gradio_interface()
-app = gr.mount_gradio_app(app, gradio_app, path="/web")
+app = gr.mount_gradio_app(app, gradio_app, path="")
 
 if __name__ == "__main__":
     # 启动应用

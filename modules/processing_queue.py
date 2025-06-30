@@ -27,7 +27,7 @@ class ProcessingQueue:
 
     def add_task(self, task_id: str, files: List[str], llm_model: str,
                  prompt: Optional[str],
-                 whixper_model_size: Optional[str] = None):
+                 whixper_model_size: Optional[str] = None, custom_temperature=0.3):
         """添加任务到队列"""
         with self.lock:
             self.results[task_id] = {
@@ -36,7 +36,8 @@ class ProcessingQueue:
                 "prompt": prompt,
                 "model_size": whixper_model_size,
                 "llm_model": llm_model,
-                "timestamp": time.time()  # 记录任务添加时间
+                "timestamp": time.time(),  # 记录任务添加时间
+                "custom_temperature": custom_temperature
             }
         self.queue.put(task_id)
 
@@ -62,7 +63,7 @@ class ProcessingQueue:
                 file_results = []
                 recognizer = SpeechRecognizerFactory.get_speech_recognizer_by_type(
                     SPEECH_RECOGNIZER_TYPE, model_size)
-                llm = LLMProcessor(self.results[task_id].get("llm_model"))
+                llm = LLMProcessor(self.results[task_id].get("llm_model"), custom_temperature=self.results[task_id]['custom_temperature'])
 
                 for i, file_path in enumerate(files):
                     self.results[task_id][

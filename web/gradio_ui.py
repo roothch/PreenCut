@@ -119,14 +119,14 @@ def check_status(task_id: str) -> Tuple[Dict, List, List, gr.Timer]:
 
     elif result["status"] == "error":
         return (
-            '',
+            [],
             {"task_id": task_id,
              "status": f"错误: {result.get('error', '未知错误')}"},
             [], [], gr.update()
         )
     elif result["status"] == "queued":
         return (
-            '',
+            [],
             {"task_id": task_id,
              "status": f"排队中, 前面还有{processing_queue.get_queue_size()}个任务"},
             [], [], gr.update()
@@ -134,14 +134,14 @@ def check_status(task_id: str) -> Tuple[Dict, List, List, gr.Timer]:
 
     if task_id:
         return (
-            '',
+            [],
             {"task_id": task_id, "status": "处理中...",
              "status_info": result.get("status_info", "")},
             [], [], gr.update()
         )
     else:
         return (
-            '',
+            [],
             {"task_id": "", "status": ""},
             [], [], gr.update()
         )

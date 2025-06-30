@@ -59,6 +59,7 @@ def check_uploaded_files(files: List) -> str:
 
 
 def process_files(files: List, llm_model: str,
+                  custom_temperature: float,
                   prompt: Optional[str] = None,
                   whisper_model_size: Optional[str] = None) -> Tuple[
     str, Dict]:
@@ -74,7 +75,7 @@ def process_files(files: List, llm_model: str,
 
     # 添加到处理队列
     processing_queue.add_task(task_id, saved_paths, llm_model, prompt,
-                              whisper_model_size)
+                              whisper_model_size, custom_temperature)
 
     return task_id, {"status": "已加入队列，请稍候..."}
 
@@ -333,7 +334,7 @@ def start_reanalyze() -> Dict:
 
 
 def reanalyze_with_prompt(task_id: str, reanalyze_llm_model: str,
-                          new_prompt: str) -> Tuple[
+                          new_prompt: str, custom_temperature: float) -> Tuple[
     Dict, List[List], List[List]]:
     """使用新的提示重新分析"""
     if not task_id:
@@ -351,7 +352,7 @@ def reanalyze_with_prompt(task_id: str, reanalyze_llm_model: str,
     try:
         # 使用新提示重新处理
         from modules.llm_processor import LLMProcessor
-        llm = LLMProcessor(reanalyze_llm_model)
+        llm = LLMProcessor(reanalyze_llm_model, custom_temperature=custom_temperature)
         updated_results = []
 
         for file_data in task_result["result"]:
@@ -413,6 +414,9 @@ def create_gradio_interface():
                     llm_model = gr.Dropdown(
                         choices=[model['label'] for model in LLM_MODEL_OPTIONS],
                         value="豆包", label="大语言模型")
+                    custom_temperature = gr.Dropdown(
+                        choices=[float(num+1)/10 for num in range(10)],
+                        value=0.3, label="摘要生成灵活度(temperature, 推荐0.2-0.4之间)")
                     model_size = gr.Dropdown(
                         choices=["large-v2", "large-v3", "large", "medium",
                                  "small", "base", "tiny"],
@@ -451,6 +455,9 @@ def create_gradio_interface():
                     reanalyze_llm_model = gr.Dropdown(
                         choices=[model['label'] for model in LLM_MODEL_OPTIONS],
                         value="豆包", label="大语言模型")
+                    reanlyze_custom_temperature = gr.Dropdown(
+                        choices=[float(num + 1) / 10.0 for num in range(10)],
+                        value=0.3, label='摘要生成灵活度(temperature, 推荐0.2-0.4之间)')
                     reanalyze_btn = gr.Button("重新分析", variant="secondary")
 
                 with gr.Tab("剪辑选项"):
@@ -486,7 +493,7 @@ def create_gradio_interface():
         # 事件处理
         process_btn.click(
             process_files,
-            inputs=[file_upload, llm_model, prompt_input, model_size],
+            inputs=[file_upload, custom_temperature,  llm_model, prompt_input, model_size],
             outputs=[task_id, status_display]
         ).then(
             lambda: gr.Timer(active=True),
@@ -501,7 +508,7 @@ def create_gradio_interface():
             outputs=status_display,
         ).then(
             reanalyze_with_prompt,
-            inputs=[task_id, reanalyze_llm_model, new_prompt],
+            inputs=[task_id, reanalyze_llm_model, new_prompt, reanlyze_custom_temperature],
             outputs=[status_display, result_table, segment_selection],
             show_progress="hidden"
         )

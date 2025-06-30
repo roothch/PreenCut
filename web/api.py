@@ -1,5 +1,6 @@
 from fastapi import APIRouter, UploadFile, HTTPException
 from modules.processing_queue import ProcessingQueue
+from typing import Optional
 import os
 import uuid
 from pydantic import BaseModel
@@ -17,7 +18,7 @@ router = APIRouter(prefix="/api")
 class createTransribeTaskBody(BaseModel):
     whisper_model_size: str
     llm_model: str
-    prompt: str | None = None
+    prompt: Optional[str] = None
     file_path: str
 
 
@@ -38,16 +39,18 @@ def upload(file: UploadFile):
 
 @router.post("/tasks")
 def createTranscribeTask(body: createTransribeTaskBody):
-    task_id = f"task_{  uuid.uuid4().hex}"
+    task_id = f"task_{uuid.uuid4().hex}"
     file_path = body.file_path
     if not file_path.startswith(f"{temp_dir}/files"):
-        raise HTTPException(status_code=403, detail="file is not permit to visit")
+        raise HTTPException(status_code=403,
+                            detail="file is not permit to visit")
     if not Path(file_path).exists():
         raise HTTPException(status_code=400, detail="file not found")
     print(f"添加任务: {task_id}, 文件路径: {file_path}")
     # 添加到处理队列
     processing_queue.add_task(
-        task_id, [file_path], body.llm_model, body.prompt, body.whisper_model_size
+        task_id, [file_path], body.llm_model, body.prompt,
+        body.whisper_model_size
     )
     return {"task_id": task_id}
 

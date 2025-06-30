@@ -3,6 +3,7 @@ import uuid
 import time
 import random
 import zipfile
+import csv
 import gradio as gr
 from config import LLM_MODEL_OPTIONS
 
@@ -100,7 +101,14 @@ def check_status(task_id: str) -> Tuple[Dict, List, List, gr.Timer]:
                 display_result.append(row)
                 clip_result.append(clip_row)
 
+        # 将结果保存到csv文件
+        task_output_dir = os.path.join(OUTPUT_FOLDER, task_id)
+        os.makedirs(task_output_dir, exist_ok=True)
+        result_path = write_to_csv(display_result, output_dir=task_output_dir,
+                                   filename="result.csv")
+
         return (
+            result_path,
             {"task_id": task_id, "status": "处理完成",
              "raw_result": result["result"],
              "result": display_result, },
@@ -111,12 +119,14 @@ def check_status(task_id: str) -> Tuple[Dict, List, List, gr.Timer]:
 
     elif result["status"] == "error":
         return (
+            [],
             {"task_id": task_id,
              "status": f"错误: {result.get('error', '未知错误')}"},
             [], [], gr.update()
         )
     elif result["status"] == "queued":
         return (
+            [],
             {"task_id": task_id,
              "status": f"排队中, 前面还有{processing_queue.get_queue_size()}个任务"},
             [], [], gr.update()
@@ -124,15 +134,51 @@ def check_status(task_id: str) -> Tuple[Dict, List, List, gr.Timer]:
 
     if task_id:
         return (
+            [],
             {"task_id": task_id, "status": "处理中...",
              "status_info": result.get("status_info", "")},
             [], [], gr.update()
         )
     else:
         return (
+            [],
             {"task_id": "", "status": ""},
             [], [], gr.update()
         )
+
+
+def write_to_csv(display_result: list, output_dir: str,
+                 filename: str = "output.csv") -> str:
+    """
+    将 `display_result` 写入 CSV 文件，并返回文件路径。
+
+    Args:
+        display_result (list): 要写入的数据（二维列表，每行代表 CSV 的一行）
+        output_dir (str): 输出目录
+        filename (str, optional): 输出文件名，默认为 "output.csv"
+
+    Returns:
+        str: 生成的 CSV 文件路径
+    """
+    # 确保目录存在
+    os.makedirs(output_dir, exist_ok=True)
+
+    # 构造完整文件路径
+    file_path = os.path.join(output_dir, filename)
+
+    # 写入 CSV 文件
+    with open(file_path, mode="w", newline="", encoding="utf-8") as csvfile:
+        writer = csv.writer(csvfile)
+
+        # 写入表头（可选，如果需要列名可以在这里添加）
+        header = ["文件名", "开始时间", "结束时间", "时长", "内容摘要",
+                  "标签"]
+        writer.writerow(header)
+
+        # 写入数据行
+        writer.writerows(display_result)
+
+    return file_path
 
 
 def select_clip(segment_selection: List[List], evt: gr.SelectData) -> List[
@@ -387,11 +433,12 @@ def create_gradio_interface():
 
             with gr.Column(scale=3):
                 with gr.Tab("分析结果"):
+                    file_download = gr.File(label="下载分析结果")
                     result_table = gr.Dataframe(
                         headers=["文件名", "开始时间", "结束时间", "时长",
                                  "内容摘要", "标签"],
                         datatype=["str", "str", "str", "str", "str", "str"],
-                        interactive=False,
+                        interactive=True,
                         wrap=True
                     )
 
@@ -432,7 +479,8 @@ def create_gradio_interface():
         # 定时器，用于轮询状态
         timer = gr.Timer(2, active=False)
         timer.tick(check_status, task_id,
-                   outputs=[status_display, result_table, segment_selection,
+                   outputs=[file_download, status_display, result_table,
+                            segment_selection,
                             timer])
 
         # 事件处理

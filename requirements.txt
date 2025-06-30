@@ -2,7 +2,7 @@ gradio==5.34.2
 whisperx==3.3.4
 ffmpeg-python==0.2.0
 openai==1.91.0
-torch==2.7.1
-torchaudio==2.7.1
+torch==2.7.1+cu118
+torchaudio==2.7.1+cu118
 fastapi==0.115.13
 faster-whisper==1.1.1

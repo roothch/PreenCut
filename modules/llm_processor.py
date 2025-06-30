@@ -7,7 +7,7 @@ from typing import List, Dict, Optional
 
 
 class LLMProcessor:
-    def __init__(self, llm_model: str):
+    def __init__(self, llm_model: str, custom_temperature: float):
         for model in LLM_MODEL_OPTIONS:
             if model['label'] == llm_model:
                 self.api_key = os.getenv(model['api_key_env_name'])
@@ -16,7 +16,8 @@ class LLMProcessor:
                     base_url=model['base_url'],
                 )
                 self.model = model['model']
-                self.temperature = model.get('temperature', 0.3)
+                # self.temperature = model.get('temperature', 0.3)
+                self.temperature = custom_temperature
                 self.max_tokens = model.get('max_tokens', 4096)
                 break
 

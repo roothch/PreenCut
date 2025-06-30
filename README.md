@@ -28,7 +28,7 @@ git clone https://github.com/roothch/PreenCut.git
 cd PreenCut
 ```
 
-2. Install dependencies:
+2. Install dependencies, recommend using Python 3.11:
 
 ```bash
 pip install -r requirements.txt

@@ -414,9 +414,7 @@ def create_gradio_interface():
                     llm_model = gr.Dropdown(
                         choices=[model['label'] for model in LLM_MODEL_OPTIONS],
                         value="豆包", label="大语言模型")
-                    temperature = gr.Dropdown(
-                        choices=[float(num+1)/10 for num in range(10)],
-                        value=0.3, label="摘要生成灵活度(temperature, 推荐0.2-0.4之间)")
+                    temperature = gr.Slider(minimum=0.1, maximum=1, step=0.1, value=0.3, label="摘要生成灵活度(temperature, 推荐0.2-0.4之间)")
                     model_size = gr.Dropdown(
                         choices=["large-v2", "large-v3", "large", "medium",
                                  "small", "base", "tiny"],
@@ -455,9 +453,7 @@ def create_gradio_interface():
                     reanalyze_llm_model = gr.Dropdown(
                         choices=[model['label'] for model in LLM_MODEL_OPTIONS],
                         value="豆包", label="大语言模型")
-                    reanlyze_temperature = gr.Dropdown(
-                        choices=[float(num + 1) / 10.0 for num in range(10)],
-                        value=0.3, label='摘要生成灵活度(temperature, 推荐0.2-0.4之间)')
+                    reanlyze_temperature = gr.Slider(minimum=0.1, maximum=1, step=0.1, value=0.3, label="摘要生成灵活度(temperature, 推荐0.2-0.4之间)")
                     reanalyze_btn = gr.Button("重新分析", variant="secondary")
 
                 with gr.Tab("剪辑选项"):

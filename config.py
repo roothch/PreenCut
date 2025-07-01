@@ -73,16 +73,14 @@ LLM_MODEL_OPTIONS = [
         "base_url": "https://api.lkeap.cloud.tencent.com/v1",
         "api_key_env_name": "DEEPSEEK_V3_API_KEY",
         "label": "DeepSeek-V3-0324",
-        "max_tokens": 4096,
-        "temperature": 0.3,
+        "max_tokens": 4096
     },
     {
         "model": "doubao-1-5-pro-32k-250115",
         "base_url": "https://ark.cn-beijing.volces.com/api/v3",
         "api_key_env_name": "DOUBAO_1_5_PRO_API_KEY",
         "label": "豆包",
-        "max_tokens": 4096,
-        "temperature": 0.3,
+        "max_tokens": 4096
     }
 ]
 

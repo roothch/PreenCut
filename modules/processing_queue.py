@@ -34,7 +34,7 @@ class ProcessingQueue:
                 "status": "queued",
                 "files": files,
                 "prompt": prompt,
-                "model_size": whixper_model_size,
+                "model_size": whisper_model_size,
                 "llm_model": llm_model,
                 "timestamp": time.time(),  # 记录任务添加时间
                 "temperature": temperature

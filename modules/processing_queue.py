@@ -26,8 +26,8 @@ class ProcessingQueue:
         self.cleanup_worker.start()
 
     def add_task(self, task_id: str, files: List[str], llm_model: str,
-                 prompt: Optional[str],
-                 whixper_model_size: Optional[str] = None, custom_temperature=0.3):
+                 prompt: Optional[str], temperature=0.3,
+                 whisper_model_size: Optional[str] = None):
         """添加任务到队列"""
         with self.lock:
             self.results[task_id] = {
@@ -37,7 +37,7 @@ class ProcessingQueue:
                 "model_size": whixper_model_size,
                 "llm_model": llm_model,
                 "timestamp": time.time(),  # 记录任务添加时间
-                "custom_temperature": custom_temperature
+                "temperature": temperature
             }
         self.queue.put(task_id)
 
@@ -49,24 +49,27 @@ class ProcessingQueue:
         """处理队列中的任务"""
         while True:
             task_id = self.queue.get()
+            task_result = self.results[task_id]
             try:
                 with self.lock:
-                    self.results[task_id]["status"] = "processing"
+                    task_result["status"] = "processing"
 
                 # 获取任务数据
                 with self.lock:
-                    files = self.results[task_id]["files"]
-                    prompt = self.results[task_id]["prompt"]
-                    model_size = self.results[task_id].get("model_size")
+                    files = task_result.get("files")
+                    prompt = task_result.get("prompt")
+                    model_size = task_result.get("model_size")
 
                 # 处理每个文件
                 file_results = []
                 recognizer = SpeechRecognizerFactory.get_speech_recognizer_by_type(
                     SPEECH_RECOGNIZER_TYPE, model_size)
-                llm = LLMProcessor(self.results[task_id].get("llm_model"), custom_temperature=self.results[task_id]['custom_temperature'])
+                llm_model = task_result.get("llm_model")
+                temperature = task_result.get("temperature")
+                llm = LLMProcessor(llm_model, temperature)
 
                 for i, file_path in enumerate(files):
-                    self.results[task_id][
+                    task_result[
                         "status_info"] = f"共{len(files)}个文件，正在处理第{i + 1}个文件"
                     # 提取音频（如果是视频）
                     if file_path.lower().endswith(
@@ -105,8 +108,8 @@ class ProcessingQueue:
 
                 # 更新结果
                 with self.lock:
-                    self.results[task_id]["status"] = "completed"
-                    self.results[task_id]["result"] = file_results
+                    task_result["status"] = "completed"
+                    task_result["result"] = file_results
 
             except Exception as e:
                 import traceback
@@ -114,8 +117,8 @@ class ProcessingQueue:
                 print(f"任务处理错误: {error_msg}", flush=True)
 
                 with self.lock:
-                    self.results[task_id]["status"] = "error"
-                    self.results[task_id]["error"] = str(e)
+                    task_result["status"] = "error"
+                    task_result["error"] = str(e)
             finally:
                 self.queue.task_done()
 

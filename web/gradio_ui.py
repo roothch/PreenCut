@@ -185,14 +185,10 @@ def write_to_srt(align_result, output_dir, filename='字幕.srt'):
         all_words = []
 
         for segment in align_result.get('segments', []):
-            if 'words' in segment and isinstance(segment['words'], list):
-                all_words.extend(segment['words'])
-            elif 'words' in segment and isinstance(segment['words'], list) and 'chars' in segment['words'][0]:
-                for word in segment['words']:
-                    all_words.extend(word['chars'])
+            all_words.extend(segment['words'])
 
         if not all_words:
-            print("没有找到单词数据")
+            print("文本对齐数据异常")
             return file_path
 
         current_group = []

@@ -175,6 +175,11 @@ def write_to_srt(align_result, output_dir, filename='字幕.srt'):
     # 确保目录存在
     os.makedirs(output_dir, exist_ok=True)
 
+    # 避免处理重名文件
+    files_in_dir = os.listdir(output_dir)
+    while filename in files_in_dir:
+        filename = filename.split('.')[0] + '_duplicate' + '.srt'
+
     # 构造完整文件路径
     file_path = os.path.join(output_dir, filename)
 

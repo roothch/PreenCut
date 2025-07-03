@@ -5,4 +5,4 @@ openai==1.91.0
 torch==2.7.1+cu118
 torchaudio==2.7.1+cu118
 fastapi==0.115.13
-faster-whisper==1.1.1
+# faster-whisper==1.1.1 # Uncomment if you want to use faster-whisper

@@ -178,39 +178,53 @@ def write_to_srt(align_result, output_dir, filename='字幕.srt'):
     # 构造完整文件路径
     file_path = os.path.join(output_dir, filename)
 
+    punctuations = ['，', '、', '。', '！', ',', '.', '!', '?', '？', ';', '；']
+
     with open(file_path, "w", encoding="utf-8") as f:
         srt_index = 1
-        # 按标点符号进行单组字幕划分
-        words = []
-        group_size = []
-        for segment in align_result['segments']:
-            words += segment['words']
-            for i, word in enumerate(segment['text']):
-                if word in ['，', '、', '。', '！', ',', '.', '!']:
-                    group_size.append(i)
-        idx = 0
-        while idx<len(words):
-            size = group_size.pop(0)
-            char_group = words[idx: idx + size]
+        all_words = []
 
-            if not char_group:
-                continue
+        for segment in align_result.get('segments', []):
+            if 'words' in segment and isinstance(segment['words'], list):
+                all_words.extend(segment['words'])
+            elif 'words' in segment and isinstance(segment['words'], list) and 'chars' in segment['words'][0]:
+                for word in segment['words']:
+                    all_words.extend(word['chars'])
 
-            # 获取组的开始和结束时间
-            start_time = char_group[0]["start"]
-            end_time = char_group[-1]["end"]
+        if not all_words:
+            print("没有找到单词数据")
+            return file_path
 
-            # 构建文本
-            text = "".join([char["word"] for char in char_group])
+        current_group = []
+        for i, word in enumerate(all_words):
+            text = word.get('word', '')
+            current_group.append(word)
 
-            # 写入SRT条目
+            if text in punctuations:
+                current_group.pop()
+                if current_group:
+                    start_time = current_group[0]["start"]
+                    end_time = current_group[-1]["end"]
+                    text_content = "".join([w.get('word', '') for w in current_group])
+
+                    f.write(f"{srt_index}\n")
+                    f.write(f"{seconds_to_hhmmss(start_time)} --> {seconds_to_hhmmss(end_time)}\n")
+                    f.write(f"{text_content}\n\n")
+
+                    srt_index += 1
+                    current_group = []
+
+        # 处理最后一组
+        if current_group:
+            start_time = current_group[0]["start"]
+            end_time = current_group[-1]["end"]
+            text_content = "".join([w.get('word', '') or w.get('text', '') for w in current_group])
+
             f.write(f"{srt_index}\n")
             f.write(f"{seconds_to_hhmmss(start_time)} --> {seconds_to_hhmmss(end_time)}\n")
-            f.write(f"{text}\n\n")
+            f.write(f"{text_content}\n\n")
 
-            idx += size
-            srt_index += 1
-    print(f'已保存字幕文件：{filename}')
+    print(f'已保存字幕文件：{file_path}')
 
     return file_path
 

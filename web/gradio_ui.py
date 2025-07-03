@@ -111,7 +111,7 @@ def check_status(task_id: str) -> Tuple[Dict, List, List, gr.Timer]:
                 clip_result.append(clip_row)
 
             # 保存当前SST识别结果
-            sst_path = write_to_csv(text, output_dir=task_output_dir, filename=file_result['filename'].split('.')[0]+'.csv', header=['音频识别结果'])
+            sst_path = write_to_csv([[t] for t in text], output_dir=task_output_dir, filename=file_result['filename'].split('.')[0]+'.csv', header=['音频识别结果'])
             sst_paths.append(sst_path)
 
             # 保存当前视/音频的srt字幕文件

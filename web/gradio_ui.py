@@ -241,6 +241,11 @@ def write_to_csv(display_result: list, output_dir: str,
     # 确保目录存在
     os.makedirs(output_dir, exist_ok=True)
 
+    # 避免处理重名文件
+    files_in_dir = os.listdir(output_dir)
+    while filename in files_in_dir:
+        filename = filename.split('.')[0] + '_duplicate' + '.csv'
+
     # 构造完整文件路径
     file_path = os.path.join(output_dir, filename)
 

@@ -30,7 +30,7 @@ def format_timestamp(seconds: float, is_vtt: bool = False):
 
 
 class SubtitlesProcessor:
-    def __init__(self, segments, lang, max_line_length=45, min_char_length_splitter=30, is_vtt=False):
+    def __init__(self, segments, lang, max_line_length=16, min_char_length_splitter=5, is_vtt=False):
         self.comma = get_comma(lang)
         self.conjunctions = set(get_conjunctions(lang))
         self.segments = segments
@@ -38,11 +38,11 @@ class SubtitlesProcessor:
         self.max_line_length = max_line_length
         self.min_char_length_splitter = min_char_length_splitter
         self.is_vtt = is_vtt
-        # complex_script_languages = ['th', 'lo', 'my', 'km', 'am', 'ko', 'ja', 'zh', 'ti', 'ta', 'te', 'kn', 'ml', 'hi',
-        #                             'ne', 'mr', 'ar', 'fa', 'ur', 'ka']
-        # if self.lang in complex_script_languages:
-        #     self.max_line_length = 30
-        #     self.min_char_length_splitter = 20
+        complex_script_languages = ['th', 'lo', 'my', 'km', 'am', 'ko', 'ja', 'ti', 'ta', 'te', 'kn', 'ml', 'hi',
+                                    'ne', 'mr', 'ar', 'fa', 'ur', 'ka']
+        if self.lang in complex_script_languages:
+            self.max_line_length = 16
+            self.min_char_length_splitter = 10
 
     def estimate_timestamp_for_word(self, words, i, next_segment_start_time=None):
         k = 0.25

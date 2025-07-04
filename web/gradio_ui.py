@@ -100,7 +100,7 @@ def check_status(task_id: str, enable_alignment: str, max_line_length: int) -> T
         srt_paths = []
         for file_result in result["result"]:
             text = [text['text'] for text in file_result['align_result']['segments']]
-            stt_text = ' <br> '.join(text)
+            stt_text = '\n'.join(text)
             stt_result.append([file_result['filename'], stt_text])
             for seg in file_result["segments"]:
                 row = [file_result["filename"],

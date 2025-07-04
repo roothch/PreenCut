@@ -4,7 +4,7 @@ import subprocess
 import json
 import csv
 import re
-from modules.subtitlesProcessor import SubtitlesProcessor
+from modules.subtitles_processor import SubtitlesProcessor
 
 
 def generate_safe_filename(filename, max_length=100):

@@ -516,7 +516,7 @@ def create_gradio_interface():
         process_btn.click(
             process_files,
             inputs=[file_upload, llm_model, temperature, prompt_input,
-                    model_size],
+                    model_size, alignment],
             outputs=[task_id, status_display]
         ).then(
             lambda: gr.Timer(active=True),

@@ -3,9 +3,8 @@ import uuid
 import time
 import random
 import zipfile
-import csv
 import gradio as gr
-from config import LLM_MODEL_OPTIONS
+from config import LLM_MODEL_OPTIONS, ENABLE_ALIGNMENT
 
 from config import (
     TEMP_FOLDER,
@@ -19,7 +18,7 @@ from config import (
 from modules.processing_queue import ProcessingQueue
 from modules.video_processor import VideoProcessor
 from utils import seconds_to_hhmmss, hhmmss_to_seconds, clear_directory_fast \
-    , generate_safe_filename
+    , generate_safe_filename, write_to_srt, write_to_csv
 from typing import List, Dict, Tuple, Optional
 import subprocess
 
@@ -27,6 +26,10 @@ import subprocess
 processing_queue = ProcessingQueue()
 CHECKBOX_CHECKED = '<span style="display: flex; width: 16px; height: 16px; border: 2px solid blue; background:#4B6BFB ;font-weight: bold;color:white;align-items:center;justify-content:center">✓</span>'
 CHECKBOX_UNCHECKED = '<span style="display: flex; width: 16px; height: 16px; border: 2px solid blue;font-weight: bold;color:white;align-items:center;justify-content:center"></span>'
+if ENABLE_ALIGNMENT:
+    DEFAULT_ENABLE_ALIGNMENT = '开启'
+else:
+    DEFAULT_ENABLE_ALIGNMENT = '关闭'
 
 
 def check_uploaded_files(files: List) -> str:
@@ -61,7 +64,7 @@ def check_uploaded_files(files: List) -> str:
 def process_files(files: List, llm_model: str,
                   temperature: float,
                   prompt: Optional[str] = None,
-                  whisper_model_size: Optional[str] = None) -> Tuple[
+                  whisper_model_size: Optional[str] = None, enable_alignment=False) -> Tuple[
     str, Dict]:
     """处理上传的文件"""
 
@@ -75,12 +78,12 @@ def process_files(files: List, llm_model: str,
 
     # 添加到处理队列
     processing_queue.add_task(task_id, saved_paths, llm_model, prompt, temperature,
-                              whisper_model_size)
+                              whisper_model_size, enable_alignment)
 
     return task_id, {"status": "已加入队列，请稍候..."}
 
 
-def check_status(task_id: str) -> Tuple[Dict, List, List, gr.Timer]:
+def check_status(task_id: str, enable_alignment) -> Tuple[Dict, List, List, gr.Timer]:
     """检查任务状态"""
     result = processing_queue.get_result(task_id)
 
@@ -91,7 +94,6 @@ def check_status(task_id: str) -> Tuple[Dict, List, List, gr.Timer]:
         display_result = []
         clip_result = []
         stt_result = []
-        sst_paths = []
         srt_paths = []
         for file_result in result["result"]:
             text = [text['text'] for text in file_result['align_result']['segments']]
@@ -111,12 +113,13 @@ def check_status(task_id: str) -> Tuple[Dict, List, List, gr.Timer]:
                 clip_result.append(clip_row)
 
             # 保存当前SST识别结果
-            sst_path = write_to_csv([[t] for t in text], output_dir=task_output_dir, filename=file_result['filename'].split('.')[0]+'.csv', header=['音频识别结果'])
-            sst_paths.append(sst_path)
+            stt_path = write_to_csv([[t] for t in text], output_dir=task_output_dir, filename=file_result['filename'].split('.')[0]+'.txt', header=['音频识别结果'])
+            srt_paths.append(stt_path)
 
             # 保存当前视/音频的srt字幕文件
-            srt_path = write_to_srt(file_result['align_result'], output_dir=task_output_dir, filename=file_result['filename'].split('.')[0]+'.srt')
-            srt_paths.append(srt_path)
+            if enable_alignment:
+                srt_path = write_to_srt(file_result['align_result'], output_dir=task_output_dir, filename=file_result['filename'].split('.')[0]+'.srt')
+                srt_paths.append(srt_path)
 
         # 将结果保存到csv文件
         result_path = write_to_csv(display_result, output_dir=task_output_dir,
@@ -124,14 +127,13 @@ def check_status(task_id: str) -> Tuple[Dict, List, List, gr.Timer]:
 
         return (
             result_path,
+            srt_paths,
             {"task_id": task_id, "status": "处理完成",
              "raw_result": result["result"],
              "result": display_result, },
             display_result,
             clip_result,
             stt_result,
-            sst_paths,
-            srt_paths,
             gr.Timer(active=False)
         )
 
@@ -140,14 +142,14 @@ def check_status(task_id: str) -> Tuple[Dict, List, List, gr.Timer]:
             [],
             {"task_id": task_id,
              "status": f"错误: {result.get('error', '未知错误')}"},
-            [], [], [], [], [], gr.update()
+            [], [], [], [], gr.update()
         )
     elif result["status"] == "queued":
         return (
             [],
             {"task_id": task_id,
              "status": f"排队中, 前面还有{processing_queue.get_queue_size()}个任务"},
-            [], [], [], [], [], gr.update()
+            [], [], [], [], gr.update()
         )
 
     if task_id:
@@ -155,116 +157,14 @@ def check_status(task_id: str) -> Tuple[Dict, List, List, gr.Timer]:
             [],
             {"task_id": task_id, "status": "处理中...",
              "status_info": result.get("status_info", "")},
-            [], [], [], [], [], gr.update()
+            [], [], [], [], gr.update()
         )
     else:
         return (
             [],
             {"task_id": "", "status": ""},
-            [], [], [], [], [], gr.update()
+            [], [], [], [], gr.update()
         )
-
-def write_to_srt(align_result, output_dir, filename='字幕.srt'):
-    '''
-    :param align_result: whisperx对齐后的视/音频转文本结果
-    :param output_dir: srt文件的保存目录
-    :param filename: srt文件名
-    :return: srt文件所在目录
-    '''
-
-    # 确保目录存在
-    os.makedirs(output_dir, exist_ok=True)
-
-    # 避免处理重名文件
-    files_in_dir = os.listdir(output_dir)
-    while filename in files_in_dir:
-        filename = filename.split('.')[0] + '_duplicate' + '.srt'
-
-    # 构造完整文件路径
-    file_path = os.path.join(output_dir, filename)
-
-    punctuations = ['，', '、', '。', '！', ',', '.', '!', '?', '？', ';', '；']
-
-    with open(file_path, "w", encoding="utf-8") as f:
-        srt_index = 1
-        all_words = []
-
-        for segment in align_result.get('segments', []):
-            all_words.extend(segment['words'])
-
-        if not all_words:
-            print("文本对齐数据异常")
-            return file_path
-
-        current_group = []
-        for i, word in enumerate(all_words):
-            text = word.get('word', '')
-            current_group.append(word)
-
-            if text in punctuations:
-                current_group.pop()
-                if current_group:
-                    start_time = current_group[0]["start"]
-                    end_time = current_group[-1]["end"]
-                    text_content = "".join([w.get('word', '') for w in current_group])
-
-                    f.write(f"{srt_index}\n")
-                    f.write(f"{seconds_to_hhmmss(start_time)} --> {seconds_to_hhmmss(end_time)}\n")
-                    f.write(f"{text_content}\n\n")
-
-                    srt_index += 1
-                    current_group = []
-
-        # 处理最后一组
-        if current_group:
-            start_time = current_group[0]["start"]
-            end_time = current_group[-1]["end"]
-            text_content = "".join([w.get('word', '') or w.get('text', '') for w in current_group])
-
-            f.write(f"{srt_index}\n")
-            f.write(f"{seconds_to_hhmmss(start_time)} --> {seconds_to_hhmmss(end_time)}\n")
-            f.write(f"{text_content}\n\n")
-
-    print(f'已保存字幕文件：{file_path}')
-
-    return file_path
-
-def write_to_csv(display_result: list, output_dir: str,
-                 filename: str = "output.csv", header: list = ["文件名", "开始时间", "结束时间", "时长", "内容摘要",
-                  "标签"]) -> str:
-    """
-    将 `display_result` 写入 CSV 文件，并返回文件路径。
-
-    Args:
-        display_result (list): 要写入的数据（二维列表，每行代表 CSV 的一行）
-        output_dir (str): 输出目录
-        filename (str, optional): 输出文件名，默认为 "output.csv"
-
-    Returns:
-        str: 生成的 CSV 文件路径
-    """
-    # 确保目录存在
-    os.makedirs(output_dir, exist_ok=True)
-
-    # 避免处理重名文件
-    files_in_dir = os.listdir(output_dir)
-    while filename in files_in_dir:
-        filename = filename.split('.')[0] + '_duplicate' + '.csv'
-
-    # 构造完整文件路径
-    file_path = os.path.join(output_dir, filename)
-
-    # 写入 CSV 文件
-    with open(file_path, mode="w", newline="", encoding="utf-8") as csvfile:
-        writer = csv.writer(csvfile)
-
-        # 写入表头（可选，如果需要列名可以在这里添加）
-        writer.writerow(header)
-
-        # 写入数据行
-        writer.writerows(display_result)
-
-    return file_path
 
 
 def select_clip(segment_selection: List[List], evt: gr.SelectData) -> List[
@@ -506,6 +406,11 @@ def create_gradio_interface():
                         value=WHISPER_MODEL_SIZE,
                         label="语音识别模型大小"
                     )
+                    alignment = gr.Radio(
+                        choices=["开启", "关闭"],
+                        label="是否开启大模型对齐(开启后可生成srt文件，同时会增加分析耗时)",
+                        value=DEFAULT_ENABLE_ALIGNMENT
+                    )
 
                 prompt_input = gr.Textbox(
                     label="自定义分析提示 (可选)",
@@ -518,7 +423,7 @@ def create_gradio_interface():
                     status_display = gr.JSON(label="处理状态")
                     task_id = gr.Textbox(visible=False)
 
-            with gr.Column(scale=4):
+            with gr.Column(scale=3):
                 with gr.Tab("分析结果"):
                     file_download = gr.File(label="下载分析结果")
                     result_table = gr.Dataframe(
@@ -564,9 +469,8 @@ def create_gradio_interface():
                     clip_btn = gr.Button("剪辑", variant="primary")
                     download_output = gr.File(label="下载剪辑结果")
 
-                with gr.Tab("视/音频转文本结果"):
-                    sst_download = gr.File(label='下载视/音频转文本结果')
-                    srt_download = gr.File(label='下载srt文件')
+                with gr.Tab("字幕文件"):
+                    srt_download = gr.File(label='下载txt/srt文件')
                     stt_result = gr.Dataframe(
                         headers=["文件名", "识别结果"],
                         datatype=["str", "markdown"],
@@ -577,12 +481,16 @@ def create_gradio_interface():
                         line_breaks=True,
                         column_widths=['20%', '80%']
                     )
+        if alignment=='开启':
+            alignment = True
+        else:
+            alignment = False
 
         # 定时器，用于轮询状态
         timer = gr.Timer(2, active=False)
-        timer.tick(check_status, task_id,
-                   outputs=[file_download, status_display, result_table,
-                            segment_selection, stt_result, sst_download, srt_download,
+        timer.tick(check_status, inputs=[task_id, alignment],
+                   outputs=[file_download, srt_download, status_display, result_table,
+                            segment_selection, stt_result, 
                             timer])
 
         # 事件处理

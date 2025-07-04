@@ -7,8 +7,7 @@ from modules.speech_recognizers.speech_recognizer_factory import \
 from modules.text_aligner import TextAligner
 from modules.llm_processor import LLMProcessor
 from modules.video_processor import VideoProcessor
-from config import SPEECH_RECOGNIZER_TYPE, WHISPER_MODEL_SIZE, \
-    ENABLE_ALIGNMENT
+from config import SPEECH_RECOGNIZER_TYPE, WHISPER_MODEL_SIZE
 from typing import List, Dict, Optional
 
 
@@ -27,7 +26,7 @@ class ProcessingQueue:
 
     def add_task(self, task_id: str, files: List[str], llm_model: str,
                  prompt: Optional[str], temperature=0.3,
-                 whisper_model_size: Optional[str] = None):
+                 whisper_model_size: Optional[str] = None, enable_alignment=False):
         """添加任务到队列"""
         with self.lock:
             self.results[task_id] = {
@@ -37,7 +36,8 @@ class ProcessingQueue:
                 "model_size": whisper_model_size,
                 "llm_model": llm_model,
                 "timestamp": time.time(),  # 记录任务添加时间
-                "temperature": temperature
+                "temperature": temperature,
+                "enable_alignment": enable_alignment
             }
         self.queue.put(task_id)
 
@@ -85,7 +85,7 @@ class ProcessingQueue:
                     print(
                         f"语音识别完成，segments个数: {len(result['segments'])}")
 
-                    if ENABLE_ALIGNMENT:
+                    if task_result['enable_alignment']:
                         # 文本对齐
                         print("开始文本对齐...")
                         aligner = TextAligner(result['language'])

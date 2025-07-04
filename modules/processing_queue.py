@@ -88,8 +88,10 @@ class ProcessingQueue:
                     if task_result['enable_alignment']:
                         # 文本对齐
                         print("开始文本对齐...")
-                        aligner = TextAligner(result['language'])
+                        language = result['language']
+                        aligner = TextAligner(language)
                         result = aligner.align(result["segments"], audio_path)
+                        result["language"] = language
                         print(
                             f"对齐结果: {result}")
 

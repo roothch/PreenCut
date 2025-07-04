@@ -89,7 +89,7 @@ def process_files(files: List, llm_model: str,
 
 
 def check_status(task_id: str, enable_alignment: str, max_line_length: int) -> \
-Tuple[Dict, List, List, gr.Timer]:
+        Tuple[Dict, List, List, gr.Timer]:
     """检查任务状态"""
     result = processing_queue.get_result(task_id)
 
@@ -104,7 +104,7 @@ Tuple[Dict, List, List, gr.Timer]:
         for file_result in result["result"]:
             text = [text['text'] for text in
                     file_result['align_result']['segments']]
-            stt_text = ' <br> '.join(text)
+            stt_text = '\n'.join(text)
             stt_result.append([file_result['filename'], stt_text])
             for seg in file_result["segments"]:
                 row = [file_result["filename"],
@@ -120,7 +120,7 @@ Tuple[Dict, List, List, gr.Timer]:
                 clip_result.append(clip_row)
 
             # 保存当前STT识别结果
-            stt_path = write_to_csv([[''.join(text)]],
+            stt_path = write_to_csv([['\n'.join(text)]],
                                     output_dir=task_output_dir,
                                     filename=file_result['filename'].split('.')[
                                                  0] + '.txt', header=None)
@@ -154,31 +154,31 @@ Tuple[Dict, List, List, gr.Timer]:
 
     elif result["status"] == "error":
         return (
-            [],
+            [], [],
             {"task_id": task_id,
              "status": f"错误: {result.get('error', '未知错误')}"},
-            [], [], [], [], gr.update()
+            [], [], [], gr.update()
         )
     elif result["status"] == "queued":
         return (
-            [],
+            [], [],
             {"task_id": task_id,
              "status": f"排队中, 前面还有{processing_queue.get_queue_size()}个任务"},
-            [], [], [], [], gr.update()
+            [], [], [], gr.update()
         )
 
     if task_id:
         return (
-            [],
+            [], [],
             {"task_id": task_id, "status": "处理中...",
              "status_info": result.get("status_info", "")},
-            [], [], [], [], gr.update()
+            [], [], [], gr.update()
         )
     else:
         return (
-            [],
+            [], [],
             {"task_id": "", "status": ""},
-            [], [], [], [], gr.update()
+            [], [], [], gr.update()
         )
 
 

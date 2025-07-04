@@ -115,7 +115,7 @@ def check_status(task_id: str, enable_alignment: str, max_line_length: int) -> T
                 display_result.append(row)
                 clip_result.append(clip_row)
 
-            # 保存当前SST识别结果
+            # 保存当前STT识别结果
             stt_path = write_to_csv([[t] for t in text], output_dir=task_output_dir, filename=file_result['filename'].split('.')[0]+'.txt', header=['音频识别结果'])
             srt_paths.append(stt_path)
 

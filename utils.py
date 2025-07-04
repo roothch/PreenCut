@@ -89,86 +89,107 @@ def write_to_srt(align_result, output_dir, max_line_length,
     # 构造完整文件路径
     file_path = os.path.join(output_dir, filename)
 
-    subtitles_processor = SubtitlesProcessor(align_result["segments"],
-                                             align_result["language"],
-                                             max_line_length=max_line_length,
-                                             min_char_length_splitter=1)
-    subtitles_processor.save(file_path, advanced_splitting=True)
+    if align_result["language"] not in ["zh", "en"]:
+        subtitles_processor = SubtitlesProcessor(align_result["segments"],
+                                                 align_result["language"],
+                                                 max_line_length=max_line_length,
+                                                 min_char_length_splitter=5)
+        subtitles_processor.save(file_path, advanced_splitting=True)
+    else:
+        # 定义标点符号列表，但不包含小数点
+        punctuations = ['，', '、', '。', '！', ',', '!', '?', '？', ';', '；']
 
-    # # 定义标点符号列表，但不包含小数点
-    # punctuations = ['，', '、', '。', '！', ',', '!', '?', '？', ';', '；']
-    #
-    # # 定义时间格式转换函数
-    # def seconds_to_hhmmss(seconds):
-    #     hours, remainder = divmod(seconds, 3600)
-    #     minutes, seconds = divmod(remainder, 60)
-    #     milliseconds = int((seconds - int(seconds)) * 1000)
-    #     return f"{int(hours):02}:{int(minutes):02}:{int(seconds):02},{milliseconds:03}"
-    #
-    # with open(file_path, "w", encoding="utf-8") as f:
-    #     srt_index = 1
-    #     all_words = []
-    #
-    #     for segment in align_result.get('segments', []):
-    #         all_words.extend(segment['words'])
-    #
-    #     if not all_words:
-    #         print("文本对齐数据异常")
-    #         return file_path
-    #
-    #     current_group = []
-    #     for i, word in enumerate(all_words):
-    #         text = word.get('word', '')
-    #         current_group.append(word)
-    #
-    #         # 检查是否为需要换行的标点符号
-    #         if text in punctuations:
-    #             current_group.pop()  # 移除标点符号
-    #             if current_group:
-    #                 start_time = current_group[0]["start"]
-    #                 end_time = current_group[-1]["end"]
-    #                 text_content = "".join([w.get('word', '') for w in current_group])
-    #
-    #                 f.write(f"{srt_index}\n")
-    #                 f.write(f"{seconds_to_hhmmss(start_time)} --> {seconds_to_hhmmss(end_time)}\n")
-    #                 f.write(f"{text_content}\n\n")
-    #
-    #                 srt_index += 1
-    #                 current_group = []
-    #
-    #         # 特殊处理小数点：如果是数字的一部分则不断行
-    #         elif text == '.':
-    #             # 获取当前组的文本内容
-    #             current_text = "".join([w.get('word', '') for w in current_group])
-    #
-    #             # 检查小数点是否是浮点数的一部分
-    #             if re.search(r'\d\.\d', current_text):
-    #                 # 是浮点数的一部分，不断行
-    #                 continue
-    #             else:
-    #                 # 不是浮点数的一部分，视为句子结束
-    #                 current_group.pop()  # 移除小数点
-    #                 if current_group:
-    #                     start_time = current_group[0]["start"]
-    #                     end_time = current_group[-1]["end"]
-    #                     text_content = "".join([w.get('word', '') for w in current_group])
-    #
-    #                     f.write(f"{srt_index}\n")
-    #                     f.write(f"{seconds_to_hhmmss(start_time)} --> {seconds_to_hhmmss(end_time)}\n")
-    #                     f.write(f"{text_content}\n\n")
-    #
-    #                     srt_index += 1
-    #                     current_group = []
-    #
-    #     # 处理最后一组
-    #     if current_group:
-    #         start_time = current_group[0]["start"]
-    #         end_time = current_group[-1]["end"]
-    #         text_content = "".join([w.get('word', '') for w in current_group])
-    #
-    #         f.write(f"{srt_index}\n")
-    #         f.write(f"{seconds_to_hhmmss(start_time)} --> {seconds_to_hhmmss(end_time)}\n")
-    #         f.write(f"{text_content}\n\n")
+        with open(file_path, "w", encoding="utf-8") as f:
+            srt_index = 1
+            all_words = []
+
+            for segment in align_result.get('segments', []):
+                all_words.extend(segment['words'])
+
+            if not all_words:
+                print("文本对齐数据异常")
+                return file_path
+
+            current_group = []
+            current_length = 0  # 跟踪当前字幕的长度(汉字/单词)
+
+            for i, word in enumerate(all_words):
+                text = word.get('word', '')
+                current_group.append(word)
+
+                # 计算当前字幕长度
+                if align_result["language"] == "zh":
+                    current_length += len(text)
+                else:
+                    current_length += 1
+
+                # 检查是否达到最大长度
+                if current_length >= max_line_length:
+                    if text in punctuations:
+                        current_group.pop()
+                    start_time = current_group[0]["start"]
+                    end_time = current_group[-1]["end"]
+                    text_content = "".join([w.get('word', '') for w in current_group])
+
+                    f.write(f"{srt_index}\n")
+                    f.write(f"{seconds_to_hhmmss(start_time)} --> {seconds_to_hhmmss(end_time)}\n")
+                    f.write(f"{text_content}\n\n")
+
+                    srt_index += 1
+                    current_group = []
+                    current_length = 0
+                    continue
+
+                # 检查是否为需要换行的标点符号
+                elif text in punctuations:
+                    current_group.pop()
+                    if current_group:
+                        start_time = current_group[0]["start"]
+                        end_time = current_group[-1]["end"]
+                        text_content = "".join([w.get('word', '') for w in current_group])
+
+                        f.write(f"{srt_index}\n")
+                        f.write(f"{seconds_to_hhmmss(start_time)} --> {seconds_to_hhmmss(end_time)}\n")
+                        f.write(f"{text_content}\n\n")
+
+                        srt_index += 1
+                        current_group = []
+                        current_length = 0
+
+                # 特殊处理小数点：如果是数字的一部分则不断行
+                elif text == '.':
+                    # 获取当前组的文本内容
+                    current_text = "".join([w.get('word', '') for w in current_group])
+
+                    # 检查小数点是否是浮点数的一部分
+                    if re.search(r'\d\.\d', current_text):
+                        # 是浮点数的一部分，不断行
+                        continue
+                    else:
+                        # 不是浮点数的一部分，视为句子结束
+                        current_group.pop()
+                        if current_group:
+                            start_time = current_group[0]["start"]
+                            end_time = current_group[-1]["end"]
+                            text_content = "".join([w.get('word', '') for w in current_group])
+
+                            f.write(f"{srt_index}\n")
+                            f.write(f"{seconds_to_hhmmss(start_time)} --> {seconds_to_hhmmss(end_time)}\n")
+                            f.write(f"{text_content}\n\n")
+
+                            srt_index += 1
+                            current_group = []
+                            current_length = 0
+
+            # 处理最后一组
+            if current_group:
+                start_time = current_group[0]["start"]
+                end_time = current_group[-1]["end"]
+                text_content = "".join([w.get('word', '') for w in current_group])
+
+                f.write(f"{srt_index}\n")
+                f.write(f"{seconds_to_hhmmss(start_time)} --> {seconds_to_hhmmss(end_time)}\n")
+                f.write(f"{text_content}\n\n")
 
     print(f'已保存字幕文件：{file_path}')
 

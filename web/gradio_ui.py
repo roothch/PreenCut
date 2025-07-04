@@ -63,7 +63,7 @@ def check_uploaded_files(files: List) -> str:
 def process_files(files: List, llm_model: str,
                   temperature: float,
                   prompt: Optional[str] = None,
-                  whisper_model_size: Optional[str] = None, enable_alignment=False) -> Tuple[
+                  whisper_model_size: Optional[str] = None, enable_alignment=None) -> Tuple[
     str, Dict]:
     """处理上传的文件"""
 
@@ -76,6 +76,10 @@ def process_files(files: List, llm_model: str,
     print(f"添加任务: {task_id}, 文件路径: {saved_paths}", flush=True)
 
     # 添加到处理队列
+    if enable_alignment == "开启":
+        enable_alignment = True
+    else:
+        enable_alignment = False
     processing_queue.add_task(task_id, saved_paths, llm_model, prompt, temperature,
                               whisper_model_size, enable_alignment)
 
@@ -116,7 +120,7 @@ def check_status(task_id: str, enable_alignment) -> Tuple[Dict, List, List, gr.T
             srt_paths.append(stt_path)
 
             # 保存当前视/音频的srt字幕文件
-            if enable_alignment:
+            if enable_alignment=="开启":
                 srt_path = write_to_srt(file_result['align_result'], output_dir=task_output_dir, filename=file_result['filename'].split('.')[0]+'.srt')
                 srt_paths.append(srt_path)
 
@@ -480,10 +484,6 @@ def create_gradio_interface():
                         line_breaks=True,
                         column_widths=['20%', '80%']
                     )
-        if alignment=='开启':
-            alignment = True
-        else:
-            alignment = False
 
         # 定时器，用于轮询状态
         timer = gr.Timer(2, active=False)

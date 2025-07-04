@@ -86,7 +86,7 @@ def process_files(files: List, llm_model: str,
     return task_id, {"status": "已加入队列，请稍候..."}
 
 
-def check_status(task_id: str, enable_alignment) -> Tuple[Dict, List, List, gr.Timer]:
+def check_status(task_id: str, enable_alignment: str, max_line_length: int) -> Tuple[Dict, List, List, gr.Timer]:
     """检查任务状态"""
     result = processing_queue.get_result(task_id)
 
@@ -121,7 +121,7 @@ def check_status(task_id: str, enable_alignment) -> Tuple[Dict, List, List, gr.T
 
             # 保存当前视/音频的srt字幕文件
             if enable_alignment=="开启":
-                srt_path = write_to_srt(file_result['align_result'], output_dir=task_output_dir, filename=file_result['filename'].split('.')[0]+'.srt')
+                srt_path = write_to_srt(file_result['align_result'], output_dir=task_output_dir, max_line_length=max_line_length, filename=file_result['filename'].split('.')[0]+'.srt')
                 srt_paths.append(srt_path)
 
         # 将结果保存到csv文件
@@ -414,6 +414,8 @@ def create_gradio_interface():
                         label="是否开启大模型对齐(开启后可生成srt文件，同时会增加分析耗时)",
                         value=DEFAULT_ENABLE_ALIGNMENT
                     )
+                    max_line_length = gr.Slider(minimum=1, maximum=50, step=1, value=20,
+                                            label="单条字幕最大长度(在开启大模型对齐后有效)")
 
                 prompt_input = gr.Textbox(
                     label="自定义分析提示 (可选)",
@@ -487,7 +489,7 @@ def create_gradio_interface():
 
         # 定时器，用于轮询状态
         timer = gr.Timer(2, active=False)
-        timer.tick(check_status, inputs=[task_id, alignment],
+        timer.tick(check_status, inputs=[task_id, alignment, max_line_length],
                    outputs=[file_download, srt_download, status_display, result_table,
                             segment_selection, stt_result, 
                             timer])

@@ -5,7 +5,6 @@ import random
 import zipfile
 import gradio as gr
 from config import LLM_MODEL_OPTIONS, ENABLE_ALIGNMENT
-
 from config import (
     TEMP_FOLDER,
     OUTPUT_FOLDER,

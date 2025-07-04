@@ -68,7 +68,8 @@ def get_audio_codec(input_file):
     return info["streams"][0]["codec_name"]
 
 
-def write_to_srt(align_result, output_dir, max_line_length, filename='字幕.srt'):
+def write_to_srt(align_result, output_dir, max_line_length,
+                 filename='字幕.srt'):
     '''
     :param align_result: whisperx对齐后的视/音频转文本结果
     :param output_dir: srt文件的保存目录
@@ -88,9 +89,11 @@ def write_to_srt(align_result, output_dir, max_line_length, filename='字幕.srt
     # 构造完整文件路径
     file_path = os.path.join(output_dir, filename)
 
-    subtitles_proccessor = SubtitlesProcessor(align_result["segments"], align_result["language"], max_line_length=max_line_length,
-                                              min_char_length_splitter=20)
-    subtitles_proccessor.save(file_path, advanced_splitting=True)
+    subtitles_processor = SubtitlesProcessor(align_result["segments"],
+                                             align_result["language"],
+                                             max_line_length=max_line_length,
+                                             min_char_length_splitter=1)
+    subtitles_processor.save(file_path, advanced_splitting=True)
 
     # # 定义标点符号列表，但不包含小数点
     # punctuations = ['，', '、', '。', '！', ',', '!', '?', '？', ';', '；']
@@ -171,9 +174,12 @@ def write_to_srt(align_result, output_dir, max_line_length, filename='字幕.srt
 
     return file_path
 
+
 def write_to_csv(display_result: list, output_dir: str,
-                 filename: str = "output.csv", header: list = ["文件名", "开始时间", "结束时间", "时长", "内容摘要",
-                  "标签"]) -> str:
+                 filename: str = "output.csv",
+                 header: list = ["文件名", "开始时间", "结束时间", "时长",
+                                 "内容摘要",
+                                 "标签"]) -> str:
     """
     将 `display_result` 写入 CSV 文件，并返回文件路径。
 
@@ -209,5 +215,3 @@ def write_to_csv(display_result: list, output_dir: str,
         writer.writerows(display_result)
 
     return file_path
-
-

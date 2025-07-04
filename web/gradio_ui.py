@@ -63,7 +63,8 @@ def check_uploaded_files(files: List) -> str:
 def process_files(files: List, llm_model: str,
                   temperature: float,
                   prompt: Optional[str] = None,
-                  whisper_model_size: Optional[str] = None, enable_alignment=None) -> Tuple[
+                  whisper_model_size: Optional[str] = None,
+                  enable_alignment=None) -> Tuple[
     str, Dict]:
     """处理上传的文件"""
 
@@ -80,13 +81,15 @@ def process_files(files: List, llm_model: str,
         enable_alignment = True
     else:
         enable_alignment = False
-    processing_queue.add_task(task_id, saved_paths, llm_model, prompt, temperature,
+    processing_queue.add_task(task_id, saved_paths, llm_model, prompt,
+                              temperature,
                               whisper_model_size, enable_alignment)
 
     return task_id, {"status": "已加入队列，请稍候..."}
 
 
-def check_status(task_id: str, enable_alignment: str, max_line_length: int) -> Tuple[Dict, List, List, gr.Timer]:
+def check_status(task_id: str, enable_alignment: str, max_line_length: int) -> \
+Tuple[Dict, List, List, gr.Timer]:
     """检查任务状态"""
     result = processing_queue.get_result(task_id)
 
@@ -99,7 +102,8 @@ def check_status(task_id: str, enable_alignment: str, max_line_length: int) -> T
         stt_result = []
         srt_paths = []
         for file_result in result["result"]:
-            text = [text['text'] for text in file_result['align_result']['segments']]
+            text = [text['text'] for text in
+                    file_result['align_result']['segments']]
             stt_text = ' <br> '.join(text)
             stt_result.append([file_result['filename'], stt_text])
             for seg in file_result["segments"]:
@@ -116,12 +120,20 @@ def check_status(task_id: str, enable_alignment: str, max_line_length: int) -> T
                 clip_result.append(clip_row)
 
             # 保存当前STT识别结果
-            stt_path = write_to_csv([[''.join(text)]], output_dir=task_output_dir, filename=file_result['filename'].split('.')[0]+'.txt', header=None)
+            stt_path = write_to_csv([[''.join(text)]],
+                                    output_dir=task_output_dir,
+                                    filename=file_result['filename'].split('.')[
+                                                 0] + '.txt', header=None)
             srt_paths.append(stt_path)
 
             # 保存当前视/音频的srt字幕文件
-            if enable_alignment=="开启":
-                srt_path = write_to_srt(file_result['align_result'], output_dir=task_output_dir, max_line_length=max_line_length, filename=file_result['filename'].split('.')[0]+'.srt')
+            if enable_alignment == "开启":
+                srt_path = write_to_srt(file_result['align_result'],
+                                        output_dir=task_output_dir,
+                                        max_line_length=max_line_length,
+                                        filename=
+                                        file_result['filename'].split('.')[
+                                            0] + '.srt')
                 srt_paths.append(srt_path)
 
         # 将结果保存到csv文件
@@ -402,7 +414,9 @@ def create_gradio_interface():
                     llm_model = gr.Dropdown(
                         choices=[model['label'] for model in LLM_MODEL_OPTIONS],
                         value="豆包", label="大语言模型")
-                    temperature = gr.Slider(minimum=0.1, maximum=1, step=0.1, value=0.3, label="摘要生成灵活度(temperature, 推荐0.2-0.4之间)")
+                    temperature = gr.Slider(minimum=0.1, maximum=1, step=0.1,
+                                            value=0.3,
+                                            label="摘要生成灵活度(temperature)")
                     model_size = gr.Dropdown(
                         choices=["large-v2", "large-v3", "large", "medium",
                                  "small", "base", "tiny"],
@@ -411,11 +425,12 @@ def create_gradio_interface():
                     )
                     alignment = gr.Radio(
                         choices=["开启", "关闭"],
-                        label="是否开启大模型对齐(开启后可生成srt文件，同时会增加分析耗时)",
+                        label="语音文字对齐(开启后可生成srt文件，同时会增加耗时)",
                         value=DEFAULT_ENABLE_ALIGNMENT
                     )
-                    max_line_length = gr.Slider(minimum=1, maximum=50, step=1, value=20,
-                                            label="单条字幕最大长度(在开启大模型对齐后有效)")
+                    max_line_length = gr.Slider(minimum=1, maximum=50, step=1,
+                                                value=16,
+                                                label="单条字幕最大长度(在开启语音文字对齐后有效)")
 
                 prompt_input = gr.Textbox(
                     label="自定义分析提示 (可选)",
@@ -448,7 +463,9 @@ def create_gradio_interface():
                     reanalyze_llm_model = gr.Dropdown(
                         choices=[model['label'] for model in LLM_MODEL_OPTIONS],
                         value="豆包", label="大语言模型")
-                    reanlyze_temperature = gr.Slider(minimum=0.1, maximum=1, step=0.1, value=0.3, label="摘要生成灵活度(temperature, 推荐0.2-0.4之间)")
+                    reanlyze_temperature = gr.Slider(minimum=0.1, maximum=1,
+                                                     step=0.1, value=0.3,
+                                                     label="摘要生成灵活度(temperature, 推荐0.2-0.4之间)")
                     reanalyze_btn = gr.Button("重新分析", variant="secondary")
 
                 with gr.Tab("剪辑选项"):
@@ -490,14 +507,16 @@ def create_gradio_interface():
         # 定时器，用于轮询状态
         timer = gr.Timer(2, active=False)
         timer.tick(check_status, inputs=[task_id, alignment, max_line_length],
-                   outputs=[file_download, srt_download, status_display, result_table,
-                            segment_selection, stt_result, 
+                   outputs=[file_download, srt_download, status_display,
+                            result_table,
+                            segment_selection, stt_result,
                             timer])
 
         # 事件处理
         process_btn.click(
             process_files,
-            inputs=[file_upload, llm_model, temperature, prompt_input, model_size],
+            inputs=[file_upload, llm_model, temperature, prompt_input,
+                    model_size],
             outputs=[task_id, status_display]
         ).then(
             lambda: gr.Timer(active=True),
@@ -512,7 +531,8 @@ def create_gradio_interface():
             outputs=status_display,
         ).then(
             reanalyze_with_prompt,
-            inputs=[task_id, reanalyze_llm_model, new_prompt, reanlyze_temperature],
+            inputs=[task_id, reanalyze_llm_model, new_prompt,
+                    reanlyze_temperature],
             outputs=[status_display, result_table, segment_selection],
             show_progress="hidden"
         )

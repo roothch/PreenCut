@@ -202,7 +202,8 @@ def write_to_csv(display_result: list, output_dir: str,
         writer = csv.writer(csvfile)
 
         # 写入表头（可选，如果需要列名可以在这里添加）
-        writer.writerow(header)
+        if header:
+            writer.writerow(header)
 
         # 写入数据行
         writer.writerows(display_result)

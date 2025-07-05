@@ -5,6 +5,7 @@ import json
 import csv
 import re
 from modules.subtitles_processor import SubtitlesProcessor
+from modules.subtitles_processor import format_timestamp
 import torch
 import gc
 
@@ -140,7 +141,7 @@ def write_to_srt(align_result, output_dir, max_line_length,
                     text_content = "".join([w.get('word', '') for w in current_group])
 
                     f.write(f"{srt_index}\n")
-                    f.write(f"{seconds_to_hhmmss(start_time)} --> {seconds_to_hhmmss(end_time)}\n")
+                    f.write(f"{format_timestamp(start_time)} --> {format_timestamp(end_time)}\n")
                     f.write(f"{text_content}\n\n")
 
                     srt_index += 1
@@ -157,7 +158,7 @@ def write_to_srt(align_result, output_dir, max_line_length,
                         text_content = "".join([w.get('word', '') for w in current_group])
 
                         f.write(f"{srt_index}\n")
-                        f.write(f"{seconds_to_hhmmss(start_time)} --> {seconds_to_hhmmss(end_time)}\n")
+                        f.write(f"{format_timestamp(start_time)} --> {format_timestamp(end_time)}\n")
                         f.write(f"{text_content}\n\n")
 
                         srt_index += 1
@@ -182,7 +183,7 @@ def write_to_srt(align_result, output_dir, max_line_length,
                             text_content = "".join([w.get('word', '') for w in current_group])
 
                             f.write(f"{srt_index}\n")
-                            f.write(f"{seconds_to_hhmmss(start_time)} --> {seconds_to_hhmmss(end_time)}\n")
+                            f.write(f"{format_timestamp(start_time)} --> {format_timestamp(end_time)}\n")
                             f.write(f"{text_content}\n\n")
 
                             srt_index += 1
@@ -196,7 +197,7 @@ def write_to_srt(align_result, output_dir, max_line_length,
                 text_content = "".join([w.get('word', '') for w in current_group])
 
                 f.write(f"{srt_index}\n")
-                f.write(f"{seconds_to_hhmmss(start_time)} --> {seconds_to_hhmmss(end_time)}\n")
+                f.write(f"{format_timestamp(start_time)} --> {format_timestamp(end_time)}\n")
                 f.write(f"{text_content}\n\n")
 
     print(f'已保存字幕文件：{file_path}')

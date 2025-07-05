@@ -186,6 +186,7 @@ python3 -m uvicorn main:app --port 7860 --reload
   - Use WhisperX for faster processing, use faster-whisper for shorter segments
   - Adjust WHISPER_BATCH_SIZE based on available VRAM
   - Use smaller model sizes for CPU-only systems
+  - If you don't need srt files, you could set ENABLE_ALIGNMENT=False to improve processing speed.
 
 ## 📜 License
 This project is licensed under the MIT License. See the [LICENSE](LICENSE) file for details.

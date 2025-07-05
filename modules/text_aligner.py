@@ -38,8 +38,6 @@ class TextAligner:
             result = whisperx.align(segments, align_model, align_model_metadata,
                                     audio, WHISPER_DEVICE,
                                     return_char_alignments=False)
-            for segment in result["segments"]:
-                segment.pop("words", None)
             return result
         else:
             raise ValueError(

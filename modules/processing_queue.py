@@ -9,6 +9,7 @@ from modules.llm_processor import LLMProcessor
 from modules.video_processor import VideoProcessor
 from config import SPEECH_RECOGNIZER_TYPE, WHISPER_MODEL_SIZE
 from typing import List, Dict, Optional
+from utils import clear_cache
 
 
 class ProcessingQueue:
@@ -84,7 +85,9 @@ class ProcessingQueue:
                     result = recognizer.transcribe(audio_path)
                     print(
                         f"语音识别完成，segments个数: {len(result['segments'])}")
-
+                    del recognizer
+                    clear_cache()
+                    
                     if task_result['enable_alignment']:
                         # 文本对齐
                         print("开始文本对齐...")
@@ -92,12 +95,14 @@ class ProcessingQueue:
                         aligner = TextAligner(language)
                         result = aligner.align(result["segments"], audio_path)
                         result["language"] = language
-                        print(
-                            f"对齐结果: {result}")
+                        print("完成文本对齐")
+                        del aligner
+                        clear_cache()
 
                     # 调用大模型进行分段
                     print("调用大模型进行分段...")
-                    segments = llm.segment_video(result["segments"], prompt)
+                    llm_inputs = [{key: segment.get(key) for key in ["start", "end", "text"]} for segment in result["segments"]]
+                    segments = llm.segment_video(llm_inputs, prompt)
                     print(f"大模型分段完成，段数: {len(segments)}")
 
                     # 保存结果

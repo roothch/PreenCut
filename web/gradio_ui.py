@@ -429,7 +429,7 @@ def create_gradio_interface():
                         value=DEFAULT_ENABLE_ALIGNMENT
                     )
                     max_line_length = gr.Slider(minimum=1, maximum=50, step=1,
-                                                value=16,
+                                                value=20,
                                                 label="单条字幕最大长度(在开启语音文字对齐后有效)")
 
                 prompt_input = gr.Textbox(

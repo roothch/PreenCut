@@ -5,6 +5,14 @@ import json
 import csv
 import re
 from modules.subtitles_processor import SubtitlesProcessor
+import torch
+import gc
+
+
+def clear_cache():
+    if torch.cuda.is_available():
+        torch.cuda.empty_cache()
+    gc.collect()
 
 
 def generate_safe_filename(filename, max_length=100):

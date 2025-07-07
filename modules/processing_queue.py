@@ -7,9 +7,9 @@ from modules.speech_recognizers.speech_recognizer_factory import \
 from modules.text_aligner import TextAligner
 from modules.llm_processor import LLMProcessor
 from modules.video_processor import VideoProcessor
-from config import SPEECH_RECOGNIZER_TYPE, WHISPER_MODEL_SIZE, \
-    ENABLE_ALIGNMENT
+from config import SPEECH_RECOGNIZER_TYPE, WHISPER_MODEL_SIZE
 from typing import List, Dict, Optional
+from utils import clear_cache
 
 
 class ProcessingQueue:
@@ -27,7 +27,7 @@ class ProcessingQueue:
 
     def add_task(self, task_id: str, files: List[str], llm_model: str,
                  prompt: Optional[str], temperature=0.3,
-                 whisper_model_size: Optional[str] = None):
+                 whisper_model_size: Optional[str] = None, enable_alignment=False):
         """添加任务到队列"""
         with self.lock:
             self.results[task_id] = {
@@ -37,7 +37,8 @@ class ProcessingQueue:
                 "model_size": whisper_model_size,
                 "llm_model": llm_model,
                 "timestamp": time.time(),  # 记录任务添加时间
-                "temperature": temperature
+                "temperature": temperature,
+                "enable_alignment": enable_alignment
             }
         self.queue.put(task_id)
 
@@ -84,18 +85,24 @@ class ProcessingQueue:
                     result = recognizer.transcribe(audio_path)
                     print(
                         f"语音识别完成，segments个数: {len(result['segments'])}")
-
-                    if ENABLE_ALIGNMENT:
+                    del recognizer
+                    clear_cache()
+                    
+                    if task_result['enable_alignment']:
                         # 文本对齐
                         print("开始文本对齐...")
-                        aligner = TextAligner(result['language'])
+                        language = result['language']
+                        aligner = TextAligner(language)
                         result = aligner.align(result["segments"], audio_path)
-                        print(
-                            f"对齐结果: {result}")
+                        result["language"] = language
+                        print("完成文本对齐")
+                        del aligner
+                        clear_cache()
 
                     # 调用大模型进行分段
                     print("调用大模型进行分段...")
-                    segments = llm.segment_video(result["segments"], prompt)
+                    llm_inputs = [{key: segment.get(key) for key in ["start", "end", "text"]} for segment in result["segments"]]
+                    segments = llm.segment_video(llm_inputs, prompt)
                     print(f"大模型分段完成，段数: {len(segments)}")
 
                     # 保存结果

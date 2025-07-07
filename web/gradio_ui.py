@@ -3,10 +3,8 @@ import uuid
 import time
 import random
 import zipfile
-import csv
 import gradio as gr
-from config import LLM_MODEL_OPTIONS
-
+from config import LLM_MODEL_OPTIONS, ENABLE_ALIGNMENT
 from config import (
     TEMP_FOLDER,
     OUTPUT_FOLDER,
@@ -19,7 +17,7 @@ from config import (
 from modules.processing_queue import ProcessingQueue
 from modules.video_processor import VideoProcessor
 from utils import seconds_to_hhmmss, hhmmss_to_seconds, clear_directory_fast \
-    , generate_safe_filename
+    , generate_safe_filename, write_to_srt, write_to_csv
 from typing import List, Dict, Tuple, Optional
 import subprocess
 
@@ -27,6 +25,10 @@ import subprocess
 processing_queue = ProcessingQueue()
 CHECKBOX_CHECKED = '<span style="display: flex; width: 16px; height: 16px; border: 2px solid blue; background:#4B6BFB ;font-weight: bold;color:white;align-items:center;justify-content:center">✓</span>'
 CHECKBOX_UNCHECKED = '<span style="display: flex; width: 16px; height: 16px; border: 2px solid blue;font-weight: bold;color:white;align-items:center;justify-content:center"></span>'
+if ENABLE_ALIGNMENT:
+    DEFAULT_ENABLE_ALIGNMENT = '开启'
+else:
+    DEFAULT_ENABLE_ALIGNMENT = '关闭'
 
 
 def check_uploaded_files(files: List) -> str:
@@ -61,7 +63,8 @@ def check_uploaded_files(files: List) -> str:
 def process_files(files: List, llm_model: str,
                   temperature: float,
                   prompt: Optional[str] = None,
-                  whisper_model_size: Optional[str] = None) -> Tuple[
+                  whisper_model_size: Optional[str] = None,
+                  enable_alignment=None) -> Tuple[
     str, Dict]:
     """处理上传的文件"""
 
@@ -74,21 +77,35 @@ def process_files(files: List, llm_model: str,
     print(f"添加任务: {task_id}, 文件路径: {saved_paths}", flush=True)
 
     # 添加到处理队列
-    processing_queue.add_task(task_id, saved_paths, llm_model, prompt, temperature,
-                              whisper_model_size)
+    if enable_alignment == "开启":
+        enable_alignment = True
+    else:
+        enable_alignment = False
+    processing_queue.add_task(task_id, saved_paths, llm_model, prompt,
+                              temperature,
+                              whisper_model_size, enable_alignment)
 
     return task_id, {"status": "已加入队列，请稍候..."}
 
 
-def check_status(task_id: str) -> Tuple[Dict, List, List, gr.Timer]:
+def check_status(task_id: str, enable_alignment: str, max_line_length: int) -> \
+        Tuple[Dict, List, List, gr.Timer]:
     """检查任务状态"""
     result = processing_queue.get_result(task_id)
 
     if result["status"] == "completed":
         # 整理结果以便显示
+        task_output_dir = os.path.join(OUTPUT_FOLDER, task_id)
+        os.makedirs(task_output_dir, exist_ok=True)
         display_result = []
         clip_result = []
+        stt_result = []
+        srt_paths = []
         for file_result in result["result"]:
+            text = [text['text'] for text in
+                    file_result['align_result']['segments']]
+            stt_text = '\n'.join(text)
+            stt_result.append([file_result['filename'], stt_text])
             for seg in file_result["segments"]:
                 row = [file_result["filename"],
                        f"{seconds_to_hhmmss(seg['start'])}",
@@ -102,84 +119,67 @@ def check_status(task_id: str) -> Tuple[Dict, List, List, gr.Timer]:
                 display_result.append(row)
                 clip_result.append(clip_row)
 
+            # 保存当前STT识别结果
+            stt_path = write_to_csv([['\n'.join(text)]],
+                                    output_dir=task_output_dir,
+                                    filename=file_result['filename'].split('.')[
+                                                 0] + '.txt', header=None)
+            srt_paths.append(stt_path)
+
+            # 保存当前视/音频的srt字幕文件
+            if enable_alignment == "开启":
+                srt_path = write_to_srt(file_result['align_result'],
+                                        output_dir=task_output_dir,
+                                        max_line_length=max_line_length,
+                                        filename=
+                                        file_result['filename'].split('.')[
+                                            0] + '.srt')
+                srt_paths.append(srt_path)
+
         # 将结果保存到csv文件
-        task_output_dir = os.path.join(OUTPUT_FOLDER, task_id)
-        os.makedirs(task_output_dir, exist_ok=True)
         result_path = write_to_csv(display_result, output_dir=task_output_dir,
                                    filename="result.csv")
 
         return (
             result_path,
+            srt_paths,
             {"task_id": task_id, "status": "处理完成",
              "raw_result": result["result"],
              "result": display_result, },
             display_result,
             clip_result,
+            stt_result,
             gr.Timer(active=False)
         )
 
     elif result["status"] == "error":
         return (
-            [],
+            [], [],
             {"task_id": task_id,
              "status": f"错误: {result.get('error', '未知错误')}"},
-            [], [], gr.update()
+            [], [], [], gr.update()
         )
     elif result["status"] == "queued":
         return (
-            [],
+            [], [],
             {"task_id": task_id,
              "status": f"排队中, 前面还有{processing_queue.get_queue_size()}个任务"},
-            [], [], gr.update()
+            [], [], [], gr.update()
         )
 
     if task_id:
         return (
-            [],
+            [], [],
             {"task_id": task_id, "status": "处理中...",
              "status_info": result.get("status_info", "")},
-            [], [], gr.update()
+            [], [], [], gr.update()
         )
     else:
         return (
-            [],
+            [], [],
             {"task_id": "", "status": ""},
-            [], [], gr.update()
+            [], [], [], gr.update()
         )
-
-
-def write_to_csv(display_result: list, output_dir: str,
-                 filename: str = "output.csv") -> str:
-    """
-    将 `display_result` 写入 CSV 文件，并返回文件路径。
-
-    Args:
-        display_result (list): 要写入的数据（二维列表，每行代表 CSV 的一行）
-        output_dir (str): 输出目录
-        filename (str, optional): 输出文件名，默认为 "output.csv"
-
-    Returns:
-        str: 生成的 CSV 文件路径
-    """
-    # 确保目录存在
-    os.makedirs(output_dir, exist_ok=True)
-
-    # 构造完整文件路径
-    file_path = os.path.join(output_dir, filename)
-
-    # 写入 CSV 文件
-    with open(file_path, mode="w", newline="", encoding="utf-8") as csvfile:
-        writer = csv.writer(csvfile)
-
-        # 写入表头（可选，如果需要列名可以在这里添加）
-        header = ["文件名", "开始时间", "结束时间", "时长", "内容摘要",
-                  "标签"]
-        writer.writerow(header)
-
-        # 写入数据行
-        writer.writerows(display_result)
-
-    return file_path
 
 
 def select_clip(segment_selection: List[List], evt: gr.SelectData) -> List[
@@ -414,13 +414,23 @@ def create_gradio_interface():
                     llm_model = gr.Dropdown(
                         choices=[model['label'] for model in LLM_MODEL_OPTIONS],
                         value="豆包", label="大语言模型")
-                    temperature = gr.Slider(minimum=0.1, maximum=1, step=0.1, value=0.3, label="摘要生成灵活度(temperature, 推荐0.2-0.4之间)")
+                    temperature = gr.Slider(minimum=0.1, maximum=1, step=0.1,
+                                            value=0.3,
+                                            label="摘要生成灵活度(temperature)")
                     model_size = gr.Dropdown(
                         choices=["large-v2", "large-v3", "large", "medium",
                                  "small", "base", "tiny"],
                         value=WHISPER_MODEL_SIZE,
                         label="语音识别模型大小"
                     )
+                    alignment = gr.Radio(
+                        choices=["开启", "关闭"],
+                        label="语音文字对齐(开启后可生成srt文件，同时会增加耗时)",
+                        value=DEFAULT_ENABLE_ALIGNMENT
+                    )
+                    max_line_length = gr.Slider(minimum=1, maximum=50, step=1,
+                                                value=20,
+                                                label="单条字幕最大长度(在开启语音文字对齐后有效)")
 
                 prompt_input = gr.Textbox(
                     label="自定义分析提示 (可选)",
@@ -453,7 +463,9 @@ def create_gradio_interface():
                     reanalyze_llm_model = gr.Dropdown(
                         choices=[model['label'] for model in LLM_MODEL_OPTIONS],
                         value="豆包", label="大语言模型")
-                    reanlyze_temperature = gr.Slider(minimum=0.1, maximum=1, step=0.1, value=0.3, label="摘要生成灵活度(temperature, 推荐0.2-0.4之间)")
+                    reanlyze_temperature = gr.Slider(minimum=0.1, maximum=1,
+                                                     step=0.1, value=0.3,
+                                                     label="摘要生成灵活度(temperature, 推荐0.2-0.4之间)")
                     reanalyze_btn = gr.Button("重新分析", variant="secondary")
 
                 with gr.Tab("剪辑选项"):
@@ -479,17 +491,32 @@ def create_gradio_interface():
                     clip_btn = gr.Button("剪辑", variant="primary")
                     download_output = gr.File(label="下载剪辑结果")
 
+                with gr.Tab("字幕文件"):
+                    srt_download = gr.File(label='下载txt/srt文件')
+                    stt_result = gr.Dataframe(
+                        headers=["文件名", "识别结果"],
+                        datatype=["str", "markdown"],
+                        interactive=True,
+                        wrap=True,
+                        show_copy_button=True,
+                        max_height=600,
+                        line_breaks=True,
+                        column_widths=['20%', '80%']
+                    )
+
         # 定时器，用于轮询状态
         timer = gr.Timer(2, active=False)
-        timer.tick(check_status, task_id,
-                   outputs=[file_download, status_display, result_table,
-                            segment_selection,
+        timer.tick(check_status, inputs=[task_id, alignment, max_line_length],
+                   outputs=[file_download, srt_download, status_display,
+                            result_table,
+                            segment_selection, stt_result,
                             timer])
 
         # 事件处理
         process_btn.click(
             process_files,
-            inputs=[file_upload, llm_model, temperature, prompt_input, model_size],
+            inputs=[file_upload, llm_model, temperature, prompt_input,
+                    model_size, alignment],
             outputs=[task_id, status_display]
         ).then(
             lambda: gr.Timer(active=True),
@@ -504,7 +531,8 @@ def create_gradio_interface():
             outputs=status_display,
         ).then(
             reanalyze_with_prompt,
-            inputs=[task_id, reanalyze_llm_model, new_prompt, reanlyze_temperature],
+            inputs=[task_id, reanalyze_llm_model, new_prompt,
+                    reanlyze_temperature],
             outputs=[status_display, result_table, segment_selection],
             show_progress="hidden"
         )

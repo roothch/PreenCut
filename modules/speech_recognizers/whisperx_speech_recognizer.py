@@ -51,5 +51,5 @@ class WhisperXSpeechRecognizer(SpeechRecognizer):
             audio,
             batch_size=self.batch_size,
         )
-        print(f"{result}")
+
         return result

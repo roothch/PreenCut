@@ -63,7 +63,7 @@ FASTER_WHISPER_BEAM_SIZE = 5
 
 
 # 语音文字对齐模型
-ENABLE_ALIGNMENT = False  # 是否启用对齐
+ENABLE_ALIGNMENT = True  # 是否启用对齐
 ALIGNMENT_MODEL = 'whisperx'  # 使用的对齐模型
 
 # OpenAI API配置

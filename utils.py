@@ -204,7 +204,6 @@ def write_to_srt(align_result, output_dir, max_line_length,
                 end_time = current_group[-1]["end"]
                 text_content = "".join(
                     [w.get('word', '') for w in current_group])
-
                 f.write(f"{srt_index}\n")
                 f.write(
                     f"{format_timestamp(start_time)} --> {format_timestamp(end_time)}\n")

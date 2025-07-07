@@ -15,7 +15,8 @@ class FasterWhisperSpeechRecognizer(SpeechRecognizer):
             batch_size=16,
             beam_size=5,
     ):
-        super().__init__(model_size, device, device_index=device_index, compute_type=compute_type,
+        super().__init__(model_size, device, device_index=device_index,
+                         compute_type=compute_type,
                          batch_size=batch_size)
         if beam_size > 0:
             self.beam_size = beam_size
@@ -23,7 +24,8 @@ class FasterWhisperSpeechRecognizer(SpeechRecognizer):
         print(f"device = {self.device}")
         print(f"{self.model_size, self.device, self.compute_type, self.opts}")
         if self.device == 'cpu':
-            self.model = faster_whisper.WhisperModel(self.model_size, device=self.device,
+            self.model = faster_whisper.WhisperModel(self.model_size,
+                                                     device=self.device,
                                                      compute_type=self.compute_type)
         else:
             self.model = faster_whisper.WhisperModel(self.model_size,
@@ -41,12 +43,18 @@ class FasterWhisperSpeechRecognizer(SpeechRecognizer):
         print("load audio success")
         segments, info = self.model.transcribe(
             audio,
+            initial_prompt="Add punctuation after end of each line. 就比如說，我要先去吃飯。Segment at end of each sentence.",
+            word_timestamps=True,
             beam_size=self.beam_size
         )
         segment_list = []
         for segment in segments:
-            # print("[%.2fs -> %.2fs] %s" % (segment.start, segment.end, segment.text))
-            segment_list.append(segment)
+            segment_list.append({
+                'start': segment.start,
+                'end': segment.end,
+                'text': segment.text,
+                'words': segment.words if segment.words else []
+            })
         # format result
         result = {"language": info.language, "segments": segment_list}
         return result

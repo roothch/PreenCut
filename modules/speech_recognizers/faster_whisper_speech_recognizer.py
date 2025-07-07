@@ -50,10 +50,9 @@ class FasterWhisperSpeechRecognizer(SpeechRecognizer):
         segment_list = []
         for segment in segments:
             segment_list.append({
-                'start': segment.start,
-                'end': segment.end,
-                'text': segment.text,
-                'words': segment.words if segment.words else []
+                'start': float(f'{segment.start:.2f}'),
+                'end': float(f'{segment.end:.2f}'),
+                'text': segment.text
             })
         # format result
         result = {"language": info.language, "segments": segment_list}

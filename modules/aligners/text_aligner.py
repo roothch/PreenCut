@@ -1,4 +1,5 @@
 from typing import Optional
+from typing import List, Dict
 
 from config import (
     ALIGNMENT_MODEL,
@@ -28,7 +29,7 @@ class TextAligner:
             raise ValueError(
                 f"Unsupported forced alignment model: {ALIGNMENT_MODEL}")
 
-    def align(self, segments: str, audio_path: str) -> str:
+    def align(self, segments: List[Dict], audio_path: str) -> str:
         """将文本与音频对齐，生成SRT字幕"""
         if ALIGNMENT_MODEL == 'whisperx':
             # 使用WhisperX进行对齐

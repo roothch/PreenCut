@@ -4,10 +4,10 @@ import os
 import time
 from modules.speech_recognizers.speech_recognizer_factory import \
     SpeechRecognizerFactory
-from modules.text_aligner import TextAligner
+from modules.aligners.text_aligner import TextAligner
 from modules.llm_processor import LLMProcessor
 from modules.video_processor import VideoProcessor
-from config import SPEECH_RECOGNIZER_TYPE, WHISPER_MODEL_SIZE
+from config import SPEECH_RECOGNIZER_TYPE
 from typing import List, Dict, Optional
 from utils import clear_cache
 

@@ -134,14 +134,17 @@ def write_to_srt(align_result, output_dir, max_line_length,
 
                 # 检查是否达到最大长度
                 if current_length >= max_line_length:
+                    end_time = current_group[-1]["end"]
                     if text in punctuations:
                         current_group.pop()
+
                     start_time = current_group[0]["start"]
-                    end_time = current_group[-1]["end"]
-                    text_content = "".join([w.get('word', '') for w in current_group])
+                    text_content = "".join(
+                        [w.get('word', '') for w in current_group])
 
                     f.write(f"{srt_index}\n")
-                    f.write(f"{format_timestamp(start_time)} --> {format_timestamp(end_time)}\n")
+                    f.write(
+                        f"{format_timestamp(start_time)} --> {format_timestamp(end_time)}\n")
                     f.write(f"{text_content}\n\n")
 
                     srt_index += 1
@@ -151,14 +154,16 @@ def write_to_srt(align_result, output_dir, max_line_length,
 
                 # 检查是否为需要换行的标点符号
                 elif text in punctuations:
+                    end_time = current_group[-1]["end"]
                     current_group.pop()
                     if current_group:
                         start_time = current_group[0]["start"]
-                        end_time = current_group[-1]["end"]
-                        text_content = "".join([w.get('word', '') for w in current_group])
+                        text_content = "".join(
+                            [w.get('word', '') for w in current_group])
 
                         f.write(f"{srt_index}\n")
-                        f.write(f"{format_timestamp(start_time)} --> {format_timestamp(end_time)}\n")
+                        f.write(
+                            f"{format_timestamp(start_time)} --> {format_timestamp(end_time)}\n")
                         f.write(f"{text_content}\n\n")
 
                         srt_index += 1
@@ -168,22 +173,25 @@ def write_to_srt(align_result, output_dir, max_line_length,
                 # 特殊处理小数点：如果是数字的一部分则不断行
                 elif text == '.':
                     # 获取当前组的文本内容
-                    current_text = "".join([w.get('word', '') for w in current_group])
+                    current_text = "".join(
+                        [w.get('word', '') for w in current_group])
 
                     # 检查小数点是否是浮点数的一部分
                     if re.search(r'\d\.\d', current_text):
                         # 是浮点数的一部分，不断行
                         continue
                     else:
+                        end_time = current_group[-1]["end"]
                         # 不是浮点数的一部分，视为句子结束
                         current_group.pop()
                         if current_group:
                             start_time = current_group[0]["start"]
-                            end_time = current_group[-1]["end"]
-                            text_content = "".join([w.get('word', '') for w in current_group])
+                            text_content = "".join(
+                                [w.get('word', '') for w in current_group])
 
                             f.write(f"{srt_index}\n")
-                            f.write(f"{format_timestamp(start_time)} --> {format_timestamp(end_time)}\n")
+                            f.write(
+                                f"{format_timestamp(start_time)} --> {format_timestamp(end_time)}\n")
                             f.write(f"{text_content}\n\n")
 
                             srt_index += 1
@@ -194,10 +202,12 @@ def write_to_srt(align_result, output_dir, max_line_length,
             if current_group:
                 start_time = current_group[0]["start"]
                 end_time = current_group[-1]["end"]
-                text_content = "".join([w.get('word', '') for w in current_group])
+                text_content = "".join(
+                    [w.get('word', '') for w in current_group])
 
                 f.write(f"{srt_index}\n")
-                f.write(f"{format_timestamp(start_time)} --> {format_timestamp(end_time)}\n")
+                f.write(
+                    f"{format_timestamp(start_time)} --> {format_timestamp(end_time)}\n")
                 f.write(f"{text_content}\n\n")
 
     print(f'已保存字幕文件：{file_path}')

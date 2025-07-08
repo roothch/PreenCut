@@ -503,7 +503,7 @@ def create_gradio_interface():
 
                 with gr.Tab("字幕文件"):
                     srt_download = gr.File(label='下载txt/srt文件')
-                    asr_result = gr.Text(label="语音识别结果", lines=30,
+                    asr_result = gr.Text(label="语音识别结果", lines=20,
                                          interactive=True)
 
         # 定时器，用于轮询状态

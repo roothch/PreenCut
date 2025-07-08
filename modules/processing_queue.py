@@ -64,8 +64,6 @@ class ProcessingQueue:
 
                 # 处理每个文件
                 file_results = []
-                recognizer = SpeechRecognizerFactory.get_speech_recognizer_by_type(
-                    SPEECH_RECOGNIZER_TYPE, model_size)
                 llm_model = task_result.get("llm_model")
                 temperature = task_result.get("temperature")
                 llm = LLMProcessor(llm_model, temperature)
@@ -83,6 +81,8 @@ class ProcessingQueue:
 
                     # 语音识别
                     print(f"开始语音识别: {file_path}")
+                    recognizer = SpeechRecognizerFactory.get_speech_recognizer_by_type(
+                        SPEECH_RECOGNIZER_TYPE, model_size)
                     result = recognizer.transcribe(audio_path)
                     print(
                         f"语音识别完成，segments个数: {len(result['segments'])}")

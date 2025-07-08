@@ -10,14 +10,15 @@ from config import (
     OUTPUT_FOLDER,
     ALLOWED_EXTENSIONS,
     MAX_FILE_SIZE,
-    SPEECH_RECOGNIZER_TYPE,
     WHISPER_MODEL_SIZE,
-    MAX_FILE_NUMBERS
+    MAX_FILE_NUMBERS,
+    ALIGNMENT_MODEL,
 )
 from modules.processing_queue import ProcessingQueue
 from modules.video_processor import VideoProcessor
 from utils import seconds_to_hhmmss, hhmmss_to_seconds, clear_directory_fast \
-    , generate_safe_filename, write_to_srt, write_to_csv
+    , generate_safe_filename, write_to_srt, write_to_csv, get_srt_by_ctc_result, \
+    write_to_txt
 from typing import List, Dict, Tuple, Optional
 import subprocess
 
@@ -99,13 +100,13 @@ def check_status(task_id: str, enable_alignment: str, max_line_length: int) -> \
         os.makedirs(task_output_dir, exist_ok=True)
         display_result = []
         clip_result = []
-        stt_result = []
-        srt_paths = []
+        asr_result = ''  # 页面显示的语音识别结果
+        subtitle_paths = []  # 可下载的字幕文件
         for file_result in result["result"]:
-            text = [text['text'] for text in
-                    file_result['align_result']['segments']]
-            stt_text = '\n'.join(text)
-            stt_result.append([file_result['filename'], stt_text])
+            asr_result += f"FileName：{file_result['filename']}:\n"
+            text = '\n'.join([text['text'] for text in
+                              file_result['align_result']['segments']])
+            asr_result += text + '\n\n'
             for seg in file_result["segments"]:
                 row = [file_result["filename"],
                        f"{seconds_to_hhmmss(seg['start'])}",
@@ -119,22 +120,30 @@ def check_status(task_id: str, enable_alignment: str, max_line_length: int) -> \
                 display_result.append(row)
                 clip_result.append(clip_row)
 
-            # 保存当前STT识别结果
-            stt_path = write_to_csv([['\n'.join(text)]],
-                                    output_dir=task_output_dir,
-                                    filename=file_result['filename'].split('.')[
-                                                 0] + '.txt', header=None)
-            srt_paths.append(stt_path)
+            asr_path = write_to_txt(
+                text, output_dir=task_output_dir,
+                filename=file_result['filename'].split('.')[0] + '.txt'
+            )
+            subtitle_paths.append(asr_path)
 
             # 保存当前视/音频的srt字幕文件
             if enable_alignment == "开启":
-                srt_path = write_to_srt(file_result['align_result'],
-                                        output_dir=task_output_dir,
-                                        max_line_length=max_line_length,
-                                        filename=
-                                        file_result['filename'].split('.')[
-                                            0] + '.srt')
-                srt_paths.append(srt_path)
+                if ALIGNMENT_MODEL == 'ctc-forced-aligner':
+                    # 使用ctc-forced-aligner生成srt
+                    srt_path = get_srt_by_ctc_result(
+                        file_result['align_result'],
+                        max_line_length=max_line_length,
+                        output_dir=task_output_dir,
+                        filename=file_result['filename'].split('.')[
+                                     0] + '.srt')
+                else:
+                    srt_path = write_to_srt(file_result['align_result'],
+                                            max_line_length=max_line_length,
+                                            output_dir=task_output_dir,
+                                            filename=
+                                            file_result['filename'].split('.')[
+                                                0] + '.srt')
+                subtitle_paths.append(srt_path)
 
         # 将结果保存到csv文件
         result_path = write_to_csv(display_result, output_dir=task_output_dir,
@@ -142,13 +151,13 @@ def check_status(task_id: str, enable_alignment: str, max_line_length: int) -> \
 
         return (
             result_path,
-            srt_paths,
+            subtitle_paths,
             {"task_id": task_id, "status": "处理完成",
              "raw_result": result["result"],
              "result": display_result, },
             display_result,
             clip_result,
-            stt_result,
+            asr_result,
             gr.Timer(active=False)
         )
 
@@ -157,14 +166,14 @@ def check_status(task_id: str, enable_alignment: str, max_line_length: int) -> \
             [], [],
             {"task_id": task_id,
              "status": f"错误: {result.get('error', '未知错误')}"},
-            [], [], [], gr.update()
+            [], [], '', gr.update()
         )
     elif result["status"] == "queued":
         return (
             [], [],
             {"task_id": task_id,
              "status": f"排队中, 前面还有{processing_queue.get_queue_size()}个任务"},
-            [], [], [], gr.update()
+            [], [], '', gr.update()
         )
 
     if task_id:
@@ -172,13 +181,13 @@ def check_status(task_id: str, enable_alignment: str, max_line_length: int) -> \
             [], [],
             {"task_id": task_id, "status": "处理中...",
              "status_info": result.get("status_info", "")},
-            [], [], [], gr.update()
+            [], [], '', gr.update()
         )
     else:
         return (
             [], [],
             {"task_id": "", "status": ""},
-            [], [], [], gr.update()
+            [], [], '', gr.update()
         )
 
 
@@ -413,7 +422,7 @@ def create_gradio_interface():
                 with gr.Accordion("高级设置", open=False):
                     llm_model = gr.Dropdown(
                         choices=[model['label'] for model in LLM_MODEL_OPTIONS],
-                        value="豆包", label="大语言模型")
+                        value="DeepSeek-V3-0324", label="大语言模型")
                     temperature = gr.Slider(minimum=0.1, maximum=1, step=0.1,
                                             value=0.3,
                                             label="摘要生成灵活度(temperature)")
@@ -430,7 +439,8 @@ def create_gradio_interface():
                     )
                     max_line_length = gr.Slider(minimum=1, maximum=50, step=1,
                                                 value=20,
-                                                label="单条字幕最大长度(在开启语音文字对齐后有效)")
+                                                label="单条字幕最大长度(在开启语音文字对齐后有效)",
+                                                visible=False)
 
                 prompt_input = gr.Textbox(
                     label="自定义分析提示 (可选)",
@@ -462,10 +472,10 @@ def create_gradio_interface():
                     )
                     reanalyze_llm_model = gr.Dropdown(
                         choices=[model['label'] for model in LLM_MODEL_OPTIONS],
-                        value="豆包", label="大语言模型")
+                        value="DeepSeek-V3-0324", label="大语言模型")
                     reanlyze_temperature = gr.Slider(minimum=0.1, maximum=1,
                                                      step=0.1, value=0.3,
-                                                     label="摘要生成灵活度(temperature, 推荐0.2-0.4之间)")
+                                                     label="摘要生成灵活度(temperature)")
                     reanalyze_btn = gr.Button("重新分析", variant="secondary")
 
                 with gr.Tab("剪辑选项"):
@@ -493,23 +503,15 @@ def create_gradio_interface():
 
                 with gr.Tab("字幕文件"):
                     srt_download = gr.File(label='下载txt/srt文件')
-                    stt_result = gr.Dataframe(
-                        headers=["文件名", "识别结果"],
-                        datatype=["str", "markdown"],
-                        interactive=True,
-                        wrap=True,
-                        show_copy_button=True,
-                        max_height=600,
-                        line_breaks=True,
-                        column_widths=['20%', '80%']
-                    )
+                    asr_result = gr.Text(label="语音识别结果", lines=20,
+                                         interactive=True)
 
         # 定时器，用于轮询状态
         timer = gr.Timer(2, active=False)
         timer.tick(check_status, inputs=[task_id, alignment, max_line_length],
                    outputs=[file_download, srt_download, status_display,
                             result_table,
-                            segment_selection, stt_result,
+                            segment_selection, asr_result,
                             timer])
 
         # 事件处理

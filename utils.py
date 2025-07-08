@@ -8,6 +8,7 @@ from modules.subtitles_processor import SubtitlesProcessor
 from modules.subtitles_processor import format_timestamp
 import torch
 import gc
+from typing import List, Dict
 
 
 def clear_cache():
@@ -77,7 +78,7 @@ def get_audio_codec(input_file):
     return info["streams"][0]["codec_name"]
 
 
-def write_to_srt(align_result, output_dir, max_line_length,
+def write_to_srt(align_result, max_line_length, output_dir,
                  filename='字幕.srt'):
     '''
     :param align_result: whisperx对齐后的视/音频转文本结果
@@ -214,6 +215,37 @@ def write_to_srt(align_result, output_dir, max_line_length,
     return file_path
 
 
+def write_to_txt(text: str, output_dir: str,
+                 filename: str = "output.txt") -> str:
+    """
+    将文本写入 TXT 文件，并返回文件路径。
+
+    Args:
+        text (str): 要写入的文本内容
+        output_dir (str): 输出目录
+        filename (str, optional): 输出文件名，默认为 "output.txt"
+
+    Returns:
+        str: 生成的 TXT 文件路径
+    """
+    # 确保目录存在
+    os.makedirs(output_dir, exist_ok=True)
+
+    # 避免处理重名文件
+    files_in_dir = os.listdir(output_dir)
+    while filename in files_in_dir:
+        filename = filename.split('.')[0] + '_duplicate' + '.txt'
+
+    # 构造完整文件路径
+    file_path = os.path.join(output_dir, filename)
+
+    # 写入 TXT 文件
+    with open(file_path, mode="w", encoding="utf-8") as f:
+        f.write(text)
+
+    return file_path
+
+
 def write_to_csv(display_result: list, output_dir: str,
                  filename: str = "output.csv",
                  header: list = ["文件名", "开始时间", "结束时间", "时长",
@@ -254,3 +286,62 @@ def write_to_csv(display_result: list, output_dir: str,
         writer.writerows(display_result)
 
     return file_path
+
+
+def get_srt_by_ctc_result(ctc_align_result: dict, max_line_length: int,
+                          output_dir: str, filename: str = '字幕.srt'):
+    """
+    根据 CTC 对齐结果生成 SRT 字幕文件。
+
+    Args:
+        ctc_align_result (dict): CTC 对齐结果，包含 'segments' 和 'language'。
+        max_line_length (int): 每行字幕的最大长度。
+        output_dir (str): 输出目录。
+        filename (str): 输出文件名。
+
+    Returns:
+        str: 生成的 SRT 文件路径。
+    """
+    segments = ctc_align_result.get('segments', [])
+    srt_str = generate_srt(segments)
+    file_path = os.path.join(output_dir, filename)
+    with open(file_path, 'w', encoding='utf-8') as f:
+        f.write(srt_str)
+
+    print(f'已保存srt字幕文件：{file_path}')
+    return file_path
+
+
+def generate_srt(segments: List[Dict]) -> str:
+    srt_output = []
+    line_index = 0
+    previous_end_time = 0  # Track the end time of the previous subtitle
+
+    for i, entry in enumerate(segments):
+        # Found the start of a subtitle
+        start_time = entry['start']
+        # 把字幕开始时间提前100毫秒
+        adjusted_start = max(start_time - 0.1,
+                             0)  # Ensure we don't go below 0
+        # If less than 100ms from previous subtitle, use previous end time
+        if previous_end_time > 0 and adjusted_start < previous_end_time:
+            adjusted_start = previous_end_time
+        start_time = adjusted_start
+
+        # Found the end of a subtitle
+        end_time = entry['end']
+        previous_end_time = end_time  # Save for the next subtitle
+        srt_output.append(
+            f"{line_index + 1}\n{format_time(start_time)} --> {format_time(end_time)}\n{entry['text']}\n")
+        line_index += 1
+
+    return "\n".join(srt_output)
+
+
+# 格式化时间为SRT格式
+def format_time(seconds):
+    hours = int(seconds // 3600)
+    minutes = int((seconds % 3600) // 60)
+    seconds_part = seconds % 60
+    milliseconds = int((seconds_part - int(seconds_part)) * 1000)
+    return f"{hours:02}:{minutes:02}:{int(seconds_part):02},{milliseconds:03}"

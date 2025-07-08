@@ -48,7 +48,7 @@ TEMP_FOLDER = "temp"
 OUTPUT_FOLDER = "output"
 
 # 语音识别模型配置
-SPEECH_RECOGNIZER_TYPE = 'whisperx' # whisperx, faster-whisper
+SPEECH_RECOGNIZER_TYPE = 'whisperx'  # whisperx, faster-whisper
 
 DEVICE_TYPE, AVAILABLE_GPUS = get_device_config()
 # Whisper配置
@@ -57,14 +57,12 @@ WHISPER_DEVICE = DEVICE_TYPE
 WHISPER_GPU_IDS = AVAILABLE_GPUS
 WHISPER_COMPUTE_TYPE = 'float16' if WHISPER_DEVICE == 'cuda' else 'float32'  # float16, float32, int8
 WHISPER_BATCH_SIZE = 16  # 批处理大小
-
 FASTER_WHISPER_BEAM_SIZE = 5
-
-
 
 # 语音文字对齐模型
 ENABLE_ALIGNMENT = True  # 是否启用对齐
-ALIGNMENT_MODEL = 'whisperx'  # 使用的对齐模型
+ALIGNMENT_DEVICE = DEVICE_TYPE  # 对齐模型使用的设备
+ALIGNMENT_MODEL = 'ctc-forced-aligner'  # 使用的对齐模型, whisperx, ctc-forced-aligner
 
 # OpenAI API配置
 LLM_MODEL_OPTIONS = [

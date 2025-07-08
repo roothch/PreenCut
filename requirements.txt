@@ -5,3 +5,4 @@ openai==1.91.0
 torch==2.7.1+cu118
 torchaudio==2.7.1+cu118
 fastapi==0.115.13
+git+https://github.com/MahmoudAshraf97/ctc-forced-aligner.git@201276a4ea2ddd3f5caead1ac4f211477ae3da6d

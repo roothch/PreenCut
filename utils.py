@@ -272,12 +272,7 @@ def get_srt_by_ctc_result(ctc_align_result: dict, max_line_length: int,
         str: 生成的 SRT 文件路径。
     """
     segments = ctc_align_result.get('segments', [])
-    subtitle_list = []
-    for segment in segments:
-        subtitle = segment.get('text', '').strip()
-        if subtitle:
-            subtitle_list.append(subtitle)
-    srt_str = generate_srt(segments, subtitle_list)
+    srt_str = generate_srt(segments)
     file_path = os.path.join(output_dir, filename)
     with open(file_path, 'w', encoding='utf-8') as f:
         f.write(srt_str)
@@ -286,7 +281,7 @@ def get_srt_by_ctc_result(ctc_align_result: dict, max_line_length: int,
     return file_path
 
 
-def generate_srt(segments: List[Dict], lines: List[str]) -> str:
+def generate_srt(segments: List[Dict]) -> str:
     srt_output = []
     line_index = 0
     start_time = None
@@ -313,7 +308,7 @@ def generate_srt(segments: List[Dict], lines: List[str]) -> str:
             previous_end_time = end_time  # Save for the next subtitle
 
             srt_output.append(
-                f"{line_index + 1}\n{format_time(start_time)} --> {format_time(end_time)}\n{lines[line_index]}\n")
+                f"{line_index + 1}\n{format_time(start_time)} --> {format_time(end_time)}\n{entry['text']}\n")
             line_index += 1
             start_time = None
 

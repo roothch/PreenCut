@@ -10,14 +10,14 @@ from config import (
     OUTPUT_FOLDER,
     ALLOWED_EXTENSIONS,
     MAX_FILE_SIZE,
-    SPEECH_RECOGNIZER_TYPE,
     WHISPER_MODEL_SIZE,
-    MAX_FILE_NUMBERS
+    MAX_FILE_NUMBERS,
+    ALIGNMENT_MODEL,
 )
 from modules.processing_queue import ProcessingQueue
 from modules.video_processor import VideoProcessor
 from utils import seconds_to_hhmmss, hhmmss_to_seconds, clear_directory_fast \
-    , generate_safe_filename, write_to_srt, write_to_csv
+    , generate_safe_filename, write_to_srt, write_to_csv, get_srt_by_ctc_result
 from typing import List, Dict, Tuple, Optional
 import subprocess
 
@@ -128,12 +128,21 @@ def check_status(task_id: str, enable_alignment: str, max_line_length: int) -> \
 
             # 保存当前视/音频的srt字幕文件
             if enable_alignment == "开启":
-                srt_path = write_to_srt(file_result['align_result'],
-                                        output_dir=task_output_dir,
-                                        max_line_length=max_line_length,
-                                        filename=
-                                        file_result['filename'].split('.')[
-                                            0] + '.srt')
+                if ALIGNMENT_MODEL == 'ctc-forced-aligner':
+                    # 使用ctc-forced-aligner生成srt
+                    srt_path = get_srt_by_ctc_result(
+                        file_result['align_result'],
+                        max_line_length=max_line_length,
+                        output_dir=task_output_dir,
+                        filename=file_result['filename'].split('.')[
+                            0] + '.srt')
+                else:
+                    srt_path = write_to_srt(file_result['align_result'],
+                                            max_line_length=max_line_length,
+                                            output_dir=task_output_dir,
+                                            filename=
+                                            file_result['filename'].split('.')[
+                                                0] + '.srt')
                 srt_paths.append(srt_path)
 
         # 将结果保存到csv文件
@@ -465,7 +474,7 @@ def create_gradio_interface():
                         value="豆包", label="大语言模型")
                     reanlyze_temperature = gr.Slider(minimum=0.1, maximum=1,
                                                      step=0.1, value=0.3,
-                                                     label="摘要生成灵活度(temperature, 推荐0.2-0.4之间)")
+                                                     label="摘要生成灵活度(temperature)")
                     reanalyze_btn = gr.Button("重新分析", variant="secondary")
 
                 with gr.Tab("剪辑选项"):

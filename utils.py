@@ -8,6 +8,7 @@ from modules.subtitles_processor import SubtitlesProcessor
 from modules.subtitles_processor import format_timestamp
 import torch
 import gc
+from typing import List, Dict
 
 
 def clear_cache():
@@ -77,7 +78,7 @@ def get_audio_codec(input_file):
     return info["streams"][0]["codec_name"]
 
 
-def write_to_srt(align_result, output_dir, max_line_length,
+def write_to_srt(align_result, max_line_length, output_dir,
                  filename='字幕.srt'):
     '''
     :param align_result: whisperx对齐后的视/音频转文本结果
@@ -254,3 +255,86 @@ def write_to_csv(display_result: list, output_dir: str,
         writer.writerows(display_result)
 
     return file_path
+
+
+def get_srt_by_ctc_result(ctc_align_result: dict, max_line_length: int,
+                          output_dir: str, filename: str = '字幕.srt'):
+    """
+    根据 CTC 对齐结果生成 SRT 字幕文件。
+
+    Args:
+        ctc_align_result (dict): CTC 对齐结果，包含 'segments' 和 'language'。
+        max_line_length (int): 每行字幕的最大长度。
+        output_dir (str): 输出目录。
+        filename (str): 输出文件名。
+
+    Returns:
+        str: 生成的 SRT 文件路径。
+    """
+    segments = ctc_align_result.get('segments', [])
+    subtitle_list = []
+    for segment in segments:
+        subtitle = segment.get('text', '').strip()
+        if subtitle:
+            subtitle_list.append(subtitle)
+    srt_str = generate_srt(ctc_align_result, subtitle_list)
+    file_path = os.path.join(output_dir, filename)
+    with open(file_path, 'w', encoding='utf-8') as f:
+        f.write(srt_str)
+
+    print(f'已保存srt字幕文件：{file_path}')
+    return file_path
+
+
+def generate_srt(timestamps: List[Dict], lines: List[str],
+                 translated_subtitle_list: List[str] = []) -> str:
+    timestamps = timestamps[:-2]
+    lines = lines[:-1]
+
+    srt_output = []
+    line_index = 0
+    start_time = None
+    previous_end_time = 0  # Track the end time of the previous subtitle
+
+    for i, entry in enumerate(timestamps):
+        if entry['text'] and start_time is None:
+            # Found the start of a subtitle
+            start_time = entry['start']
+
+            # 把字幕开始时间提前100毫秒
+            adjusted_start = max(start_time - 0.1,
+                                 0)  # Ensure we don't go below 0
+
+            # If less than 100ms from previous subtitle, use previous end time
+            if previous_end_time > 0 and adjusted_start < previous_end_time:
+                adjusted_start = previous_end_time
+
+            start_time = adjusted_start
+
+        if entry['text'] == '' and start_time is not None:
+            # Found the end of a subtitle
+            end_time = entry['end']
+            previous_end_time = end_time  # Save for the next subtitle
+
+            if line_index < len(lines):
+                # 有双语字幕
+                if line_index < len(translated_subtitle_list):
+                    srt_output.append(
+                        f"{line_index + 1}\n{format_time(start_time)} --> {format_time(end_time)}\n{translated_subtitle_list[line_index]}\n{lines[line_index]}\n"
+                    )
+                else:
+                    srt_output.append(
+                        f"{line_index + 1}\n{format_time(start_time)} --> {format_time(end_time)}\n{lines[line_index]}\n")
+                line_index += 1
+                start_time = None
+
+    return "\n".join(srt_output)
+
+
+# 格式化时间为SRT格式
+def format_time(seconds):
+    hours = int(seconds // 3600)
+    minutes = int((seconds % 3600) // 60)
+    seconds_part = seconds % 60
+    milliseconds = int((seconds_part - int(seconds_part)) * 1000)
+    return f"{hours:02}:{minutes:02}:{int(seconds_part):02},{milliseconds:03}"

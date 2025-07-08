@@ -27,7 +27,8 @@ class ProcessingQueue:
 
     def add_task(self, task_id: str, files: List[str], llm_model: str,
                  prompt: Optional[str], temperature=0.3,
-                 whisper_model_size: Optional[str] = None, enable_alignment=False):
+                 whisper_model_size: Optional[str] = None,
+                 enable_alignment=False):
         """添加任务到队列"""
         with self.lock:
             self.results[task_id] = {
@@ -87,7 +88,7 @@ class ProcessingQueue:
                         f"语音识别完成，segments个数: {len(result['segments'])}")
                     del recognizer
                     clear_cache()
-                    
+
                     if task_result['enable_alignment']:
                         # 文本对齐
                         print("开始文本对齐...")
@@ -101,7 +102,9 @@ class ProcessingQueue:
 
                     # 调用大模型进行分段
                     print("调用大模型进行分段...")
-                    llm_inputs = [{key: segment.get(key) for key in ["start", "end", "text"]} for segment in result["segments"]]
+                    llm_inputs = [{key: segment.get(key) for key in
+                                   ["start", "end", "text"]} for segment in
+                                  result["segments"]]
                     segments = llm.segment_video(llm_inputs, prompt)
                     print(f"大模型分段完成，段数: {len(segments)}")
 

@@ -284,33 +284,25 @@ def get_srt_by_ctc_result(ctc_align_result: dict, max_line_length: int,
 def generate_srt(segments: List[Dict]) -> str:
     srt_output = []
     line_index = 0
-    start_time = None
     previous_end_time = 0  # Track the end time of the previous subtitle
 
     for i, entry in enumerate(segments):
-        if start_time is None:
-            # Found the start of a subtitle
-            start_time = entry['start']
+        # Found the start of a subtitle
+        start_time = entry['start']
+        # 把字幕开始时间提前100毫秒
+        adjusted_start = max(start_time - 0.1,
+                             0)  # Ensure we don't go below 0
+        # If less than 100ms from previous subtitle, use previous end time
+        if previous_end_time > 0 and adjusted_start < previous_end_time:
+            adjusted_start = previous_end_time
+        start_time = adjusted_start
 
-            # 把字幕开始时间提前100毫秒
-            adjusted_start = max(start_time - 0.1,
-                                 0)  # Ensure we don't go below 0
-
-            # If less than 100ms from previous subtitle, use previous end time
-            if previous_end_time > 0 and adjusted_start < previous_end_time:
-                adjusted_start = previous_end_time
-
-            start_time = adjusted_start
-
-        else:
-            # Found the end of a subtitle
-            end_time = entry['end']
-            previous_end_time = end_time  # Save for the next subtitle
-
-            srt_output.append(
-                f"{line_index + 1}\n{format_time(start_time)} --> {format_time(end_time)}\n{entry['text']}\n")
-            line_index += 1
-            start_time = None
+        # Found the end of a subtitle
+        end_time = entry['end']
+        previous_end_time = end_time  # Save for the next subtitle
+        srt_output.append(
+            f"{line_index + 1}\n{format_time(start_time)} --> {format_time(end_time)}\n{entry['text']}\n")
+        line_index += 1
 
     return "\n".join(srt_output)
 

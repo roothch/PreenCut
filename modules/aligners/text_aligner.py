@@ -43,16 +43,6 @@ def to_639_3(language_code: str) -> str:
         return 'jpn'
     elif language_code == 'ko':
         return 'kor'
-    elif language_code == 'ru':
-        return 'rus'
-    elif language_code == 'ar':
-        return 'ara'
-    elif language_code == 'pt':
-        return 'por'
-    elif language_code == 'it':
-        return 'ita'
-    elif language_code == 'hi':
-        return 'hin'
     else:
         return "eng"  # 默认返回英文代码
 

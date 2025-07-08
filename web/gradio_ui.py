@@ -166,14 +166,14 @@ def check_status(task_id: str, enable_alignment: str, max_line_length: int) -> \
             [], [],
             {"task_id": task_id,
              "status": f"错误: {result.get('error', '未知错误')}"},
-            [], [], [], gr.update()
+            [], [], '', gr.update()
         )
     elif result["status"] == "queued":
         return (
             [], [],
             {"task_id": task_id,
              "status": f"排队中, 前面还有{processing_queue.get_queue_size()}个任务"},
-            [], [], [], gr.update()
+            [], [], '', gr.update()
         )
 
     if task_id:
@@ -181,13 +181,13 @@ def check_status(task_id: str, enable_alignment: str, max_line_length: int) -> \
             [], [],
             {"task_id": task_id, "status": "处理中...",
              "status_info": result.get("status_info", "")},
-            [], [], [], gr.update()
+            [], [], '', gr.update()
         )
     else:
         return (
             [], [],
             {"task_id": "", "status": ""},
-            [], [], [], gr.update()
+            [], [], '', gr.update()
         )
 
 
@@ -503,7 +503,8 @@ def create_gradio_interface():
 
                 with gr.Tab("字幕文件"):
                     srt_download = gr.File(label='下载txt/srt文件')
-                    asr_result = gr.Text(label="语音识别结果")
+                    asr_result = gr.Text(label="语音识别结果", lines=30,
+                                         interactive=True)
 
         # 定时器，用于轮询状态
         timer = gr.Timer(2, active=False)

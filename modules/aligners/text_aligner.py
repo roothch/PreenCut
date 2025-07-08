@@ -21,7 +21,7 @@ def process_ctc_text(segments: List[Dict], language_code: str) -> str:
 
 def replace_chinese_punctuation_with_space(text: str) -> str:
     # 将所有匹配的中文标点替换为空格
-    chinese_punctuation_pattern = re.compile(r'[，。；：？！…,]')
+    chinese_punctuation_pattern = re.compile(r'[，。；：？?！…,]')
     result = chinese_punctuation_pattern.sub(' ', text)
     return result
 

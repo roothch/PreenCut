@@ -286,18 +286,14 @@ def get_srt_by_ctc_result(ctc_align_result: dict, max_line_length: int,
     return file_path
 
 
-def generate_srt(timestamps: List[Dict], lines: List[str],
-                 translated_subtitle_list: List[str] = []) -> str:
-    timestamps = timestamps[:-2]
-    lines = lines[:-1]
-
+def generate_srt(segments: List[Dict], lines: List[str]) -> str:
     srt_output = []
     line_index = 0
     start_time = None
     previous_end_time = 0  # Track the end time of the previous subtitle
 
-    for i, entry in enumerate(timestamps):
-        if entry['text'] and start_time is None:
+    for i, entry in enumerate(segments):
+        if start_time is None:
             # Found the start of a subtitle
             start_time = entry['start']
 
@@ -311,22 +307,15 @@ def generate_srt(timestamps: List[Dict], lines: List[str],
 
             start_time = adjusted_start
 
-        if entry['text'] == '' and start_time is not None:
+        else:
             # Found the end of a subtitle
             end_time = entry['end']
             previous_end_time = end_time  # Save for the next subtitle
 
-            if line_index < len(lines):
-                # 有双语字幕
-                if line_index < len(translated_subtitle_list):
-                    srt_output.append(
-                        f"{line_index + 1}\n{format_time(start_time)} --> {format_time(end_time)}\n{translated_subtitle_list[line_index]}\n{lines[line_index]}\n"
-                    )
-                else:
-                    srt_output.append(
-                        f"{line_index + 1}\n{format_time(start_time)} --> {format_time(end_time)}\n{lines[line_index]}\n")
-                line_index += 1
-                start_time = None
+            srt_output.append(
+                f"{line_index + 1}\n{format_time(start_time)} --> {format_time(end_time)}\n{lines[line_index]}\n")
+            line_index += 1
+            start_time = None
 
     return "\n".join(srt_output)
 

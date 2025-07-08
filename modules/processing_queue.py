@@ -96,7 +96,7 @@ class ProcessingQueue:
                         aligner = TextAligner(language)
                         result = aligner.align(result["segments"], audio_path)
                         result["language"] = language
-                        print("完成文本对齐")
+                        print("文本对齐完成")
                         del aligner
                         clear_cache()
 

@@ -43,7 +43,7 @@ class FasterWhisperSpeechRecognizer(SpeechRecognizer):
         print("load audio success")
         segments, info = self.model.transcribe(
             audio,
-            initial_prompt="Add punctuation after end of each line. 就比如說，我要先去吃飯。Segment at end of each sentence.",
+            initial_prompt="Add punctuation after end of each line. 就比如说，我要先去吃饭。Segment at end of each sentence.",
             word_timestamps=True,
             beam_size=self.beam_size
         )

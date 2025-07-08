@@ -505,7 +505,7 @@ def create_gradio_interface():
                     srt_download = gr.File(label='下载txt/srt文件')
                     stt_result = gr.Dataframe(
                         headers=["文件名", "识别结果"],
-                        datatype=["str", "markdown"],
+                        datatype=["str", "str"],
                         interactive=True,
                         wrap=True,
                         show_copy_button=True,

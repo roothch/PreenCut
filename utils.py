@@ -277,7 +277,7 @@ def get_srt_by_ctc_result(ctc_align_result: dict, max_line_length: int,
         subtitle = segment.get('text', '').strip()
         if subtitle:
             subtitle_list.append(subtitle)
-    srt_str = generate_srt(ctc_align_result, subtitle_list)
+    srt_str = generate_srt(segments, subtitle_list)
     file_path = os.path.join(output_dir, filename)
     with open(file_path, 'w', encoding='utf-8') as f:
         f.write(srt_str)

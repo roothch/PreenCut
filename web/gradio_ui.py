@@ -422,7 +422,7 @@ def create_gradio_interface():
                 with gr.Accordion("高级设置", open=False):
                     llm_model = gr.Dropdown(
                         choices=[model['label'] for model in LLM_MODEL_OPTIONS],
-                        value="豆包", label="大语言模型")
+                        value="DeepSeek-V3-0324", label="大语言模型")
                     temperature = gr.Slider(minimum=0.1, maximum=1, step=0.1,
                                             value=0.3,
                                             label="摘要生成灵活度(temperature)")
@@ -472,7 +472,7 @@ def create_gradio_interface():
                     )
                     reanalyze_llm_model = gr.Dropdown(
                         choices=[model['label'] for model in LLM_MODEL_OPTIONS],
-                        value="豆包", label="大语言模型")
+                        value="DeepSeek-V3-0324", label="大语言模型")
                     reanlyze_temperature = gr.Slider(minimum=0.1, maximum=1,
                                                      step=0.1, value=0.3,
                                                      label="摘要生成灵活度(temperature)")

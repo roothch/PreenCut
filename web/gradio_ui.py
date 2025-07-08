@@ -439,7 +439,8 @@ def create_gradio_interface():
                     )
                     max_line_length = gr.Slider(minimum=1, maximum=50, step=1,
                                                 value=20,
-                                                label="单条字幕最大长度(在开启语音文字对齐后有效)")
+                                                label="单条字幕最大长度(在开启语音文字对齐后有效)",
+                                                visible=False)
 
                 prompt_input = gr.Textbox(
                     label="自定义分析提示 (可选)",

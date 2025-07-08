@@ -215,6 +215,37 @@ def write_to_srt(align_result, max_line_length, output_dir,
     return file_path
 
 
+def write_to_txt(text: str, output_dir: str,
+                 filename: str = "output.txt") -> str:
+    """
+    将文本写入 TXT 文件，并返回文件路径。
+
+    Args:
+        text (str): 要写入的文本内容
+        output_dir (str): 输出目录
+        filename (str, optional): 输出文件名，默认为 "output.txt"
+
+    Returns:
+        str: 生成的 TXT 文件路径
+    """
+    # 确保目录存在
+    os.makedirs(output_dir, exist_ok=True)
+
+    # 避免处理重名文件
+    files_in_dir = os.listdir(output_dir)
+    while filename in files_in_dir:
+        filename = filename.split('.')[0] + '_duplicate' + '.txt'
+
+    # 构造完整文件路径
+    file_path = os.path.join(output_dir, filename)
+
+    # 写入 TXT 文件
+    with open(file_path, mode="w", encoding="utf-8") as f:
+        f.write(text)
+
+    return file_path
+
+
 def write_to_csv(display_result: list, output_dir: str,
                  filename: str = "output.csv",
                  header: list = ["文件名", "开始时间", "结束时间", "时长",

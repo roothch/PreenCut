@@ -311,6 +311,15 @@ def get_srt_from_ctc_result(ctc_align_result: dict, max_line_length: int,
     print(f'已保存srt字幕文件：{file_path}')
     return file_path
 
+def process_chinese_punctuation(text: str) -> str:
+    # 处理字幕中的中文标点符号
+    mid_punc_pattern = re.compile(r'[、，：；…]')
+    text = mid_punc_pattern.sub(' ', text)  # 替换中间标点为空格
+
+    end_punc_pattern = re.compile(r'[。？?！《》‘’“”]')
+    text = end_punc_pattern.sub('', text) # 替换其他标点为空字符串
+    return text
+
 
 def generate_srt(segments: List[Dict]) -> str:
     srt_output = []

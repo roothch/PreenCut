@@ -105,7 +105,7 @@ def check_status(task_id: str, enable_alignment: str, max_line_length: int) -> \
         asr_result = ''  # 页面显示的语音识别结果
         subtitle_paths = []  # 可下载的字幕文件
         for file_result in result["result"]:
-            asr_result += f"FileName：{file_result['filename']}:\n"
+            asr_result += f"FileName：{file_result['filename']}\n=======================\n"
             text = '\n'.join([text['text'] for text in
                               file_result['align_result']['segments']])
             asr_result += text + '\n\n'

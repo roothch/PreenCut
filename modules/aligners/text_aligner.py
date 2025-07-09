@@ -102,6 +102,7 @@ class TextAligner:
                  max_line_length: int = 16):
         self.language_code = language_code or 'zh'  # 默认语言代码为中文
         self.model = self._load_model()
+        self.word_segmenter = word_segmenter
         self.max_line_length = max_line_length
 
     def _load_model(self):

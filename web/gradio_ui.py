@@ -17,7 +17,8 @@ from config import (
 from modules.processing_queue import ProcessingQueue
 from modules.video_processor import VideoProcessor
 from utils import seconds_to_hhmmss, hhmmss_to_seconds, clear_directory_fast \
-    , generate_safe_filename, write_to_srt, write_to_csv, get_srt_by_ctc_result, \
+    , generate_safe_filename, write_to_srt, write_to_csv, \
+    get_srt_from_ctc_result, \
     write_to_txt
 from typing import List, Dict, Tuple, Optional
 import subprocess
@@ -65,7 +66,7 @@ def process_files(files: List, llm_model: str,
                   temperature: float,
                   prompt: Optional[str] = None,
                   whisper_model_size: Optional[str] = None,
-                  enable_alignment=None) -> Tuple[
+                  enable_alignment=None, max_line_length=16) -> Tuple[
     str, Dict]:
     """处理上传的文件"""
 
@@ -84,7 +85,8 @@ def process_files(files: List, llm_model: str,
         enable_alignment = False
     processing_queue.add_task(task_id, saved_paths, llm_model, prompt,
                               temperature,
-                              whisper_model_size, enable_alignment)
+                              whisper_model_size, enable_alignment,
+                              max_line_length)
 
     return task_id, {"status": "已加入队列，请稍候..."}
 
@@ -130,7 +132,7 @@ def check_status(task_id: str, enable_alignment: str, max_line_length: int) -> \
             if enable_alignment == "开启":
                 if ALIGNMENT_MODEL == 'ctc-forced-aligner':
                     # 使用ctc-forced-aligner生成srt
-                    srt_path = get_srt_by_ctc_result(
+                    srt_path = get_srt_from_ctc_result(
                         file_result['align_result'],
                         max_line_length=max_line_length,
                         output_dir=task_output_dir,
@@ -438,9 +440,9 @@ def create_gradio_interface():
                         value=DEFAULT_ENABLE_ALIGNMENT
                     )
                     max_line_length = gr.Slider(minimum=1, maximum=50, step=1,
-                                                value=20,
+                                                value=16,
                                                 label="单条字幕最大长度(在开启语音文字对齐后有效)",
-                                                visible=False)
+                                                visible=True)
 
                 prompt_input = gr.Textbox(
                     label="自定义分析提示 (可选)",
@@ -518,7 +520,7 @@ def create_gradio_interface():
         process_btn.click(
             process_files,
             inputs=[file_upload, llm_model, temperature, prompt_input,
-                    model_size, alignment],
+                    model_size, alignment, max_line_length],
             outputs=[task_id, status_display]
         ).then(
             lambda: gr.Timer(active=True),

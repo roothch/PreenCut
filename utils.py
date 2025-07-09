@@ -288,8 +288,8 @@ def write_to_csv(display_result: list, output_dir: str,
     return file_path
 
 
-def get_srt_by_ctc_result(ctc_align_result: dict, max_line_length: int,
-                          output_dir: str, filename: str = '字幕.srt'):
+def get_srt_from_ctc_result(ctc_align_result: dict, max_line_length: int,
+                            output_dir: str, filename: str = '字幕.srt'):
     """
     根据 CTC 对齐结果生成 SRT 字幕文件。
 

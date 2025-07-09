@@ -7,6 +7,7 @@ from modules.speech_recognizers.speech_recognizer_factory import \
 from modules.aligners.text_aligner import TextAligner
 from modules.llm_processor import LLMProcessor
 from modules.video_processor import VideoProcessor
+from modules.word_segmenter import WordSegmenter
 from config import SPEECH_RECOGNIZER_TYPE
 from typing import List, Dict, Optional
 from utils import clear_cache
@@ -26,9 +27,9 @@ class ProcessingQueue:
         self.cleanup_worker.start()
 
     def add_task(self, task_id: str, files: List[str], llm_model: str,
-                 prompt: Optional[str], temperature=0.3,
+                 prompt: Optional[str] = None, temperature=0.3,
                  whisper_model_size: Optional[str] = None,
-                 enable_alignment=False):
+                 enable_alignment=False, max_line_length=16):
         """添加任务到队列"""
         with self.lock:
             self.results[task_id] = {
@@ -39,7 +40,8 @@ class ProcessingQueue:
                 "llm_model": llm_model,
                 "timestamp": time.time(),  # 记录任务添加时间
                 "temperature": temperature,
-                "enable_alignment": enable_alignment
+                "enable_alignment": enable_alignment,
+                "max_line_length": max_line_length,
             }
         self.queue.put(task_id)
 
@@ -67,6 +69,8 @@ class ProcessingQueue:
                 llm_model = task_result.get("llm_model")
                 temperature = task_result.get("temperature")
                 llm = LLMProcessor(llm_model, temperature)
+                if task_result['enable_alignment']:
+                    word_segmenter = WordSegmenter()
 
                 for i, file_path in enumerate(files):
                     task_result[
@@ -93,7 +97,9 @@ class ProcessingQueue:
                         # 文本对齐
                         print("开始文本对齐...")
                         language = result['language']
-                        aligner = TextAligner(language)
+                        aligner = TextAligner(language, word_segmenter,
+                                              task_result.get("max_line_length",
+                                                              16))
                         result = aligner.align(result["segments"], audio_path)
                         result["language"] = language
                         print("文本对齐完成")

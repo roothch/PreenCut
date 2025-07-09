@@ -19,7 +19,7 @@ from modules.video_processor import VideoProcessor
 from utils import seconds_to_hhmmss, hhmmss_to_seconds, clear_directory_fast \
     , generate_safe_filename, write_to_srt, write_to_csv, \
     get_srt_from_ctc_result, \
-    write_to_txt
+    write_to_txt, process_chinese_punctuation
 from typing import List, Dict, Tuple, Optional
 import subprocess
 
@@ -108,6 +108,8 @@ def check_status(task_id: str, enable_alignment: str, max_line_length: int) -> \
             asr_result += f"FileName：{file_result['filename']}\n=======================\n"
             text = '\n'.join([text['text'] for text in
                               file_result['align_result']['segments']])
+            if file_result['align_result'].get('language') == 'zh':
+                text = process_chinese_punctuation(text)
             asr_result += text + '\n\n'
             for seg in file_result["segments"]:
                 row = [file_result["filename"],

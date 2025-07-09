@@ -24,7 +24,7 @@ def process_ctc_text(segments: List[Dict], language_code: str,
             line_list.extend(split_lines)
         else:
             line_list.append(line)
-    text = ' '.join([segment['text'] for line in line_list])
+    text = ' '.join(line_list)
     # if language_code == 'zh':
     #     text = replace_chinese_punctuation_with_space(text)
     return text

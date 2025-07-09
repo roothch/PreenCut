@@ -2,6 +2,7 @@ from typing import Optional
 from typing import List, Dict
 import torch
 import re
+from modules.word_segmenter import WordSegmenter
 
 from config import (
     ALIGNMENT_MODEL,
@@ -10,20 +11,64 @@ from config import (
 )
 
 
-def process_ctc_text(segments: List[Dict], language_code: str) -> str:
+def process_ctc_text(segments: List[Dict], language_code: str,
+                     word_segmenter: Optional[object],
+                     max_line_length: int) -> str:
     """处理CTC强制对齐的文本"""
-    text = ' '.join([segment['text'] for segment in segments])
-    if language_code == 'zh':
-        # 中文文本处理：去除中文标点符号
-        text = replace_chinese_punctuation_with_space(text)
+    line_list = []
+    for segment in segments:
+        line = segment['text'].strip()
+        # 如果文本长度超过最大行长度，则进行分割
+        if word_segmenter and len(line) > max_line_length:
+            split_lines = split_long_line(line, language_code, word_segmenter,
+                                          max_line_length)
+            line_list.extend(split_lines)
+        else:
+            line_list.append(line)
+    text = ' '.join(line_list)
     return text
 
 
-def replace_chinese_punctuation_with_space(text: str) -> str:
-    # 将所有匹配的中文标点替换为空格
-    chinese_punctuation_pattern = re.compile(r'[，。；：？?！…,、]')
-    result = chinese_punctuation_pattern.sub(' ', text)
-    return result
+def split_long_line(line: str, language_code: str,
+                    word_segmenter: WordSegmenter,
+                    max_length: int) -> List[str]:
+    output = []
+    if language_code == 'zh':
+        # 提取并添加特定符号中的词语到 jieba 词典
+        extract_and_add_phrases(word_segmenter, line)
+
+        line = line.strip()
+        if line:
+            # 1.不超过max_length
+            if len(line) <= max_length:
+                output.append(line)
+            # 2. 超过max_length，先按标点切分
+            else:
+                sub_sentences = [s.strip() for s in
+                                 re.split('[，。,;；：？?！…]', line)
+                                 if
+                                 s.strip()]
+                for sentence in sub_sentences:
+                    if len(sentence) <= max_length:
+                        output.append(sentence)
+                    # 3. 仍然超过max_line_width，使用jieba分词
+                    else:
+                        spit_sentences = word_segmenter.split_long_sentence(
+                            sentence, max_length)
+                        output.extend(spit_sentences)
+
+    else:
+        output.append(line)
+
+    return output
+
+
+def extract_and_add_phrases(word_segmenter, text):
+    pattern = '(《[^》]*》|"[^"]*"|\'[^\']*\'|‘[^’]*’|“[^”]*”|\([^\)]*\)|（[^）]*）|「[^」]*」)'
+    phrases = re.findall(pattern, text)
+    for phrase in phrases:
+        # 将词语添加到分词器的词典中
+        word_segmenter.add_word(phrase)
 
 
 def to_639_3(language_code: str) -> str:
@@ -50,9 +95,13 @@ def to_639_3(language_code: str) -> str:
 class TextAligner:
     """文本对齐器类，用于将文本与音频对齐"""
 
-    def __init__(self, language_code: Optional[str] = None):
+    def __init__(self, language_code: Optional[str] = None,
+                 word_segmenter: Optional[object] = None,
+                 max_line_length: int = 16):
         self.language_code = language_code or 'zh'  # 默认语言代码为中文
         self.model = self._load_model()
+        self.word_segmenter = word_segmenter
+        self.max_line_length = max_line_length
 
     def _load_model(self):
         if ALIGNMENT_MODEL == 'whisperx':
@@ -95,6 +144,12 @@ class TextAligner:
                                     return_char_alignments=False)
             return result
         elif ALIGNMENT_MODEL == 'ctc-forced-aligner':
+            # TODO 非中文语言暂时直接返回segments，
+            #  因为使用ctc会按空格将单个句子分成多个segments,最后生成的srt每行只有一个单词
+            if self.language_code != 'zh':
+                return {
+                    "segments": segments,
+                }
             from ctc_forced_aligner import (
                 load_audio,
                 generate_emissions,
@@ -107,7 +162,9 @@ class TextAligner:
             alignment_model, alignment_tokenizer = self.model
             audio_waveform = load_audio(audio_path, alignment_model.dtype,
                                         alignment_model.device)
-            text = process_ctc_text(segments, self.language_code)
+            text = process_ctc_text(segments, self.language_code,
+                                    self.word_segmenter,
+                                    self.max_line_length)
             emissions, stride = generate_emissions(
                 alignment_model, audio_waveform, batch_size=16
             )

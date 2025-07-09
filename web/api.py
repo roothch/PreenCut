@@ -50,7 +50,7 @@ def createTranscribeTask(body: createTransribeTaskBody):
     # 添加到处理队列
     processing_queue.add_task(
         task_id, [file_path], body.llm_model, body.prompt,
-        body.whisper_model_size
+        whisper_model_size = body.whisper_model_size
     )
     return {"task_id": task_id}
 

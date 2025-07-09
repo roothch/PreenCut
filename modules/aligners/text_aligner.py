@@ -25,8 +25,6 @@ def process_ctc_text(segments: List[Dict], language_code: str,
         else:
             line_list.append(line)
     text = ' '.join(line_list)
-    # if language_code == 'zh':
-    #     text = replace_chinese_punctuation_with_space(text)
     return text
 
 
@@ -64,13 +62,6 @@ def extract_and_add_phrases(word_segmenter, text):
     for phrase in phrases:
         # 将词语添加到分词器的词典中
         word_segmenter.add_word(phrase)
-
-
-def replace_chinese_punctuation_with_space(text: str) -> str:
-    # 将所有匹配的中文标点替换为句号
-    chinese_punctuation_pattern = re.compile(r'[，。,;；：？?！…、]')
-    result = chinese_punctuation_pattern.sub('。', text)
-    return result
 
 
 def to_639_3(language_code: str) -> str:

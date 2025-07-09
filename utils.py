@@ -304,7 +304,8 @@ def get_srt_from_ctc_result(ctc_align_result: dict, max_line_length: int,
     """
     segments = ctc_align_result.get('segments', [])
     srt_str = generate_srt(segments)
-    srt_str = process_chinese_punctuation(srt_str)  # 处理中文标点符号
+    if ctc_align_result.get('language') == 'zh':
+        srt_str = process_chinese_punctuation(srt_str)  # 处理中文标点符号
     file_path = os.path.join(output_dir, filename)
     with open(file_path, 'w', encoding='utf-8') as f:
         f.write(srt_str)

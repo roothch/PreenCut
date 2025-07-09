@@ -438,12 +438,12 @@ def create_gradio_interface():
                     )
                     alignment = gr.Radio(
                         choices=["开启", "关闭"],
-                        label="语音文字对齐(开启后可生成srt文件，同时会增加耗时)",
+                        label="语音文字对齐(开启后可生成srt字幕文件，同时会增加耗时)",
                         value=DEFAULT_ENABLE_ALIGNMENT
                     )
                     max_line_length = gr.Slider(minimum=1, maximum=50, step=1,
                                                 value=16,
-                                                label="单条字幕最大长度(在开启语音文字对齐后有效)",
+                                                label="单条字幕最大长度(仅对中文有效)",
                                                 visible=True)
 
                 prompt_input = gr.Textbox(

@@ -24,7 +24,7 @@ class WhisperXSpeechRecognizer(SpeechRecognizer):
         print(f"device = {self.device}")
         print(f"{self.model_size, self.device, self.compute_type, self.opts}")
         asr_options = {
-            "initial_prompt": "是的，这个句子是为了增加标点。",
+            "initial_prompt": "Add punctuation after end of each line. 就比如说，我要先去吃饭。Segment at end of each sentence.",
         }
         if self.device == 'cuda':
             self.model = whisperx.load_model(

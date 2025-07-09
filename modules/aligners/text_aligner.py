@@ -20,7 +20,8 @@ def process_ctc_text(segments: List[Dict], language_code: str,
         line = segment['text'].strip()
         # 如果文本长度超过最大行长度，则进行分割
         if word_segmenter and len(line) > max_line_length:
-            split_lines = split_long_line(line, word_segmenter, max_line_length)
+            split_lines = split_long_line(line, language_code, word_segmenter,
+                                          max_line_length)
             line_list.extend(split_lines)
         else:
             line_list.append(line)
@@ -28,30 +29,36 @@ def process_ctc_text(segments: List[Dict], language_code: str,
     return text
 
 
-def split_long_line(line: str, word_segmenter: WordSegmenter,
+def split_long_line(line: str, language_code: str,
+                    word_segmenter: WordSegmenter,
                     max_length: int) -> List[str]:
     output = []
-    # 提取并添加特定符号中的词语到 jieba 词典
-    extract_and_add_phrases(word_segmenter, line)
+    if language_code == 'zh':
+        # 提取并添加特定符号中的词语到 jieba 词典
+        extract_and_add_phrases(word_segmenter, line)
 
-    line = line.strip()
-    if line:
-        # 1.不超过max_length
-        if len(line) <= max_length:
-            output.append(line)
-        # 2. 超过max_length，先按标点切分
-        else:
-            sub_sentences = [s.strip() for s in re.split('[，。,;；：？?！…]', line)
-                             if
-                             s.strip()]
-            for sentence in sub_sentences:
-                if len(sentence) <= max_length:
-                    output.append(sentence)
-                # 3. 仍然超过max_line_width，使用jieba分词
-                else:
-                    spit_sentences = word_segmenter.split_long_sentence(
-                        sentence, max_length)
-                    output.extend(spit_sentences)
+        line = line.strip()
+        if line:
+            # 1.不超过max_length
+            if len(line) <= max_length:
+                output.append(line)
+            # 2. 超过max_length，先按标点切分
+            else:
+                sub_sentences = [s.strip() for s in
+                                 re.split('[，。,;；：？?！…]', line)
+                                 if
+                                 s.strip()]
+                for sentence in sub_sentences:
+                    if len(sentence) <= max_length:
+                        output.append(sentence)
+                    # 3. 仍然超过max_line_width，使用jieba分词
+                    else:
+                        spit_sentences = word_segmenter.split_long_sentence(
+                            sentence, max_length)
+                        output.extend(spit_sentences)
+
+    else:
+        output.append(line)
 
     return output
 
@@ -137,6 +144,12 @@ class TextAligner:
                                     return_char_alignments=False)
             return result
         elif ALIGNMENT_MODEL == 'ctc-forced-aligner':
+            # TODO 非中文语言暂时直接返回segments，
+            #  因为使用ctc会按空格将单个句子分成多个segments,最后生成的srt每行只有一个单词
+            if self.language_code != 'zh':
+                return {
+                    "segments": segments,
+                }
             from ctc_forced_aligner import (
                 load_audio,
                 generate_emissions,

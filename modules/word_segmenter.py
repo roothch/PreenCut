@@ -15,7 +15,7 @@ def merge_char_with_previous(lst):
 
     for item in lst:
         chars_cannot_in_start = ['的', '了', '吗', '吧', '啊',
-                                 '呀', '呢', '哦']
+                                 '呀', '呢', '哦', '中']
         if new_lst and (item in chars_cannot_in_start or new_lst[-1].isdigit()):
             new_lst[-1] += item
         else:

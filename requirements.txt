@@ -1,9 +1,10 @@
 gradio==5.34.2
-whisperx==3.3.4
+faster-whisper==1.1.1
 ffmpeg-python==0.2.0
 openai==1.91.0
 torch==2.7.1+cu118
 torchaudio==2.7.1+cu118
 fastapi==0.115.13
+soundfile==0.13.1
 jieba
 git+https://github.com/MahmoudAshraf97/ctc-forced-aligner.git@201276a4ea2ddd3f5caead1ac4f211477ae3da6d

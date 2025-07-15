@@ -4,8 +4,6 @@ import subprocess
 import json
 import csv
 import re
-from modules.subtitles_processor import SubtitlesProcessor
-from modules.subtitles_processor import format_timestamp
 import torch
 import gc
 from typing import List, Dict
@@ -87,7 +85,8 @@ def write_to_srt(align_result, max_line_length, output_dir,
     :param filename: srt文件名
     :return: srt文件所在目录
     '''
-
+    from modules.subtitles_processor import SubtitlesProcessor
+    from modules.subtitles_processor import format_timestamp
     # 确保目录存在
     os.makedirs(output_dir, exist_ok=True)
 

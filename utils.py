@@ -342,8 +342,9 @@ def generate_srt(segments: List[Dict], language: str) -> str:
         # Found the end of a subtitle
         end_time = entry['end']
         previous_end_time = end_time  # Save for the next subtitle
+        text = entry['text']
         if language == 'zh':
-            text = process_chinese_punctuation(entry['text'])
+            text = process_chinese_punctuation(text)
         srt_output.append(
             f"{line_index + 1}\n{format_time(start_time)} --> {format_time(end_time)}\n{text}\n")
         line_index += 1

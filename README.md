@@ -16,7 +16,7 @@ language queries.
 - **AI-Powered Analysis**: Uses large language models to segment and summarize content
 - **Natural Language Querying**: Find clips using descriptive prompts like "Find all product demo segments"
 - **Smart Clipping**: Select and export segments as individual files or merged video
-- **SRT Export**: Generate subtitles with custom line length
+- **SRT Export**: Generate subtitles with accurate timestamps and custom line length
 - **Batch Processing**: find a specific topic across multiple files
 - **Re-analysis**: Experiment with different prompts without reprocessing audio
 
@@ -29,7 +29,7 @@ git clone https://github.com/roothch/PreenCut.git
 cd PreenCut
 ```
 
-2. Install dependencies, recommend using Python 3.11:
+2. Install dependencies, recommend creating a conda virtual environment and using Python 3.9+:
 
 ```bash
 pip install -r requirements.txt
@@ -184,9 +184,9 @@ python3 -m uvicorn main:app --port 7860 --reload
 
 ## ⚡ Performance Tips
   - Use faster-whisper for shorter segments, use whisperx for faster processing
-  - Adjust WHISPER_BATCH_SIZE based on available VRAM
+  - Adjust WHISPER_BATCH_SIZE based on available VRAM when using whisperx
   - Use smaller model sizes for CPU-only systems
-  - If you don't need srt files, you could set ENABLE_ALIGNMENT=False to improve processing speed.
+  - set ENABLE_ALIGNMENT=False to improve processing speed if you don't need accurate subtitle timestamps
 
 ## 📜 License
 This project is licensed under the MIT License. See the [LICENSE](LICENSE) file for details.

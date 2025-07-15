@@ -302,9 +302,8 @@ def get_srt_from_ctc_result(ctc_align_result: dict, max_line_length: int,
         str: 生成的 SRT 文件路径。
     """
     segments = ctc_align_result.get('segments', [])
-    srt_str = generate_srt(segments)
-    if ctc_align_result.get('language') == 'zh':
-        srt_str = process_chinese_punctuation(srt_str)  # 处理中文标点符号
+    language = ctc_align_result.get('language')
+    srt_str = generate_srt(segments, language)
     file_path = os.path.join(output_dir, filename)
     with open(file_path, 'w', encoding='utf-8') as f:
         f.write(srt_str)
@@ -315,15 +314,16 @@ def get_srt_from_ctc_result(ctc_align_result: dict, max_line_length: int,
 
 def process_chinese_punctuation(text: str) -> str:
     # 处理字幕中的中文标点符号
-    mid_punc_pattern = re.compile(r'[、，：；…]')
+    mid_punc_pattern = re.compile(r'[、,，：；…]')
     text = mid_punc_pattern.sub(' ', text)  # 替换中间标点为空格
 
     end_punc_pattern = re.compile(r'[。？?！《》‘’“”]')
     text = end_punc_pattern.sub('', text)  # 替换其他标点为空字符串
+    text = text.strip()
     return text
 
 
-def generate_srt(segments: List[Dict]) -> str:
+def generate_srt(segments: List[Dict], language: str) -> str:
     srt_output = []
     line_index = 0
     previous_end_time = 0  # Track the end time of the previous subtitle
@@ -342,8 +342,10 @@ def generate_srt(segments: List[Dict]) -> str:
         # Found the end of a subtitle
         end_time = entry['end']
         previous_end_time = end_time  # Save for the next subtitle
+        if language == 'zh':
+            text = process_chinese_punctuation(entry['text'])
         srt_output.append(
-            f"{line_index + 1}\n{format_time(start_time)} --> {format_time(end_time)}\n{entry['text']}\n")
+            f"{line_index + 1}\n{format_time(start_time)} --> {format_time(end_time)}\n{text}\n")
         line_index += 1
 
     return "\n".join(srt_output)

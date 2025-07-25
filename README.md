@@ -12,7 +12,7 @@ language queries.
 
 ## ✨ Key Features
 
-- **Automatic Speech Recognition**: Powered by WhisperX for accurate transcription
+- **Automatic Speech Recognition**: Powered by OpenAI Whisper for accurate transcription
 - **AI-Powered Analysis**: Uses large language models to segment and summarize content
 - **Natural Language Querying**: Find clips using descriptive prompts like "Find all product demo segments"
 - **Smart Clipping**: Select and export segments as individual files or merged video

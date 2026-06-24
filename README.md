@@ -19,6 +19,7 @@ language queries.
 - **SRT Export**: Generate subtitles with accurate timestamps and custom line length
 - **Batch Processing**: find a specific topic across multiple files
 - **Re-analysis**: Experiment with different prompts without reprocessing audio
+- **Optional TwelveLabs backend**: Segment directly from video frames + audio (Marengo retrieval + Pegasus analysis) for speech-light content — opt-in via `SEGMENTER_TYPE=twelvelabs`
 
 ## ⚙️ Installation
 
@@ -62,6 +63,27 @@ export DOUBAO_1_5_PRO_API_KEY=your_doubao_api_key
 
 5. (Optional)set up gradio temp file directory:
   set os.environ['GRADIO_TEMP_DIR'] in config.py file.
+
+6. (Optional) Use TwelveLabs as the segmentation backend:
+
+By default PreenCut segments video by running Whisper transcription and asking an
+LLM to split the transcript. As an opt-in alternative you can use
+[TwelveLabs](https://twelvelabs.io) to segment directly from the video frames and
+audio — useful when there is little or no speech (sports, b-roll, surveillance, music
+videos). It uses **Marengo** for semantic retrieval and **Pegasus** for clip
+summaries/tags, and returns the same `{start, end, summary, tags}` structure, so the
+existing analysis/clip/export flow is unchanged.
+
+```bash
+export SEGMENTER_TYPE=twelvelabs
+export TWELVELABS_API_KEY=your_twelvelabs_api_key
+# optional overrides:
+# export TWELVELABS_INDEX_NAME=preencut   # index reused across runs
+# export TWELVELABS_MAX_CLIPS=10          # max segments per file
+```
+
+Grab a free API key at https://twelvelabs.io — there's a generous free tier.
+Leave `SEGMENTER_TYPE` unset (or `llm`) to keep the default behavior.
 
 ## 🚀 Usage
 

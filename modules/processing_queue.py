@@ -8,7 +8,7 @@ from modules.aligners.text_aligner import TextAligner
 from modules.llm_processor import LLMProcessor
 from modules.video_processor import VideoProcessor
 from modules.word_segmenter import WordSegmenter
-from config import SPEECH_RECOGNIZER_TYPE
+from config import SPEECH_RECOGNIZER_TYPE, SEGMENTER_TYPE
 from typing import List, Dict, Optional
 from utils import clear_cache
 
@@ -68,7 +68,12 @@ class ProcessingQueue:
                 file_results = []
                 llm_model = task_result.get("llm_model")
                 temperature = task_result.get("temperature")
-                llm = LLMProcessor(llm_model, temperature)
+                if SEGMENTER_TYPE == 'twelvelabs':
+                    from modules.twelvelabs_processor import TwelveLabsProcessor
+                    segmenter = TwelveLabsProcessor(llm_model)
+                else:
+                    segmenter = None
+                    llm = LLMProcessor(llm_model, temperature)
                 if task_result['enable_alignment']:
                     word_segmenter = WordSegmenter()
 
@@ -106,13 +111,19 @@ class ProcessingQueue:
                         del aligner
                         clear_cache()
 
-                    # 调用大模型进行分段
-                    print("调用大模型进行分段...")
-                    llm_inputs = [{key: segment.get(key) for key in
-                                   ["start", "end", "text"]} for segment in
-                                  result["segments"]]
-                    segments = llm.segment_video(llm_inputs, prompt)
-                    print(f"大模型分段完成，段数: {len(segments)}")
+                    # 进行分段
+                    if segmenter is not None:
+                        # TwelveLabs 直接分析视频画面（不依赖字幕）
+                        print("调用 TwelveLabs 进行视频分段...")
+                        segments = segmenter.segment_video(file_path, prompt)
+                    else:
+                        # 默认：基于字幕用大模型分段
+                        print("调用大模型进行分段...")
+                        llm_inputs = [{key: segment.get(key) for key in
+                                       ["start", "end", "text"]} for segment in
+                                      result["segments"]]
+                        segments = llm.segment_video(llm_inputs, prompt)
+                    print(f"分段完成，段数: {len(segments)}")
 
                     # 保存结果
                     file_results.append({

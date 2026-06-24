@@ -3,6 +3,7 @@ faster-whisper==1.1.1
 ctranslate2==4.4.0
 ffmpeg-python==0.2.0
 openai==1.91.0
+twelvelabs>=1.2.8  # 可选的 TwelveLabs 分段后端 (SEGMENTER_TYPE=twelvelabs)
 fastapi==0.115.13
 soundfile==0.13.1
 jieba

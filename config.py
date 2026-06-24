@@ -82,6 +82,24 @@ LLM_MODEL_OPTIONS = [
     }
 ]
 
+# 视频分段后端配置
+# 'llm': 默认行为，基于Whisper字幕用大模型分段
+# 'twelvelabs': 可选后端，使用 TwelveLabs (Marengo检索 + Pegasus分析) 直接分析视频画面
+SEGMENTER_TYPE = os.getenv('SEGMENTER_TYPE', 'llm')  # llm, twelvelabs
+
+# TwelveLabs配置 (仅在 SEGMENTER_TYPE='twelvelabs' 时使用)
+# 申请免费API key: https://twelvelabs.io (有免费额度)
+TWELVELABS_API_KEY_ENV_NAME = 'TWELVELABS_API_KEY'
+TWELVELABS_INDEX_NAME = os.getenv('TWELVELABS_INDEX_NAME', 'preencut')
+TWELVELABS_MAX_CLIPS = int(os.getenv('TWELVELABS_MAX_CLIPS', '10'))
+TWELVELABS_MODEL_OPTIONS = [
+    {
+        "label": "TwelveLabs (Marengo + Pegasus)",
+        "search_model": "marengo3.0",
+        "analyze_model": "pegasus1.2",
+    }
+]
+
 # 创建必要的目录
 for folder in [TEMP_FOLDER, OUTPUT_FOLDER]:
     os.makedirs(folder, exist_ok=True)

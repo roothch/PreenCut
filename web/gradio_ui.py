@@ -364,13 +364,24 @@ def reanalyze_with_prompt(task_id: str, reanalyze_llm_model: str,
 
     try:
         # 使用新提示重新处理
-        from modules.llm_processor import LLMProcessor
-        llm = LLMProcessor(reanalyze_llm_model, temperature)
+        from config import SEGMENTER_TYPE
+        if SEGMENTER_TYPE == 'twelvelabs':
+            from modules.twelvelabs_processor import TwelveLabsProcessor
+            segmenter = TwelveLabsProcessor(reanalyze_llm_model)
+            llm = None
+        else:
+            from modules.llm_processor import LLMProcessor
+            segmenter = None
+            llm = LLMProcessor(reanalyze_llm_model, temperature)
         updated_results = []
 
         for file_data in task_result["result"]:
-            new_segments = llm.segment_video(file_data["align_result"],
-                                             new_prompt)
+            if segmenter is not None:
+                new_segments = segmenter.segment_video(file_data["filepath"],
+                                                       new_prompt)
+            else:
+                new_segments = llm.segment_video(file_data["align_result"],
+                                                 new_prompt)
             updated_results.append({
                 "filename": file_data["filename"],
                 "filepath": file_data["filepath"],
